@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE32BCF6-8090-4141-ABCC-E9DE6E7ACFE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Presenters.Contratos</RootNamespace>
+    <AssemblyName>Presenters.Contratos</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IViews\IAdminComentarioRespuestaView.cs" />
+    <Compile Include="IViews\IAdminComentariosContratoView.cs" />
+    <Compile Include="IViews\IAdminCompromisoContratoNew.cs" />
+    <Compile Include="IViews\IAdminCompromisosContratoView.cs" />
+    <Compile Include="IViews\IAdminCompromisosFasesContratoView.cs" />
+    <Compile Include="IViews\IAdminNovedadesContratoView.cs" />
+    <Compile Include="IViews\IAdminNovedadesFasesContratoView.cs" />
+    <Compile Include="IViews\IContratoLocationPreviewView.cs" />
+    <Compile Include="IViews\ILogContratosView.cs" />
+    <Compile Include="IViews\IManageFasesContratoView.cs" />
+    <Compile Include="IViews\INewCompromisoContratoView.cs" />
+    <Compile Include="IViews\ITotalCompromisosView.cs" />
+    <Compile Include="Presenters\AdminComentarioRespuestaPresenter.cs" />
+    <Compile Include="Presenters\AdminComentariosContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminCompromisoContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminCompromisosContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminCompromisosFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminNovedadesContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminNovedadesFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\ContratoLocationPreviewPresenter.cs" />
+    <Compile Include="Presenters\GeneralContractListPresenter.cs" />
+    <Compile Include="IViews\IAdminContratoView.cs" />
+    <Compile Include="IViews\IAdminFasesContratoView.cs" />
+    <Compile Include="IViews\IContratoView.cs" />
+    <Compile Include="IViews\IGeneralContractListView.cs" />
+    <Compile Include="Presenters\AdminContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\ContratoPresenter.cs" />
+    <Compile Include="Presenters\LogContratosPresenter.cs" />
+    <Compile Include="Presenters\ManageFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\NewCompromisoContratoPresenter.cs" />
+    <Compile Include="Presenters\TotalCompromisosPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Core\Application.Core.csproj">
+      <Project>{43E44D76-4378-4A99-9100-7C5CDFB9DAC0}</Project>
+      <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.Contratos\Application.MainModule.Contratos.csproj">
+      <Project>{6EB59DCD-4D37-4BBB-89B7-E180B0749A5C}</Project>
+      <Name>Application.MainModule.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.ExportExcel\Application.MainModule.ExportExcel.csproj">
+      <Project>{2C0DDACE-A17D-43FA-913D-23CF5FCD568F}</Project>
+      <Name>Application.MainModule.ExportExcel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.SqlServices\Application.MainModule.SqlServices.csproj">
+      <Project>{A339985E-A4A5-4DC1-9632-1A622603F028}</Project>
+      <Name>Application.MainModule.SqlServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Applications.MainModule.Admin\Applications.MainModule.Admin.csproj">
+      <Project>{FD7F4861-2115-473B-B704-8F0DC443D11C}</Project>
+      <Name>Applications.MainModule.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Core.Entities\Domain.Core.Entities.csproj">
+      <Project>{A1708898-8F15-4D62-99E0-293334E740C2}</Project>
+      <Name>Domain.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj">
+      <Project>{94FCB1C4-2C52-4D9D-A07B-F01AC38CF88E}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainModule.Contratos\Domain.MainModule.Contratos.csproj">
+      <Project>{E291CF07-D16B-43E8-8CF2-4B3F3A7338A1}</Project>
+      <Name>Domain.MainModule.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainModules.Entities\Domain.MainModules.Entities.csproj">
+      <Project>{6FA9FF63-4F79-4A9F-882C-7A7AE27C7332}</Project>
+      <Name>Domain.MainModules.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.NetFramework\Infrastructure.CrossCutting.NetFramework.csproj">
+      <Project>{21EBA478-507F-45AF-B1CC-619578E8FA8B}</Project>
+      <Name>Infrastructure.CrossCutting.NetFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Presenters.Contratos*.dll" "$(SolutionDir)"Web\bin\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

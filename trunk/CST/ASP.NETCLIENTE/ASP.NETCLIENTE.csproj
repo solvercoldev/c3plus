@@ -1,0 +1,855 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{19CC1144-5EE0-4D32-9436-1FCC3515EAC7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASP.NETCLIENTE</RootNamespace>
+    <AssemblyName>ASP.NETCLIENTE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>..\dll\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Web.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.Web.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Documents.Core.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Documents.Core.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Documents.Excel.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Documents.Excel.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Documents.IO.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Documents.IO.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Documents.Reports.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Documents.Reports.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Documents.Word.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Documents.Word.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Misc.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Misc.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Shared.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.Shared.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebCalcManager.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebCalcManager.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebChart.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebChart.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebGauge.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebGauge.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebGrid.DocumentExport.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebGrid.DocumentExport.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebGrid.ExcelExport.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebGrid.ExcelExport.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebGrid.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebGrid.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebListbar.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebListbar.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebNavigator.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebNavigator.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebTab.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebTab.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.UltraWebToolbar.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.UltraWebToolbar.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebCombo.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebCombo.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebDataInput.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebDataInput.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebDateChooser.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebDateChooser.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebHtmlEditor.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebHtmlEditor.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebNavBar.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebNavBar.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebResizingExtender.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebResizingExtender.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebSchedule.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebSchedule.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebScheduleDataProvider.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebScheduleDataProvider.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebSpellChecker.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\PWC\trunk\SIAC\dll\Infragistics4.WebUI.WebSpellChecker.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\dll\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\dll\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\dll\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\dll\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 10.0\ReportViewer\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\dll\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FrmError.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Pages\UserControls\wucHeader.ascx" />
+    <Content Include="Pages\UserControls\wucMenuBar.ascx" />
+    <Content Include="Pages\UserControls\wucMenuPrincipal.ascx" />
+    <Content Include="Pages\UserControls\wucUserLogin.ascx" />
+    <Content Include="Resources\Images\Actividades.gif" />
+    <Content Include="Resources\Images\add.png" />
+    <Content Include="Resources\Images\alarm.png" />
+    <Content Include="Resources\Images\Barloading.gif" />
+    <Content Include="Resources\Images\Bienvenida.jpg" />
+    <Content Include="Resources\Images\bmp.gif" />
+    <Content Include="Resources\Images\Cabezote.jpg" />
+    <Content Include="Resources\Images\CabezoteHome.jpg" />
+    <Content Include="Resources\Images\calendar.png" />
+    <Content Include="Resources\Images\Categorias.png" />
+    <Content Include="Resources\Images\check.png" />
+    <Content Include="Resources\Images\ChildNode3.png" />
+    <Content Include="Resources\Images\ChildNode32.png" />
+    <Content Include="Resources\Images\ChildNode4.png" />
+    <Content Include="Resources\Images\chm.gif" />
+    <Content Include="Resources\Images\Close.png" />
+    <Content Include="Resources\Images\Collapse.gif" />
+    <Content Include="Resources\Images\comentarios.png" />
+    <Content Include="Resources\Images\complete.png" />
+    <Content Include="Resources\Images\Copiar.png" />
+    <Content Include="Resources\Images\CrearCarpetaTitulo.gif" />
+    <Content Include="Resources\Images\cs.gif" />
+    <Content Include="Resources\Images\doc.gif" />
+    <Content Include="Resources\Images\edit.png" />
+    <Content Include="Resources\Images\emailcliente.png" />
+    <Content Include="Resources\Images\emailcliente2.png" />
+    <Content Include="Resources\Images\exe.gif" />
+    <Content Include="Resources\Images\Expand.gif" />
+    <Content Include="Resources\Images\expand.png" />
+    <Content Include="Resources\Images\favico.png" />
+    <Content Include="Resources\Images\Field.png" />
+    <Content Include="Resources\Images\file.gif" />
+    <Content Include="Resources\Images\Folder.png" />
+    <Content Include="Resources\Images\folderDelete.png" />
+    <Content Include="Resources\Images\folderdocument.png" />
+    <Content Include="Resources\Images\foldernew.gif" />
+    <Content Include="Resources\Images\fondosemitrans.gif" />
+    <Content Include="Resources\Images\gif.gif" />
+    <Content Include="Resources\Images\gif.png" />
+    <Content Include="Resources\Images\Home.jpg" />
+    <Content Include="Resources\Images\cross_icon_normal.png" />
+    <Content Include="Resources\Images\Footer.jpg" />
+    <Content Include="Resources\Images\hover-arrow.png" />
+    <Content Include="Resources\Images\htm.gif" />
+    <Content Include="Resources\Images\IcnAlerta.gif" />
+    <Content Include="Resources\Images\jpg.gif" />
+    <Content Include="Resources\Images\jpg.png" />
+    <Content Include="Resources\Images\loading.gif" />
+    <Content Include="Resources\Images\location.png" />
+    <Content Include="Resources\Images\Login-Background.gif" />
+    <Content Include="Resources\Images\logo-cliente.png" />
+    <Content Include="Resources\Images\LogoPropac.jpg" />
+    <Content Include="Resources\Images\logo_cliente.jpg" />
+    <Content Include="Resources\Images\logo_signin.jpg" />
+    <Content Include="Resources\Images\LOGO.png" />
+    <Content Include="Resources\Images\LupaNegra.png" />
+    <Content Include="Resources\Images\MasComentarios.png" />
+    <Content Include="Resources\Images\mpg.gif" />
+    <Content Include="Resources\Images\pdf.gif" />
+    <Content Include="Resources\Images\PersonalInformation.png" />
+    <Content Include="Resources\Images\png.png" />
+    <Content Include="Resources\Images\ppt.gif" />
+    <Content Include="Resources\Images\Proposalfolder.png" />
+    <Content Include="Resources\Images\RecyceeBin.png" />
+    <Content Include="Resources\Images\RemoveGrid.png" />
+    <Content Include="Resources\Images\respuesta-comentario.png" />
+    <Content Include="Resources\Images\RootNode.png" />
+    <Content Include="Resources\Images\round_plus.png" />
+    <Content Include="Resources\Images\Rutas.png" />
+    <Content Include="Resources\Images\sandglass.png" />
+    <Content Include="Resources\Images\scheduled.png" />
+    <Content Include="Resources\Images\search.png" />
+    <Content Include="Resources\Images\select.png" />
+    <Content Include="Resources\Images\sign_in.jpg" />
+    <Content Include="Resources\Images\SubirArchivoTitulo.gif" />
+    <Content Include="Resources\Images\titlebar_bg.png" />
+    <Content Include="Resources\Images\txt.gif" />
+    <Content Include="Resources\Images\uncomplete.png" />
+    <Content Include="Resources\Images\unification.png" />
+    <Content Include="Resources\Images\upload.png" />
+    <Content Include="Resources\Images\wav.gif" />
+    <Content Include="Resources\Images\web.png" />
+    <Content Include="Resources\Images\xls.gif" />
+    <Content Include="Resources\Images\xml.gif" />
+    <Content Include="Resources\Images\zip.gif" />
+    <Content Include="Resources\modules\chosen\chosen-sprite%402x.png" />
+    <Content Include="Resources\modules\chosen\chosen-sprite.png" />
+    <Content Include="Resources\modules\chosen\chosen.css" />
+    <Content Include="Resources\modules\chosen\chosen.jquery.js" />
+    <Content Include="Resources\modules\chosen\chosen.jquery.min.js" />
+    <Content Include="Resources\modules\chosen\chosen.proto.js" />
+    <Content Include="Resources\modules\chosen\chosen.proto.min.js" />
+    <Content Include="Resources\modules\tableFilter\picnet.table.filter.min.js" />
+    <Content Include="Resources\Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Resources\Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Resources\Scripts\jquery.contextMenu.js" />
+    <Content Include="Resources\Scripts\mktree.js" />
+    <Content Include="Resources\Scripts\Site.js" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.coloreditor.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.editors.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.grid.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.rating.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.shared.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.upload.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.validator.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\ig.ui.videoplayer.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\expand.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igBigPauseButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igBigPlayButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igGrid\filter-icons-333333.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igGrid\filter-icons-FFFFFF.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_BottomDragIndicator.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_Filter.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_FilterApplied.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_Fix.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_FixHover.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_header.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_sortAsc.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_sortDesc.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_Sprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_Sum.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_SumHover.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_SumPressed.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_TopDragIndicator.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_Unfix.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_UnfixHover.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igg_UnfixPressed.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igLoadingSmall.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igTooltip\igTooltipArrowBottom.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igBigPauseButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igBigPlayButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igBrowserLogos.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igLoadingSmall.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igPlayButton24.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igPlayButton32.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igPlayButton48.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igVPBackground.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igVPBookmarkSprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\igVideoPlayer\igWarningIcon.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\trial.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery-ui.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.all.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.base.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.core.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.datepicker.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.slider.css" />
+    <Content Include="Resources\Styles\jQueryThemes\base\jquery.ui.theme.css" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\datepicker.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_1.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_2.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_3.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_4.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_5.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_6.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\gradient_7.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\icon_sprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\igRating\ig-rating.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\igVideoPlayer\igVideoPlayerIcons.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\igVideoPlayer\igVPBackground.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\igVideoPlayer\igVPBookmarkSprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\progress_bar.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\slider_handles.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\slider_h_bg.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\slider_v_bg.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\tab_bg.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-icons_222222_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\ig\jquery.ui.custom.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.coloreditor.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.editors.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.grid.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.rating.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.shared.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.upload.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.validator.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\ig.ui.videoplayer.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\expand.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igBigPauseButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igBigPlayButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igGrid\filter-icons-333333.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igGrid\filter-icons-FFFFFF.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_BottomDragIndicator.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_Filter.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_FilterApplied.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_Fix.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_FixHover.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_header.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_sortAsc.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_sortDesc.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_Sprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_Sum.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_SumHover.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_SumPressed.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_TopDragIndicator.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_Unfix.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_UnfixHover.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igg_UnfixPressed.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igLoadingSmall.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igTooltip\igTooltipArrowBottom.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igBigPauseButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igBigPlayButton.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igBrowserLogos.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igLoadingSmall.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igPlayButton24.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igPlayButton32.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igPlayButton48.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igVPBackground.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igVPBookmarkSprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\igVideoPlayer\igWarningIcon.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\trial.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery-ui.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.all.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.base.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.core.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.datepicker.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.slider.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\base\jquery.ui.theme.min.css" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\datepicker.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_1.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_2.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_3.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_4.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_5.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_6.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\gradient_7.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\icon_sprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\igRating\ig-rating.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\igVideoPlayer\igVideoPlayerIcons.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\igVideoPlayer\igVPBackground.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\igVideoPlayer\igVPBookmarkSprite.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\progress_bar.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\slider_handles.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\slider_h_bg.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\slider_v_bg.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\tab_bg.gif" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-icons_222222_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Resources\Styles\jQueryThemes\min\ig\jquery.ui.custom.min.css" />
+    <Content Include="Resources\Styles\Site.css" />
+    <Content Include="Support\JsCalendar\cal.gif" />
+    <Content Include="Support\JsCalendar\calendar-blue.css" />
+    <Content Include="Support\JsCalendar\calendar-blue2.css" />
+    <Content Include="Support\JsCalendar\calendar-brown.css" />
+    <Content Include="Support\JsCalendar\calendar-green.css" />
+    <Content Include="Support\JsCalendar\calendar-setup.js" />
+    <Content Include="Support\JsCalendar\calendar-setup_stripped.js" />
+    <Content Include="Support\JsCalendar\calendar-system.css" />
+    <Content Include="Support\JsCalendar\calendar-tas.css" />
+    <Content Include="Support\JsCalendar\calendar-win2k-1.css" />
+    <Content Include="Support\JsCalendar\calendar-win2k-2.css" />
+    <Content Include="Support\JsCalendar\calendar-win2k-cold-1.css" />
+    <Content Include="Support\JsCalendar\calendar-win2k-cold-2.css" />
+    <Content Include="Support\JsCalendar\calendar.js" />
+    <Content Include="Support\JsCalendar\calendar_stripped.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-af.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-al.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-bg.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-big5-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-big5.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-br.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-ca.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-cs-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-cs-win.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-da.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-de.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-du.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-el.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-en.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-es.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-fi.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-fr.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-he-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-hr-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-hr.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-hu.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-it.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-jp.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-ko-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-ko.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-lt-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-lt.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-lv.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-nl.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-no.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-pl-utf8.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-pl.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-pt.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-ro.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-ru.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-ru_win_.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-si.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-sk.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-sp.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-sv.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-tr.js" />
+    <Content Include="Support\JsCalendar\lang\calendar-zh.js" />
+    <Content Include="Support\JsCalendar\lang\cn_utf8.js" />
+    <Content Include="Support\JsCalendar\skins\aqua\active-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\dark-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\hover-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\menuarrow.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\normal-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\rowhover-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\status-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\theme.css" />
+    <Content Include="Support\JsCalendar\skins\aqua\title-bg.gif" />
+    <Content Include="Support\JsCalendar\skins\aqua\today-bg.gif" />
+    <Content Include="Template\WPC\AdminTemplate.ascx" />
+    <Content Include="Template\WPC\Css\style.css" />
+    <Content Include="Template\WPC\Images\clientes.png" />
+    <Content Include="Template\WPC\Images\Facturacion.png" />
+    <Content Include="Template\WPC\Images\logo.png" />
+    <Content Include="Template\WPC\Images\NuevosProyectosDisabled.png" />
+    <Content Include="Template\WPC\Images\sprites.gif" />
+    <Content Include="Template\WPC\Template.ascx" />
+    <Content Include="UnderConstruction.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmError.aspx.cs">
+      <DependentUpon>FrmError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmError.aspx.designer.cs">
+      <DependentUpon>FrmError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HTTPModules\AuthenticationModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HTTPModules\CoreRepositoryModule.cs" />
+    <Compile Include="HTTPModules\QueryStringModule.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucHeader.ascx.cs">
+      <DependentUpon>wucHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucHeader.ascx.designer.cs">
+      <DependentUpon>wucHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucMenuBar.ascx.cs">
+      <DependentUpon>wucMenuBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucMenuBar.ascx.designer.cs">
+      <DependentUpon>wucMenuBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucMenuPrincipal.ascx.cs">
+      <DependentUpon>wucMenuPrincipal.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucMenuPrincipal.ascx.designer.cs">
+      <DependentUpon>wucMenuPrincipal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucUserLogin.ascx.cs">
+      <DependentUpon>wucUserLogin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UserControls\wucUserLogin.ascx.designer.cs">
+      <DependentUpon>wucUserLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Template\WPC\AdminTemplate.ascx.cs">
+      <DependentUpon>AdminTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Template\WPC\AdminTemplate.ascx.designer.cs">
+      <DependentUpon>AdminTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdminBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BasePageControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BaseTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\GenericBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\IBaseUserControl.cs" />
+    <Compile Include="UI\PageEngine.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SolutionFrameworkPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ViewPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ViewUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnderConstruction.aspx.cs">
+      <DependentUpon>UnderConstruction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnderConstruction.aspx.designer.cs">
+      <DependentUpon>UnderConstruction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ContainerAccessorUtil.cs" />
+    <Compile Include="Utils\ValidationError.cs" />
+    <Compile Include="Utils\WebAssemblyHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_GlobalResources\" />
+    <Folder Include="Pages\Globals\" />
+    <Folder Include="Pages\WebServices\" />
+    <Folder Include="Template\WPC\Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Core\Application.Core.csproj">
+      <Project>{43E44D76-4378-4A99-9100-7C5CDFB9DAC0}</Project>
+      <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule\Application.MainModule.csproj">
+      <Project>{AEDFE91C-C874-4FFF-9740-DE13B93B38DD}</Project>
+      <Name>Application.MainModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Applications.MainModule.Admin\Applications.MainModule.Admin.csproj">
+      <Project>{FD7F4861-2115-473B-B704-8F0DC443D11C}</Project>
+      <Name>Applications.MainModule.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Core.Entities\Domain.Core.Entities.csproj">
+      <Project>{A1708898-8F15-4D62-99E0-293334E740C2}</Project>
+      <Name>Domain.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj">
+      <Project>{94FCB1C4-2C52-4D9D-A07B-F01AC38CF88E}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainModules.Entities\Domain.MainModules.Entities.csproj">
+      <Project>{6FA9FF63-4F79-4A9F-882C-7A7AE27C7332}</Project>
+      <Name>Domain.MainModules.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infraestructure.CrossCutting.Security\Infraestructure.CrossCutting.Security.csproj">
+      <Project>{7011AA17-8384-4B9E-94FE-AB09A2529790}</Project>
+      <Name>Infraestructure.CrossCutting.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.IoC\Infrastructure.CrossCutting.IoC.csproj">
+      <Project>{5DD8CB67-048D-44FE-8444-DC6D260E87AB}</Project>
+      <Name>Infrastructure.CrossCutting.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.NetFramework\Infrastructure.CrossCutting.NetFramework.csproj">
+      <Project>{21EBA478-507F-45AF-B1CC-619578E8FA8B}</Project>
+      <Name>Infrastructure.CrossCutting.NetFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj">
+      <Project>{1063AE74-49D5-4D8A-B6A3-2C38349F55BF}</Project>
+      <Name>Infrastructure.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules.Loader\Modules.Loader.csproj">
+      <Project>{6E37DB76-152E-4528-B192-6ED3F012D2A3}</Project>
+      <Name>Modules.Loader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presenters.Admin\Presenters.Admin.csproj">
+      <Project>{D32AA190-76DE-46BC-8B68-43E0573ABA09}</Project>
+      <Name>Presenters.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presenters\Presenters.csproj">
+      <Project>{E116CF16-4874-4C62-88D8-4E0DFC8AA1B7}</Project>
+      <Name>Presenters %281 - Layers\1.1 - Presentation\Presenters\Presenters%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerControls\ServerControls.csproj">
+      <Project>{AC6B9382-921B-40C7-9282-27EDEF1D3432}</Project>
+      <Name>ServerControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Log\Tracking.log" />
+    <None Include="Resources\Styles\fonts\klavikalight-plain-webfont-basic.eot" />
+    <None Include="Resources\Styles\fonts\klavikalight-plain-webfont-basic.woff" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>41491</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/ASP.NETCLIENTE</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)*.dll" "$(SolutionDir)"Web\bin\
+xcopy /s /y "$(ProjectDir)Resources\images\*.gif" "$(SolutionDir)Web\Resources\images\"
+xcopy /s /y "$(ProjectDir)Resources\images\*.jpg" "$(SolutionDir)Web\Resources\images\"
+xcopy /s /y "$(ProjectDir)Resources\modules\chosen\*.png" "$(SolutionDir)Web\Resources\modules\chosen\"
+xcopy /s /y "$(ProjectDir)Resources\modules\chosen\*.css" "$(SolutionDir)Web\Resources\modules\chosen\"
+xcopy /s /y "$(ProjectDir)Resources\modules\chosen\*.js" "$(SolutionDir)Web\Resources\modules\chosen\"
+xcopy /s /y "$(ProjectDir)Resources\Scripts\*.js" "$(SolutionDir)Web\Resources\Scripts\"
+xcopy /s /y "$(ProjectDir)Resources\Styles\*.css" "$(SolutionDir)Web\Resources\Styles\"
+xcopy /s /y "$(ProjectDir)Resources\Styles\fonts\*.eot" "$(SolutionDir)Web\Resources\Styles\fonts\"
+xcopy /s /y "$(ProjectDir)Resources\Styles\fonts\*.woff" "$(SolutionDir)Web\Resources\Styles\fonts\"
+xcopy /s /y "$(ProjectDir)Resources\images\*.png" "$(SolutionDir)Web\Resources\images\"
+xcopy /s /y "$(ProjectDir)Resources\images\*.ico" "$(SolutionDir)Web\Resources\images\"
+xcopy /s /y "$(ProjectDir)Resources\images\*.bmp" "$(SolutionDir)Web\Resources\images\"
+xcopy /s /y "$(ProjectDir)Resources\Scripts\*.js" "$(SolutionDir)Web\Resources\Scripts\"
+xcopy /s /y "$(ProjectDir)Resources\Styles\*.css" "$(SolutionDir)Web\Resources\Styles\"
+xcopy /s /y "$(ProjectDir)Pages\Globals\*.as?x" "$(SolutionDir)Web\Pages\Globals\"
+xcopy /s /y "$(ProjectDir)Pages\UserControls\*.as?x" "$(SolutionDir)Web\Pages\UserControls\"
+xcopy /s /y "$(ProjectDir)Template\*.*" "$(SolutionDir)Web\Template\"
+xcopy /s /y "$(ProjectDir)Pages\httpHandler\*.as?x" "$(SolutionDir)Web\Pages\httpHandler\"
+xcopy /s /y "$(ProjectDir)Log\*.txt" "$(SolutionDir)Web\Log\"
+xcopy /s /y "$(ProjectDir)*.as?x" "$(SolutionDir)Web\"
+xcopy /s /y "$(ProjectDir)*.Master" "$(SolutionDir)Web\"
+xcopy /s /y "$(ProjectDir)*.Config" "$(SolutionDir)Web\"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

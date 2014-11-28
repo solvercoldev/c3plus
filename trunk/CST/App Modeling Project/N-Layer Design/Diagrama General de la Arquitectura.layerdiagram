@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="34dab76c-5ae7-4609-ae9d-0b58d4207225" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="6451b5cf-7082-4b83-8281-a8f1d79129c7" name="Presentation Layer">
+      <childLayers>
+        <layer Id="c4e00965-f2e8-40ce-9f00-a01d481d5eb5" name="WPF">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="ec1607de-3071-4b45-aefd-2d89feb5e0cd" direction="Forward">
+              <layerMoniker Id="71c5c117-1612-424d-9aca-66a9374e35e9" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="270b6b37-292d-43ca-b0bb-e77f19e8820e" name="M-V-VM" />
+          </childLayers>
+          <references>
+            <reference Id="e9fbccb7-82a3-408c-8449-d1915d8526ed" name="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client)" Label="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client.exe" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client)" Label="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.Client" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="64587d9e-08c9-43b1-9f07-250fe8ea3e37" name="WinForms">
+          <childLayers>
+            <layer Id="4b6adea5-c4d1-4f4b-973f-7adbc2279935" name="MVP" />
+          </childLayers>
+        </layer>
+        <layer Id="9bacef24-d085-4863-b34c-fa35a6b616dd" name="OBA">
+          <childLayers>
+            <layer Id="add285de-87e0-455b-883a-272d6ba55c29" name="MVP" />
+          </childLayers>
+        </layer>
+        <layer Id="c3b881c7-8720-4cc8-9627-8f14a06f300b" name="Silverlight">
+          <childLayers>
+            <layer Id="3de302bf-992d-4bc6-8435-24566880f2ba" name="M-V-VM" />
+          </childLayers>
+        </layer>
+        <layer Id="940c0049-2120-4295-be0c-320096925425" name="ASP.NET">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="65160574-82a1-4773-9bc7-202bd02a6891" direction="Forward">
+              <layerMoniker Id="5acbb72f-871f-4fc9-810d-0bd95815f9c5" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="260b83f7-5a8c-474c-a10d-f7e4ca3e52b9" direction="Forward">
+              <layerMoniker Id="b9f2ab4d-c61b-4dad-8f19-af4657b12d99" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="e5f457c8-fe6d-4686-94f3-173fa159a6c5" name="MVC" />
+          </childLayers>
+        </layer>
+        <layer Id="71c5c117-1612-424d-9aca-66a9374e35e9" name=".NET&#xD;&#xA;Service Agents">
+          <references>
+            <reference Id="0d1e2d58-3ff2-4762-9cee-413ee6b186df" name="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents.Proxies.MainModue">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents.Proxies.MainModue" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents.Proxies.MainModue)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents)" Label="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents.Proxies.MainModue)" Label="Microsoft.Samples.NLayerApp.Presentation.Windows.WPF.ServiceAgents.Proxies.MainModue" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="3324b38b-6f9a-4b0b-b395-cbd44e410f12" name="Silverlight&#xD;&#xA;Service Agents" />
+      </childLayers>
+    </layer>
+    <layer Id="10f55477-db39-4954-869b-b3d176101fef" name="Distributed Services">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="215d3c68-28d8-4a3a-9ec3-bad681acdea0" direction="Forward">
+          <layerMoniker Id="b9f2ab4d-c61b-4dad-8f19-af4657b12d99" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="c60ba680-88e0-4ea6-bb92-d47087526f6a" name="MainModule">
+          <childLayers>
+            <layer Id="12c1c77f-8d06-45da-9885-3ad934acc176" name="WCF Services">
+              <references>
+                <reference Id="36ffb693-77ca-4bc2-9f70-e6cdede389b7" name="Microsoft.Samples.NLayerApp.DistributedServices.MainModule">
+                  <ArtifactNode Label="Microsoft.Samples.NLayerApp.DistributedServices.MainModule" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.DistributedServices.MainModule)" />
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.DistributedServices.MainModule)" Label="Microsoft.Samples.NLayerApp.DistributedServices.MainModule.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.DistributedServices.MainModule)" Label="Microsoft.Samples.NLayerApp.DistributedServices.MainModule" Category="CodeSchema_Namespace">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+          </childLayers>
+        </layer>
+        <layer Id="6e33e19b-e559-468e-a703-1e0461870fbb" name="Module 2">
+          <childLayers>
+            <layer Id="2e76ef82-9b87-420e-b7e4-aab139d52cb0" name="WCF Services" />
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="5acbb72f-871f-4fc9-810d-0bd95815f9c5" name="Application Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="8befa3db-9626-4e42-9ad0-87fe27b81443" direction="Forward">
+          <layerMoniker Id="b9f2ab4d-c61b-4dad-8f19-af4657b12d99" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="91e791f0-e651-43db-bb0c-c54800c06297" name="Application Core" />
+        <layer Id="b7d5144e-0a5e-45dc-a9e4-f59ac2487a8d" name="MainModule">
+          <childLayers>
+            <layer Id="34851b6e-67d0-432a-8c62-36ec9c1a480d" name="Application Services">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="ddd60d85-2d9f-4e6f-a490-7b4ca1719299" direction="Forward">
+                  <layerMoniker Id="91e791f0-e651-43db-bb0c-c54800c06297" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+            </layer>
+          </childLayers>
+        </layer>
+        <layer Id="14bf5c69-75f3-407d-a7b0-4730d1913ec4" name="Module 2">
+          <childLayers>
+            <layer Id="0581eb77-9b20-437d-8673-c85a92be0fb2" name="Application Services">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="a288eb1b-0fcf-43c0-a1a0-e6524954c4e6" direction="Forward">
+                  <layerMoniker Id="91e791f0-e651-43db-bb0c-c54800c06297" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+            </layer>
+          </childLayers>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="b9f2ab4d-c61b-4dad-8f19-af4657b12d99" name="Domain Layer">
+      <childLayers>
+        <layer Id="0aa2a536-4781-4355-8b50-963f6035a40a" name="Domain Core">
+          <references>
+            <reference Id="b306bce3-fdfb-4c85-8208-6b8a603a2619" name="Microsoft.Samples.NLayerApp.Domain.Core">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain.Core" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.Core)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.Core)" Label="Microsoft.Samples.NLayerApp.Domain.Core.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.Core.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.Core.Entities.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.Core)" Label="Microsoft.Samples.NLayerApp.Domain.Core" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="d7baa8b5-a5f6-4652-9fce-0edefe71e981" name="MainModule">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="693addf2-43b9-45bb-bed3-d3d6532b558e" direction="Forward">
+              <layerMoniker Id="0aa2a536-4781-4355-8b50-963f6035a40a" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="413b6cab-689b-4171-b6a2-af26cd780679" direction="Forward">
+              <layerMoniker Id="3d78ba26-d54e-41ed-8a8a-1ad33fd4ad69" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="5a1d533a-98e2-4a10-912c-3a418574f4ff" name="Domain&#xD;&#xA;Entities&#xD;&#xA;(POCO / &#xD;&#xA;IPOCO)">
+              <references>
+                <reference Id="8dc29286-e70b-466a-a250-48e1a9976cee" name="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities">
+                  <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule.Entities)" />
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities" Category="CodeSchema_Namespace">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="417d0353-49d3-403b-aed2-5eac0324627e" name="Domain Services">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="3c6e36cf-eb0c-4d37-afb7-0ef9cefe522c" direction="Forward">
+                  <layerMoniker Id="4b207b1d-127e-43bb-8368-95466f18005e" />
+                </dependencyFromLayerToLayer>
+                <dependencyFromLayerToLayer Id="66098429-eee0-4913-90d5-c90c2332317f" direction="Forward">
+                  <layerMoniker Id="5a1d533a-98e2-4a10-912c-3a418574f4ff" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+              <references>
+                <reference Id="920fe3cc-9e22-4a2c-8951-c74144eb4112" name="Microsoft.Samples.NLayerApp.Domain.MainModule.Services">
+                  <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Services" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule.Services)" />
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule.Services)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Services" Category="CodeSchema_Namespace">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="4b207b1d-127e-43bb-8368-95466f18005e" name="Contracts&#xD;&#xA;(Specificacions &amp; Repositories Contracts)">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="d7010481-4318-49a7-a878-68f0a4a6390b" direction="Forward">
+                  <layerMoniker Id="5a1d533a-98e2-4a10-912c-3a418574f4ff" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+              <references>
+                <reference Id="f5021c96-2091-4e64-b77d-d605f3969052" name="Microsoft.Samples.NLayerApp.Domain.MainModule.Contracts">
+                  <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Contracts" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule.Contracts)" />
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule.Contracts)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Contracts" Category="CodeSchema_Namespace">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+          </childLayers>
+          <references>
+            <reference Id="770a4d81-4956-4e17-a10d-1a0b36b90e0a" name="Microsoft.Samples.NLayerApp.Domain.MainModule">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain.MainModule" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule.Tests)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Tests.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.MainModule)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="2c183fce-c8f3-419f-aae4-cd5221593557" name="Module 2">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="11833c24-34b1-4754-b9f8-06a0a144ec6d" direction="Forward">
+              <layerMoniker Id="0aa2a536-4781-4355-8b50-963f6035a40a" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="17c3abfa-15d7-4e2d-9675-c7833a28c12a" name="Domain&#xD;&#xA;Entities&#xD;&#xA;(POCO / &#xD;&#xA;IPOCO)" />
+            <layer Id="80021819-2b7c-4d80-8576-77f6c8f3e3a5" name="Domain Services" />
+            <layer Id="49fba596-857c-4012-acd8-bffdfa60b3cf" name="Contracts&#xD;&#xA;(Specificacions &amp; Repositories Contracts)&#xD;&#xA;" />
+          </childLayers>
+        </layer>
+        <layer Id="3d78ba26-d54e-41ed-8a8a-1ad33fd4ad69" name="Domain.Core.Entities">
+          <references>
+            <reference Id="7f14b17f-ab5c-48f8-887f-d3a6a11310d1" name="Microsoft.Samples.NLayerApp.Domain.Core.Entities">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain.Core.Entities" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.Core.Entities)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.Core.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.Core.Entities.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.Core.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.Core.Entities.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain.Core.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.Core.Entities" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="7eddf0d2-ed34-4b30-83b9-72abed768092" name="Microsoft.Samples.NLayerApp.Domain">
+          <ArtifactNode Label="Microsoft.Samples.NLayerApp.Domain" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Domain)" />
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule.Tests)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Tests.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.MainModule.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.MainModule.Entities.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.Core)" Label="Microsoft.Samples.NLayerApp.Domain.Core.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Domain.Core.Entities)" Label="Microsoft.Samples.NLayerApp.Domain.Core.Entities.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Domain)" Label="Microsoft.Samples.NLayerApp.Domain" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="65b14912-7fb6-4163-9fa6-84cc3589bdd5" name="Infrastructure Data Persistence Layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="da4b33ba-3ad1-45fd-8acf-1b12f8f83cbe" direction="Forward">
+          <layerMoniker Id="b9f2ab4d-c61b-4dad-8f19-af4657b12d99" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="906575d5-b5eb-4f7f-a0af-299a5742f23d" name="Data Persistence Core">
+          <references>
+            <reference Id="116bc3d9-ce14-4528-9e1b-9e9086a0baf5" name="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.Core)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.Core.Tests)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core.Tests.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.Core)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.Core)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="b40253e5-ada1-48f3-8778-7640b3a5a5b8" name="MainModule">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="c9dcf570-d608-43e4-9f5e-e5cef1c6eeec" direction="Forward">
+              <layerMoniker Id="906575d5-b5eb-4f7f-a0af-299a5742f23d" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="e08eac76-75e2-4001-b933-4bdd98a473aa" name="Repositories">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="bbd8f135-eda3-4cce-bd60-2792be42f27d" direction="Forward">
+                  <layerMoniker Id="19747369-4eda-4c83-b802-2891af12a206" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+              <references>
+                <reference Id="d0439de3-f94e-4c5c-8098-30954db22d16" name="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Repositories">
+                  <ArtifactNode Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Repositories" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Repositories)" />
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Repositories)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Repositories" Category="CodeSchema_Namespace">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="689a36fe-8288-4f1b-91a9-ed4300dded0d" name="Model" />
+            <layer Id="19747369-4eda-4c83-b802-2891af12a206" name="Context">
+              <references>
+                <reference Id="183ce887-bfa5-47ed-a6bc-cb08423eaf7a" name="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Context">
+                  <ArtifactNode Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Context" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Context)" />
+                  <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.dll" Category="CodeSchema_Assembly">
+                    <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Context)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Context" Category="CodeSchema_Namespace">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+          </childLayers>
+          <references>
+            <reference Id="62b80ae6-7253-4576-a59b-283517535836" name="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule">
+              <ArtifactNode Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule)" />
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Tests)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Tests.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Mock)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Mock.dll" Category="CodeSchema_Assembly">
+                <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule" Category="CodeSchema_Namespace">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="34947760-56cf-43c1-a239-e3d8b92a511e" name="Module 2">
+          <childLayers>
+            <layer Id="df270383-af76-4757-8e30-49f42dbbcd35" name="Repositories" />
+            <layer Id="c2d5ece3-e18f-4bdc-b950-960f7835ca5e" name="Context" />
+            <layer Id="c176de5c-6c8e-4ae0-ad07-7e652bc4023b" name="Model" />
+          </childLayers>
+        </layer>
+        <layer Id="aafca5d8-d2e5-4314-914c-e67bae45f86b" name="Entity Framework" />
+      </childLayers>
+      <references>
+        <reference Id="9879a383-5f86-49ec-ab9f-3dadaac48ed9" name="Microsoft.Samples.NLayerApp.Infrastructure.Data">
+          <ArtifactNode Label="Microsoft.Samples.NLayerApp.Infrastructure.Data" Category="CodeSchema_Namespace" Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data)" />
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Tests)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Tests.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Mock)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.MainModule.Mock.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.Core)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Assembly=Microsoft.Samples.NLayerApp.Infrastructure.Data.Core.Tests)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data.Core.Tests.dll" Category="CodeSchema_Assembly">
+            <LinkCategory Ref="Dsl.NamespaceUsedInAssembly" />
+          </ExpandedNode>
+          <ExpandedNode Id="(Namespace=Microsoft.Samples.NLayerApp.Infrastructure.Data)" Label="Microsoft.Samples.NLayerApp.Infrastructure.Data" Category="CodeSchema_Namespace">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

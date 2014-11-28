@@ -1,0 +1,1561 @@
+﻿body
+{
+    /*background-image: url(../Images/Login-Background.gif);*/
+    background-position: top;
+    background-repeat: repeat-x;
+    margin: 0;
+    position: relative;
+    background-color:#2f323b;
+    padding: 2px;
+    
+}
+
+@font-face
+{
+    font-family:'klavika_lightplain_basic';
+    src:url('fonts/klavikalight-plain-webfont-basic.eot');
+    src:url('fonts/klavikalight-plain-webfont-basic.eot?#iefix') format('embedded-opentype'), url('fonts/klavikalight-plain-webfont-basic.woff') format('woff');
+    font-weight:normal;
+    font-style:normal
+}
+@font-face
+{
+    font-family:'klavika_mediumplain_basic';
+    src:url('fonts/klavikamedium-plain-webfont-basic.eot');
+    src:url('fonts/klavikamedium-plain-webfont-basic.eot?#iefix') format('embedded-opentype'), url('fonts/klavikamedium-plain-webfont-basic.woff') format('woff');
+    font-weight:normal;font-style:normal
+}
+@font-face
+{
+    font-family:'klavika_regularplain_basic';
+    src:url('fonts/klavikaregular-plain-webfont-basic.eot');
+    src:url('fonts/klavikaregular-plain-webfont-basic.eot?#iefix') format('embedded-opentype'), url('fonts/klavikaregular-plain-webfont-basic.woff') format('woff');
+    font-weight:normal;
+    font-style:normal
+}
+
+.FontFamilyMain
+{
+    font-family: Arial,Helvetica,sans-serif;    
+}
+
+form
+{
+    border: 0;
+    padding: 0;
+}
+
+#messages
+{
+    background-color: #366;
+    height: 24px;
+    position: relative;
+    width: 100%;
+}
+
+#messages p
+{
+    color: #fff;
+    font-weight: 700;
+    margin: 0 0 0 8px;
+    padding: 4px;
+}
+
+fieldset
+{
+    
+    border: 1px solid #AAA;
+    margin: 10px 0 20px;
+    padding: 8px;
+}
+
+fieldset legend
+{
+    background: #FFF;
+    border-left-color: #AAA;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #AAA;
+    border-right-style: solid;
+    border-right-width: 1px;
+    color: #333;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 8px;
+    white-space: nowrap;
+}
+
+input, textarea, select, .group, fieldset
+{
+    /*
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    */
+    border: 1px solid #c2c2c2;
+}
+
+label
+{
+    display: inline-block;
+    /*float: left;*/
+    margin-right: 4px;
+    padding: 6px;
+    position: relative;
+    /*width: 164px;*/
+}
+
+label[for*="chk"]
+{
+    display: block;
+    overflow: auto;
+    padding: 0;
+    position: relative;
+    width: 256px;
+}
+
+input[id*="chkPropagate"]
+{
+    float: left;
+    overflow: auto;
+    padding: 0;
+    position: relative;
+    width: 32px;
+}
+
+hr
+{
+    border: 0;
+    border-top: 1px solid #EEE;
+    height: 0;
+}
+
+input[type*="checkbox"]
+{
+    border: 1px !important;
+}
+
+input[type*="submit"]
+{
+    background-color: #CBCBCB;
+    border: 1px solid #CBCBCB;
+    color: #FFF;
+    font-weight: 700;
+    padding: 3px;
+    margin: 2px;
+}
+
+input[type*="submit"][name*="Save"]:hover
+{
+    background-color: #393;
+    border: 1px solid #393;
+    color: #fff;
+}
+
+input[type*="submit"][name*="Duplicate"]:hover
+{
+    background-color: #639;
+    border: 1px solid #639;
+    color: #fff;
+}
+
+input[type*="submit"][name*="New"]:hover
+{
+    background-color: #a39a94;
+    border: 1px solid #c30;
+    color: #FFF;
+}
+
+input, select, textarea, .igte_Edit
+{
+    border: 1px solid #c2c2c2;
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 8pt;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 1px;
+}
+
+.tblarge
+{
+    width: 50%;
+}
+
+p, div
+{
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: small;
+}
+
+h1
+{
+    background-color: #fff;
+    border-bottom-color: #399;
+    border-bottom-style: solid;
+    border-bottom-width: 4px;
+    color: #366;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: large;
+    font-weight: 700;
+    padding-bottom: 4px;
+}
+
+a
+{
+    color: #FC9803;
+}
+
+.group
+{
+    border: 1px solid #FFFFFF;
+    margin: 5px 0 10px;
+    padding: 4px;
+    position: relative;
+}
+
+.group > table
+{
+    margin-top: 10px;
+}
+
+.group h4
+{
+    background: #FFF;
+    border-left-color: #AAA;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #AAA;
+    border-right-style: solid;
+    border-right-width: 1px;
+    color: #333;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 8px;
+    position: absolute;
+    top: -7px;
+    white-space: nowrap;
+}
+
+.group h5
+{
+    color: #666;
+    font-size: 100%;
+    margin: 0;
+    padding: 0 4px 0 2px;
+}
+
+.group td
+{
+    font-size: small;
+    line-height: 21px;
+    vertical-align: top;
+}
+
+.group ul
+{
+    margin: 0;
+    padding: 2px;
+}
+
+.group li
+{
+    /*display: inline;*/
+    list-style-type: none;
+    margin: 0;
+}
+
+.messagebox
+{
+    background-color: #EEE;
+    border: solid 1px #CCC;
+    color: #060;
+    font-weight: 500;
+    padding: 4px;
+}
+
+.errorbox
+{
+    background-color: #EEE;
+    border: solid 1px #CCC;
+    color: #C00;
+    font-weight: 500;
+    padding: 4px;
+}
+
+#Header
+{
+    width:980px;
+    margin: 0px auto 0px auto;
+    position:relative;
+}
+
+.zocalo1
+{
+    position:absolute;
+    top:5px;
+    width:160px;
+    height:600px;
+    left:-165px;
+}
+
+.zocalo2
+{
+    position:absolute;
+    top:5px;
+    width:160px;
+    height:600px;
+    right:-165px;
+}
+
+#user-info
+{
+    color:White;
+    padding:2px 0px;
+    font-size:8pt;
+    /*float: right;*/
+    margin-left:800px;   
+}
+
+.LinkLogOut
+{
+}
+
+.textlogin
+{
+    color:White;
+    font-weight:bold;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.wrap-header
+{
+   background-color: #ffffff;
+   background-position:center top;
+   background-repeat:no-repeat;
+   width:980px;
+   height:73px;
+   background-position:0 0;
+   padding-bottom:1px;   
+   
+}
+
+.PageAppTitle
+{
+    font-size:25pt;
+    font-weight:bold;
+    color: #ffffff;
+    text-align:left;
+    padding-left: 20px;    
+    vertical-align:middle;    
+    padding-top: 20px;
+}
+
+.logo
+{
+    background-image: url('../Images/logo.png');
+    background-repeat: no-repeat;
+    width: 117px;
+    height: 62px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.logo_cliente
+{
+    width: 117px;
+    height: 62px;
+    position: absolute;
+    left: 20px;
+    top:25px;
+}
+
+#adminwrapper
+{
+    padding: 5px 20px 0px;
+    margin: auto;
+    background:#fff;
+   
+}
+
+#PlaceHolderFooter
+{
+    padding-bottom:2px;
+    margin: auto;
+    background:#fff;
+}
+
+#adminwrapperFooter
+{
+    padding: 5px 20px 0px;
+    margin: -2px auto;
+    background-color:#6ec138;
+    background-image:url(../Images/Footer.jpg);
+    height:31px;
+}
+
+.container
+{
+    width:940px;   
+}
+
+
+#contentpane
+{
+    min-width: 940px;
+    width: 100%;
+    min-height:450px;
+}
+
+#pad
+{
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    background-color: #fff;
+    border: 0px #999 solid;
+    border-radius: 12px;
+    margin: 2px 4px;
+    padding: 2px;
+}
+
+#moduleadminpane
+{
+    background-color: #FFF;
+    margin: 10px;
+    padding: 10px;
+}
+
+.center
+{
+    text-align: center;
+    vertical-align:middle;
+    line-height: 25px;
+}
+
+.Izquierda
+{
+    text-align:left;
+    vertical-align:middle;
+}
+
+.Derecha
+{
+    text-align:right;
+    vertical-align:middle;
+}
+
+
+
+.container1280
+{
+    width:1280px;
+    background-color:#6ec138;
+    height:20px;
+    color:#060000;
+    text-align:center;
+    font-family:Arial,Helvetica,sans-serif;
+    margin:auto;
+    vertical-align:middle;
+}
+
+.container980
+{
+    width:980px;
+    background-color:#6ec138;
+    height:20px;
+    color:#060000;
+    text-align:center;
+    font-family:Arial,Helvetica,sans-serif;
+    margin:auto;
+    vertical-align:middle;
+}
+
+
+#HeadderBg
+{
+    background-image:url(../Images/CabezoteHome.jpg);
+    background-repeat:no-repeat;
+    width:980px;
+    height:374px;
+    margin-top:15px;
+}
+
+#bgIzquierda
+{
+    display: inline-block;
+    background-image:url(../Images/sign_in.jpg);
+    background-repeat:no-repeat;
+    float:left;
+    width:100px;
+    background-color:transparent;
+    margin:auto;
+    height:220px;
+    background-position:center;
+    padding-left:10px;
+}
+
+#bgDerecha
+{
+    float:right;
+    width:250px;
+    height: 210px;
+    background-image:url(../Images/logo_cliente.jpg);
+    background-repeat:no-repeat;
+    margin-right:35px;
+    background-position:right;
+    position:relative;
+}
+
+#loginarea
+{
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    background-color: #fff;
+    border: 0px solid #999;
+    display: block;
+    margin-left: 200px;
+    /*margin-top: 192px;*/
+    width: 358px;
+    
+   /* -moz-box-shadow: 0px 16px 64px #ccc;
+	-webkit-box-shadow: 0px 16px 64px #ccc;
+	box-shadow: 0px 16px 64px #ccc;*/
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#666666')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#666666');
+}
+
+#login
+{
+    background-repeat: no-repeat;
+    height: 210px;
+    padding-top: 8px;
+    text-align: left;
+    width: 358px;
+}
+
+#login #lblError
+{
+    display: block;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: small;
+    padding-left: 32px;
+    position: relative;
+}
+
+#login #cuyahoga
+{
+    background-image: url(../Images/logo.png);
+    background-repeat:no-repeat;
+    border-style: none;
+    height: 45px;
+    margin-left: 52px;
+    margin-top: 4px;
+    width: 280px;
+}
+
+#login label
+{
+    color: #666;
+    display: block;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: small;
+    font-weight: 700;
+    height: 26px;
+    padding: 14px 0 0 40px;
+    position: relative;
+    width: 88px;
+}
+
+.loginerror
+{
+    clear: right;
+    color: red;
+    display: block;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: small;
+    height: 30px;
+    padding-left: 32px;
+    padding-top: 12px;
+    position: relative;
+    width: 128px;
+}
+
+#login input
+{
+    /*
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    */
+    border: 1px solid #999;
+    color: #666;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: small;
+    height: 20px;
+    line-height: 24px;
+    margin: 2px 0;
+    padding: 8px;
+    width: 150px;
+}
+
+#login input:focus, #login input:hover
+{
+    background-color: #FFC;
+}
+
+#login .btnLogin
+{
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: block;
+    float: right;
+    font-weight: 700;
+    height: 38px;
+    margin: 8px 58px 0 0;
+    overflow: auto;
+    padding: 0;
+    position: relative;
+    width: 72px;
+    background-color:#a8a8a8;
+}
+
+#login .btnLogin:hover
+{
+    border: 1px solid #999;
+    background-color:#6b6b6b;
+    color: #FFFFFF;
+}
+
+#login h3
+{
+    background-color: #006;
+    color: #FFF;
+    display: block;
+    font-size: medium;
+    font-weight: 700;
+    margin: 0;
+    padding: 4px;
+    text-align: center;
+}
+
+.AspNet-CheckBoxList ul
+{
+    margin: 0;
+    padding: 0;
+    width: 256px;
+}
+
+.AspNet-CheckBoxList .AspNet-CheckBoxList-Item
+{
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 4px 0;
+    position: relative;
+}
+
+.AspNet-CheckBoxList .AspNet-CheckBoxList-Item:hover
+{
+    background-color: #a39a94;
+    color: #fff;
+}
+
+.AspNet-CheckBoxList .AspNet-CheckBoxList-Item input
+{
+    float: left;
+    margin: 0 8px;
+    position: relative;
+}
+
+.AspNet-RadioButtonList ul
+{
+    list-style: none;
+    padding: 0;
+}
+
+input:hover, select:hover, textarea:hover, input:focus, select:focus, textarea:focus
+{
+    background-color: #FFC;
+}
+
+input[type*="submit"]:hover  , table.tbl tr td a:hover
+{
+    background-color: #a39a94;
+    border: 1px solid #a39a94;
+    color: #FFF;
+}
+
+input[type*="submit"][name*="Cancel"]:hover, table.tbl tr td a[id*="Detach"]:hover
+{
+    background-color: #666;
+    border: 1px solid #666;
+    color: #FFF;
+}
+
+input[type*="submit"][name*="Delete"]:hover, input[type*="submit"][name*="Rebuild"]:hover, table.tbl tr td a[id*="Delete"]:hover , table.tbl tr td a[id*="Uninstall"]:hover
+{
+    background-color: red;
+    border: 1px solid red;
+    color: #FFF;
+}
+
+
+.hidden, #headertitle span
+{
+    display: none;
+    visibility: hidden;
+}
+
+
+/* Accordion */
+.accordionHeader
+{
+    border: 1px solid #F2F2F2;
+    color: #545A68;
+    background-color: #F2F2F2;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#master_content .accordionHeader a
+{
+	color: #FFFFFF;
+	background: none;
+	text-decoration: none;
+}
+
+#master_content .accordionHeader a:hover
+{
+	background: none;
+	text-decoration: underline;
+}
+
+.accordionHeaderSelected
+{
+    border: 1px solid #CECECE;
+    color: #545A68;
+    background-color: #CECECE;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#master_content .accordionHeaderSelected a
+{
+	color: #FFFFFF;
+	background: none;
+	text-decoration: none;
+}
+
+#master_content .accordionHeaderSelected a:hover
+{
+	background: none;
+	text-decoration: underline;
+}
+
+.accordionContent
+{
+    background-color: #FFFFFF;
+    border: 0px dashed #2F4F4F;
+    border-top: none;
+    padding: 5px;
+    padding-top: 10px;
+}
+
+/**** ESTILOS PARA LA TABLA DE PREVISUALIZACION **/
+table.tblPreView {
+border-collapse:collapse;
+color:#333;
+visibility:visible;
+margin-bottom:2px;
+width:100%;
+}
+
+table.tblPreView th 
+{
+color:#9A9A9A;
+padding: 4px 8px;
+font-size:0.95em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+text-align:right;
+}
+
+table.tblPreView .line {
+color:#000;
+font-size:0.9em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+border-bottom:1px solid #F4F4F3; 
+}
+
+table.tblPreView .ContentDiv {
+color:#526C8C;
+padding: 4px 8px;
+font-size:0.9em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+text-align:right;
+}
+
+table.tblPreView .ContentPanelResumen {
+color:#526C8C;
+padding: 4px 8px;
+font-size:0.88em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+text-align:right;
+border:1px solid #808080; 
+background-color:#F6F7F8;
+}
+
+.ContentPanelResumen {
+color:#526C8C;
+padding: 4px 8px;
+font-size:0.88em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+text-align:right;
+border:1px solid #808080; 
+background-color:#F6F7F8;
+}
+
+table.tblPreView .Separador  
+{
+    width:10px;
+}
+    
+
+table.tblPreView .SeparadorVertical 
+{
+    height:5px;
+    background-color:White;
+}
+
+table.tblPreView  td {
+font-size: 0.88em;
+/*line-height: 18px;*/
+vertical-align:middle;    
+text-decoration: none;
+font-family:Arial,Helvetica,sans-serif;
+font-weight: normal;
+}
+
+table.tblPreView  .TituloSeccion {
+font-size: 0.94em;
+line-height: 18px;
+vertical-align:middle;    
+text-decoration: none;
+font-family:Arial,Helvetica,sans-serif;
+font-weight: bold;
+padding-left:2px;
+color:#38379C;
+border-bottom:1px solid #6362B1;
+}
+
+
+
+.BordeNegro{
+	border:1px solid #000000;
+	margin:1px;
+}
+
+.BordeGris{
+	border:1px  dashed #DEDEDE;
+	margin:1px;
+}
+
+table.tblPreView .Noline {
+color:#9A9A9A;
+font-size:0.9em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+}
+
+
+
+/**** FIN ESTILOS PARA LA TABLA DE PREVISUALIZACION **/
+
+/********TABLA FORMULARIO NUEVO REGISTRO*****************/
+
+table.tblSecciones {
+border-collapse:collapse;
+color:#333; 
+visibility:visible;
+margin-bottom:2px;
+width:100%;
+}
+
+table.tblSecciones th {
+/*color:#526C8C;*/
+color:#808080;
+padding: 4px 10px;
+font-size:0.95em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+text-align:right;
+width:16%;
+}
+
+table.tblSecciones .Line {
+color:#000;
+font-size:0.9em;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+border-bottom:1px solid #F4F4F3; 
+
+}
+
+table.tblSecciones .Separador  
+{
+    width:10px;
+}
+
+
+table.tblSecciones td {
+/*font-size: 0.88em;*/
+line-height: 15px;
+vertical-align:middle;    
+text-decoration: none;
+font-family:Arial,Helvetica,sans-serif;
+/*font-weight: normal;*/
+
+}
+
+/********FIN TABLA FORMULARIO NUEVO REGISTRO*****************/
+
+table.tbl {
+border-collapse:collapse;
+color:#333;
+visibility:visible;
+margin-bottom:2px;
+border-left:solid 1px #F4F4F3;
+padding: 2px;
+
+}
+
+table.tbl th {
+background-color:#EEE;
+border-top:solid 1px #CCC;
+border-bottom:solid 1px #CCC;
+border-right:solid 1px #CCC;
+color:#8F8F98;
+font-size:0.85em;
+font-weight:bold;
+font-family: Arial,Helvetica,sans-serif;
+text-align:center;
+}
+
+
+table.tbl td {
+border-bottom:1px solid #F4F4F3;
+border-top:solid 1px #F4F4F3;
+border-right:solid 1px #F4F4F3;
+font-size: 0.9em;
+line-height: 15px;  
+text-decoration: none;
+font-family: Arial,Helvetica,sans-serif;
+font-weight: normal;
+
+}
+
+table.tbl .Normal 
+{
+    border-bottom:1px solid #F4F4F3;
+    border-top:solid 1px #F4F4F3;
+    border-right:solid 1px #F4F4F3;
+    font-size: 0.9em;
+    line-height: 15px;  
+    text-decoration: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+
+}
+
+table.tbl .Alternative 
+{
+    background-color: #F4F4F3;
+    border-bottom:1px solid #F4F4F3;
+    border-top:solid 1px #F4F4F3;
+    border-right:solid 1px #F4F4F3;
+    font-size: 0.9em;
+    line-height: 15px;  
+    text-decoration: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+
+}
+
+/********TABLA FORMULARIO BUSCADOR*****************/
+
+table.tblBuscador {
+border-collapse:collapse;
+color:#333;
+visibility:visible;
+margin-bottom:2px;
+border-bottom:2px solid #FBFF00;
+}
+
+table.tblBuscador .Etiquetas {
+color:#38379C;
+padding:4px 10px;
+font-size:0.9em;
+font-weight:bold;
+font-family: Arial,Helvetica,sans-serif;
+text-align:left;
+border-bottom:1px solid #F4F4F3;
+}
+
+table.tblBuscador .Separador15
+{
+    width:15px;
+}
+
+/********TABLA FORMULARIO BUSCADOR*****************/
+
+.MenuPrincipalStyle
+{
+    background-color:#CBCBCB;
+    color:#717581;
+    height:25px;
+    padding-left:18px;
+}
+
+.TextMenuStatic
+{
+    margin-top:2px;
+}
+
+.TituloVentana
+{
+    font-size:15pt;
+    color:#6ec138;
+    border-bottom: 2px solid #6ec138;    
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.SectionMainTitle
+{
+    border: 1px solid #CECECE;
+    color: #545A68;
+    background-color: #CECECE;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+    text-align:center;
+}
+
+/**ESTILOS CALENDAR EXENDER **/
+
+.cal_Theme1 .ajax__calendar_container   {
+background-color: #DEF1F4;
+border:solid 1px #77D5F7;
+width:190px;
+font-size:9pt;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.cal_Theme1 .ajax__calendar_header  {
+background-color: #ffffff;
+margin-bottom: 4px;
+}
+
+.cal_Theme1 .ajax__calendar_title,
+.cal_Theme1 .ajax__calendar_next,
+.cal_Theme1 .ajax__calendar_prev    {
+color: #004080;
+padding-top: 3px;
+}
+
+.cal_Theme1 .ajax__calendar_body    {
+background-color: #ffffff;
+border: solid 1px #77D5F7;
+font-size:9pt;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+.cal_Theme1 .ajax__calendar_dayname {
+text-align:center;
+font-weight:bold;
+margin-bottom: 4px;
+margin-top: 2px;
+color: #004080;
+}
+
+.cal_Theme1 .ajax__calendar_day {
+color: #004080;
+text-align:center;
+}
+
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_day,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_month,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_year,
+.cal_Theme1 .ajax__calendar_active  {
+color: #004080;
+font-weight: bold;
+background-color: #DEF1F4;
+}
+
+.cal_Theme1 .ajax__calendar_today   {
+font-weight:bold;
+}
+
+.cal_Theme1 .ajax__calendar_other,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_today,
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_title {
+color: #bbbbbb;
+}
+
+/**FIN ESTILOS CALENDAR EXENDER **/
+
+
+/**ESTILOS MODAL POPUP EXTENDER **/
+
+
+.popup_Container {
+	background-color:#FCFDFD;
+	border:1px solid #DEDEDE;
+	padding: 0px 0px 0px 0px;	
+    margin:0 auto;
+    position: absolute;
+}
+
+.popup_Titlebar {
+	/*background: url(../Images/titlebar_bg.png);*/
+	background-color:#808080;
+	height: 29px;
+}
+
+.TitlebarLeft 
+{
+	float:left;
+	padding-left:5px;
+	padding-top:5px;
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	color:#FFFFFF;
+}
+.TitlebarRight 
+{
+	background:url(../Images/cross_icon_normal.png);
+	background-position:right;
+	background-repeat:no-repeat;    
+	height:15px;
+	width:16px;
+	float:right;
+	cursor:pointer;
+	margin-right:5px;
+	margin-top:5px;
+	border-style:none;
+}
+
+.popup_Buttons
+{
+	margin:10px;
+}
+
+
+.popup_Body
+{
+	font-weight:bold;
+	color:#000000;
+	line-height:15pt;
+	clear:both;
+}
+
+.ModalPopupBG
+{
+	background-color: #666699;
+	filter: alpha(opacity=50);
+	opacity: 0.7;
+}
+
+/**FIN ESTILOS MODAL POPUP EXTENDER **/
+
+
+/** ESTILOS PAGINADOR **/
+
+.pager a {
+margin-left:2px;
+margin-right:2px;
+}
+
+.pager a:hover {
+background-color:#D2D2D2;
+font-weight:bold;
+color:#00BFFF;
+}
+
+.pager {
+font-size:0.77em;
+background-color:#F9F9F9;
+padding:1px;
+}
+
+/**FIN ESTILOS PAGINADOR **/
+
+
+.ErrorControl .igte_Edit
+{
+    background-color: #FBE3E4;
+    border: solid 1px Red;
+}
+
+.validator {
+color:#C00;
+font-style:italic;
+font-size:0.85em;
+}
+
+
+#DivHome
+{
+	background-image:url(../images/Home.jpg); 
+	width:100%;
+	height:470px; 
+	background-repeat:no-repeat; 
+	background-position:center;
+	background-color:#FFF;
+}
+
+#DivUnderConstruction
+{	
+	width:100%;
+	height:470px; 
+	background-repeat:no-repeat; 
+	background-position:center;
+	background-color:#FFF;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 24pt;	
+}
+
+
+/*ESTILOS CONTROL DATAGRID*/
+.RowAlternateGridStyle
+{
+	background-color: #F8F8F8;
+	border-left:1px solid #FFFFFF;	
+	border-bottom:1px solid #C0C0C0;
+    border-top:solid 1px #C0C0C0;
+    border-right:solid 1px #FFFFFF;
+    padding:2px;
+    font-size:0.9em;
+    line-height: 18px;
+    vertical-align:middle;    
+    text-decoration: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    
+}
+
+.RowStyle
+{  
+	border-left:1px solid #FFFFFF;
+	border-bottom:1px solid #C0C0C0;
+    border-top:solid 1px #C0C0C0;
+    border-right:solid 1px #FFFFFF;
+    padding:2px;
+    font-size: 0.9em;
+    line-height: 18px;
+    vertical-align:middle;    
+    text-decoration: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+}
+
+.SelectedRowStyle
+{
+	background: #DFE8AF;
+	border:1px dotted #A3BAE9;
+	font-family:Arial,Helvetica,sans-serif;
+}
+
+.HeaderGridStyle
+{
+    border-style:none;
+    border:0px solid #000;
+}
+
+
+.LinkGrid
+{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#4A4A4C;
+    font-weight:bold;
+    cursor:pointer;   
+}
+
+.FontSizeTh th
+{
+    font-size:7pt;
+    padding-right:5px;
+}
+
+/*FIN ESTILOS CONTROL DATAGRID*/
+
+.FondoSeccionFiltro
+{
+    background-color:#FFF;
+    padding:5px;
+    float: left;
+    border:1px solid #C0C0C0;
+}
+
+
+.CabeceraSeccionFiltro
+{
+    background-color:#FFF;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:5px;
+    padding-top:5px;
+    margin-top:0px;
+    
+}
+
+.TextUpperCase
+{
+text-transform:uppercase;
+} 
+
+
+.FondoGrisSeccionesMenu
+{
+    margin-top:3px;
+    /*
+    background-color:#808080;
+    */
+    border-bottom:2px solid #808080;
+    vertical-align:middle;
+}
+
+.FondoGrisSeccionesMenu li
+{
+    padding-top:2px;
+    border-right:1px solid  #E8E8E8;
+    border-top:1px solid #FFF;
+}
+
+.treeNode
+{
+    color:Black;
+    font:14px Arial,Helvetica,sans-serif;
+}
+.rootNode
+{
+    font-size:12px;
+    padding-left:3px;
+    width:100%;
+    font-weight:bold;
+}
+.leafNode
+{
+     font-size:10px;
+     padding-left:3px;
+}
+
+/* ESTILOS CONTROL DetailView*/
+
+.HeaderdetailView
+{
+    font-size:10pt;
+    font-family:Arial,Helvetica,sans-serif;
+    background-color:#DBDBDC;
+    color:Black;
+    font-weight:bold;
+}
+
+.RowDetailView
+{
+    border-left:1px solid #FFFFFF;
+	border-bottom:1px solid #F4F4F3;
+    border-top:solid 1px #FFFFFF;
+    border-right:1px solid #FFFFFF;
+    padding:2px;
+    font-size: 0.9em;
+    line-height: 18px;
+    vertical-align:middle;    
+    text-decoration: none;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    
+}
+
+.RowDetailView input, select, textarea, .igte_Edit
+{
+    border: 1px solid #F5F5F5;
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 8pt;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 1px;
+}
+/*FIN ESTILOS CONTROL DetailView*/
+
+#DivModal
+{
+    position: absolute; 
+    left: 0px; top: 0px; width: 100%; height: 100%;
+    background-image: url(../Images/fondosemitrans.gif);
+    visibility: hidden;
+    z-index: 99;    
+}
+
+#VentanaMensaje
+{
+	position: absolute; 
+	left: 35%; top: 300px; 
+	width: 230px; 
+    padding: 15px; 
+    border: #000000 1px solid;
+    background-color: white; 
+    text-align: justify;
+}
+
+#Msg
+{
+    text-align:center;
+}
+
+
+.TituloSeccion
+{
+    color: #808080;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.SeccionesH1
+{
+    color: #002060;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+    margin-top: 5px;
+    cursor: pointer;
+    text-transform:uppercase;
+}
+
+.SeccionesH2
+{
+    color: #808080;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+    margin-top: 5px;
+    cursor: pointer;
+    text-transform:uppercase;
+}
+
+.SeccionesH3
+{
+    color: #808080;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 9pt;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.SeccionesH4
+{
+    color: #808080;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 9pt;
+    margin-top: 2px;
+    cursor: pointer;    
+    color:#000000;
+    border-bottom:1px solid #F4F4F3; 
+}
+
+.FooterDiv
+{
+    background-color: #6ec138;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 9pt;    
+    cursor: pointer;    
+    color:#568726;
+    height:40px;
+    line-height:40px;
+}
+
+.TitleLoginMensaje
+{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 20pt;
+    font-weight:bold;
+    margin-top: 2px;    
+    color:#000000;
+}
+
+.LoginMensaje
+{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10pt;
+    font-weight:bold;
+    margin-top: 2px;    
+    color:#000000;
+    text-align:justify;
+}
+
+.completionList 
+{
+border:solid 1px #444444;
+margin:0px;
+padding:2px;
+height: 100px;
+overflow:auto;
+background-color: #FFFFFF;
+font-size:small;	
+font-family: Arial,Helvetica,sans-serif;
+z-index: 10;
+}
+
+.listItem 
+{
+color: #1C1C1C;
+}
+
+.itemHighlighted 
+{
+background-color: #ffc0c0;
+}
+
+.radioButtonList
+{ 
+    list-style:none; margin: 0; padding: 0; display: inline; border:none;
+}
+
+.BorderTable
+{
+    border: 1px solid #F4F4F3;
+}
+
+/* Fix Ajax*/
+.imageUploaderField input
+{
+    width:450px!important;
+}
