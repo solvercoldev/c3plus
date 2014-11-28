@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E0CF6E32-D3FD-467B-B02D-74040CF4465C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Modules.Contratos</RootNamespace>
+    <AssemblyName>Modules.Contratos</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\dll\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Web.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Infragistics4.Web.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Misc.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Infragistics4.WebUI.Misc.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.Shared.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Infragistics4.WebUI.Shared.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebCombo.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Infragistics4.WebUI.WebCombo.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.WebUI.WebDataInput.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll\Infragistics4.WebUI.WebDataInput.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\dll\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\FrmAdminComentarioRespuesta.aspx" />
+    <Content Include="Admin\FrmAdminCompromisoContrato.aspx" />
+    <Content Include="Admin\FrmAdminContrato.aspx" />
+    <Content Include="Admin\FrmAdminFasesContrato.aspx" />
+    <Content Include="Admin\FrmContrato.aspx" />
+    <Content Include="Admin\FrmContratoLocationPreview.aspx" />
+    <Content Include="Admin\FrmManageFasesContrato.aspx" />
+    <Content Include="Admin\FrmNewCompromisoContrato.aspx" />
+    <Content Include="UserControls\WuCAdminComentariosContrato.ascx" />
+    <Content Include="UserControls\WuCAdminCompromisosContrato.ascx" />
+    <Content Include="UserControls\WuCAdminCompromisosFasesContrato.ascx" />
+    <Content Include="UserControls\WuCAdminDocumentacionContrato.ascx" />
+    <Content Include="UserControls\WuCAdminNovedadesContrato.ascx" />
+    <Content Include="UserControls\WuCAdminNovedadesFasesContrato.ascx" />
+    <Content Include="UserControls\WuCLogContratos.ascx" />
+    <Content Include="Views\FrmTotalCompromisos.aspx" />
+    <Content Include="Views\GeneralContractList.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\FrmAdminComentarioRespuesta.aspx.cs">
+      <DependentUpon>FrmAdminComentarioRespuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmAdminComentarioRespuesta.aspx.designer.cs">
+      <DependentUpon>FrmAdminComentarioRespuesta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmAdminCompromisoContrato.aspx.cs">
+      <DependentUpon>FrmAdminCompromisoContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmAdminCompromisoContrato.aspx.designer.cs">
+      <DependentUpon>FrmAdminCompromisoContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmAdminContrato.aspx.cs">
+      <DependentUpon>FrmAdminContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmAdminContrato.aspx.designer.cs">
+      <DependentUpon>FrmAdminContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmAdminFasesContrato.aspx.cs">
+      <DependentUpon>FrmAdminFasesContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmAdminFasesContrato.aspx.designer.cs">
+      <DependentUpon>FrmAdminFasesContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmContrato.aspx.cs">
+      <DependentUpon>FrmContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmContrato.aspx.designer.cs">
+      <DependentUpon>FrmContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmContratoLocationPreview.aspx.cs">
+      <DependentUpon>FrmContratoLocationPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmContratoLocationPreview.aspx.designer.cs">
+      <DependentUpon>FrmContratoLocationPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmManageFasesContrato.aspx.cs">
+      <DependentUpon>FrmManageFasesContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmManageFasesContrato.aspx.designer.cs">
+      <DependentUpon>FrmManageFasesContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmNewCompromisoContrato.aspx.cs">
+      <DependentUpon>FrmNewCompromisoContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmNewCompromisoContrato.aspx.designer.cs">
+      <DependentUpon>FrmNewCompromisoContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContratosModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IContratoWebUserControl.cs" />
+    <Compile Include="UserControls\WuCAdminComentariosContrato.ascx.cs">
+      <DependentUpon>WuCAdminComentariosContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminComentariosContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminComentariosContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminCompromisosContrato.ascx.cs">
+      <DependentUpon>WuCAdminCompromisosContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminCompromisosContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminCompromisosContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminCompromisosFasesContrato.ascx.cs">
+      <DependentUpon>WuCAdminCompromisosFasesContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminCompromisosFasesContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminCompromisosFasesContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminDocumentacionContrato.ascx.cs">
+      <DependentUpon>WuCAdminDocumentacionContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminDocumentacionContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminDocumentacionContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminNovedadesContrato.ascx.cs">
+      <DependentUpon>WuCAdminNovedadesContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminNovedadesContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminNovedadesContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminNovedadesFasesContrato.ascx.cs">
+      <DependentUpon>WuCAdminNovedadesFasesContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminNovedadesFasesContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminNovedadesFasesContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCLogContratos.ascx.cs">
+      <DependentUpon>WuCLogContratos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCLogContratos.ascx.designer.cs">
+      <DependentUpon>WuCLogContratos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmTotalCompromisos.aspx.cs">
+      <DependentUpon>FrmTotalCompromisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FrmTotalCompromisos.aspx.designer.cs">
+      <DependentUpon>FrmTotalCompromisos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GeneralContractList.aspx.cs">
+      <DependentUpon>GeneralContractList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\GeneralContractList.aspx.designer.cs">
+      <DependentUpon>GeneralContractList.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Core\Application.Core.csproj">
+      <Project>{43E44D76-4378-4A99-9100-7C5CDFB9DAC0}</Project>
+      <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.Contratos\Application.MainModule.Contratos.csproj">
+      <Project>{6EB59DCD-4D37-4BBB-89B7-E180B0749A5C}</Project>
+      <Name>Application.MainModule.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.ExportExcel\Application.MainModule.ExportExcel.csproj">
+      <Project>{2C0DDACE-A17D-43FA-913D-23CF5FCD568F}</Project>
+      <Name>Application.MainModule.ExportExcel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.SqlServices\Application.MainModule.SqlServices.csproj">
+      <Project>{A339985E-A4A5-4DC1-9632-1A622603F028}</Project>
+      <Name>Application.MainModule.SqlServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule\Application.MainModule.csproj">
+      <Project>{AEDFE91C-C874-4FFF-9740-DE13B93B38DD}</Project>
+      <Name>Application.MainModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Applications.MainModule.Admin\Applications.MainModule.Admin.csproj">
+      <Project>{FD7F4861-2115-473B-B704-8F0DC443D11C}</Project>
+      <Name>Applications.MainModule.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASP.NETCLIENTE\ASP.NETCLIENTE.csproj">
+      <Project>{19CC1144-5EE0-4D32-9436-1FCC3515EAC7}</Project>
+      <Name>ASP.NETCLIENTE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Core.Entities\Domain.Core.Entities.csproj">
+      <Project>{A1708898-8F15-4D62-99E0-293334E740C2}</Project>
+      <Name>Domain.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Core\Domain.Core.csproj">
+      <Project>{94FCB1C4-2C52-4D9D-A07B-F01AC38CF88E}</Project>
+      <Name>Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainModule.Contratos\Domain.MainModule.Contratos.csproj">
+      <Project>{E291CF07-D16B-43E8-8CF2-4B3F3A7338A1}</Project>
+      <Name>Domain.MainModule.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.MainModules.Entities\Domain.MainModules.Entities.csproj">
+      <Project>{6FA9FF63-4F79-4A9F-882C-7A7AE27C7332}</Project>
+      <Name>Domain.MainModules.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.IoC\Infrastructure.CrossCutting.IoC.csproj">
+      <Project>{5DD8CB67-048D-44FE-8444-DC6D260E87AB}</Project>
+      <Name>Infrastructure.CrossCutting.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.NetFramework\Infrastructure.CrossCutting.NetFramework.csproj">
+      <Project>{21EBA478-507F-45AF-B1CC-619578E8FA8B}</Project>
+      <Name>Infrastructure.CrossCutting.NetFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting\Infrastructure.CrossCutting.csproj">
+      <Project>{1063AE74-49D5-4D8A-B6A3-2C38349F55BF}</Project>
+      <Name>Infrastructure.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presenters.Contratos\Presenters.Contratos.csproj">
+      <Project>{CE32BCF6-8090-4141-ABCC-E9DE6E7ACFE4}</Project>
+      <Name>Presenters.Contratos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerControls\ServerControls.csproj">
+      <Project>{AC6B9382-921B-40C7-9282-27EDEF1D3432}</Project>
+      <Name>ServerControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Catalogs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59643</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /s /y "$(TargetDir)Modules.Contratos*.dll" "$(SolutionDir)"Web\bin\
+xcopy /s /y "$(ProjectDir)*.as?x" "$(SolutionDir)"Web\Pages\Modules\Contratos\
+xcopy /s /y "$(ProjectDir)*.rdlc" "$(SolutionDir)"Web\Pages\Modules\Contratos\</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

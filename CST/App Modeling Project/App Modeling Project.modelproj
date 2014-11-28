@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{cab9636d-f098-4966-8dc9-a9583392bd09}</ProjectGuid>
+    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <Name>App Modeling Project</Name>
+    <RootNamespace>App Modeling Project</RootNamespace>
+    <SccProjectName>Svn</SccProjectName>
+    <SccProvider>SubversionScc</SccProvider>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccLocalPath>Svn</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Documentacion\Slvr-Bay4sSAPInterface-v1.docx">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MER\MER.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="MER\MER.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>MER\MER.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\App Modeling Project.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Folder Include="N-Layer Design" />
+    <Folder Include="MER" />
+    <Folder Include="Documentacion" />
+    <Folder Include="UML Design" />
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="N-Layer Design\Diagrama General de la Arquitectura.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="N-Layer Design\Diagrama General de la Arquitectura.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>N-Layer Design\Diagrama General de la Arquitectura.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="N-Layer Design\Diagrama General de la Arquitectura.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>N-Layer Design\Diagrama General de la Arquitectura.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+</Project>

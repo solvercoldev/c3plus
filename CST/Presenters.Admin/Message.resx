@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GetObjectError" xml:space="preserve">
+    <value>Error al recuperar el objeto [{0}] desde la Base de Datos. Comuníquese con el Administrador del sistema.</value>
+  </data>
+  <data name="ProcessOk" xml:space="preserve">
+    <value>Process completed successfully.</value>
+  </data>
+  <data name="ChildNodes" xml:space="preserve">
+    <value>La Opción [{0}]  tiene registros relacionados. Elimine primero las opciones que dependan de ésta e intentelo nuevamente.</value>
+  </data>
+  <data name="DeleteError" xml:space="preserve">
+    <value>Error al  eliminar el objeto. Comuníquese con el Administrador del sistema.</value>
+  </data>
+  <data name="EditError" xml:space="preserve">
+    <value>Error al editar el objeto.  Comuníquese con el Administrador del sistema.</value>
+  </data>
+  <data name="EntityExist" xml:space="preserve">
+    <value>El registro [{0}] ya se encuentra registrado en la Base de Datos.</value>
+  </data>
+  <data name="ListError" xml:space="preserve">
+    <value>Error al listar los objetos del tipo [{0}] desde la Base de Datos</value>
+  </data>
+  <data name="NodeExist" xml:space="preserve">
+    <value>La Opción [{0}] ya se encuentra registrada en la Base de Datos. Ingrese una descripción diferente para la opción!!!</value>
+  </data>
+  <data name="PasswordLength" xml:space="preserve">
+    <value>La longitud del password debe ser mayor a 5 caracteres.</value>
+  </data>
+  <data name="ProcessError" xml:space="preserve">
+    <value>El proceso {0} terminó con errores. Verifique el log de procesamiento para ver los detalles del error.</value>
+  </data>
+  <data name="QueryStringError" xml:space="preserve">
+    <value>Error en la  manipulación de la Cadena de Consulta. Acceso no autorizado: 401</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>Failed to insert the object. Contact your system administrator.</value>
+  </data>
+  <data name="SelectedNode" xml:space="preserve">
+    <value>Error al crear la opción.. Debe primero seleccionar un nodo de la lista.</value>
+  </data>
+  <data name="SelectedRecors" xml:space="preserve">
+    <value>Debe seleccionar por lo menos un registro de la lista {0}</value>
+  </data>
+  <data name="UserError" xml:space="preserve">
+    <value>Acceso denegado al usuario  [{0}]. Comuníquese con el Administrador.</value>
+  </data>
+  <data name="UserExist" xml:space="preserve">
+    <value>El Objeto [{0}] ya se encuentra registrado en la Base de Datos.</value>
+  </data>
+  <data name="UserWindowsError" xml:space="preserve">
+    <value>Error de lectura del usaurio de Red. Verifique la configuración del Sitio en el ISS y Web.Config de la aplicación.</value>
+  </data>
+  <data name="DownloadError" xml:space="preserve">
+    <value>Se produjo un error al descargar el archivo.</value>
+  </data>
+  <data name="CamposObligatorios" xml:space="preserve">
+    <value>All fields are required</value>
+  </data>
+  <data name="DatosRelacionados" xml:space="preserve">
+    <value>You can not delete the record. Has related data</value>
+  </data>
+  <data name="ValidarCamposNull" xml:space="preserve">
+    <value>Must enter at least one field of the form.</value>
+  </data>
+  <data name="MessageEdit" xml:space="preserve">
+    <value>You are about to edit the current record. Note that the changes will be recorded in the system for audit purposes.</value>
+  </data>
+  <data name="RecicleCustomer" xml:space="preserve">
+    <value>Recycling the customer error. Only customers can recycle draft or published state</value>
+  </data>
+  <data name="ErrorRestore" xml:space="preserve">
+    <value>Error restoring the selected records.</value>
+  </data>
+  <data name="ErrorQueryString" xml:space="preserve">
+    <value>The QueryString is null!!!</value>
+  </data>
+  <data name="ErrorUrlFormat" xml:space="preserve">
+    <value>Web Site field does not have the correct format.</value>
+  </data>
+  <data name="ErrorValidacionDigitoChequeo" xml:space="preserve">
+    <value>The check digit does not match the entered the field</value>
+  </data>
+  <data name="ErrorCompleteSections" xml:space="preserve">
+    <value>Must complete sections: [&lt;b&gt;{0}&lt;/b&gt;] to start the publishing process.</value>
+  </data>
+  <data name="ErrorExistNit" xml:space="preserve">
+    <value>The nit {0} already registered</value>
+  </data>
+  <data name="LocationError" xml:space="preserve">
+    <value>Must select a location.</value>
+  </data>
+  <data name="ValidarUsuarioStaff" xml:space="preserve">
+    <value>The selected user already assigned as {0}</value>
+  </data>
+  <data name="ValidarCampoNotNull" xml:space="preserve">
+    <value>The {0} Field  can not be null.</value>
+  </data>
+  <data name="LogDeCambios" xml:space="preserve">
+    <value>The proposal was {0} by the user {1} at {2} in section {3}.</value>
+  </data>
+  <data name="ProposalCreatedModified" xml:space="preserve">
+    <value>The proposal was {0} by the user {1} at {2}.</value>
+  </data>
+  <data name="ErrorValidacionActionPlan" xml:space="preserve">
+    <value>Must complete some categories missing in action plan.</value>
+  </data>
+  <data name="ErrorValidacionTipoArchivo" xml:space="preserve">
+    <value>To continue, load the file type associated with the final proposal.</value>
+  </data>
+  <data name="ProposalStatusChange" xml:space="preserve">
+    <value>The proposal was changed to state {0} user {1} at {2}</value>
+  </data>
+</root>

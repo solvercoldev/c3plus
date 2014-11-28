@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ASP.NETCLIENTE.SiteMaster" %>
+<%@ Register src="~/Pages/UserControls/wucMenuPrincipal.ascx" tagname="wucMenuPrincipal" tagprefix="uc1" %>
+<%@ Register src="~/Pages/UserControls/wucUserLogin.ascx" tagname="wucUserLogin" tagprefix="uc2" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <link rel="shortcut icon" href="~/Resources/images/favico.png?v=2" type="image/x-icon"/>
+    <meta content="JavaScript" name="vs_defaultClientScript"/>
+	<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema"/>
+	<meta http-equiv="Cache-Control" content="no-cache"/>
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+	<meta http-equiv="Page-Exit" content="blendTrans(duration=0.5)"/>	
+	<base target="_self"/>	
+    <title>.: C3+ :.</title>
+    <link href="~/Resources/Styles/Site.css" rel="stylesheet" type="text/css" />   
+    <link href="~/Resources/modules/chosen/chosen.css" rel="stylesheet" type="text/css" /> 
+    <asp:Literal ID="JavaScripts" runat="server" />
+   <script language="javascript" type="text/javascript">
+       javascript: window.history.forward(1);      
+    </script> 
+        
+</head>
+<body >
+    <form id="Form1" runat="server" enctype="multipart/form-data">
+             <asp:ScriptManager 
+            ID="smGeneral" 
+            runat="server"  
+            EnableScriptGlobalization="true" 
+            EnableScriptLocalization="true">
+            </asp:ScriptManager>
+
+            <div id="Header">
+                 <div id="user-info">
+                        <uc2:wucUserLogin ID="wucLogin" runat="server" />
+                 </div>
+                <div class="zocalo1"></div>
+                <div class="zocalo2"></div>
+                
+                <div class="container">
+                    <div class="wrap-header">
+                        <div class="logo_cliente">
+                            <asp:Image ID="imgLogoCliente" runat="server" ImageUrl="~/Resources/Images/logo-cliente.png" Width="100%" Height="100%" />
+                        </div>     
+                        <div class="logo">
+                        </div>                        
+                    </div>                    
+                </div>
+
+                <div id="navbar" class="MenuPrincipalStyle">                    
+                   <uc1:wucMenuPrincipal ID="wucMenuPrincipal1" runat="server" />
+                </div>
+            </div>
+            
+            <div id="adminwrapper" class="container">
+                <div id="contentpane">
+                    <div id="messages" class="ui-widget-header" style="display:none;"></div>
+                    <div id="padding" class="cleanpad8">
+                        <div id="pad" class="min550">
+                        <asp:UpdatePanel ID="upPageTitles" runat="server">
+                            <ContentTemplate> 
+                              <div style="display:block;" class="TituloVentana">
+                                <asp:Literal ID="PageTitleLabel" runat="server" />
+                                <asp:Label ID="AuxPageTitleLabel" runat="server" ForeColor="Orange" />
+                              </div>               
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                            <asp:UpdatePanel ID="upMessages" runat="server">
+                                <ContentTemplate>
+                                    <div 
+                                    id="MessageBox" 
+                                    class="messagebox" 
+                                    runat="server" 
+                                    visible="false" 
+                                    enableviewstate="false">
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>               
+                           <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                        </div>
+                    </div>                     
+
+                </div>
+                <div id="PlaceHolderFooter" class="container">
+                    <asp:ContentPlaceHolder ID="Footer" runat="server" />
+                </div>
+                
+            </div>   
+            <div class="container980">
+                <div class="FooterDiv">
+                    © - Todos los derechos reservados - Diseñado por Solver de Colombia Ltda.
+                </div>   
+            </div>     
+    </form>
+</body>
+</html>
