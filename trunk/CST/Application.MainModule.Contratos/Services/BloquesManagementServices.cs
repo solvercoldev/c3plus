@@ -78,33 +78,18 @@ namespace Application.MainModule.Contratos.Services
             unitOfWork.CommitAndRefreshChanges();
          }
 
-          /// <summary>
-          /// Obtiene una única entidad filtrada por ID.
-          /// </summary>
-         public Bloques FindById(int id)
-         {
+
+
+        public Bloques FindById(int id)
+        {
             if (id == 0)
                 throw new ArgumentNullException(string.Format("Busqueda por Id : El parametro es nulo."));
 
             Specification<Bloques> specification = new DirectSpecification<Bloques>(u => u.IdBloque == id.ToString());
 
             return _BloquesRepository.GetEntityBySpec(specification);
-           
-         }
-
-		 /*
-         public Bloques FindById(string id)
-         {
-             if (string.IsNullOrEmpty(id))
-                 throw new ArgumentNullException(string.Format("Busqueda por Id : El parametro es nulo."));
-
-              Specification<Bloques> specification = new DirectSpecification<Bloques>(u => u.Code == id);
-
-            return _BloquesRepository.GetEntityBySpec(specification);
-         }
-		 */
-
-		
+        }
+         
 
           /// <summary>
           /// Obtiene el listado de entidades activas.
@@ -115,7 +100,17 @@ namespace Application.MainModule.Contratos.Services
             return _BloquesRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public object FindByIdString(string idBloque)
+        {
+            if (string.IsNullOrEmpty(idBloque))
+                throw new ArgumentNullException(string.Format("Busqueda por Id : El parametro es nulo."));
+
+            Specification<Bloques> specification = new DirectSpecification<Bloques>(u => u.IdBloque == idBloque);
+
+            return _BloquesRepository.GetEntityBySpec(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<Bloques> FindPaged(int pageIndex, int pageCount)
@@ -153,6 +148,13 @@ namespace Application.MainModule.Contratos.Services
 
         #endregion
 
+
+        public Bloques GetById(string id)
+        {
+            Specification<Bloques> specification = new DirectSpecification<Bloques>(u => u.IdBloque == id);
+
+            return _BloquesRepository.GetCompleteEntity(specification);
+        }
     }
 }
     

@@ -115,7 +115,24 @@ namespace Application.MainModule.Contratos.Services
             return _TercerosRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public Terceros GetById(string id)
+        {
+            Specification<Terceros> specification = new DirectSpecification<Terceros>(u => u.IdTercero == id);
+
+            return _TercerosRepository.GetEntityBySpec(specification);
+        }
+
+        public object FindByIdString(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                throw new ArgumentNullException(string.Format("Busqueda por Id : El parametro es nulo."));
+
+            Specification<Terceros> specification = new DirectSpecification<Terceros>(u => u.IdTercero == id);
+
+            return _TercerosRepository.GetEntityBySpec(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<Terceros> FindPaged(int pageIndex, int pageCount)

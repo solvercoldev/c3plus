@@ -115,7 +115,14 @@ namespace Application.MainModule.Contratos.Services
             return _TiposPagoObligacionRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public TiposPagoObligacion GetById(string id)
+        {
+            Specification<TiposPagoObligacion> specification = new DirectSpecification<TiposPagoObligacion>(u => u.IdTipoPagoObligacion == id);
+
+            return _TiposPagoObligacionRepository.GetEntityBySpec(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<TiposPagoObligacion> FindPaged(int pageIndex, int pageCount)

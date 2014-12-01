@@ -63,9 +63,7 @@
                         MaxSize="20%"
                         MinSize="15%"
                         BackColor="#FFFFFF">
-                        <Template>  
-                        
-                             <ig:WebDataMenu runat="server" ID="ContextMenu" IsContextMenu="true" OnItemClick="ContextMenuClick"
+                        <ig:WebDataMenu runat="server" ID="ContextMenu" IsContextMenu="true" OnItemClick="ContextMenuClick"
                                 BorderWidth="1" BorderColor="#CCCCCC" EnableScrolling="false">
                                 <ClientEvents ItemClick="MenuItem_Click" />
                                 <AutoPostBackFlags ItemClick="On" />
@@ -86,7 +84,6 @@
                             <ClientEvents NodeClick="Node_Click" />    
                             </ig:WebDataTree>
                             <input type="hidden" id="hndNodeSelected" runat="server" />
-                        </Template>
                 </ig:SplitterPane>
 
                 <ig:SplitterPane 
@@ -94,9 +91,7 @@
                     ToolTip="" 
                     Size="85%"  
                     ScrollBars="Hidden">
-                    <Template>
-
-                         <div style=" height:180px"  >
+                    <div style=" height:180px"  >
                             <table width="100%" class="tblPreView">
                                 <asp:Repeater 
                                 ID="rptDocuments" 
@@ -160,10 +155,7 @@
                                         runat="server"
                                         OnPageChanged="PgrListadoPageChanged"  
                                         pagesize="7"></csc:pagerlinq>	
-                                </div>  
-                        
-
-                    </Template>
+                                </div>
                 </ig:SplitterPane>
             </Panes>
         </ig:WebSplitter>

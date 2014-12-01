@@ -34,6 +34,10 @@ namespace Domain.Core
         /// </summary>
         T FindById(int id);
 
+        /// <summary>
+        /// Busca un registro por Id
+        /// </summary>
+        //T FindByIdString(string id);
         
         /// <summary>
         /// Lista los registros paginados
