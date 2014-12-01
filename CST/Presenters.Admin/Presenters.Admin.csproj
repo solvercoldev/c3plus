@@ -52,6 +52,13 @@
     <Compile Include="IViews\IEditRoleView.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IViews\IFrmEditBloqueView.cs" />
+    <Compile Include="IViews\IFrmEditTerceroView.cs" />
+    <Compile Include="IViews\IFrmEditTipoObligacionView.cs" />
+    <Compile Include="IViews\IFrmViewBloquesView.cs" />
+    <Compile Include="IViews\IFrmViewCamposView.cs" />
+    <Compile Include="IViews\IFrmViewTercerosView.cs" />
+    <Compile Include="IViews\IFrmViewTipoObligacionView.cs" />
     <Compile Include="IViews\ILogout.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,6 +81,13 @@
     <Compile Include="Presenters\EditRolePresenter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Presenters\FrmEditBloquePresenter.cs" />
+    <Compile Include="Presenters\FrmEditTerceroPresenter.cs" />
+    <Compile Include="Presenters\FrmEditTipoObligacionPresenter.cs" />
+    <Compile Include="Presenters\FrmViewBloquesPresenter.cs" />
+    <Compile Include="Presenters\FrmViewCamposPresenter.cs" />
+    <Compile Include="Presenters\FrmViewTercerosPresenter.cs" />
+    <Compile Include="Presenters\FrmViewTipoObligacionPresenter.cs" />
     <Compile Include="Presenters\LogoutPresenter.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -97,6 +111,10 @@
     <ProjectReference Include="..\Application.Core\Application.Core.csproj">
       <Project>{43E44D76-4378-4A99-9100-7C5CDFB9DAC0}</Project>
       <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.Contratos\Application.MainModule.Contratos.csproj">
+      <Project>{6EB59DCD-4D37-4BBB-89B7-E180B0749A5C}</Project>
+      <Name>Application.MainModule.Contratos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Applications.MainModule.Admin\Applications.MainModule.Admin.csproj">
       <Project>{FD7F4861-2115-473B-B704-8F0DC443D11C}</Project>
