@@ -86,6 +86,7 @@
             </asp:Panel>            
         </td>
         <td style="width:15%; text-align:center;vertical-align:top;" >
+
             <asp:Button ID="btnSuspender" runat="server" Text="Suspender" CommandArgument="Suspensión" Width="80px" OnClick="BtnAddNovedad_Click" />
             
             <asp:Button ID="btnRestituir" runat="server" Text="Restituir" CommandArgument="Reiniciar" Width="80px" OnClick="BtnAddNovedad_Click" />

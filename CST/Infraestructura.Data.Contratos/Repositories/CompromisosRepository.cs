@@ -46,6 +46,8 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
                                     .Include(x => x.PagosObligaciones.Select(e => e.TiposPagoObligacion))
                                     .Include(x => x.EntregablesANHCompromiso)
                                     .Include(x => x.EntregablesANHCompromiso.Select(e => e.ManualAnh))
+                                    .Include(x => x.TBL_Admin_Usuarios) // CreateBy
+                                    .Include(x => x.TBL_Admin_Usuarios1) // MOdifie                                    
                                     .Where(specific)
                                     .SingleOrDefault();
             }

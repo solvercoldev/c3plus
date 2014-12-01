@@ -196,6 +196,18 @@ namespace Application.MainModule.Contratos.Services
 
             return _ContratosRepository.GetCompleteEntityList(specification);
         }
+
+
+        public bool ExistsContratoByNumero(string numero)
+        {
+            numero = numero.Trim();
+            Specification<Domain.MainModules.Entities.Contratos> specification = new DirectSpecification<Domain.MainModules.Entities.Contratos>(u => u.IsActive && u.NumeroContrato == numero);
+
+            var contrato = _ContratosRepository.GetEntityBySpec(specification);
+
+            return contrato != null;
+
+        }
     }
 }
     

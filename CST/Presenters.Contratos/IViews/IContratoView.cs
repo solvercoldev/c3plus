@@ -19,6 +19,7 @@ namespace Presenters.Contratos.IViews
         string FechaEfectiva { get; set; }
         string Periodo { get; set; }
         string ImagenContrato { set; }
+        string MsgLogInfo { get; set; }
 
         bool CanTrabajarFases { get; set; }
 

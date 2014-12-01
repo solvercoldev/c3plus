@@ -93,8 +93,8 @@ namespace Modules.Contratos.Admin
                         messages.Add(string.Format("Es necesario ingresar por lo menos un entregable ANH asociado al pago obligación."));
                     break;
                 case "Pago":
-                    //if(string.IsNullOrEmpty(NumeroDocumentoPago))
-                    //    messages.Add(string.Format("Es necesario ingresar un numero de documento asociado al pago obligación."));
+                    if (ValorPago <= 0)
+                        messages.Add(string.Format("El valor del pago debe ser mayo a 0."));
                     break;
             }
 
@@ -389,12 +389,20 @@ namespace Modules.Contratos.Admin
 
         public void GoToContratoView()
         {
-            Response.Redirect(string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
+            switch (FromPage)
+            {
+                case "contrato":
+                    Response.Redirect(string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
+                    break;
+                case "fases":
+                    Response.Redirect(string.Format("FrmManageFasesContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
+                    break;
+            }            
         }
 
         public void GoToCompromisoView(long idCompromiso)
         {
-            Response.Redirect(string.Format("FrmAdminCompromisoContrato.aspx?ModuleId={0}&IdContrato={1}&IdCompromiso={2}", ModuleId, IdContrato, idCompromiso));
+            Response.Redirect(string.Format("FrmAdminCompromisoContrato.aspx?ModuleId={0}&IdContrato={1}&IdCompromiso={2}&from={2}", ModuleId, IdContrato, idCompromiso, FromPage));
         }
 
         #endregion

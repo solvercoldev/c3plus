@@ -1833,6 +1833,41 @@ namespace Domain.MainModules.Entities
         private TrackableCollection<Radicados> _radicados3;
     
         [DataMember]
+        public TrackableCollection<Radicados> Radicados4
+        {
+            get
+            {
+                if (_radicados4 == null)
+                {
+                    _radicados4 = new TrackableCollection<Radicados>();
+                    _radicados4.CollectionChanged += FixupRadicados4;
+                }
+                return _radicados4;
+            }
+            set
+            {
+                if (!ReferenceEquals(_radicados4, value))
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
+                    }
+                    if (_radicados4 != null)
+                    {
+                        _radicados4.CollectionChanged -= FixupRadicados4;
+                    }
+                    _radicados4 = value;
+                    if (_radicados4 != null)
+                    {
+                        _radicados4.CollectionChanged += FixupRadicados4;
+                    }
+                    OnNavigationPropertyChanged("Radicados4");
+                }
+            }
+        }
+        private TrackableCollection<Radicados> _radicados4;
+    
+        [DataMember]
         public TrackableCollection<TiposContrato> TiposContrato
         {
             get
@@ -1938,39 +1973,39 @@ namespace Domain.MainModules.Entities
         private TrackableCollection<Compromisos> _compromisos2;
     
         [DataMember]
-        public TrackableCollection<Radicados> Radicados4
+        public TrackableCollection<Radicados> Radicados5
         {
             get
             {
-                if (_radicados4 == null)
+                if (_radicados5 == null)
                 {
-                    _radicados4 = new TrackableCollection<Radicados>();
-                    _radicados4.CollectionChanged += FixupRadicados4;
+                    _radicados5 = new TrackableCollection<Radicados>();
+                    _radicados5.CollectionChanged += FixupRadicados5;
                 }
-                return _radicados4;
+                return _radicados5;
             }
             set
             {
-                if (!ReferenceEquals(_radicados4, value))
+                if (!ReferenceEquals(_radicados5, value))
                 {
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
                         throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
                     }
-                    if (_radicados4 != null)
+                    if (_radicados5 != null)
                     {
-                        _radicados4.CollectionChanged -= FixupRadicados4;
+                        _radicados5.CollectionChanged -= FixupRadicados5;
                     }
-                    _radicados4 = value;
-                    if (_radicados4 != null)
+                    _radicados5 = value;
+                    if (_radicados5 != null)
                     {
-                        _radicados4.CollectionChanged += FixupRadicados4;
+                        _radicados5.CollectionChanged += FixupRadicados5;
                     }
-                    OnNavigationPropertyChanged("Radicados4");
+                    OnNavigationPropertyChanged("Radicados5");
                 }
             }
         }
-        private TrackableCollection<Radicados> _radicados4;
+        private TrackableCollection<Radicados> _radicados5;
     
         [DataMember]
         public TrackableCollection<TBL_Admin_Roles> TBL_Admin_Roles
@@ -2162,10 +2197,11 @@ namespace Domain.MainModules.Entities
             Radicados1.Clear();
             Radicados2.Clear();
             Radicados3.Clear();
+            Radicados4.Clear();
             TiposContrato.Clear();
             TiposContrato1.Clear();
             Compromisos2.Clear();
-            Radicados4.Clear();
+            Radicados5.Clear();
             TBL_Admin_Roles.Clear();
             ComentariosRespuesta3.Clear();
         }
@@ -3821,6 +3857,45 @@ namespace Domain.MainModules.Entities
             }
         }
     
+        private void FixupRadicados4(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (e.NewItems != null)
+            {
+                foreach (Radicados item in e.NewItems)
+                {
+                    item.TBL_Admin_Usuarios4 = this;
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        if (!item.ChangeTracker.ChangeTrackingEnabled)
+                        {
+                            item.StartTracking();
+                        }
+                        ChangeTracker.RecordAdditionToCollectionProperties("Radicados4", item);
+                    }
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Radicados item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.TBL_Admin_Usuarios4, this))
+                    {
+                        item.TBL_Admin_Usuarios4 = null;
+                    }
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        ChangeTracker.RecordRemovalFromCollectionProperties("Radicados4", item);
+                    }
+                }
+            }
+        }
+    
         private void FixupTiposContrato(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (IsDeserializing)
@@ -3941,7 +4016,7 @@ namespace Domain.MainModules.Entities
             }
         }
     
-        private void FixupRadicados4(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupRadicados5(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (IsDeserializing)
             {
@@ -3952,9 +4027,9 @@ namespace Domain.MainModules.Entities
             {
                 foreach (Radicados item in e.NewItems)
                 {
-                    if (!item.TBL_Admin_Usuarios4.Contains(this))
+                    if (!item.TBL_Admin_Usuarios5.Contains(this))
                     {
-                        item.TBL_Admin_Usuarios4.Add(this);
+                        item.TBL_Admin_Usuarios5.Add(this);
                     }
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
@@ -3962,7 +4037,7 @@ namespace Domain.MainModules.Entities
                         {
                             item.StartTracking();
                         }
-                        ChangeTracker.RecordAdditionToCollectionProperties("Radicados4", item);
+                        ChangeTracker.RecordAdditionToCollectionProperties("Radicados5", item);
                     }
                 }
             }
@@ -3971,13 +4046,13 @@ namespace Domain.MainModules.Entities
             {
                 foreach (Radicados item in e.OldItems)
                 {
-                    if (item.TBL_Admin_Usuarios4.Contains(this))
+                    if (item.TBL_Admin_Usuarios5.Contains(this))
                     {
-                        item.TBL_Admin_Usuarios4.Remove(this);
+                        item.TBL_Admin_Usuarios5.Remove(this);
                     }
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
-                        ChangeTracker.RecordRemovalFromCollectionProperties("Radicados4", item);
+                        ChangeTracker.RecordRemovalFromCollectionProperties("Radicados5", item);
                     }
                 }
             }

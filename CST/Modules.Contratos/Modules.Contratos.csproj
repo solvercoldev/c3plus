@@ -87,16 +87,19 @@
     <Content Include="Admin\FrmAdminCompromisoContrato.aspx" />
     <Content Include="Admin\FrmAdminContrato.aspx" />
     <Content Include="Admin\FrmAdminFasesContrato.aspx" />
+    <Content Include="Admin\FrmAdminRadicadoContrato.aspx" />
     <Content Include="Admin\FrmContrato.aspx" />
     <Content Include="Admin\FrmContratoLocationPreview.aspx" />
     <Content Include="Admin\FrmManageFasesContrato.aspx" />
     <Content Include="Admin\FrmNewCompromisoContrato.aspx" />
+    <Content Include="Admin\FrmNewRadicadoContrato.aspx" />
     <Content Include="UserControls\WuCAdminComentariosContrato.ascx" />
     <Content Include="UserControls\WuCAdminCompromisosContrato.ascx" />
     <Content Include="UserControls\WuCAdminCompromisosFasesContrato.ascx" />
     <Content Include="UserControls\WuCAdminDocumentacionContrato.ascx" />
     <Content Include="UserControls\WuCAdminNovedadesContrato.ascx" />
     <Content Include="UserControls\WuCAdminNovedadesFasesContrato.ascx" />
+    <Content Include="UserControls\WuCAdminRadicadosContrato.ascx" />
     <Content Include="UserControls\WuCLogContratos.ascx" />
     <Content Include="Views\FrmTotalCompromisos.aspx" />
     <Content Include="Views\GeneralContractList.aspx" />
@@ -137,6 +140,13 @@
     <Compile Include="Admin\FrmAdminFasesContrato.aspx.designer.cs">
       <DependentUpon>FrmAdminFasesContrato.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmAdminRadicadoContrato.aspx.cs">
+      <DependentUpon>FrmAdminRadicadoContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmAdminRadicadoContrato.aspx.designer.cs">
+      <DependentUpon>FrmAdminRadicadoContrato.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FrmContrato.aspx.cs">
       <DependentUpon>FrmContrato.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +174,13 @@
     </Compile>
     <Compile Include="Admin\FrmNewCompromisoContrato.aspx.designer.cs">
       <DependentUpon>FrmNewCompromisoContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmNewRadicadoContrato.aspx.cs">
+      <DependentUpon>FrmNewRadicadoContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmNewRadicadoContrato.aspx.designer.cs">
+      <DependentUpon>FrmNewRadicadoContrato.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContratosModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -216,6 +233,13 @@
     </Compile>
     <Compile Include="UserControls\WuCAdminNovedadesFasesContrato.ascx.designer.cs">
       <DependentUpon>WuCAdminNovedadesFasesContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminRadicadosContrato.ascx.cs">
+      <DependentUpon>WuCAdminRadicadosContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminRadicadosContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminRadicadosContrato.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WuCLogContratos.ascx.cs">
       <DependentUpon>WuCLogContratos.ascx</DependentUpon>

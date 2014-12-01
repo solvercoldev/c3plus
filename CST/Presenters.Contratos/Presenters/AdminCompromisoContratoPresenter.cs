@@ -178,6 +178,10 @@ namespace Presenters.Contratos.Presenters
                             break;
                     }
 
+                    View.MsgLogInfo = string.Format("Creado por {0} en {1:dd/MM/yyyy hh:mm tt}. Modificado por {2} en {3:dd/MM/yyyy hh:mm tt}.",
+                                                    compromiso.TBL_Admin_Usuarios.Nombres, compromiso.CreateOn,
+                                                    compromiso.TBL_Admin_Usuarios1.Nombres, compromiso.ModifiedOn);
+
                     View.ShowTipoAsociacion(compromiso.TipoAsociacion);
 
                     View.EnableEditCompromiso(false);
@@ -197,10 +201,14 @@ namespace Presenters.Contratos.Presenters
             try
             {
                 var compromiso = _compromisosService.GetById(Convert.ToInt64(View.IdCompromiso));
+
+                var model = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
                 
                 if (compromiso != null)
                 {
                     compromiso.Descripcion = View.Descripcion;
+                    compromiso.ModifiedBy = View.UserSession.IdUser;
+                    compromiso.ModifiedOn = DateTime.Now;
 
                     _compromisosService.Modify(compromiso);
 
@@ -230,6 +238,11 @@ namespace Presenters.Contratos.Presenters
                                                 ,compromiso.Fases.Nombre);
                 _log.Add(log);
 
+                model.ModifiedBy = View.UserSession.IdUser;
+                model.ModifiedOn = log.CreateOn.GetValueOrDefault();
+
+                _contratoService.Modify(model);
+
                 LoadCompromiso();
             }
             catch (Exception ex)
@@ -245,6 +258,8 @@ namespace Presenters.Contratos.Presenters
             try
             {
                 var compromiso = _compromisosService.GetById(Convert.ToInt64(View.IdCompromiso));
+
+                var model = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
 
                 if (compromiso != null)
                 {
@@ -276,6 +291,11 @@ namespace Presenters.Contratos.Presenters
                                                     , compromiso.Nombre
                                                     , compromiso.Fases.Nombre);
                     _log.Add(log);
+
+                    model.ModifiedBy = View.UserSession.IdUser;
+                    model.ModifiedOn = log.CreateOn.GetValueOrDefault();
+
+                    _contratoService.Modify(model);
                 }                
 
                 LoadCompromiso();

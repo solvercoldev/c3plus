@@ -227,6 +227,7 @@ namespace Presenters.Contratos.Presenters
             {
                 var model = GetModel();
                 _compromisosService.Add(model);
+                var contrato = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
 
                 switch (View.TipoAsociacion)                
                 {
@@ -251,6 +252,11 @@ namespace Presenters.Contratos.Presenters
                 var log = GetLog();
                 log.Descripcion = string.Format("El usuario [{0}], ha ingresado un nuevo compromiso.", View.UserSession.Nombres);
                 _log.Add(log);
+
+                contrato.ModifiedBy = View.UserSession.IdUser;
+                contrato.ModifiedOn = DateTime.Now;
+
+                _contratoService.Modify(contrato);
 
                 View.GoToCompromisoView(model.IdCompromiso);
             }

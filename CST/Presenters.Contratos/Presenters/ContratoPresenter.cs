@@ -74,7 +74,11 @@ namespace Presenters.Contratos.Presenters
                     var estadoAccion = _estadosAccionService.GetByEstado(contrato.Estado);
 
                     if (estadoAccion != null)
-                        View.CanTrabajarFases = estadoAccion.TrabajarFases;                    
+                        View.CanTrabajarFases = estadoAccion.TrabajarFases;
+
+                    View.MsgLogInfo = string.Format("Creado por {0} en {1:dd/MM/yyyy hh:mm tt}. Modificado por {2} en {3:dd/MM/yyyy hh:mm tt}.",
+                                                    contrato.TBL_Admin_Usuarios.Nombres, contrato.CreateOn,
+                                                    contrato.TBL_Admin_Usuarios1.Nombres, contrato.ModifiedOn);
                 }                
             }
             catch (Exception ex)

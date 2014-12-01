@@ -22,6 +22,7 @@ namespace Domain.MainModules.Entities
     [DataContract(IsReference = true)]
     [KnownType(typeof(Contratos))]
     [KnownType(typeof(DocumentosRadicado))]
+    [KnownType(typeof(Radicados))]
     [KnownType(typeof(TBL_Admin_Usuarios))]
     
     public partial class Radicados: IObjectWithChangeTracker, INotifyPropertyChanged
@@ -71,7 +72,7 @@ namespace Domain.MainModules.Entities
         private long _idRadicado;
     
         [DataMember]
-        public byte TipoRadicado
+        public string TipoRadicado
         {
             get { return _tipoRadicado; }
             set
@@ -83,7 +84,7 @@ namespace Domain.MainModules.Entities
                 }
             }
         }
-        private byte _tipoRadicado;
+        private string _tipoRadicado;
     
         [DataMember]
         public string Numero
@@ -141,9 +142,9 @@ namespace Domain.MainModules.Entities
                     ChangeTracker.RecordOriginalValue("IdFrom", _idFrom);
                     if (!IsDeserializing)
                     {
-                        if (TBL_Admin_Usuarios2 != null && TBL_Admin_Usuarios2.IdUser != value)
+                        if (TBL_Admin_Usuarios3 != null && TBL_Admin_Usuarios3.IdUser != value)
                         {
-                            TBL_Admin_Usuarios2 = null;
+                            TBL_Admin_Usuarios3 = null;
                         }
                     }
                     _idFrom = value;
@@ -179,9 +180,9 @@ namespace Domain.MainModules.Entities
                     ChangeTracker.RecordOriginalValue("IdTo", _idTo);
                     if (!IsDeserializing)
                     {
-                        if (TBL_Admin_Usuarios3 != null && TBL_Admin_Usuarios3.IdUser != value)
+                        if (TBL_Admin_Usuarios4 != null && TBL_Admin_Usuarios4.IdUser != value)
                         {
-                            TBL_Admin_Usuarios3 = null;
+                            TBL_Admin_Usuarios4 = null;
                         }
                     }
                     _idTo = value;
@@ -237,7 +238,7 @@ namespace Domain.MainModules.Entities
         private bool _respuestaPendiente;
     
         [DataMember]
-        public byte EstadoRadicado
+        public string EstadoRadicado
         {
             get { return _estadoRadicado; }
             set
@@ -249,7 +250,7 @@ namespace Domain.MainModules.Entities
                 }
             }
         }
-        private byte _estadoRadicado;
+        private string _estadoRadicado;
     
         [DataMember]
         public Nullable<System.DateTime> FechaRespuesta
@@ -267,19 +268,65 @@ namespace Domain.MainModules.Entities
         private Nullable<System.DateTime> _fechaRespuesta;
     
         [DataMember]
-        public long IdRadicadoEntrada
+        public Nullable<int> ResponsableRespuesta
+        {
+            get { return _responsableRespuesta; }
+            set
+            {
+                if (_responsableRespuesta != value)
+                {
+                    ChangeTracker.RecordOriginalValue("ResponsableRespuesta", _responsableRespuesta);
+                    if (!IsDeserializing)
+                    {
+                        if (TBL_Admin_Usuarios2 != null && TBL_Admin_Usuarios2.IdUser != value)
+                        {
+                            TBL_Admin_Usuarios2 = null;
+                        }
+                    }
+                    _responsableRespuesta = value;
+                    OnPropertyChanged("ResponsableRespuesta");
+                }
+            }
+        }
+        private Nullable<int> _responsableRespuesta;
+    
+        [DataMember]
+        public Nullable<long> IdRadicadoEntrada
         {
             get { return _idRadicadoEntrada; }
             set
             {
                 if (_idRadicadoEntrada != value)
                 {
+                    ChangeTracker.RecordOriginalValue("IdRadicadoEntrada", _idRadicadoEntrada);
+                    if (!IsDeserializing)
+                    {
+                        if (Radicados2 != null && Radicados2.IdRadicado != value)
+                        {
+                            Radicados2 = null;
+                        }
+                    }
                     _idRadicadoEntrada = value;
                     OnPropertyChanged("IdRadicadoEntrada");
                 }
             }
         }
-        private long _idRadicadoEntrada;
+        private Nullable<long> _idRadicadoEntrada;
+    
+        [DataMember]
+        public Nullable<int> DiasAlarma
+        {
+            get { return _diasAlarma; }
+            set
+            {
+                if (_diasAlarma != value)
+                {
+                    _diasAlarma = value;
+                    OnPropertyChanged("DiasAlarma");
+                }
+            }
+        }
+        private Nullable<int> _diasAlarma;
     
         [DataMember]
         public bool IsActive
@@ -428,6 +475,58 @@ namespace Domain.MainModules.Entities
         private TrackableCollection<DocumentosRadicado> _documentosRadicado;
     
         [DataMember]
+        public TrackableCollection<Radicados> Radicados1
+        {
+            get
+            {
+                if (_radicados1 == null)
+                {
+                    _radicados1 = new TrackableCollection<Radicados>();
+                    _radicados1.CollectionChanged += FixupRadicados1;
+                }
+                return _radicados1;
+            }
+            set
+            {
+                if (!ReferenceEquals(_radicados1, value))
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
+                    }
+                    if (_radicados1 != null)
+                    {
+                        _radicados1.CollectionChanged -= FixupRadicados1;
+                    }
+                    _radicados1 = value;
+                    if (_radicados1 != null)
+                    {
+                        _radicados1.CollectionChanged += FixupRadicados1;
+                    }
+                    OnNavigationPropertyChanged("Radicados1");
+                }
+            }
+        }
+        private TrackableCollection<Radicados> _radicados1;
+    
+        [DataMember]
+        public Radicados Radicados2
+        {
+            get { return _radicados2; }
+            set
+            {
+                if (!ReferenceEquals(_radicados2, value))
+                {
+                    var previousValue = _radicados2;
+                    _radicados2 = value;
+                    FixupRadicados2(previousValue);
+                    OnNavigationPropertyChanged("Radicados2");
+                }
+            }
+        }
+        private Radicados _radicados2;
+    
+        [DataMember]
         public TBL_Admin_Usuarios TBL_Admin_Usuarios
         {
             get { return _tBL_Admin_Usuarios; }
@@ -496,39 +595,56 @@ namespace Domain.MainModules.Entities
         private TBL_Admin_Usuarios _tBL_Admin_Usuarios3;
     
         [DataMember]
-        public TrackableCollection<TBL_Admin_Usuarios> TBL_Admin_Usuarios4
+        public TBL_Admin_Usuarios TBL_Admin_Usuarios4
         {
-            get
-            {
-                if (_tBL_Admin_Usuarios4 == null)
-                {
-                    _tBL_Admin_Usuarios4 = new TrackableCollection<TBL_Admin_Usuarios>();
-                    _tBL_Admin_Usuarios4.CollectionChanged += FixupTBL_Admin_Usuarios4;
-                }
-                return _tBL_Admin_Usuarios4;
-            }
+            get { return _tBL_Admin_Usuarios4; }
             set
             {
                 if (!ReferenceEquals(_tBL_Admin_Usuarios4, value))
+                {
+                    var previousValue = _tBL_Admin_Usuarios4;
+                    _tBL_Admin_Usuarios4 = value;
+                    FixupTBL_Admin_Usuarios4(previousValue);
+                    OnNavigationPropertyChanged("TBL_Admin_Usuarios4");
+                }
+            }
+        }
+        private TBL_Admin_Usuarios _tBL_Admin_Usuarios4;
+    
+        [DataMember]
+        public TrackableCollection<TBL_Admin_Usuarios> TBL_Admin_Usuarios5
+        {
+            get
+            {
+                if (_tBL_Admin_Usuarios5 == null)
+                {
+                    _tBL_Admin_Usuarios5 = new TrackableCollection<TBL_Admin_Usuarios>();
+                    _tBL_Admin_Usuarios5.CollectionChanged += FixupTBL_Admin_Usuarios5;
+                }
+                return _tBL_Admin_Usuarios5;
+            }
+            set
+            {
+                if (!ReferenceEquals(_tBL_Admin_Usuarios5, value))
                 {
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
                         throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
                     }
-                    if (_tBL_Admin_Usuarios4 != null)
+                    if (_tBL_Admin_Usuarios5 != null)
                     {
-                        _tBL_Admin_Usuarios4.CollectionChanged -= FixupTBL_Admin_Usuarios4;
+                        _tBL_Admin_Usuarios5.CollectionChanged -= FixupTBL_Admin_Usuarios5;
                     }
-                    _tBL_Admin_Usuarios4 = value;
-                    if (_tBL_Admin_Usuarios4 != null)
+                    _tBL_Admin_Usuarios5 = value;
+                    if (_tBL_Admin_Usuarios5 != null)
                     {
-                        _tBL_Admin_Usuarios4.CollectionChanged += FixupTBL_Admin_Usuarios4;
+                        _tBL_Admin_Usuarios5.CollectionChanged += FixupTBL_Admin_Usuarios5;
                     }
-                    OnNavigationPropertyChanged("TBL_Admin_Usuarios4");
+                    OnNavigationPropertyChanged("TBL_Admin_Usuarios5");
                 }
             }
         }
-        private TrackableCollection<TBL_Admin_Usuarios> _tBL_Admin_Usuarios4;
+        private TrackableCollection<TBL_Admin_Usuarios> _tBL_Admin_Usuarios5;
 
         #endregion
         #region ChangeTracking
@@ -610,11 +726,14 @@ namespace Domain.MainModules.Entities
         {
             Contratos = null;
             DocumentosRadicado.Clear();
+            Radicados1.Clear();
+            Radicados2 = null;
             TBL_Admin_Usuarios = null;
             TBL_Admin_Usuarios1 = null;
             TBL_Admin_Usuarios2 = null;
             TBL_Admin_Usuarios3 = null;
-            TBL_Admin_Usuarios4.Clear();
+            TBL_Admin_Usuarios4 = null;
+            TBL_Admin_Usuarios5.Clear();
         }
 
         #endregion
@@ -655,6 +774,50 @@ namespace Domain.MainModules.Entities
                 if (Contratos != null && !Contratos.ChangeTracker.ChangeTrackingEnabled)
                 {
                     Contratos.StartTracking();
+                }
+            }
+        }
+    
+        private void FixupRadicados2(Radicados previousValue, bool skipKeys = false)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (previousValue != null && previousValue.Radicados1.Contains(this))
+            {
+                previousValue.Radicados1.Remove(this);
+            }
+    
+            if (Radicados2 != null)
+            {
+                if (!Radicados2.Radicados1.Contains(this))
+                {
+                    Radicados2.Radicados1.Add(this);
+                }
+    
+                IdRadicadoEntrada = Radicados2.IdRadicado;
+            }
+            else if (!skipKeys)
+            {
+                IdRadicadoEntrada = null;
+            }
+    
+            if (ChangeTracker.ChangeTrackingEnabled)
+            {
+                if (ChangeTracker.OriginalValues.ContainsKey("Radicados2")
+                    && (ChangeTracker.OriginalValues["Radicados2"] == Radicados2))
+                {
+                    ChangeTracker.OriginalValues.Remove("Radicados2");
+                }
+                else
+                {
+                    ChangeTracker.RecordOriginalValue("Radicados2", previousValue);
+                }
+                if (Radicados2 != null && !Radicados2.ChangeTracker.ChangeTrackingEnabled)
+                {
+                    Radicados2.StartTracking();
                 }
             }
         }
@@ -756,11 +919,11 @@ namespace Domain.MainModules.Entities
                     TBL_Admin_Usuarios2.Radicados2.Add(this);
                 }
     
-                IdFrom = TBL_Admin_Usuarios2.IdUser;
+                ResponsableRespuesta = TBL_Admin_Usuarios2.IdUser;
             }
             else if (!skipKeys)
             {
-                IdFrom = null;
+                ResponsableRespuesta = null;
             }
     
             if (ChangeTracker.ChangeTrackingEnabled)
@@ -800,11 +963,11 @@ namespace Domain.MainModules.Entities
                     TBL_Admin_Usuarios3.Radicados3.Add(this);
                 }
     
-                IdTo = TBL_Admin_Usuarios3.IdUser;
+                IdFrom = TBL_Admin_Usuarios3.IdUser;
             }
             else if (!skipKeys)
             {
-                IdTo = null;
+                IdFrom = null;
             }
     
             if (ChangeTracker.ChangeTrackingEnabled)
@@ -821,6 +984,50 @@ namespace Domain.MainModules.Entities
                 if (TBL_Admin_Usuarios3 != null && !TBL_Admin_Usuarios3.ChangeTracker.ChangeTrackingEnabled)
                 {
                     TBL_Admin_Usuarios3.StartTracking();
+                }
+            }
+        }
+    
+        private void FixupTBL_Admin_Usuarios4(TBL_Admin_Usuarios previousValue, bool skipKeys = false)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (previousValue != null && previousValue.Radicados4.Contains(this))
+            {
+                previousValue.Radicados4.Remove(this);
+            }
+    
+            if (TBL_Admin_Usuarios4 != null)
+            {
+                if (!TBL_Admin_Usuarios4.Radicados4.Contains(this))
+                {
+                    TBL_Admin_Usuarios4.Radicados4.Add(this);
+                }
+    
+                IdTo = TBL_Admin_Usuarios4.IdUser;
+            }
+            else if (!skipKeys)
+            {
+                IdTo = null;
+            }
+    
+            if (ChangeTracker.ChangeTrackingEnabled)
+            {
+                if (ChangeTracker.OriginalValues.ContainsKey("TBL_Admin_Usuarios4")
+                    && (ChangeTracker.OriginalValues["TBL_Admin_Usuarios4"] == TBL_Admin_Usuarios4))
+                {
+                    ChangeTracker.OriginalValues.Remove("TBL_Admin_Usuarios4");
+                }
+                else
+                {
+                    ChangeTracker.RecordOriginalValue("TBL_Admin_Usuarios4", previousValue);
+                }
+                if (TBL_Admin_Usuarios4 != null && !TBL_Admin_Usuarios4.ChangeTracker.ChangeTrackingEnabled)
+                {
+                    TBL_Admin_Usuarios4.StartTracking();
                 }
             }
         }
@@ -864,7 +1071,46 @@ namespace Domain.MainModules.Entities
             }
         }
     
-        private void FixupTBL_Admin_Usuarios4(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupRadicados1(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (e.NewItems != null)
+            {
+                foreach (Radicados item in e.NewItems)
+                {
+                    item.Radicados2 = this;
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        if (!item.ChangeTracker.ChangeTrackingEnabled)
+                        {
+                            item.StartTracking();
+                        }
+                        ChangeTracker.RecordAdditionToCollectionProperties("Radicados1", item);
+                    }
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Radicados item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Radicados2, this))
+                    {
+                        item.Radicados2 = null;
+                    }
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        ChangeTracker.RecordRemovalFromCollectionProperties("Radicados1", item);
+                    }
+                }
+            }
+        }
+    
+        private void FixupTBL_Admin_Usuarios5(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (IsDeserializing)
             {
@@ -875,9 +1121,9 @@ namespace Domain.MainModules.Entities
             {
                 foreach (TBL_Admin_Usuarios item in e.NewItems)
                 {
-                    if (!item.Radicados4.Contains(this))
+                    if (!item.Radicados5.Contains(this))
                     {
-                        item.Radicados4.Add(this);
+                        item.Radicados5.Add(this);
                     }
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
@@ -885,7 +1131,7 @@ namespace Domain.MainModules.Entities
                         {
                             item.StartTracking();
                         }
-                        ChangeTracker.RecordAdditionToCollectionProperties("TBL_Admin_Usuarios4", item);
+                        ChangeTracker.RecordAdditionToCollectionProperties("TBL_Admin_Usuarios5", item);
                     }
                 }
             }
@@ -894,13 +1140,13 @@ namespace Domain.MainModules.Entities
             {
                 foreach (TBL_Admin_Usuarios item in e.OldItems)
                 {
-                    if (item.Radicados4.Contains(this))
+                    if (item.Radicados5.Contains(this))
                     {
-                        item.Radicados4.Remove(this);
+                        item.Radicados5.Remove(this);
                     }
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
-                        ChangeTracker.RecordRemovalFromCollectionProperties("TBL_Admin_Usuarios4", item);
+                        ChangeTracker.RecordRemovalFromCollectionProperties("TBL_Admin_Usuarios5", item);
                     }
                 }
             }

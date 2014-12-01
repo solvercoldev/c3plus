@@ -23,6 +23,7 @@ namespace Modules.Contratos.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             ImprimirTituloVentana(string.Format("Vista de Contratos"));
+            Session["WuC_LastLoaded"] = string.Empty;
         }
 
         protected override void OnInit(EventArgs e)
