@@ -6,7 +6,7 @@ namespace Domain.MainModule.Contratos.Contracts
 {
     public interface IBloquesRepository : IRepository<Bloques>
     {
-        
+        Bloques GetCompleteEntity(ISpecification<Bloques> specification);
     }
 }
     

@@ -69,6 +69,13 @@
     <Content Include="Catalogos\FrmEditModule.aspx" />
     <Content Include="Catalogos\FrmEditOptionItem.aspx" />
     <Content Include="Catalogos\FrmViewOptionList.aspx" />
+    <Content Include="Catalogos\FrmViewBloques.aspx" />
+    <Content Include="Catalogos\FrmEditBloque.aspx" />
+    <Content Include="Catalogos\FrmViewTerceros.aspx" />
+    <Content Include="Catalogos\FrmEditTercero.aspx" />
+    <Content Include="Catalogos\FrmViewTipoObligacion.aspx" />
+    <Content Include="Catalogos\FrmEditTipoObligacion.aspx" />
+    <Content Include="Catalogos\FrmViewCampos.aspx" />
     <Content Include="Install\DataBase\mssql2000\1.0.0.sql" />
     <Content Include="Install\DataBase\mssql2000\Install.sql" />
     <Content Include="Web.config" />
@@ -116,6 +123,55 @@
     <Compile Include="Catalogos\FrmViewOptionList.aspx.designer.cs">
       <DependentUpon>FrmViewOptionList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Catalogos\FrmViewBloques.aspx.cs">
+      <DependentUpon>FrmViewBloques.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewBloques.aspx.designer.cs">
+      <DependentUpon>FrmViewBloques.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditBloque.aspx.cs">
+      <DependentUpon>FrmEditBloque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditBloque.aspx.designer.cs">
+      <DependentUpon>FrmEditBloque.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewTerceros.aspx.cs">
+      <DependentUpon>FrmViewTerceros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewTerceros.aspx.designer.cs">
+      <DependentUpon>FrmViewTerceros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditTercero.aspx.cs">
+      <DependentUpon>FrmEditTercero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditTercero.aspx.designer.cs">
+      <DependentUpon>FrmEditTercero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewTipoObligacion.aspx.cs">
+      <DependentUpon>FrmViewTipoObligacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewTipoObligacion.aspx.designer.cs">
+      <DependentUpon>FrmViewTipoObligacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditTipoObligacion.aspx.cs">
+      <DependentUpon>FrmEditTipoObligacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditTipoObligacion.aspx.designer.cs">
+      <DependentUpon>FrmEditTipoObligacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewCampos.aspx.cs">
+      <DependentUpon>FrmViewCampos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewCampos.aspx.designer.cs">
+      <DependentUpon>FrmViewCampos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -136,6 +192,10 @@
     <ProjectReference Include="..\Application.Core\Application.Core.csproj">
       <Project>{43E44D76-4378-4A99-9100-7C5CDFB9DAC0}</Project>
       <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.Contratos\Application.MainModule.Contratos.csproj">
+      <Project>{6EB59DCD-4D37-4BBB-89B7-E180B0749A5C}</Project>
+      <Name>Application.MainModule.Contratos</Name>
     </ProjectReference>
     <ProjectReference Include="..\ASP.NETCLIENTE\ASP.NETCLIENTE.csproj">
       <Project>{19CC1144-5EE0-4D32-9436-1FCC3515EAC7}</Project>

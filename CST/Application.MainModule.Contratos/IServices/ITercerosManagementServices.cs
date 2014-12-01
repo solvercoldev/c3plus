@@ -6,8 +6,7 @@ namespace Application.MainModule.Contratos.IServices
 {
     public interface ISfTercerosManagementServices : IGenericServices<Terceros>
     {
-     
-
+        Terceros GetById(string id);
     }
 }
     
