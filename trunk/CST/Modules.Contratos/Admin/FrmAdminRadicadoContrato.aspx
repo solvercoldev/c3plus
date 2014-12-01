@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmAdminCompromisoContrato.aspx.cs" Inherits="Modules.Contratos.Admin.FrmAdminCompromisoContrato" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmAdminRadicadoContrato.aspx.cs" Inherits="Modules.Contratos.Admin.FrmAdminRadicadoContrato" %>
 
 <%@ Register    Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Register    Assembly="Infragistics4.Web.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb"
@@ -56,50 +56,100 @@
                     <tr>
                         <td style="text-align:left; vertical-align:top;" class="Line" colspan="3" >
                             Responsable:<asp:Label ID="lblResponsable" runat="server" /> &nbsp;-&nbsp;
-                            Vence: <asp:Label ID="lblFechaCompromiso" runat="server" ForeColor="Red" />
+                            Vence: <asp:Label ID="lblFechaRadicado" runat="server" ForeColor="Red" />
                         </td>
                         <td style="text-align:right; vertical-align:top;" class="Line">
-                            (Tipo:<asp:Label ID="lblTipoCompromiso" runat="server" ForeColor="Red" />) &nbsp;-&nbsp;
-                            (Importancia: <asp:Label ID="lblImportancia" runat="server" ForeColor="Red" />)
                         </td>
                     </tr>             
                     <tr style="height: 20px; vertical-align:top">
                         <td colspan="3" style="vertical-align:top" >
                              <table width="100%">
                                 <tr>
-                                    <td style="width: 200px;"></td>
+                                    <td style="width: 22%;"></td>
                                     <td class="Separador" style="width: 10px;"></td>
-                                    <td style="width: 100px;"></td>
+                                    <td ></td>
                                 </tr>  
+                                <tr>
+                                    <th style="text-align:left; vertical-align:top">
+                                        Fecha Radicado :
+                                    </th>
+
+                                    <td ></td>
+
+                                    <td class="Line" style="vertical-align:top;" >
+                                        <asp:Label ID="lblFechaCreacion" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align:left; vertical-align:top">
+                                        Asunto :
+                                    </th>
+
+                                    <td ></td>
+
+                                    <td class="Line" style="vertical-align:top;" >
+                                        <asp:Label ID="lblAsunto" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align:left; vertical-align:top">
+                                        Enviado Por :
+                                    </th>
+
+                                    <td ></td>
+
+                                    <td class="Line" style="vertical-align:top;" >
+                                        <asp:Label ID="lblEnviadoPor" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align:left; vertical-align:top">
+                                        Dirigido A :
+                                    </th>
+
+                                    <td ></td>
+
+                                    <td class="Line" style="vertical-align:top;" >
+                                        <asp:Label ID="lblDirigidoA" runat="server" />
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th style="text-align:left; vertical-align:top">
                                         Descripción :
                                     </th>
 
-                                    <td class="Separador"></td>
+                                    <td ></td>
 
                                     <td class="Line" style="vertical-align:top;" >
                                         <asp:Label ID="lblDescripcion" runat="server" />
-                                        <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Visible="false" Rows="4" MaxLength="512" Width="90%" />
+                                    </td>
+                                </tr>
+                                <tr id="trREAsociado" runat="server" visible="false" >
+                                    <th style="text-align:left; vertical-align:top">
+                                        RE. al que Responde :
+                                    </th>
+
+                                    <td ></td>
+
+                                    <td class="Line" style="vertical-align:top;" >
+                                        <asp:Label ID="lblRadicadoAsociado" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <th style="text-align:left; vertical-align:top">
-                                        Asociado a :
+                                        Archivo Anexo :
                                     </th>
 
-                                    <td class="Separador"></td>
+                                    <td ></td>
 
                                     <td class="Line" style="vertical-align:top;" >
-                                        <asp:Label ID="lblTipoFase" runat="server" />
-                                        - <asp:Label ID="lblFase" runat="server" />
-                                        - <asp:Label ID="lblBCP" runat="server" />
+                                        <asp:LinkButton ID="bntArchivoRadicado" runat="server" OnClick="BntArchivoRadicado_Click" />
                                     </td>
-                                </tr>    
+                                </tr>
                             </table>
                         </td>
 
-                        <td rowspan="3" style="text-align:right;vertical-align:top;">
+                        <td rowspan="3" style="text-align:right; vertical-align:top;">
                             <div style="padding:3px; text-align:right; width:150px;"  id="divActionButtons" runat="server" >
                                 <asp:Button ID="btnEdit" runat="server" Text="Editar" OnClick="BtnEdit_Click" Width="100px" />
                                 <asp:Button ID="btnAnular" runat="server" Text="Anular" Width="100px" OnClick="BtnAddNovedad_Click" CommandArgument="Anular" />
@@ -110,127 +160,62 @@
                         </td>
                     </tr>                                             
                 </table>
-
-                <table width="100%" class="tblSecciones" style="margin-top:10px" id="tblEntregablesANH" runat="server" visible="false">
+                
+                <table width="100%" class="tblSecciones" style="margin-top:10px" id="tblRespuestaRadicado" runat="server" visible="false" >
                     <tr>
                         <td style="width: 100px;"></td>
                         <td class="Separador" style="width: 10px;"></td>
                         <td style="width: 400px;"></td>
                         <td class="Separador" style="width: 200px;"></td>
-                    </tr>
+                    </tr> 
                     <tr>
                         <td colspan="4" style="padding-bottom:5px">
                             <div style="display:block; padding:5px;" class="TituloVentana">
-                                <asp:Literal ID="litTitleEntregables" runat="server" Text="Entregables ANH" />
+                                <asp:Literal ID="litTitlePagosObligaciones" runat="server" Text="Respuesta" />
                             </div>  
                         </td>
                     </tr>
                     <tr>
                         <th style="text-align:left; vertical-align:top">
-                            * Entregables :
+                            Responsable :
                         </th>
 
                         <td class="Separador"></td>
                             
                         <td class="Line" >
-                            <asp:ListBox ID="lstEntregablesANH" runat="server" Width="100%" Height="120px" SelectionMode="Single" />
+                            <asp:Label ID="lblResponsableRespuesta" runat="server" />
                         </td>
 
                         <td class="Separador"></td>
                     </tr> 
-                </table>
+                    <tr>
+                        <th style="text-align:left; vertical-align:top">
+                            Fecha Respuesta :
+                        </th>
 
-                <table width="100%" class="tblSecciones" style="margin-top:20px" id="tblPagosObligaciones" runat="server" visible="false">
-                    <tr>
-                        <td style="width: 100px;"></td>
-                        <td class="Separador" style="width: 10px;"></td>
-                        <td style="width: 400px;"></td>
-                        <td class="Separador" style="width: 200px;"></td>
-                    </tr>  
-                    <tr>
-                        <td colspan="4" style="padding-bottom:5px">
-                            <div style="display:block; padding:5px;" class="TituloVentana">
-                                <asp:Literal ID="litTitlePagosObligaciones" runat="server" Text="Pagos Obligaciones" />
-                            </div>  
+                        <td class="Separador"></td>
+                            
+                        <td class="Line" >
+                            <asp:Label ID="lblFechaRespuesta" runat="server" />
                         </td>
+
+                        <td class="Separador"></td>
+                    </tr> 
+                    <tr>
+                        <th style="text-align:left; vertical-align:top">
+                            Activar Alarma :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line" >
+                            <asp:Label ID="lblFechaAlarma" runat="server" />
+                        </td>
+
+                        <td class="Separador"></td>
                     </tr>
-                    <tr>
-                        <th style="text-align:left; vertical-align:top">
-                            Tipo Pago :
-                        </th>
-
-                        <td class="Separador"></td>
-                            
-                        <td class="Line" >
-                            <asp:Label ID="lblTipoPago" runat="server" />
-                            <asp:DropDownList ID="ddlTipoPago" runat="server" Width="450px"  class="chzn-select" Visible="false" />
-                        </td>
-
-                        <td class="Separador"></td>
-                    </tr> 
-                    <tr>
-                        <th style="text-align:left; vertical-align:top">
-                            Entidad :
-                        </th>
-
-                        <td class="Separador"></td>
-                            
-                        <td class="Line" >
-                            <asp:Label ID="lblEntidad" runat="server" />
-                            <asp:DropDownList ID="ddlEntidad" runat="server" Width="450px"  class="chzn-select" Visible="false" />
-                        </td>
-
-                        <td class="Separador"></td>
-                    </tr> 
-                    <tr>
-                        <th style="text-align:left; vertical-align:top">
-                            Valor Cobertura :
-                        </th>
-
-                        <td class="Separador"></td>
-
-                        <td class="Line" >
-                            <asp:Label ID="lblValorCobertura" runat="server" />
-                            <ig:WebNumericEditor    Id="txtValorCoberturaPago" runat="server"  Visible="false"
-                                                    Nullable="false" MinValue="0" Width="250px" HorizontalAlign="Left" />
-                        </td>
-
-                        <td class="Separador"></td>
-                    </tr> 
-                    <tr>
-                        <th style="text-align:left; vertical-align:top">
-                            Numero Documento :
-                        </th>
-
-                        <td class="Separador"></td>
-                            
-                        <td class="Line" >
-                            <asp:Label ID="lblNumeroDocumento" runat="server" />
-                            <asp:TextBox ID="txtPagoNumeroDocumento" runat="server" Width="450px" MaxLength="128" Visible="false" />
-                        </td>
-
-                        <td class="Separador"></td>
-                    </tr> 
-                    <tr>
-                        <th style="text-align:left; vertical-align:top">
-                            Valor :
-                        </th>
-
-                        <td class="Separador"></td>
-
-                        <td class="Line" >
-                            <asp:Label ID="lblValor" runat="server" />
-                            <ig:WebNumericEditor    Id="txtValorPago" runat="server" Visible="false"
-                                                    Nullable="false" MinValue="0" Width="250px" HorizontalAlign="Left" />
-                            
-                            <asp:DropDownList ID="ddlMoneda" runat="server" Visible="false" />
-                        </td>
-
-                        <td class="Separador"></td>
-                    </tr>       
-
                 </table>
-
+                               
         </ContentTemplate>
         <Triggers>
         </Triggers>
@@ -245,7 +230,7 @@
 
                 <div class="popup_Titlebar" id="PopupHeader">
                     <div class="TitlebarLeft">
-                        Gestionar Compromiso
+                        Gestionar Radicado
                     </div>
                     <div class="TitlebarRight" id="divCloseAdminNovedad">
                     </div>
@@ -330,6 +315,7 @@
             </ajaxToolkit:ModalPopupExtender>   
         </ContentTemplate>
         <Triggers>
+            <asp:PostBackTrigger ControlID="bntArchivoRadicado" />
         </Triggers>
     </asp:UpdatePanel>
 

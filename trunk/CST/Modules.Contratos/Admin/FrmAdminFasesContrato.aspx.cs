@@ -12,6 +12,7 @@ using Presenters.Contratos.Presenters;
 using Application.Core;
 using Application.MainModule.Contratos.DTO;
 using Infragistics.Web.UI.EditorControls;
+using AjaxControlToolkit;
 
 namespace Modules.Contratos.Admin
 {
@@ -122,7 +123,7 @@ namespace Modules.Contratos.Admin
                                             FechaInicio = FechaFirmaInit.AddDays(1),
                                             FechaFin = auxDate.AddMonths(MinDuracionFaseCero).AddDays(-1),
                                             MinDuracionFase = MinDuracionFaseCero,
-                                            MaxDuracionFase = MaxDuracionFaseCero,
+                                            MaxDuracionFase = -1,
                                             Grupo = 0
                                         }
                                 );
@@ -140,11 +141,6 @@ namespace Modules.Contratos.Admin
                 fase.MinDuracionFase = MinDuracionFaseExploratorio;
                 fase.MaxDuracionFase = MaxDuracionFaseExploratorio;
                 fase.Grupo = 0;
-
-                if (i == NumeroFases)
-                {
-                    fase.FechaFin = auxDate.AddMonths(MinDuracionFaseExploratorio);
-                }
 
                 FasesContrato.Add(fase);
 
@@ -167,7 +163,7 @@ namespace Modules.Contratos.Admin
             var fase = FasesContrato.Where(x => x.FaseId == id).First();
             fase.DuracionFase = txtDuracion.ValueInt;
             var auxDate = fase.FechaInicio.AddMonths(fase.DuracionFase);
-            fase.FechaFin = auxDate;
+            fase.FechaFin = auxDate.AddDays(-1);
             
             if (id != 0)
             {
@@ -181,8 +177,6 @@ namespace Modules.Contratos.Admin
 
                     id++;
                 }
-
-                fase.FechaFin = auxDate;
             }                        
 
             LoadFasesContrato();
@@ -199,9 +193,9 @@ namespace Modules.Contratos.Admin
             var id = Convert.ToInt32(tbFechaFinal.ToolTip);
 
             var fase = FasesContrato.Where(x => x.FaseId == id).First();
-            fase.FechaFin = Convert.ToDateTime(tbFechaFinal.Text);
-            var auxDate = fase.FechaFin;
-            fase.DuracionFase = DiffMonths(fase.FechaInicio, fase.FechaFin);
+            var auxDate = Convert.ToDateTime(tbFechaFinal.Text);
+            fase.FechaFin = auxDate.AddDays(-1);
+            fase.DuracionFase = DiffMonths(fase.FechaInicio, auxDate);
 
             if (id != 0)
             {
@@ -215,7 +209,6 @@ namespace Modules.Contratos.Admin
 
                     id++;
                 }
-                fase.FechaFin = auxDate;
             }
 
             LoadFasesContrato();
@@ -244,12 +237,14 @@ namespace Modules.Contratos.Admin
                 var txtDuracionFases = e.Item.FindControl("txtDuracionFases") as WebNumericEditor;
                 if (txtDuracionFases != null)
                 {
-                    txtDuracionFases.MinValue = item.MinDuracionFase;
-                    txtDuracionFases.MaxValue = item.MaxDuracionFase;
+                    txtDuracionFases.MinValue = item.MinDuracionFase;                    
 
                     txtDuracionFases.ToolTip = string.Format("{0}", item.FaseId);
 
                     txtDuracionFases.Value = item.DuracionFase;
+
+                    if (item.FaseId != 0)
+                        txtDuracionFases.MaxValue = item.MaxDuracionFase;
                 }
 
                 var lblFechaInicio = e.Item.FindControl("lblFechaInicio") as Label;
@@ -260,6 +255,15 @@ namespace Modules.Contratos.Admin
                 {
                     txtFechaFin.Text = string.Format("{0:dd/MM/yyyy}", item.FechaFin);
                     txtFechaFin.ToolTip = string.Format("{0}", item.FaseId);
+                }
+
+                var cexTxtfechaInicio = e.Item.FindControl("cexTxtfechaInicio") as CalendarExtender;
+                if (cexTxtfechaInicio != null)
+                {
+                    cexTxtfechaInicio.StartDate = item.FechaInicio;
+
+                    if (item.FaseId != 0)
+                        cexTxtfechaInicio.EndDate = item.FechaInicio.AddMonths(MaxDuracionFaseExploratorio);
                 }
             }
         }

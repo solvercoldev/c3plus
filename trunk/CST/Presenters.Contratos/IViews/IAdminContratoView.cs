@@ -30,6 +30,6 @@ namespace Presenters.Contratos.IViews
 
         void GoToAdminFases(int idContrato);
         void SaveImagenContrato(int idContrato);
-        void GoToContratoList();
+        void GoToContratoList();        
     }
 }

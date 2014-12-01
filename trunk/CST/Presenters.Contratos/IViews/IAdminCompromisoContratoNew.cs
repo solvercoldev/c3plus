@@ -49,5 +49,7 @@ namespace Presenters.Contratos.IViews
         void EnableEditCompromiso(bool enable);
 
         void EnableActions(bool enable);
+
+        string MsgLogInfo { get; set; }
     }
 }

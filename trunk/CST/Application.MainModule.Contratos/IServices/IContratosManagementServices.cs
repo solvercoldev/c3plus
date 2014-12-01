@@ -12,6 +12,8 @@ namespace Application.MainModule.Contratos.IServices
 
         List<Domain.MainModules.Entities.Contratos> GetContratoWithNavsByFilter(string idEmpresa, DateTime fechaInicioFirma, DateTime fechaFirmaFin);
         List<Domain.MainModules.Entities.Contratos> GetContratoWithNavsByFilter(string idBloque, string estado, string fechaInicio);
+
+        bool ExistsContratoByNumero(string numero);
     }
 }
     

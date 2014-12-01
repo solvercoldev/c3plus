@@ -110,7 +110,12 @@ namespace Presenters.Contratos.Presenters
         {
             try
             {
-                var model = GetModel();                
+                var model = GetModel();
+                var fase = _fasesService.FindById(View.IdFase);
+                var contrato = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
+
+                model.Descripcion = string.Format("{0} - {1}", model.Descripcion, fase.Nombre);
+
                 _novedadesFaseService.Add(model);
 
                 switch (View.TipoOperacion)
@@ -131,6 +136,11 @@ namespace Presenters.Contratos.Presenters
 
                 var log = GetLog();
                 _log.Add(log);
+
+                contrato.ModifiedBy = View.UserSession.IdUser;
+                contrato.ModifiedOn = DateTime.Now;
+
+                _contratoService.Modify(contrato);
 
                 LoadFases();
             }

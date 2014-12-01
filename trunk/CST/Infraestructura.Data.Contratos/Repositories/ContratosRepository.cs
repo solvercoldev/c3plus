@@ -39,7 +39,9 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
                                     .Include(x => x.TiposContrato)
                                     .Include(x => x.Bloques)
                                     .Include(x => x.Fases) 
-                                    .Include(x => x.TBL_Admin_Usuarios) // Responsable
+                                    .Include(x => x.TBL_Admin_Usuarios) // Create
+                                    .Include(x => x.TBL_Admin_Usuarios1) // Modifiy
+                                    .Include(x => x.TBL_Admin_Usuarios2) // Responsable
                                     .Where(specific)
                                     .SingleOrDefault();
             }
@@ -77,4 +79,3 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
         }
     }
 }
-    

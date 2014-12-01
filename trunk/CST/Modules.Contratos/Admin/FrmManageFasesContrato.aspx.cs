@@ -73,11 +73,14 @@ namespace Modules.Contratos.Admin
         {
             get
             {
-                return ViewState["LastLoaded"] as string;
+                if (Session["WuCFases_LastLoaded"] == null)
+                    Session["WuCFases_LastLoaded"] = string.Empty;
+
+                return Session["WuCFases_LastLoaded"] as string;
             }
             set
             {
-                ViewState["LastLoaded"] = value;
+                Session["WuCFases_LastLoaded"] = value;
             }
         }
 
@@ -114,7 +117,7 @@ namespace Modules.Contratos.Admin
 
         protected void BtnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
+            Response.Redirect(string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato)); 
         }
 
         protected void BtnAddNovedad_Click(object sender, EventArgs e)
@@ -266,6 +269,15 @@ namespace Modules.Contratos.Admin
             var controlPath = LastLoadedControl;
             var idUc = "";
 
+            if (!string.IsNullOrEmpty(controlPath))
+            {
+                foreach (MenuItem mi in mnuSecciones.Items)
+                {
+                    if (mi.Value == controlPath)
+                        mi.Selected = true;
+                }
+            }
+
             if (string.IsNullOrEmpty(controlPath))
             {
                 controlPath = "WuCAdminNovedadesFasesContrato.ascx";
@@ -348,6 +360,8 @@ namespace Modules.Contratos.Admin
 
                     lblFaseUnificacion.Text = faseFin.Nombre;
                     lblPeriodoUnifiacion.Text = string.Format("{0:dd/MM/yyyy} - {1:dd/MM/yyyy}", faseIni.FechaInicio, faseFin.FechaFinalizacion);
+
+                    FechaFinalExtension = faseFin.FechaFinalizacion;
                 }
             }
         }

@@ -129,6 +129,13 @@ namespace Presenters.Contratos.Presenters
             try
             {
                 var model = GetModel();
+
+                if (_contratoService.ExistsContratoByNumero(View.NumeroContrato))
+                {
+                    InvokeMessageBox(new MessageBoxEventArgs(string.Format("Ya existe un contrato con el numero [{0}]. Por favor ingrese un numero de contrato diferente.", View.NumeroContrato), TypeError.Error));
+                    return;
+                }
+
                 _contratoService.Add(model);
                 var log = GetLog();
                 log.IdContrato = model.IdContrato;
@@ -166,8 +173,11 @@ namespace Presenters.Contratos.Presenters
                 model.ImagenContrato = View.ImagenContrato;
                 model.GLongitud = View.Longitud;
                 model.GLatitud = View.Latitud;
+                model.ModifiedBy = View.UserSession.IdUser;
+                model.ModifiedOn = DateTime.Now;
 
                 _contratoService.Modify(model);
+
                 var log = GetLog();
                 log.IdContrato = model.IdContrato;
                 log.Descripcion = string.Format("Contrato actualizado por [{0}].", View.UserSession.Nombres, model.CreateOn);

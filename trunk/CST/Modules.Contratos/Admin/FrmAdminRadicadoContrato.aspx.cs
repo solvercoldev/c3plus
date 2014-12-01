@@ -10,7 +10,7 @@ using Presenters.Contratos.Presenters;
 
 namespace Modules.Contratos.Admin
 {
-    public partial class FrmAdminCompromisoContrato : ViewPage<AdminCompromisoContratoPresenter, IAdminCompromisoContratoNew>, IAdminCompromisoContratoNew
+    public partial class FrmAdminRadicadoContrato : ViewPage<AdminRadicadoContratoPresenter, IAdminRadicadoContratoView>, IAdminRadicadoContratoView
     {
         #region Members
 
@@ -53,7 +53,7 @@ namespace Modules.Contratos.Admin
         #region Load
 
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
         }
 
         protected override void OnInit(EventArgs e)
@@ -76,12 +76,12 @@ namespace Modules.Contratos.Admin
 
         protected void BtnEdit_Click(object sender, EventArgs e)
         {
-            EnableEditCompromiso(true);
+            EnableEdit(true);
         }
 
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
-            EnableEditCompromiso(false);
+            EnableEdit(false);
         }
 
         protected void BtnAddNovedad_Click(object sender, EventArgs e)
@@ -122,12 +122,17 @@ namespace Modules.Contratos.Admin
                 return;
             }
 
-            Presenter.SaveCompromiso();
+            Presenter.SaveRadicado();
         }
 
         protected void BtnSaveNovedad_Click(object sender, EventArgs e)
         {
-            Presenter.AddNovedadCompromiso();
+            Presenter.AddNovedadRadicado();
+        }
+
+        protected void BntArchivoRadicado_Click(object sender, EventArgs e)
+        {
+            DownloadDocument((byte[])ArchivoAdjunto.ComplexValue, ArchivoAdjunto.Value, "application/octet-stream");
         }
 
         #endregion
@@ -144,27 +149,27 @@ namespace Modules.Contratos.Admin
 
         #region Methods
 
-        public void EnableEditCompromiso(bool enable)
+        public void EnableEdit(bool enable)
         {
-            txtDescripcion.Visible = enable;
-            lblDescripcion.Visible = !enable;
+            //txtDescripcion.Visible = enable;
+            //lblDescripcion.Visible = !enable;
 
-            ddlTipoPago.Visible = enable;
-            lblTipoPago.Visible = !enable;
+            //ddlTipoPago.Visible = enable;
+            //lblTipoPago.Visible = !enable;
 
-            ddlEntidad.Visible = enable;
-            lblEntidad.Visible = !enable;
+            //ddlEntidad.Visible = enable;
+            //lblEntidad.Visible = !enable;
 
-            txtValorCoberturaPago.Visible = enable;
-            lblValorCobertura.Visible = !enable;
+            //txtValorCoberturaPago.Visible = enable;
+            //lblValorCobertura.Visible = !enable;
 
-            txtPagoNumeroDocumento.Visible = enable;
-            lblNumeroDocumento.Visible = !enable;
+            //txtPagoNumeroDocumento.Visible = enable;
+            //lblNumeroDocumento.Visible = !enable;
 
-            txtValorPago.Visible = enable;
-            lblValor.Visible = !enable;
+            //txtValorPago.Visible = enable;
+            //lblValor.Visible = !enable;
 
-            ddlMoneda.Visible = enable;
+            //ddlMoneda.Visible = enable;
 
             btnSave.Visible = enable;
 
@@ -198,68 +203,13 @@ namespace Modules.Contratos.Admin
 
         #region Methods
 
-        public void LoadManuales(List<DTO_ValueKey> items)
-        {
-            lstEntregablesANH.DataSource = items;
-            lstEntregablesANH.DataTextField = "Value";
-            lstEntregablesANH.DataValueField = "Id";
-            lstEntregablesANH.DataBind();
-        }
-
-        public void LoadMonedas(List<Monedas> items)
-        {
-            ddlMoneda.DataSource = items;
-            ddlMoneda.DataTextField = "Nombre";
-            ddlMoneda.DataValueField = "IdMoneda";
-            ddlMoneda.DataBind();
-        }
-
-        public void LoadTipoPago(List<TiposPagoObligacion> items)
-        {
-            ddlTipoPago.DataSource = items;
-            ddlTipoPago.DataTextField = "Descripcion";
-            ddlTipoPago.DataValueField = "IdTipoPagoObligacion";
-            ddlTipoPago.DataBind();
-        }
-
-        public void LoadEntidades(List<Terceros> items)
-        {
-            ddlEntidad.DataSource = items;
-            ddlEntidad.DataTextField = "Nombre";
-            ddlEntidad.DataValueField = "IdTercero";
-            ddlEntidad.DataBind();
-        }
-
         public void LoadResponsables(List<TBL_Admin_Usuarios> items)
         {
             ddlResponsable.DataSource = items;
             ddlResponsable.DataTextField = "Nombres";
             ddlResponsable.DataValueField = "Nombres";
             ddlResponsable.DataBind();
-        }
-
-        public void ShowTipoAsociacion(string tipo)
-        {
-            switch (tipo)
-            {
-                case "No":
-                    tblPagosObligaciones.Visible = false;
-                    tblEntregablesANH.Visible = false;
-                    break;
-
-                case "Entregable":
-                    tblPagosObligaciones.Visible = false;
-                    tblEntregablesANH.Visible = true;
-                    break;
-
-                case "Pago":
-
-                    tblPagosObligaciones.Visible = true;
-                    tblEntregablesANH.Visible = false;
-
-                    break;
-            }
-        }
+        }       
 
         public void ShowNovedadWindow(bool visible)
         {
@@ -269,11 +219,21 @@ namespace Modules.Contratos.Admin
                 mpeAdminNovedad.Hide();
         }
 
+        public void ShowRespuesta(bool visible)
+        {
+            tblRespuestaRadicado.Visible = visible;
+        }
+
+        public void ShowREAsociado(bool visible)
+        {
+            trREAsociado.Visible = visible;
+        }
+
         public void EnableActions(bool enable)
         {
             divActionButtons.Visible = enable;
         }
-        
+
         public void GoToContratoView()
         {
             switch (FromPage)
@@ -309,143 +269,34 @@ namespace Modules.Contratos.Admin
             get { return Request.QueryString.Get("IdContrato"); }
         }
 
-        public string IdCompromiso
+        public string IdRadicado
         {
-            get { return Request.QueryString.Get("IdCompromiso"); }
+            get { return Request.QueryString.Get("IdRadicado"); }
         }
 
-        public string Nombre
+        public string Numero
         {
             get
             {
-                return string.Format("{0}", ViewState["AdminCompromiso_Nombre"]);
+                return string.Format("{0}", ViewState["AdminRadicado_Numero"]);
             }
             set
             {
-                ViewState["AdminCompromiso_Nombre"] = value;
-                ImprimirTituloVentana(value);                
+                ViewState["AdminRadicado_Numero"] = value;
+                ImprimirTituloVentana(value);
             }
         }
-
+       
         public string Estado
         {
             get
             {
-                return string.Format("{0}", ViewState["AdminCompromiso_Estado"]);
+                return string.Format("{0}", ViewState["AdminRadicado_Estado"]);
             }
             set
             {
-                ViewState["AdminCompromiso_Estado"] = value;
+                ViewState["AdminRadicado_Estado"] = value;
                 ImprimirAuxTituloVentana(value);
-            }
-        }
-
-        public string Descripcion
-        {
-            get
-            {
-                return txtDescripcion.Text;
-            }
-            set
-            {
-                txtDescripcion.Text = value;
-                lblDescripcion.Text = value;
-            }
-        }
-
-        public DateTime FechaCumplimiento
-        {
-            get
-            {
-                return Convert.ToDateTime(ViewState["AdminCompromiso_FechaCumplimiento"]);
-            }
-            set
-            {
-                ViewState["AdminCompromiso_FechaCumplimiento"] = value;
-            }
-        }
-
-        public string FechaCumplimientoStr
-        {
-            get
-            {
-                return lblFechaCompromiso.Text;
-            }
-            set
-            {
-                lblFechaCompromiso.Text = value;
-            }
-        }
-
-        public string Responsable
-        {
-            get
-            {
-                return lblResponsable.Text;
-            }
-            set
-            {
-                lblResponsable.Text = value;
-            }
-        }
-
-        public string TipoCompromiso
-        {
-            get
-            {
-                return lblTipoCompromiso.Text;
-            }
-            set
-            {
-                lblTipoCompromiso.Text = value;
-            }
-        }
-
-        public string Importancia
-        {
-            get
-            {
-                return lblImportancia.Text;
-            }
-            set
-            {
-                lblImportancia.Text = value;
-            }
-        }
-
-        public string PeridoFase
-        {
-            get
-            {
-                return lblTipoFase.Text;
-            }
-            set
-            {
-                lblTipoFase.Text = value;
-            }
-        }
-
-        public string Fase
-        {
-            get
-            {
-                return lblFase.Text;
-            }
-            set
-            {
-                lblFase.Text = value;
-            }
-        }
-
-        public string BCP
-        {
-            get
-            {
-                return lblBCP.Text;
-            }
-            set
-            {
-                lblBCP.Text = value;
             }
         }
 
@@ -459,128 +310,7 @@ namespace Modules.Contratos.Admin
             {
                 ddlResponsable.SelectedValue = value;
             }
-        }
-
-        public string TipoPago
-        {
-            get
-            {
-                return lblTipoPago.Text;
-            }
-            set
-            {
-                lblTipoPago.Text = value;
-            }
-        }
-
-        public string Entidad
-        {
-            get
-            {
-                return lblEntidad.Text;
-            }
-            set
-            {
-                lblEntidad.Text = value;
-            }
-        }
-
-        public string NumeroDocumento
-        {
-            get
-            {
-                return txtPagoNumeroDocumento.Text;
-            }
-            set
-            {
-                txtPagoNumeroDocumento.Text = value;
-                lblNumeroDocumento.Text = value;
-            }
-        }
-
-        public string Valor
-        {
-            get
-            {
-                return lblValor.Text;
-            }
-            set
-            {
-                lblValor.Text = value;
-            }
-        }
-
-        public string ValorCobertura
-        {
-            get
-            {
-                return lblValorCobertura.Text;
-            }
-            set
-            {
-                lblValorCobertura.Text = value;
-            }
-        }
-
-        public string IdTercero
-        {
-            get
-            {
-                return ddlEntidad.SelectedValue;
-            }
-            set
-            {
-                ddlEntidad.SelectedValue = value;
-            }
-        }
-
-        public string IdTipoPagoObligacion
-        {
-            get
-            {
-                return ddlTipoPago.SelectedValue;
-            }
-            set
-            {
-                ddlTipoPago.SelectedValue = value;
-            }
-        }
-
-        public string IdMoneda
-        {
-            get
-            {
-                return ddlMoneda.SelectedValue;
-            }
-            set
-            {
-                ddlMoneda.SelectedValue = value;
-            }
-        }
-
-        public decimal ValorPago
-        {
-            get
-            {
-                return txtValorPago.ValueDecimal;
-            }
-            set
-            {
-                txtValorPago.ValueDecimal = value;
-            }
-        }
-
-        public decimal ValorCoberturaPago
-        {
-            get
-            {
-                return txtValorCoberturaPago.ValueDecimal;
-            }
-            set
-            {
-                txtValorCoberturaPago.ValueDecimal = value;
-            }
-        }
+        }    
 
         public DateTime FechaReprogramacion
         {
@@ -598,11 +328,11 @@ namespace Modules.Contratos.Admin
         {
             get
             {
-                return string.Format("{0}", ViewState["AdminCompromiso_TipoOperacion"]);
+                return string.Format("{0}", ViewState["AdminRadicado_TipoOperacion"]);
             }
             set
             {
-                ViewState["AdminCompromiso_TipoOperacion"] = value;
+                ViewState["AdminRadicado_TipoOperacion"] = value;
             }
         }
 
@@ -615,6 +345,151 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblMsgLogInfo.Text = value;
+            }
+        }
+
+        public string Responsable
+        {
+            get
+            {
+                return lblResponsable.Text;
+            }
+            set
+            {
+                lblResponsable.Text = value;
+            }
+        }
+
+        public string FechaVencimiento
+        {
+            get
+            {
+                return lblFechaRadicado.Text;
+            }
+            set
+            {
+                lblFechaRadicado.Text = value;
+            }
+        }
+
+        public string FechaCreacion
+        {
+            get
+            {
+                return lblFechaCreacion.Text;
+            }
+            set
+            {
+                lblFechaCreacion.Text = value;
+            }
+        }
+
+        public string Asunto
+        {
+            get
+            {
+                return lblAsunto.Text;
+            }
+            set
+            {
+                lblAsunto.Text = value;
+            }
+        }
+
+        public string EnviadoPor
+        {
+            get
+            {
+                return lblEnviadoPor.Text;
+            }
+            set
+            {
+                lblEnviadoPor.Text = value;
+            }
+        }
+
+        public string DirigidoA
+        {
+            get
+            {
+                return lblDirigidoA.Text;
+            }
+            set
+            {
+                lblDirigidoA.Text = value;
+            }
+        }
+
+        public string Descripcion
+        {
+            get
+            {
+                return lblDescripcion.Text;
+            }
+            set
+            {
+                lblDescripcion.Text = value;
+            }
+        }
+
+        public string REAsociado
+        {
+            get
+            {
+                return lblRadicadoAsociado.Text;
+            }
+            set
+            {
+                lblRadicadoAsociado.Text = value;
+            }
+        }
+
+        public DTO_ValueKey ArchivoAdjunto
+        {
+            get
+            {
+                return Session["AdminRadicado_ArchivoAdjunto"] as DTO_ValueKey;
+            }
+            set
+            {
+                Session["AdminRadicado_ArchivoAdjunto"] = value;
+                bntArchivoRadicado.Text = value.Value;
+            }
+        }
+
+        public string ResponsableRespuesta
+        {
+            get
+            {
+                return lblResponsableRespuesta.Text;
+            }
+            set
+            {
+                lblResponsableRespuesta.Text = value;
+            }
+        }
+
+        public string FechaRespuesta
+        {
+            get
+            {
+                return lblFechaRespuesta.Text;
+            }
+            set
+            {
+                lblFechaRespuesta.Text = value;
+            }
+        }
+
+        public string FechaAlarmaRespuesta
+        {
+            get
+            {
+                return lblFechaAlarma.Text;
+            }
+            set
+            {
+                lblFechaAlarma.Text = value;
             }
         }
 

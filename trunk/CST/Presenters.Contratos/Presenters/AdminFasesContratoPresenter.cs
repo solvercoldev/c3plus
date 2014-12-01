@@ -186,6 +186,9 @@ namespace Presenters.Contratos.Presenters
                 {
                     contrato.FechaTerminacion = auxDate;
                     contrato.Estado = "Vigente";
+                    contrato.ModifiedBy = View.UserSession.IdUser;
+                    contrato.ModifiedOn = DateTime.Now;
+
                     _contratoService.Modify(contrato);
                     var log = GetLog();
                     log.Descripcion = string.Format("El usuario [{0}] ha agregado fases al contrato.", View.UserSession.Nombres);

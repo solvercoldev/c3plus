@@ -165,7 +165,7 @@
 
                 <table width="100%" class="tblSecciones" style="padding-top:10px">
                     <tr>
-                        <td style="width: 10%;"></td>
+                        <td style="width: 20%;"></td>
                         <td class="Separador"></td>
                         <td style="width: 70%;"></td>
                         <td class="Separador"></td>
@@ -351,7 +351,7 @@
 
                 <table width="100%" class="tblSecciones" style="margin-top:10px" id="tblEntregablesANH" runat="server" visible="false">
                     <tr>
-                        <td style="width: 10%;"></td>
+                        <td style="width: 20%;"></td>
                         <td class="Separador"></td>
                         <td style="width: 70%;"></td>
                         <td class="Separador"></td>
@@ -396,7 +396,7 @@
 
                 <table width="100%" class="tblSecciones" style="margin-top:10px" id="tblPagosObligaciones" runat="server" visible="false">
                     <tr>
-                        <td style="width: 10%;"></td>
+                        <td style="width: 20%;"></td>
                         <td class="Separador"></td>
                         <td style="width: 70%;"></td>
                         <td class="Separador"></td>
@@ -436,7 +436,7 @@
                     </tr> 
                     <tr>
                         <th style="text-align:left; vertical-align:top">
-                            * Valor Cobertura :
+                            Valor Cobertura :
                         </th>
 
                         <td class="Separador"></td>
@@ -450,7 +450,7 @@
                     </tr>       
                     <tr>
                         <th style="text-align:left; vertical-align:top">
-                            * Numero Documento :
+                            Numero Documento :
                         </th>
 
                         <td class="Separador"></td>

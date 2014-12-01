@@ -51,10 +51,13 @@
     <Compile Include="IViews\IAdminCompromisosFasesContratoView.cs" />
     <Compile Include="IViews\IAdminNovedadesContratoView.cs" />
     <Compile Include="IViews\IAdminNovedadesFasesContratoView.cs" />
+    <Compile Include="IViews\IAdminRadicadoContratoView.cs" />
+    <Compile Include="IViews\IAdminRadicadosContratoView.cs" />
     <Compile Include="IViews\IContratoLocationPreviewView.cs" />
     <Compile Include="IViews\ILogContratosView.cs" />
     <Compile Include="IViews\IManageFasesContratoView.cs" />
     <Compile Include="IViews\INewCompromisoContratoView.cs" />
+    <Compile Include="IViews\INewRadicadoContratoView.cs" />
     <Compile Include="IViews\ITotalCompromisosView.cs" />
     <Compile Include="Presenters\AdminComentarioRespuestaPresenter.cs" />
     <Compile Include="Presenters\AdminComentariosContratoPresenter.cs" />
@@ -63,6 +66,8 @@
     <Compile Include="Presenters\AdminCompromisosFasesContratoPresenter.cs" />
     <Compile Include="Presenters\AdminNovedadesContratoPresenter.cs" />
     <Compile Include="Presenters\AdminNovedadesFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminRadicadoContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminRadicadosContratoPresenter.cs" />
     <Compile Include="Presenters\ContratoLocationPreviewPresenter.cs" />
     <Compile Include="Presenters\GeneralContractListPresenter.cs" />
     <Compile Include="IViews\IAdminContratoView.cs" />
@@ -75,6 +80,7 @@
     <Compile Include="Presenters\LogContratosPresenter.cs" />
     <Compile Include="Presenters\ManageFasesContratoPresenter.cs" />
     <Compile Include="Presenters\NewCompromisoContratoPresenter.cs" />
+    <Compile Include="Presenters\NewRadicadoContratoPresenter.cs" />
     <Compile Include="Presenters\TotalCompromisosPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Messages.Designer.cs">

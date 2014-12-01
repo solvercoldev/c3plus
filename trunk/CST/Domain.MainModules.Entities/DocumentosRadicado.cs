@@ -51,7 +51,7 @@ namespace Domain.MainModules.Entities
         private long _idRadicado;
     
         [DataMember]
-        public string IdDocumentoRadicado
+        public System.Guid IdDocumentoRadicado
         {
             get { return _idDocumentoRadicado; }
             set
@@ -67,37 +67,37 @@ namespace Domain.MainModules.Entities
                 }
             }
         }
-        private string _idDocumentoRadicado;
+        private System.Guid _idDocumentoRadicado;
     
         [DataMember]
-        public string Nombre
+        public string NombreArchivo
         {
-            get { return _nombre; }
+            get { return _nombreArchivo; }
             set
             {
-                if (_nombre != value)
+                if (_nombreArchivo != value)
                 {
-                    _nombre = value;
-                    OnPropertyChanged("Nombre");
+                    _nombreArchivo = value;
+                    OnPropertyChanged("NombreArchivo");
                 }
             }
         }
-        private string _nombre;
+        private string _nombreArchivo;
     
         [DataMember]
-        public string Descripcion
+        public byte[] Archivo
         {
-            get { return _descripcion; }
+            get { return _archivo; }
             set
             {
-                if (_descripcion != value)
+                if (_archivo != value)
                 {
-                    _descripcion = value;
-                    OnPropertyChanged("Descripcion");
+                    _archivo = value;
+                    OnPropertyChanged("Archivo");
                 }
             }
         }
-        private string _descripcion;
+        private byte[] _archivo;
     
         [DataMember]
         public bool IsActive

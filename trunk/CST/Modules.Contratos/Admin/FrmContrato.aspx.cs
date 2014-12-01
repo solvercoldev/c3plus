@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -69,15 +70,18 @@ namespace Modules.Contratos.Admin
             set { ViewState["PathFiles"] = value; }
         }
 
-        string LastLoadedControl
+        public string LastLoadedControl
         {
             get
             {
-                return ViewState["LastLoaded"] as string;
+                if (Session["WuC_LastLoaded"] == null)
+                    Session["WuC_LastLoaded"] = string.Empty;
+
+                return Session["WuC_LastLoaded"] as string;
             }
             set
             {
-                ViewState["LastLoaded"] = value;
+                Session["WuC_LastLoaded"] = value;
             }
         }
 
@@ -106,6 +110,7 @@ namespace Modules.Contratos.Admin
         protected void MnuItemClick(object sender, MenuEventArgs e)
         {
             LastLoadedControl = e.Item.Value;
+            
             LoadUserControl();
         }
 
@@ -119,6 +124,7 @@ namespace Modules.Contratos.Admin
 
         protected void BtnManageFases_Click(object sender, EventArgs e)
         {
+            Session["WuCFases_LastLoaded"] = string.Empty;
             Response.Redirect(string.Format("FrmManageFasesContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
         }
 
@@ -161,7 +167,12 @@ namespace Modules.Contratos.Admin
                 if (lblPeriodo != null) lblPeriodo.Text = string.Format("{0}", item.Periodo);
 
                 var lblFase = e.Item.FindControl("lblFase") as Label;
-                if (lblFase != null) lblFase.Text = string.Format("{0}", item.NumeroFase);                
+                if (lblFase != null) lblFase.Text = string.Format("{0}", item.NumeroFase);
+
+                if (item.NumFaseUnificada.HasValue)
+                {
+                    lblFase.Text = string.Format("{0} y {1}", item.NumeroFase, item.NumFaseUnificada);
+                }
 
                 var lblFechaInicio = e.Item.FindControl("lblFechaInicio") as Label;
                 if (lblFechaInicio != null) lblFechaInicio.Text = string.Format("{0:dd/MM/yyyy}", item.FechaInicio);
@@ -196,6 +207,12 @@ namespace Modules.Contratos.Admin
                         imgFase.ImageUrl = "~/Resources/images/calendar.png";
                     }
                 }
+
+                var imgeUnify = e.Item.FindControl("imgeUnify") as Image;
+                if (imgeUnify != null && item.NumFaseUnificada.HasValue)
+                {
+                    imgeUnify.Visible = true;
+                }
             }
         }
 
@@ -226,6 +243,15 @@ namespace Modules.Contratos.Admin
         {
             var controlPath = LastLoadedControl;
             var idUc = "";
+
+            if (!string.IsNullOrEmpty(controlPath))
+            {
+                foreach (MenuItem mi in mnuSecciones.Items)
+                {
+                    if (mi.Value == controlPath)
+                        mi.Selected = true;
+                }
+            }
 
             if (string.IsNullOrEmpty(controlPath))
             {
@@ -298,7 +324,7 @@ namespace Modules.Contratos.Admin
                     Value =
                         (string.IsNullOrEmpty(IsEdit))
                             ? seccione.PathEdit
-                            : seccione.PathPreview
+                            : seccione.PathPreview                    
                 };
                 mnuSecciones.Items.Add(opcion);
             }
@@ -456,6 +482,18 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblTipoContrato.Text = value;
+            }
+        }
+
+        public string MsgLogInfo
+        {
+            get
+            {
+                return lblMsgLogInfo.Text;
+            }
+            set
+            {
+                lblMsgLogInfo.Text = value;
             }
         }
 

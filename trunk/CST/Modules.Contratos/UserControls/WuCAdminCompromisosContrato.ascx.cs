@@ -35,14 +35,30 @@ namespace Modules.Contratos.UserControls
 
         protected void BtnAddCompromiso_Click(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("../Admin/FrmNewCompromisoContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
+            var localUrl = Request.Url.AbsoluteUri;
+            var fromType = "contrato";
+
+            if (localUrl.Contains("FrmManageFasesContrato"))
+                fromType = "fases";
+            else if (localUrl.Contains("FrmContrato"))
+                fromType = "contrato";
+
+            Response.Redirect(string.Format("../Admin/FrmNewCompromisoContrato.aspx?ModuleId={0}&IdContrato={1}&from={2}", ModuleId, IdContrato, fromType));
         }
 
         protected void BtnSelectCompromiso_Click(object sender, EventArgs e)
         {
             var btn = (ImageButton)sender;
 
-            Response.Redirect(string.Format("../Admin/FrmAdminCompromisoContrato.aspx?ModuleId={0}&IdContrato={1}&IdCompromiso={2}", ModuleId, IdContrato, btn.CommandArgument));
+            var localUrl = Request.Url.AbsoluteUri;
+            var fromType = "contrato";
+
+            if (localUrl.Contains("FrmManageFasesContrato"))
+                fromType = "fases";
+            else if (localUrl.Contains("FrmContrato"))
+                fromType = "contrato";
+
+            Response.Redirect(string.Format("../Admin/FrmAdminCompromisoContrato.aspx?ModuleId={0}&IdContrato={1}&IdCompromiso={2}&from={3}", ModuleId, IdContrato, btn.CommandArgument, fromType));
         }
         
 

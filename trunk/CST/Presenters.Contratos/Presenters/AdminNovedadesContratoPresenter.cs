@@ -102,6 +102,8 @@ namespace Presenters.Contratos.Presenters
                 _novedadesContratoService.Add(model);
                 var contrato = _contratoService.GetContratoWithNavsById(Convert.ToInt32(View.IdContrato));
                 contrato.Estado = GetEstadoByTipoOperacionContrato();
+                contrato.ModifiedBy = View.UserSession.IdUser;
+                contrato.ModifiedOn = DateTime.Now;
                 _contratoService.Modify(contrato);
                 var log = GetLog();
                 _log.Add(log);

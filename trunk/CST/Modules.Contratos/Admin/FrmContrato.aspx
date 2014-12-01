@@ -179,6 +179,7 @@
                                     <asp:Label ID="lblFechaFin" runat="server" />
                                 </td>                                
                                 <td >
+                                    <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
                                 </td>                    
                             </tr>
                         </ItemTemplate>
@@ -205,6 +206,7 @@
                                     <asp:Label ID="lblFechaFin" runat="server" />
                                 </td>                                
                                 <td >
+                                    <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
                                 </td>                    
                             </tr>
                         </AlternatingItemTemplate>
@@ -254,5 +256,12 @@
 
 <asp:Content ID="footerContent" runat="server" ContentPlaceHolderID="Footer">
     <!-- Aca va el Log -->
+    <table width="100%">
+        <tr >
+            <td  style="text-align:left; vertical-align:top; padding-left: 10px; background-color:#e0e0e0; font-size:8pt; color:#808080;">
+                <asp:Label ID="lblMsgLogInfo" runat="server"/>
+            </td>
+        </tr>
+    </table>
     <ucLogContratos:WuCLogContratos ID="wucLogContrato" runat="server" />
 </asp:Content>

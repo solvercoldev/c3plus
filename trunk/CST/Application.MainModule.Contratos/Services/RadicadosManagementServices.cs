@@ -152,6 +152,52 @@ namespace Application.MainModule.Contratos.Services
         }
 
         #endregion
+
+        public List<Radicados> GetByContratoTipoEstadoText(int idContrato, string tipo, string estado, string searchText)
+        {
+            Specification<Radicados> specification = new DirectSpecification<Radicados>(u => u.IdContrato == idContrato);
+
+            if (!string.IsNullOrEmpty(tipo))
+            {
+                specification &= new DirectSpecification<Radicados>(u => u.TipoRadicado == tipo);
+            }
+
+            if (!string.IsNullOrEmpty(estado))
+            {
+                specification &= new DirectSpecification<Radicados>(u => u.EstadoRadicado == estado);
+            }
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                specification &= new DirectSpecification<Radicados>(u => u.Asunto.Contains(searchText) || u.Resumen.Contains(searchText));
+            }
+
+            return _RadicadosRepository.GetCompleteEntityList(specification);
+        }
+
+
+        public List<Radicados> GetRadicadosPendienteByContrato(int idContrato)
+        {
+            Specification<Radicados> specification = new DirectSpecification<Radicados>(u => u.IdContrato == idContrato
+                                                                                        && (u.EstadoRadicado != "Respondido" || u.EstadoRadicado != "Anulado"));
+
+            return _RadicadosRepository.GetBySpec(specification).ToList();
+        }
+
+
+        public Radicados GetCompleteById(long idRadicado)
+        {
+            Specification<Radicados> specification = new DirectSpecification<Radicados>(u => u.IdRadicado == idRadicado);
+
+            return _RadicadosRepository.GetCompleteEntity(specification);
+        }
+
+        public Radicados GetById(long idRadicado)
+        {
+            Specification<Radicados> specification = new DirectSpecification<Radicados>(u => u.IdRadicado == idRadicado);
+
+            return _RadicadosRepository.GetEntityBySpec(specification);
+        }
     }
 }
     

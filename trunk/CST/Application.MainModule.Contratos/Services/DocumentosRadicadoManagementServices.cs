@@ -86,7 +86,7 @@ namespace Application.MainModule.Contratos.Services
             if (id == 0)
                 throw new ArgumentNullException(string.Format("Busqueda por Id : El parametro es nulo."));
 
-            Specification<DocumentosRadicado> specification = new DirectSpecification<DocumentosRadicado>(u => u.IdDocumentoRadicado == id.ToString());
+            Specification<DocumentosRadicado> specification = new DirectSpecification<DocumentosRadicado>(u => u.IdRadicado == id);
 
             return _DocumentosRadicadoRepository.GetEntityBySpec(specification);
            
@@ -129,7 +129,7 @@ namespace Application.MainModule.Contratos.Services
 
             Specification<DocumentosRadicado> onlyEnabledSpec = new DirectSpecification<DocumentosRadicado>(u => u.IdRadicado != null);
 
-            return _DocumentosRadicadoRepository.GetPagedElements(pageIndex, pageCount, u => u.Descripcion, onlyEnabledSpec, true).ToList();
+            return _DocumentosRadicadoRepository.GetPagedElements(pageIndex, pageCount, u => u.CreateOn, onlyEnabledSpec, true).ToList();
          }
 
          #endregion
@@ -152,6 +152,20 @@ namespace Application.MainModule.Contratos.Services
         }
 
         #endregion
+
+        public DocumentosRadicado GetById(Guid id)
+        {
+            Specification<DocumentosRadicado> onlyEnabledSpec = new DirectSpecification<DocumentosRadicado>(u => u.IdDocumentoRadicado == id);
+
+            return _DocumentosRadicadoRepository.GetEntityBySpec(onlyEnabledSpec);
+        }
+
+        public DocumentosRadicado GetByIdRadicado(long idRadicado)
+        {
+            Specification<DocumentosRadicado> onlyEnabledSpec = new DirectSpecification<DocumentosRadicado>(u => u.IdRadicado == idRadicado);
+
+            return _DocumentosRadicadoRepository.GetEntityBySpec(onlyEnabledSpec);
+        }
     }
 }
     

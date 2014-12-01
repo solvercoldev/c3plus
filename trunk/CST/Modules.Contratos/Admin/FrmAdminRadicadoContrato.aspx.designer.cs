@@ -10,7 +10,7 @@
 namespace Modules.Contratos.Admin {
     
     
-    public partial class FrmAdminCompromisoContrato {
+    public partial class FrmAdminRadicadoContrato {
         
         /// <summary>
         /// Img1 control.
@@ -67,31 +67,49 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Label lblResponsable;
         
         /// <summary>
-        /// lblFechaCompromiso control.
+        /// lblFechaRadicado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaCompromiso;
+        protected global::System.Web.UI.WebControls.Label lblFechaRadicado;
         
         /// <summary>
-        /// lblTipoCompromiso control.
+        /// lblFechaCreacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoCompromiso;
+        protected global::System.Web.UI.WebControls.Label lblFechaCreacion;
         
         /// <summary>
-        /// lblImportancia control.
+        /// lblAsunto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImportancia;
+        protected global::System.Web.UI.WebControls.Label lblAsunto;
+        
+        /// <summary>
+        /// lblEnviadoPor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEnviadoPor;
+        
+        /// <summary>
+        /// lblDirigidoA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDirigidoA;
         
         /// <summary>
         /// lblDescripcion control.
@@ -103,40 +121,31 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Label lblDescripcion;
         
         /// <summary>
-        /// txtDescripcion control.
+        /// trREAsociado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trREAsociado;
         
         /// <summary>
-        /// lblTipoFase control.
+        /// lblRadicadoAsociado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoFase;
+        protected global::System.Web.UI.WebControls.Label lblRadicadoAsociado;
         
         /// <summary>
-        /// lblFase control.
+        /// bntArchivoRadicado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFase;
-        
-        /// <summary>
-        /// lblBCP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBCP;
+        protected global::System.Web.UI.WebControls.LinkButton bntArchivoRadicado;
         
         /// <summary>
         /// divActionButtons control.
@@ -193,40 +202,13 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Button btnReasignar;
         
         /// <summary>
-        /// tblEntregablesANH control.
+        /// tblRespuestaRadicado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tblEntregablesANH;
-        
-        /// <summary>
-        /// litTitleEntregables control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTitleEntregables;
-        
-        /// <summary>
-        /// lstEntregablesANH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstEntregablesANH;
-        
-        /// <summary>
-        /// tblPagosObligaciones control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable tblPagosObligaciones;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblRespuestaRadicado;
         
         /// <summary>
         /// litTitlePagosObligaciones control.
@@ -238,103 +220,31 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Literal litTitlePagosObligaciones;
         
         /// <summary>
-        /// lblTipoPago control.
+        /// lblResponsableRespuesta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoPago;
+        protected global::System.Web.UI.WebControls.Label lblResponsableRespuesta;
         
         /// <summary>
-        /// ddlTipoPago control.
+        /// lblFechaRespuesta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoPago;
+        protected global::System.Web.UI.WebControls.Label lblFechaRespuesta;
         
         /// <summary>
-        /// lblEntidad control.
+        /// lblFechaAlarma control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEntidad;
-        
-        /// <summary>
-        /// ddlEntidad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEntidad;
-        
-        /// <summary>
-        /// lblValorCobertura control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValorCobertura;
-        
-        /// <summary>
-        /// txtValorCoberturaPago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Infragistics.Web.UI.EditorControls.WebNumericEditor txtValorCoberturaPago;
-        
-        /// <summary>
-        /// lblNumeroDocumento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumeroDocumento;
-        
-        /// <summary>
-        /// txtPagoNumeroDocumento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPagoNumeroDocumento;
-        
-        /// <summary>
-        /// lblValor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValor;
-        
-        /// <summary>
-        /// txtValorPago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Infragistics.Web.UI.EditorControls.WebNumericEditor txtValorPago;
-        
-        /// <summary>
-        /// ddlMoneda control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMoneda;
+        protected global::System.Web.UI.WebControls.Label lblFechaAlarma;
         
         /// <summary>
         /// upModal control.
