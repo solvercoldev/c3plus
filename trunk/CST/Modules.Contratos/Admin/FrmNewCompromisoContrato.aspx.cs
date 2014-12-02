@@ -65,7 +65,22 @@ namespace Modules.Contratos.Admin
 
         #endregion
 
-        #region Menu
+        #region TreeView
+
+        protected void ManualesSelect_Change(object sender, EventArgs e)
+        {
+            var manual = ManualesANH.Where(x => x.IdManualAnh == tvManualANH.SelectedValue).FirstOrDefault();
+
+            ManualId = manual.IdManualAnh;
+            ManualNoProducto = string.Format("{0}", manual.NumeroProducto);
+            ManualProducto = string.Format("{0}", manual.Producto);
+            ManualContenido = string.Format("{0}", manual.Contenido);
+            ManualFormato = string.Format("{0}", manual.Formato);
+            ManualMedio = string.Format("{0}", manual.Medio);
+            ManualEntrega = string.Format("{0}", manual.Entrega);
+
+            ShowAdminEntregable(true);
+        }
 
         #endregion
 
@@ -109,6 +124,7 @@ namespace Modules.Contratos.Admin
 
         protected void BtnAddEntregable_Click(object sender, EventArgs e)
         {
+            InitInfoManual();
             ShowAdminEntregable(true);
         }
 
@@ -218,6 +234,17 @@ namespace Modules.Contratos.Admin
         #endregion
 
         #region Methods
+
+        void InitInfoManual()
+        {
+            ManualId = string.Empty;
+            ManualNoProducto = string.Empty;
+            ManualProducto = string.Empty;
+            ManualContenido = string.Empty;
+            ManualFormato = string.Empty;
+            ManualMedio = string.Empty;
+            ManualEntrega = string.Empty;
+        }
 
         void AddErrorMessages(List<string> messages)
         {
@@ -331,10 +358,12 @@ namespace Modules.Contratos.Admin
                     tvManualANH.Nodes.Add(parentNode);
                     tvManualANH.CollapseAll();
 
-                    parentNode.SelectAction = TreeNodeSelectAction.None;
+                    //parentNode.SelectAction = TreeNodeSelectAction.None;
 
                     AddTreeNode(parentNode, items);
                 }
+
+                ManualesANH = items;
             }
             
         }
@@ -357,7 +386,7 @@ namespace Modules.Contratos.Admin
                 parent.ChildNodes.Add(childNode);
                 childNode.CollapseAll();
 
-                childNode.SelectAction = TreeNodeSelectAction.None;
+                //childNode.SelectAction = TreeNodeSelectAction.None;
 
                 AddTreeNode(childNode, items);
             }
@@ -656,6 +685,63 @@ namespace Modules.Contratos.Admin
             {
                 Session["NewCompromisoContrato_FasesContrato"] = value;
             }
+        }
+
+        public List<ManualAnh> ManualesANH
+        {
+            get
+            {
+                if (Session["NewCompromisoContrato_ManualesANH"] == null)
+                    Session["NewCompromisoContrato_ManualesANH"] = new List<ManualAnh>();
+
+                return Session["NewCompromisoContrato_ManualesANH"] as List<ManualAnh>;
+            }
+            set
+            {
+                Session["NewCompromisoContrato_ManualesANH"] = value;
+            }
+        }
+
+        public string ManualId
+        {
+            get { return lblManualId.Text; }
+            set { lblManualId.Text = value; }
+        }
+
+        public string ManualNoProducto
+        {
+            get { return lblManualNoProducto.Text; }
+            set { lblManualNoProducto.Text = value; }
+        }
+
+        public string ManualProducto
+        {
+            get { return lblManualProducto.Text; }
+            set { lblManualProducto.Text = value; }
+        }
+
+        public string ManualContenido
+        {
+            get { return txtManualContenido.Text; }
+            set { txtManualContenido.Text = value; }
+        }
+
+        public string ManualFormato
+        {
+            get { return lblManualFormato.Text; }
+            set { lblManualFormato.Text = value; }
+        }
+
+        public string ManualMedio
+        {
+            get { return lblManualMedio.Text; }
+            set { lblManualMedio.Text = value; }
+        }
+
+        public string ManualEntrega
+        {
+            get { return lblManualEntrega.Text; }
+            set { lblManualEntrega.Text = value; }
         }
 
         #endregion

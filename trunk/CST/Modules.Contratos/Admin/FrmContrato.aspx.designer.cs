@@ -31,6 +31,15 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.UpdatePanel upgeneral;
         
         /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
+        
+        /// <summary>
         /// btnManageFases control.
         /// </summary>
         /// <remarks>
@@ -155,6 +164,15 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder phlContent;
+        
+        /// <summary>
+        /// upFooter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upFooter;
         
         /// <summary>
         /// lblMsgLogInfo control.

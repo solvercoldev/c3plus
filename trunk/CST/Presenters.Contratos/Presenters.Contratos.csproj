@@ -126,6 +126,10 @@
       <Project>{6FA9FF63-4F79-4A9F-882C-7A7AE27C7332}</Project>
       <Name>Domain.MainModules.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.CrossCutting.IoC\Infrastructure.CrossCutting.IoC.csproj">
+      <Project>{5DD8CB67-048D-44FE-8444-DC6D260E87AB}</Project>
+      <Name>Infrastructure.CrossCutting.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure.CrossCutting.NetFramework\Infrastructure.CrossCutting.NetFramework.csproj">
       <Project>{21EBA478-507F-45AF-B1CC-619578E8FA8B}</Project>
       <Name>Infrastructure.CrossCutting.NetFramework</Name>

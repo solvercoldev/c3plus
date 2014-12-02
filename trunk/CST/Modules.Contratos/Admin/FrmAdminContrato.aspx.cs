@@ -156,7 +156,7 @@ namespace Modules.Contratos.Admin
 
         #region Methods
 
-        void AddErrorMessages(List<string> messages)
+        public void AddErrorMessages(List<string> messages)
         {
             if (messages.Any())
             {

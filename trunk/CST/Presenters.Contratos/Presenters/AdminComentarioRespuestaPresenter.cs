@@ -60,9 +60,12 @@ namespace Presenters.Contratos.Presenters
                     View.NombreContrato = contrato.Nombre;
                     View.NumeroContrato = contrato.NumeroContrato;
                     View.Empresa = contrato.Empresas.RazonSocial;
+                    View.TipoContrato = contrato.TiposContrato.Descripcion;
                     View.Bloque = contrato.Bloques.Descripcion;
                     View.FechaFirma = string.Format("{0:MMMM} {0:dd} de {0:yyyy}", contrato.FechaFirma);
-                    View.Periodo = "Sin Definir";
+                    View.FechaFirma = string.Format("{0:MMMM} {0:dd} de {0:yyyy}", contrato.FechaFirma);
+                    View.FechaEfectiva = string.Format("{0:MMMM} {0:dd} de {0:yyyy}", contrato.FechaInicio);
+                    View.Periodo = string.Format("{0}", UppercaseFirst(string.Format("{0:MMMM} {0:dd} de {0:yyyy}", contrato.FechaTerminacion)));                    
                 }                
             }
             catch (Exception ex)

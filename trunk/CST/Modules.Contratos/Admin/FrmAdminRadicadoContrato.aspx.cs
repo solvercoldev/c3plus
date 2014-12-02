@@ -109,6 +109,8 @@ namespace Modules.Contratos.Admin
                     break;
             }
 
+            txtObservacionesNovedad.Text = string.Empty;
+
             ShowNovedadWindow(true);
         }
 
@@ -490,6 +492,30 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblFechaAlarma.Text = value;
+            }
+        }
+
+        public string ObservacionesNovedad
+        {
+            get
+            {
+                return txtObservacionesNovedad.Text;
+            }
+            set
+            {
+                txtObservacionesNovedad.Text = value;
+            }
+        }
+
+        public string InfoContrato
+        {
+            get
+            {
+                return lblInfoContrato.Text;
+            }
+            set
+            {
+                lblInfoContrato.Text = value;
             }
         }
 

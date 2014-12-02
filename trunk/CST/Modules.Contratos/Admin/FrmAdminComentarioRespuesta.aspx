@@ -78,26 +78,42 @@
                         </td>
                         <td class="Separador"></td>
                     </tr>
+                   <tr>
+                        <td class="SeccionesH3">
+                            Tipo Contrato:
+                        </td>
+                        <td ></td>
+                        <td class="SeccionesH4">
+                            <asp:Label ID="lblTipoContrato" runat="server" />
+                        </td>
+                    </tr>                   
                     <tr>
                         <td class="SeccionesH3">
                             Fecha Firma:
                         </td>
-                        <td class="Separador"></td>
+                        <td ></td>
                         <td class="SeccionesH4">
-                            <asp:Label ID="lblFechaFirma" runat="server" ForeColor="#0fab77" />
+                            <asp:Label ID="lblFechaFirma" runat="server"  />
                         </td>
-                        <td class="Separador"></td>
-                    </tr>                                    
+                    </tr>    
                     <tr>
                         <td class="SeccionesH3">
-                            Periodo:
+                            Fecha Efectiva:
                         </td>
-                        <td class="Separador"></td>
+                        <td  class="Separador"></td>
                         <td class="SeccionesH4">
-                            <asp:Label ID="lblPeriodo" runat="server" ForeColor="#0fab77" />
+                            <asp:Label ID="lblFechaEfectiva" runat="server" />
                         </td>
-                        <td class="Separador"></td>
-                    </tr>                    
+                    </tr>                
+                    <tr>
+                        <td class="SeccionesH3">
+                            Fecha Fin:
+                        </td>
+                        <td ></td>
+                        <td class="SeccionesH4">
+                            <asp:Label ID="lblPeriodo" runat="server"  />
+                        </td>
+                    </tr>                           
                 </td>
             </tr>
             <tr>

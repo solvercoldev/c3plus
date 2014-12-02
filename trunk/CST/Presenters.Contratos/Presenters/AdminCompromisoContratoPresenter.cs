@@ -178,6 +178,8 @@ namespace Presenters.Contratos.Presenters
                             break;
                     }
 
+                    LoadContrato();
+
                     View.MsgLogInfo = string.Format("Creado por {0} en {1:dd/MM/yyyy hh:mm tt}. Modificado por {2} en {3:dd/MM/yyyy hh:mm tt}.",
                                                     compromiso.TBL_Admin_Usuarios.Nombres, compromiso.CreateOn,
                                                     compromiso.TBL_Admin_Usuarios1.Nombres, compromiso.ModifiedOn);
@@ -186,6 +188,25 @@ namespace Presenters.Contratos.Presenters
 
                     View.EnableEditCompromiso(false);
                     View.EnableActions(compromiso.Estado == "Programado");
+                }
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        void LoadContrato()
+        {
+            if (string.IsNullOrEmpty(View.IdContrato)) return;
+
+            try
+            {
+                var model = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
+
+                if (model != null)
+                {
+                    View.InfoContrato = string.Format("{0} - {1}", model.Nombre, model.NumeroContrato);
                 }
             }
             catch (Exception ex)
@@ -285,11 +306,12 @@ namespace Presenters.Contratos.Presenters
                     _compromisosService.Modify(compromiso);
 
                     var log = GetLog();
-                    log.Descripcion = string.Format("El usuario [{0}], ha [{1}] el compromiso [{2}], asociado a la [{3}]."
+                    log.Descripcion = string.Format("El usuario [{0}], ha [{1}] el compromiso [{2}], asociado a la [{3}]. Comentarios: [{4}]"
                                                     , View.UserSession.Nombres
                                                     , View.TipoOperacion
                                                     , compromiso.Nombre
-                                                    , compromiso.Fases.Nombre);
+                                                    , compromiso.Fases.Nombre
+                                                    , View.ObservacionesNovedad);
                     _log.Add(log);
 
                     model.ModifiedBy = View.UserSession.IdUser;

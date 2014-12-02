@@ -10,6 +10,7 @@ namespace Presenters.Contratos.IViews
         string IdContrato { get; }
         string IdRadicado { get; }
 
+        string InfoContrato { get; set; }
         string Numero { get; set; }
         string Estado { get; set; }
         string Responsable { get; set; }
@@ -26,6 +27,8 @@ namespace Presenters.Contratos.IViews
         string FechaAlarmaRespuesta { get; set; }
 
         string TipoOperacion { get; set; }
+
+        string ObservacionesNovedad { get; set; }
 
         DateTime FechaReprogramacion { get; set; }
 

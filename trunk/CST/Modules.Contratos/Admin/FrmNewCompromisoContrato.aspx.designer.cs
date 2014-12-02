@@ -364,6 +364,69 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.TreeView tvManualANH;
         
         /// <summary>
+        /// lblManualId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManualId;
+        
+        /// <summary>
+        /// lblManualNoProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManualNoProducto;
+        
+        /// <summary>
+        /// lblManualProducto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManualProducto;
+        
+        /// <summary>
+        /// txtManualContenido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtManualContenido;
+        
+        /// <summary>
+        /// lblManualFormato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManualFormato;
+        
+        /// <summary>
+        /// lblManualMedio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManualMedio;
+        
+        /// <summary>
+        /// lblManualEntrega control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManualEntrega;
+        
+        /// <summary>
         /// btnPopUpAdminEntregableANHTargetControl control.
         /// </summary>
         /// <remarks>

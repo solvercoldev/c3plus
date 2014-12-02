@@ -7,8 +7,8 @@ namespace Presenters.Contratos.IViews
 {
     public interface INewRadicadoContratoView : IView
     {
-        string IdContrato { get; }
-        
+        string IdContrato { get; }        
+
         string TipoRadicado { get; set; }
         string Numero { get; set; }
         DateTime FechaRadicado { get; set; }

@@ -94,6 +94,15 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Label lblBloque;
         
         /// <summary>
+        /// lblTipoContrato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoContrato;
+        
+        /// <summary>
         /// lblFechaFirma control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaFirma;
+        
+        /// <summary>
+        /// lblFechaEfectiva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaEfectiva;
         
         /// <summary>
         /// lblPeriodo control.

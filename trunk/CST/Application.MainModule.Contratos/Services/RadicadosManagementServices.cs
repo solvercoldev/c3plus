@@ -179,7 +179,7 @@ namespace Application.MainModule.Contratos.Services
         public List<Radicados> GetRadicadosPendienteByContrato(int idContrato)
         {
             Specification<Radicados> specification = new DirectSpecification<Radicados>(u => u.IdContrato == idContrato
-                                                                                        && (u.EstadoRadicado != "Respondido" || u.EstadoRadicado != "Anulado"));
+                                                                                        && u.EstadoRadicado == "Pendiente Respuesta");
 
             return _RadicadosRepository.GetBySpec(specification).ToList();
         }

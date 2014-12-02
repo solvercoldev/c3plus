@@ -487,7 +487,7 @@
 
     <asp:UpdatePanel ID="upModal" runat="server">
         <ContentTemplate>
-            <asp:Panel ID="pnlAdminEntregableANH"  runat="server" CssClass="popup_Container" Width="580px" Height="350px" style="display:none;">  
+            <asp:Panel ID="pnlAdminEntregableANH"  runat="server" CssClass="popup_Container" Width="960px" Height="370px" style="display:none;">  
 
                 <div class="popup_Titlebar" id="PopupHeader">
                     <div class="TitlebarLeft">
@@ -503,25 +503,87 @@
                 </div>
 
                 <div class="popup_Body">                                                    
-                    <table width="100%" class="tblSecciones">
+                    <table width="100%" class="tblSecciones">                        
                         <tr>
-                            <th style="text-align:left; width: 25%;">
-                            </th>
-
-                            <td class="Separador"></td>
-
-                            <td class="Line" style="width:70%;">
-                            </td>
-
-                            <td class="Separador"></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:left; vertical-align:top" colspan="4">
+                            <td style="text-align:left; vertical-align:top; width:49%; border:1px solid #F4F4F3;">
                                 <asp:Panel ID="pnlManualesANH" runat="server" Width="570px" Height="270px" ScrollBars="Auto">
-                                    <asp:TreeView ID="tvManualANH" runat="server" Font-Size="8pt"
+                                    <asp:TreeView ID="tvManualANH" runat="server" Font-Size="8pt" OnSelectedNodeChanged="ManualesSelect_Change"
                                               ShowCheckBoxes="All" OnClick="OnTreeClick(event)">
                                     </asp:TreeView>
                                 </asp:Panel>                                
+                            </td>
+                            <td style="width:2%"></td>
+                            <td style="text-align:left; vertical-align:top; width:49%; border:1px solid #F4F4F3;">
+                                <table width="100%">
+                                    <tr>
+                                        <td style="width:18%"></td>
+                                        <td style="width:2%"></td>
+                                        <td style="width:80%"></td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            Id:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:Label ID="lblManualId" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            #Producto:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:Label ID="lblManualNoProducto" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            Producto:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:Label ID="lblManualProducto" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            Contenido:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:TextBox ID="txtManualContenido" runat="server" Width="100%" TextMode="MultiLine" Rows="4" OnKeyDown="return false;" />                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            Formato:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:Label ID="lblManualFormato" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            Medio:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:Label ID="lblManualMedio" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th style="vertical-align:top;text-align:left">
+                                            Entrega:
+                                        </th>
+                                        <td ></td>
+                                        <td style="vertical-align:top;text-align:left" class="Line">
+                                            <asp:Label ID="lblManualEntrega" runat="server" />
+                                        </td>
+                                    </tr>
+                                </table>                                
                             </td>
                         </tr>
 

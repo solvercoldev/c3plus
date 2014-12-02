@@ -76,6 +76,15 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Label lblFechaRadicado;
         
         /// <summary>
+        /// lblInfoContrato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInfoContrato;
+        
+        /// <summary>
         /// lblFechaCreacion control.
         /// </summary>
         /// <remarks>
@@ -353,6 +362,15 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mpeAdminNovedad;
+        
+        /// <summary>
+        /// upFooter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upFooter;
         
         /// <summary>
         /// lblMsgLogInfo control.

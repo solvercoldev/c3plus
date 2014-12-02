@@ -109,6 +109,8 @@ namespace Modules.Contratos.Admin
                     break;
             }
 
+            txtObservacionesNovedad.Text = string.Empty;
+
             ShowNovedadWindow(true);
         }
 
@@ -146,8 +148,7 @@ namespace Modules.Contratos.Admin
 
         public void EnableEditCompromiso(bool enable)
         {
-            txtDescripcion.Visible = enable;
-            lblDescripcion.Visible = !enable;
+            txtDescripcion.Enabled = enable;
 
             ddlTipoPago.Visible = enable;
             lblTipoPago.Visible = !enable;
@@ -349,7 +350,6 @@ namespace Modules.Contratos.Admin
             set
             {
                 txtDescripcion.Text = value;
-                lblDescripcion.Text = value;
             }
         }
 
@@ -618,8 +618,32 @@ namespace Modules.Contratos.Admin
             }
         }
 
-        #endregion
+        public string ObservacionesNovedad
+        {
+            get
+            {
+                return txtObservacionesNovedad.Text;
+            }
+            set
+            {
+                txtObservacionesNovedad.Text = value;
+            }
+        }
+
+        public string InfoContrato
+        {
+            get
+            {
+                return lblInfoContrato.Text;
+            }
+            set
+            {
+                lblInfoContrato.Text = value;
+            }
+        }
 
         #endregion
+
+        #endregion                  
     }
 }

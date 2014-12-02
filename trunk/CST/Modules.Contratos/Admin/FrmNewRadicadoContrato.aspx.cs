@@ -54,7 +54,7 @@ namespace Modules.Contratos.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ImprimirTituloVentana(string.Format("Nuevo Compromiso - "));
+            ImprimirTituloVentana(string.Format("Nuevo Radicado - "));
             ImprimirAuxTituloVentana("Registro");
         }
 
@@ -86,9 +86,11 @@ namespace Modules.Contratos.Admin
             if (string.IsNullOrEmpty(Asunto))
                 messages.Add(string.Format("Es necesario ingresar un asunto para el radicado."));
 
-            if (!fuArchivoAnexo.HasFile)
-                messages.Add(string.Format("Es necesario ingresar un archivo adjunto para el radicado."));
+            if (string.IsNullOrEmpty(Numero))
+                messages.Add(string.Format("Es necesario ingresar un numero para el radicado."));
 
+            if (!fuArchivoAnexo.HasFile)
+                messages.Add(string.Format("Es necesario ingresar un archivo adjunto para el radicado."));            
 
             if (messages.Any())
             {
@@ -407,7 +409,7 @@ namespace Modules.Contratos.Admin
                 txtFechaRespuesta.Text = value.ToString("dd/MM/yyyy");
                 CheckAlarmaText();
             }
-        }
+        }       
    
         #endregion
 
