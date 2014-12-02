@@ -26,6 +26,7 @@ namespace Domain.MainModules.Entities
     [KnownType(typeof(TBL_Admin_Usuarios))]
     [KnownType(typeof(TiposContrato))]
     [KnownType(typeof(DocumentosContrato))]
+    [KnownType(typeof(DocumentosAnexoContrato))]
     [KnownType(typeof(Fases))]
     [KnownType(typeof(LogContratos))]
     [KnownType(typeof(NovedadesContrato))]
@@ -624,6 +625,76 @@ namespace Domain.MainModules.Entities
         private TrackableCollection<DocumentosContrato> _documentosContrato;
     
         [DataMember]
+        public TrackableCollection<DocumentosAnexoContrato> DocumentosAnexoContrato
+        {
+            get
+            {
+                if (_documentosAnexoContrato == null)
+                {
+                    _documentosAnexoContrato = new TrackableCollection<DocumentosAnexoContrato>();
+                    _documentosAnexoContrato.CollectionChanged += FixupDocumentosAnexoContrato;
+                }
+                return _documentosAnexoContrato;
+            }
+            set
+            {
+                if (!ReferenceEquals(_documentosAnexoContrato, value))
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
+                    }
+                    if (_documentosAnexoContrato != null)
+                    {
+                        _documentosAnexoContrato.CollectionChanged -= FixupDocumentosAnexoContrato;
+                    }
+                    _documentosAnexoContrato = value;
+                    if (_documentosAnexoContrato != null)
+                    {
+                        _documentosAnexoContrato.CollectionChanged += FixupDocumentosAnexoContrato;
+                    }
+                    OnNavigationPropertyChanged("DocumentosAnexoContrato");
+                }
+            }
+        }
+        private TrackableCollection<DocumentosAnexoContrato> _documentosAnexoContrato;
+    
+        [DataMember]
+        public TrackableCollection<DocumentosContrato> DocumentosContrato1
+        {
+            get
+            {
+                if (_documentosContrato1 == null)
+                {
+                    _documentosContrato1 = new TrackableCollection<DocumentosContrato>();
+                    _documentosContrato1.CollectionChanged += FixupDocumentosContrato1;
+                }
+                return _documentosContrato1;
+            }
+            set
+            {
+                if (!ReferenceEquals(_documentosContrato1, value))
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
+                    }
+                    if (_documentosContrato1 != null)
+                    {
+                        _documentosContrato1.CollectionChanged -= FixupDocumentosContrato1;
+                    }
+                    _documentosContrato1 = value;
+                    if (_documentosContrato1 != null)
+                    {
+                        _documentosContrato1.CollectionChanged += FixupDocumentosContrato1;
+                    }
+                    OnNavigationPropertyChanged("DocumentosContrato1");
+                }
+            }
+        }
+        private TrackableCollection<DocumentosContrato> _documentosContrato1;
+    
+        [DataMember]
         public TrackableCollection<Fases> Fases
         {
             get
@@ -884,6 +955,8 @@ namespace Domain.MainModules.Entities
             TBL_Admin_Usuarios2 = null;
             TiposContrato = null;
             DocumentosContrato.Clear();
+            DocumentosAnexoContrato.Clear();
+            DocumentosContrato1.Clear();
             Fases.Clear();
             LogContratos.Clear();
             NovedadesContrato.Clear();
@@ -1201,6 +1274,84 @@ namespace Domain.MainModules.Entities
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
                         ChangeTracker.RecordRemovalFromCollectionProperties("DocumentosContrato", item);
+                    }
+                }
+            }
+        }
+    
+        private void FixupDocumentosAnexoContrato(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (e.NewItems != null)
+            {
+                foreach (DocumentosAnexoContrato item in e.NewItems)
+                {
+                    item.Contratos = this;
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        if (!item.ChangeTracker.ChangeTrackingEnabled)
+                        {
+                            item.StartTracking();
+                        }
+                        ChangeTracker.RecordAdditionToCollectionProperties("DocumentosAnexoContrato", item);
+                    }
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (DocumentosAnexoContrato item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Contratos, this))
+                    {
+                        item.Contratos = null;
+                    }
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        ChangeTracker.RecordRemovalFromCollectionProperties("DocumentosAnexoContrato", item);
+                    }
+                }
+            }
+        }
+    
+        private void FixupDocumentosContrato1(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (e.NewItems != null)
+            {
+                foreach (DocumentosContrato item in e.NewItems)
+                {
+                    item.Contratos1 = this;
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        if (!item.ChangeTracker.ChangeTrackingEnabled)
+                        {
+                            item.StartTracking();
+                        }
+                        ChangeTracker.RecordAdditionToCollectionProperties("DocumentosContrato1", item);
+                    }
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (DocumentosContrato item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Contratos1, this))
+                    {
+                        item.Contratos1 = null;
+                    }
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        ChangeTracker.RecordRemovalFromCollectionProperties("DocumentosContrato1", item);
                     }
                 }
             }

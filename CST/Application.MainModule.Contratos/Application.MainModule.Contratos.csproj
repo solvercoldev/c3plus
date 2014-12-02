@@ -54,6 +54,7 @@
     <Compile Include="IServices\ICompromisosManagementServices.cs" />
     <Compile Include="IServices\IContratosManagementServices.cs" />
     <Compile Include="IServices\IDependenciasManagementServices.cs" />
+    <Compile Include="IServices\IDocumentosAnexoContratoManagementServices.cs" />
     <Compile Include="IServices\IDocumentosContratoManagementServices.cs" />
     <Compile Include="IServices\IDocumentosRadicadoManagementServices.cs" />
     <Compile Include="IServices\IEmpresasManagementServices.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Services\CompromisosManagementServices.cs" />
     <Compile Include="Services\ContratosManagementServices.cs" />
     <Compile Include="Services\DependenciasManagementServices.cs" />
+    <Compile Include="Services\DocumentosAnexoContratoManagementServices.cs" />
     <Compile Include="Services\DocumentosContratoManagementServices.cs" />
     <Compile Include="Services\DocumentosRadicadoManagementServices.cs" />
     <Compile Include="Services\EmpresasManagementServices.cs" />

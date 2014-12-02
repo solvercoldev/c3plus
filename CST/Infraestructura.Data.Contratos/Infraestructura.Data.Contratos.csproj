@@ -54,6 +54,7 @@
     <Compile Include="Repositories\CompromisosRepository.cs" />
     <Compile Include="Repositories\ContratosRepository.cs" />
     <Compile Include="Repositories\DependenciasRepository.cs" />
+    <Compile Include="Repositories\DocumentosAnexoContratoRepository.cs" />
     <Compile Include="Repositories\DocumentosContratoRepository.cs" />
     <Compile Include="Repositories\DocumentosRadicadoRepository.cs" />
     <Compile Include="Repositories\EmpresasRepository.cs" />

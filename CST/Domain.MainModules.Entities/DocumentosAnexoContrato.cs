@@ -23,9 +23,103 @@ namespace Domain.MainModules.Entities
     [KnownType(typeof(Contratos))]
     [KnownType(typeof(TBL_Admin_Usuarios))]
     
-    public partial class DocumentosContrato: IObjectWithChangeTracker, INotifyPropertyChanged
+    public partial class DocumentosAnexoContrato: IObjectWithChangeTracker, INotifyPropertyChanged
     {
         #region Primitive Properties
+    
+        [DataMember]
+        public System.Guid IdDocumentoContrato
+        {
+            get { return _idDocumentoContrato; }
+            set
+            {
+                if (_idDocumentoContrato != value)
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled && ChangeTracker.State != ObjectState.Added)
+                    {
+                        throw new InvalidOperationException("The property 'IdDocumentoContrato' is part of the object's key and cannot be changed. Changes to key properties can only be made when the object is not being tracked or is in the Added state.");
+                    }
+                    _idDocumentoContrato = value;
+                    OnPropertyChanged("IdDocumentoContrato");
+                }
+            }
+        }
+        private System.Guid _idDocumentoContrato;
+    
+        [DataMember]
+        public string NombreArchivo
+        {
+            get { return _nombreArchivo; }
+            set
+            {
+                if (_nombreArchivo != value)
+                {
+                    _nombreArchivo = value;
+                    OnPropertyChanged("NombreArchivo");
+                }
+            }
+        }
+        private string _nombreArchivo;
+    
+        [DataMember]
+        public string Titulo
+        {
+            get { return _titulo; }
+            set
+            {
+                if (_titulo != value)
+                {
+                    _titulo = value;
+                    OnPropertyChanged("Titulo");
+                }
+            }
+        }
+        private string _titulo;
+    
+        [DataMember]
+        public string Descripcion
+        {
+            get { return _descripcion; }
+            set
+            {
+                if (_descripcion != value)
+                {
+                    _descripcion = value;
+                    OnPropertyChanged("Descripcion");
+                }
+            }
+        }
+        private string _descripcion;
+    
+        [DataMember]
+        public string Categoria
+        {
+            get { return _categoria; }
+            set
+            {
+                if (_categoria != value)
+                {
+                    _categoria = value;
+                    OnPropertyChanged("Categoria");
+                }
+            }
+        }
+        private string _categoria;
+    
+        [DataMember]
+        public byte[] Archivo
+        {
+            get { return _archivo; }
+            set
+            {
+                if (_archivo != value)
+                {
+                    _archivo = value;
+                    OnPropertyChanged("Archivo");
+                }
+            }
+        }
+        private byte[] _archivo;
     
         [DataMember]
         public int IdContrato
@@ -42,10 +136,6 @@ namespace Domain.MainModules.Entities
                         {
                             Contratos = null;
                         }
-                        if (Contratos1 != null && Contratos1.IdContrato != value)
-                        {
-                            Contratos1 = null;
-                        }
                     }
                     _idContrato = value;
                     OnPropertyChanged("IdContrato");
@@ -53,55 +143,6 @@ namespace Domain.MainModules.Entities
             }
         }
         private int _idContrato;
-    
-        [DataMember]
-        public string IdDocumentoContrato
-        {
-            get { return _idDocumentoContrato; }
-            set
-            {
-                if (_idDocumentoContrato != value)
-                {
-                    if (ChangeTracker.ChangeTrackingEnabled && ChangeTracker.State != ObjectState.Added)
-                    {
-                        throw new InvalidOperationException("The property 'IdDocumentoContrato' is part of the object's key and cannot be changed. Changes to key properties can only be made when the object is not being tracked or is in the Added state.");
-                    }
-                    _idDocumentoContrato = value;
-                    OnPropertyChanged("IdDocumentoContrato");
-                }
-            }
-        }
-        private string _idDocumentoContrato;
-    
-        [DataMember]
-        public string Nombre
-        {
-            get { return _nombre; }
-            set
-            {
-                if (_nombre != value)
-                {
-                    _nombre = value;
-                    OnPropertyChanged("Nombre");
-                }
-            }
-        }
-        private string _nombre;
-    
-        [DataMember]
-        public string Descripcion
-        {
-            get { return _descripcion; }
-            set
-            {
-                if (_descripcion != value)
-                {
-                    _descripcion = value;
-                    OnPropertyChanged("Descripcion");
-                }
-            }
-        }
-        private string _descripcion;
     
         [DataMember]
         public bool IsActive
@@ -132,10 +173,6 @@ namespace Domain.MainModules.Entities
                         if (TBL_Admin_Usuarios != null && TBL_Admin_Usuarios.IdUser != value)
                         {
                             TBL_Admin_Usuarios = null;
-                        }
-                        if (TBL_Admin_Usuarios2 != null && TBL_Admin_Usuarios2.IdUser != value)
-                        {
-                            TBL_Admin_Usuarios2 = null;
                         }
                     }
                     _createBy = value;
@@ -174,10 +211,6 @@ namespace Domain.MainModules.Entities
                         if (TBL_Admin_Usuarios1 != null && TBL_Admin_Usuarios1.IdUser != value)
                         {
                             TBL_Admin_Usuarios1 = null;
-                        }
-                        if (TBL_Admin_Usuarios3 != null && TBL_Admin_Usuarios3.IdUser != value)
-                        {
-                            TBL_Admin_Usuarios3 = null;
                         }
                     }
                     _modifiedBy = value;
@@ -223,23 +256,6 @@ namespace Domain.MainModules.Entities
         private Contratos _contratos;
     
         [DataMember]
-        public Contratos Contratos1
-        {
-            get { return _contratos1; }
-            set
-            {
-                if (!ReferenceEquals(_contratos1, value))
-                {
-                    var previousValue = _contratos1;
-                    _contratos1 = value;
-                    FixupContratos1(previousValue);
-                    OnNavigationPropertyChanged("Contratos1");
-                }
-            }
-        }
-        private Contratos _contratos1;
-    
-        [DataMember]
         public TBL_Admin_Usuarios TBL_Admin_Usuarios
         {
             get { return _tBL_Admin_Usuarios; }
@@ -272,40 +288,6 @@ namespace Domain.MainModules.Entities
             }
         }
         private TBL_Admin_Usuarios _tBL_Admin_Usuarios1;
-    
-        [DataMember]
-        public TBL_Admin_Usuarios TBL_Admin_Usuarios2
-        {
-            get { return _tBL_Admin_Usuarios2; }
-            set
-            {
-                if (!ReferenceEquals(_tBL_Admin_Usuarios2, value))
-                {
-                    var previousValue = _tBL_Admin_Usuarios2;
-                    _tBL_Admin_Usuarios2 = value;
-                    FixupTBL_Admin_Usuarios2(previousValue);
-                    OnNavigationPropertyChanged("TBL_Admin_Usuarios2");
-                }
-            }
-        }
-        private TBL_Admin_Usuarios _tBL_Admin_Usuarios2;
-    
-        [DataMember]
-        public TBL_Admin_Usuarios TBL_Admin_Usuarios3
-        {
-            get { return _tBL_Admin_Usuarios3; }
-            set
-            {
-                if (!ReferenceEquals(_tBL_Admin_Usuarios3, value))
-                {
-                    var previousValue = _tBL_Admin_Usuarios3;
-                    _tBL_Admin_Usuarios3 = value;
-                    FixupTBL_Admin_Usuarios3(previousValue);
-                    OnNavigationPropertyChanged("TBL_Admin_Usuarios3");
-                }
-            }
-        }
-        private TBL_Admin_Usuarios _tBL_Admin_Usuarios3;
 
         #endregion
         #region ChangeTracking
@@ -386,11 +368,8 @@ namespace Domain.MainModules.Entities
         protected virtual void ClearNavigationProperties()
         {
             Contratos = null;
-            Contratos1 = null;
             TBL_Admin_Usuarios = null;
             TBL_Admin_Usuarios1 = null;
-            TBL_Admin_Usuarios2 = null;
-            TBL_Admin_Usuarios3 = null;
         }
 
         #endregion
@@ -403,16 +382,16 @@ namespace Domain.MainModules.Entities
                 return;
             }
     
-            if (previousValue != null && previousValue.DocumentosContrato.Contains(this))
+            if (previousValue != null && previousValue.DocumentosAnexoContrato.Contains(this))
             {
-                previousValue.DocumentosContrato.Remove(this);
+                previousValue.DocumentosAnexoContrato.Remove(this);
             }
     
             if (Contratos != null)
             {
-                if (!Contratos.DocumentosContrato.Contains(this))
+                if (!Contratos.DocumentosAnexoContrato.Contains(this))
                 {
-                    Contratos.DocumentosContrato.Add(this);
+                    Contratos.DocumentosAnexoContrato.Add(this);
                 }
     
                 IdContrato = Contratos.IdContrato;
@@ -435,45 +414,6 @@ namespace Domain.MainModules.Entities
             }
         }
     
-        private void FixupContratos1(Contratos previousValue)
-        {
-            if (IsDeserializing)
-            {
-                return;
-            }
-    
-            if (previousValue != null && previousValue.DocumentosContrato1.Contains(this))
-            {
-                previousValue.DocumentosContrato1.Remove(this);
-            }
-    
-            if (Contratos1 != null)
-            {
-                if (!Contratos1.DocumentosContrato1.Contains(this))
-                {
-                    Contratos1.DocumentosContrato1.Add(this);
-                }
-    
-                IdContrato = Contratos1.IdContrato;
-            }
-            if (ChangeTracker.ChangeTrackingEnabled)
-            {
-                if (ChangeTracker.OriginalValues.ContainsKey("Contratos1")
-                    && (ChangeTracker.OriginalValues["Contratos1"] == Contratos1))
-                {
-                    ChangeTracker.OriginalValues.Remove("Contratos1");
-                }
-                else
-                {
-                    ChangeTracker.RecordOriginalValue("Contratos1", previousValue);
-                }
-                if (Contratos1 != null && !Contratos1.ChangeTracker.ChangeTrackingEnabled)
-                {
-                    Contratos1.StartTracking();
-                }
-            }
-        }
-    
         private void FixupTBL_Admin_Usuarios(TBL_Admin_Usuarios previousValue)
         {
             if (IsDeserializing)
@@ -481,16 +421,16 @@ namespace Domain.MainModules.Entities
                 return;
             }
     
-            if (previousValue != null && previousValue.DocumentosContrato.Contains(this))
+            if (previousValue != null && previousValue.DocumentosAnexoContrato.Contains(this))
             {
-                previousValue.DocumentosContrato.Remove(this);
+                previousValue.DocumentosAnexoContrato.Remove(this);
             }
     
             if (TBL_Admin_Usuarios != null)
             {
-                if (!TBL_Admin_Usuarios.DocumentosContrato.Contains(this))
+                if (!TBL_Admin_Usuarios.DocumentosAnexoContrato.Contains(this))
                 {
-                    TBL_Admin_Usuarios.DocumentosContrato.Add(this);
+                    TBL_Admin_Usuarios.DocumentosAnexoContrato.Add(this);
                 }
     
                 CreateBy = TBL_Admin_Usuarios.IdUser;
@@ -520,16 +460,16 @@ namespace Domain.MainModules.Entities
                 return;
             }
     
-            if (previousValue != null && previousValue.DocumentosContrato1.Contains(this))
+            if (previousValue != null && previousValue.DocumentosAnexoContrato1.Contains(this))
             {
-                previousValue.DocumentosContrato1.Remove(this);
+                previousValue.DocumentosAnexoContrato1.Remove(this);
             }
     
             if (TBL_Admin_Usuarios1 != null)
             {
-                if (!TBL_Admin_Usuarios1.DocumentosContrato1.Contains(this))
+                if (!TBL_Admin_Usuarios1.DocumentosAnexoContrato1.Contains(this))
                 {
-                    TBL_Admin_Usuarios1.DocumentosContrato1.Add(this);
+                    TBL_Admin_Usuarios1.DocumentosAnexoContrato1.Add(this);
                 }
     
                 ModifiedBy = TBL_Admin_Usuarios1.IdUser;
@@ -548,84 +488,6 @@ namespace Domain.MainModules.Entities
                 if (TBL_Admin_Usuarios1 != null && !TBL_Admin_Usuarios1.ChangeTracker.ChangeTrackingEnabled)
                 {
                     TBL_Admin_Usuarios1.StartTracking();
-                }
-            }
-        }
-    
-        private void FixupTBL_Admin_Usuarios2(TBL_Admin_Usuarios previousValue)
-        {
-            if (IsDeserializing)
-            {
-                return;
-            }
-    
-            if (previousValue != null && previousValue.DocumentosContrato2.Contains(this))
-            {
-                previousValue.DocumentosContrato2.Remove(this);
-            }
-    
-            if (TBL_Admin_Usuarios2 != null)
-            {
-                if (!TBL_Admin_Usuarios2.DocumentosContrato2.Contains(this))
-                {
-                    TBL_Admin_Usuarios2.DocumentosContrato2.Add(this);
-                }
-    
-                CreateBy = TBL_Admin_Usuarios2.IdUser;
-            }
-            if (ChangeTracker.ChangeTrackingEnabled)
-            {
-                if (ChangeTracker.OriginalValues.ContainsKey("TBL_Admin_Usuarios2")
-                    && (ChangeTracker.OriginalValues["TBL_Admin_Usuarios2"] == TBL_Admin_Usuarios2))
-                {
-                    ChangeTracker.OriginalValues.Remove("TBL_Admin_Usuarios2");
-                }
-                else
-                {
-                    ChangeTracker.RecordOriginalValue("TBL_Admin_Usuarios2", previousValue);
-                }
-                if (TBL_Admin_Usuarios2 != null && !TBL_Admin_Usuarios2.ChangeTracker.ChangeTrackingEnabled)
-                {
-                    TBL_Admin_Usuarios2.StartTracking();
-                }
-            }
-        }
-    
-        private void FixupTBL_Admin_Usuarios3(TBL_Admin_Usuarios previousValue)
-        {
-            if (IsDeserializing)
-            {
-                return;
-            }
-    
-            if (previousValue != null && previousValue.DocumentosContrato3.Contains(this))
-            {
-                previousValue.DocumentosContrato3.Remove(this);
-            }
-    
-            if (TBL_Admin_Usuarios3 != null)
-            {
-                if (!TBL_Admin_Usuarios3.DocumentosContrato3.Contains(this))
-                {
-                    TBL_Admin_Usuarios3.DocumentosContrato3.Add(this);
-                }
-    
-                ModifiedBy = TBL_Admin_Usuarios3.IdUser;
-            }
-            if (ChangeTracker.ChangeTrackingEnabled)
-            {
-                if (ChangeTracker.OriginalValues.ContainsKey("TBL_Admin_Usuarios3")
-                    && (ChangeTracker.OriginalValues["TBL_Admin_Usuarios3"] == TBL_Admin_Usuarios3))
-                {
-                    ChangeTracker.OriginalValues.Remove("TBL_Admin_Usuarios3");
-                }
-                else
-                {
-                    ChangeTracker.RecordOriginalValue("TBL_Admin_Usuarios3", previousValue);
-                }
-                if (TBL_Admin_Usuarios3 != null && !TBL_Admin_Usuarios3.ChangeTracker.ChangeTrackingEnabled)
-                {
-                    TBL_Admin_Usuarios3.StartTracking();
                 }
             }
         }
