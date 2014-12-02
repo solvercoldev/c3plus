@@ -49,6 +49,7 @@
     <Compile Include="IViews\IAdminCompromisoContratoNew.cs" />
     <Compile Include="IViews\IAdminCompromisosContratoView.cs" />
     <Compile Include="IViews\IAdminCompromisosFasesContratoView.cs" />
+    <Compile Include="IViews\IAdminDocumentosAnexoContratoView.cs" />
     <Compile Include="IViews\IAdminNovedadesContratoView.cs" />
     <Compile Include="IViews\IAdminNovedadesFasesContratoView.cs" />
     <Compile Include="IViews\IAdminRadicadoContratoView.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Presenters\AdminCompromisoContratoPresenter.cs" />
     <Compile Include="Presenters\AdminCompromisosContratoPresenter.cs" />
     <Compile Include="Presenters\AdminCompromisosFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\AdminDocumentosAnexoContratoPresenter.cs" />
     <Compile Include="Presenters\AdminNovedadesContratoPresenter.cs" />
     <Compile Include="Presenters\AdminNovedadesFasesContratoPresenter.cs" />
     <Compile Include="Presenters\AdminRadicadoContratoPresenter.cs" />

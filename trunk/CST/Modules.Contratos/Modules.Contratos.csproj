@@ -97,6 +97,7 @@
     <Content Include="UserControls\WuCAdminCompromisosContrato.ascx" />
     <Content Include="UserControls\WuCAdminCompromisosFasesContrato.ascx" />
     <Content Include="UserControls\WuCAdminDocumentacionContrato.ascx" />
+    <Content Include="UserControls\WuCAdminDocumentosAnexoContrato.ascx" />
     <Content Include="UserControls\WuCAdminNovedadesContrato.ascx" />
     <Content Include="UserControls\WuCAdminNovedadesFasesContrato.ascx" />
     <Content Include="UserControls\WuCAdminRadicadosContrato.ascx" />
@@ -219,6 +220,13 @@
     </Compile>
     <Compile Include="UserControls\WuCAdminDocumentacionContrato.ascx.designer.cs">
       <DependentUpon>WuCAdminDocumentacionContrato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminDocumentosAnexoContrato.ascx.cs">
+      <DependentUpon>WuCAdminDocumentosAnexoContrato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\WuCAdminDocumentosAnexoContrato.ascx.designer.cs">
+      <DependentUpon>WuCAdminDocumentosAnexoContrato.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WuCAdminNovedadesContrato.ascx.cs">
       <DependentUpon>WuCAdminNovedadesContrato.ascx</DependentUpon>
