@@ -19,8 +19,27 @@ AS
 --set	@FechaFin = '2015-12-24'
 /*****************************************************/
 
+-- Variables de Trabajo
+declare @DiffDias int, @IdContrato int, @Grupo int, @NumFase int
+
+select	@DiffDias = datediff(dd, f.FechaFinalizacion, @FechaFin)	
+		,@IdContrato = f.IdContrato		
+		,@Grupo = f.Grupo
+		,@NumFase = f.NumeroFase	
+from	Fases f with(nolock)
+where	f.IdFase = @IdFase
+
 -- Actualizando Fase
 update	f
 set		f.FechaFinalizacion = @FechaFin
 from	Fases f with(nolock)
 where	f.IdFase = @IdFase
+
+-- Actualizando Fases Asociadas
+update	f
+set		f.FechaInicio = dateadd(dd,@DiffDias,f.FechaInicio)
+		,f.FechaFinalizacion = dateadd(dd,@DiffDias,f.FechaFinalizacion)
+from	Fases f with(nolock)
+where	f.IdContrato = @IdContrato
+		and f.Grupo = @Grupo
+		and f.NumeroFase > @NumFase

@@ -79,8 +79,7 @@
                                     <td class="Separador"></td>
 
                                     <td class="Line" style="vertical-align:top;" >
-                                        <asp:Label ID="lblDescripcion" runat="server" />
-                                        <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Visible="false" Rows="4" MaxLength="512" Width="90%" />
+                                        <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" MaxLength="512" Width="90%" Enabled="false" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -94,6 +93,17 @@
                                         <asp:Label ID="lblTipoFase" runat="server" />
                                         - <asp:Label ID="lblFase" runat="server" />
                                         - <asp:Label ID="lblBCP" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align:left; vertical-align:top">
+                                        Contrato :
+                                    </th>
+
+                                    <td class="Separador"></td>
+
+                                    <td class="Line" style="vertical-align:top;" >
+                                        <asp:Label ID="lblInfoContrato" runat="server" />
                                     </td>
                                 </tr>    
                             </table>
@@ -339,11 +349,15 @@
 
 <asp:Content ID="footerContent" runat="server" ContentPlaceHolderID="Footer">
     <!-- Aca va el Log -->
-    <table width="100%">
-        <tr >
-            <td  style="text-align:left; vertical-align:top; padding-left: 10px; background-color:#e0e0e0; font-size:8pt; color:#808080;">
-                <asp:Label ID="lblMsgLogInfo" runat="server"/>
-            </td>
-        </tr>
-    </table>
+    <asp:UpdatePanel ID="upFooter" runat="server" ChildrenAsTriggers="true">
+        <ContentTemplate>
+            <table width="100%">
+                <tr >
+                    <td  style="text-align:left; vertical-align:top; padding-left: 10px; background-color:#e0e0e0; font-size:8pt; color:#808080;">
+                        <asp:Label ID="lblMsgLogInfo" runat="server"/>
+                    </td>
+                </tr>
+            </table>
+        </ContentTemplate>
+    </asp:UpdatePanel>    
 </asp:Content>

@@ -10,6 +10,8 @@ namespace Presenters.Contratos.IViews
         string IdContrato { get; }
         string IdCompromiso { get; }
 
+        string InfoContrato { get; set; }
+
         string Nombre { get; set; }
         string Estado { get; set; }
         string Descripcion { get; set; }
@@ -35,6 +37,8 @@ namespace Presenters.Contratos.IViews
         decimal ValorCoberturaPago { get; set; }
 
         string TipoOperacion { get; set; }
+
+        string ObservacionesNovedad { get; set; }               
 
         string ResponsableReprogramacion { get; set; }
         DateTime FechaReprogramacion { get; set; }

@@ -292,7 +292,7 @@ namespace Modules.Contratos.Admin
             }
             set
             {
-                lblFechaFirma.Text = value;
+                lblFechaFirma.Text = UppercaseFirst(value);
             }
         }
 
@@ -304,7 +304,7 @@ namespace Modules.Contratos.Admin
             }
             set
             {
-                lblPeriodo.Text = value;
+                lblPeriodo.Text = UppercaseFirst(value);
             }
         }
 
@@ -417,7 +417,31 @@ namespace Modules.Contratos.Admin
         public string NombreArchivoAdjunto
         {
             get { return fupAnexoArchivo.FileName; }
-        }    
+        }
+
+        public string TipoContrato
+        {
+            get
+            {
+                return lblTipoContrato.Text;
+            }
+            set
+            {
+                lblTipoContrato.Text = value;
+            }
+        }
+
+        public string FechaEfectiva
+        {
+            get
+            {
+                return lblFechaEfectiva.Text;
+            }
+            set
+            {
+                lblFechaEfectiva.Text = UppercaseFirst(value);
+            }
+        }
 
         #endregion
 

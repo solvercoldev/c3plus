@@ -7,6 +7,7 @@ using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using Domain.MainModules.Entities;
 using Application.MainModule.SqlServices.IServices;
+using System.Collections.Generic;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -132,7 +133,9 @@ namespace Presenters.Contratos.Presenters
 
                 if (_contratoService.ExistsContratoByNumero(View.NumeroContrato))
                 {
-                    InvokeMessageBox(new MessageBoxEventArgs(string.Format("Ya existe un contrato con el numero [{0}]. Por favor ingrese un numero de contrato diferente.", View.NumeroContrato), TypeError.Error));
+                    var errorMessages = new List<string>();
+                    errorMessages.Add(string.Format("Ya existe un contrato con el numero [{0}]. Por favor ingrese un numero de contrato diferente.", View.NumeroContrato));
+                    View.AddErrorMessages(errorMessages);
                     return;
                 }
 

@@ -54,7 +54,7 @@
                         <td class="Separador"></td>
                         <td style="width: 70%;"></td>
                         <td class="Separador"></td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <th style="text-align:left; vertical-align:top">
                             Tipo Radicado :

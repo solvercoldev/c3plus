@@ -9,13 +9,14 @@ using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using Domain.MainModules.Entities;
 using Application.MainModule.SqlServices.IServices;
+using Infrastructure.CrossCutting.IoC;
 
 namespace Presenters.Contratos.Presenters
 {
     public class ManageFasesContratoPresenter : Presenter<IManageFasesContratoView>
     {
         readonly ISfContratosManagementServices _contratoService;
-        readonly ISfFasesManagementServices _fasesService;
+        ISfFasesManagementServices _fasesService;
         readonly ISfTBL_Admin_SeccionesManagementServices _seccionesServices;
         readonly ISfNovedadesFaseManagementServices _novedadesFaseService;
         readonly IContratosAdoService _adoService;
@@ -84,6 +85,7 @@ namespace Presenters.Contratos.Presenters
 
             try
             {
+                _fasesService = IoC.Resolve<ISfFasesManagementServices>();
                 var fases = _fasesService.GetFasesByContrato(Convert.ToInt32(View.IdContrato));
                 View.LoadFases(fases);
             }

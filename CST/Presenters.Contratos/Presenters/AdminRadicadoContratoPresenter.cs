@@ -86,6 +86,7 @@ namespace Presenters.Contratos.Presenters
                     View.EnviadoPor = radicado.IdFromExterno;
                     View.DirigidoA = radicado.TBL_Admin_Usuarios4.Nombres;
                     View.Descripcion = radicado.Resumen;
+                    View.FechaReprogramacion = radicado.FechaReciboSalida;
 
                     if (radicado.IdRadicadoEntrada.HasValue)
                     {
@@ -100,7 +101,9 @@ namespace Presenters.Contratos.Presenters
                         View.FechaAlarmaRespuesta = string.Format("{0:dd MMMM de yyyy}", radicado.FechaRespuesta.GetValueOrDefault().AddDays(radicado.DiasAlarma.GetValueOrDefault() * (-1)));
 
                         View.ShowRespuesta(radicado.RespuestaPendiente);
-                    }                    
+                    }
+
+                    LoadContrato();
 
                     View.MsgLogInfo = string.Format("Creado por {0} en {1:dd/MM/yyyy hh:mm tt}. Modificado por {2} en {3:dd/MM/yyyy hh:mm tt}.",
                                                     radicado.TBL_Admin_Usuarios.Nombres, radicado.CreateOn,
@@ -110,6 +113,25 @@ namespace Presenters.Contratos.Presenters
                     View.EnableActions(radicado.EstadoRadicado != "Respondido" && radicado.EstadoRadicado != "Anulado");
 
                     LoadDocumentoRadicado();
+                }
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        void LoadContrato()
+        {
+            if (string.IsNullOrEmpty(View.IdContrato)) return;
+
+            try
+            {
+                var model = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
+
+                if (model != null)
+                {
+                    View.InfoContrato = string.Format("{0} - {1}", model.Nombre, model.NumeroContrato);
                 }
             }
             catch (Exception ex)
@@ -189,10 +211,11 @@ namespace Presenters.Contratos.Presenters
                     _radicadoService.Modify(radicado);
 
                     var log = GetLog();
-                    log.Descripcion = string.Format("El usuario [{0}], ha [{1}] el radicado con número [{2}]."
+                    log.Descripcion = string.Format("El usuario [{0}], ha [{1}] el radicado con número [{2}]. Comentarios: [{3}]"
                                                     , View.UserSession.Nombres
                                                     , View.TipoOperacion
-                                                    , radicado.Numero);
+                                                    , radicado.Numero
+                                                    , View.ObservacionesNovedad);
                     _log.Add(log);
 
                     model.ModifiedBy = View.UserSession.IdUser;

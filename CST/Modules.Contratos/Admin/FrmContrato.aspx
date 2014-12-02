@@ -36,6 +36,7 @@
         <ContentTemplate>  
 
     <div style="padding:3px; text-align:right; margin-top:-35px; height:30px;">
+        <asp:Button ID="btnBack" runat="server" Text="Regresar"  OnClick="BtnBack_Click" />
         <asp:Button ID="btnManageFases" runat="server" Text="Trabajar Fases"  OnClick="BtnManageFases_Click" />
     </div>
 
@@ -256,12 +257,16 @@
 
 <asp:Content ID="footerContent" runat="server" ContentPlaceHolderID="Footer">
     <!-- Aca va el Log -->
-    <table width="100%">
-        <tr >
-            <td  style="text-align:left; vertical-align:top; padding-left: 10px; background-color:#e0e0e0; font-size:8pt; color:#808080;">
-                <asp:Label ID="lblMsgLogInfo" runat="server"/>
-            </td>
-        </tr>
-    </table>
-    <ucLogContratos:WuCLogContratos ID="wucLogContrato" runat="server" />
+    <asp:UpdatePanel ID="upFooter" runat="server" ChildrenAsTriggers="true">
+        <ContentTemplate>
+            <table width="100%">
+                <tr >
+                    <td  style="text-align:left; vertical-align:top; padding-left: 10px; background-color:#e0e0e0; font-size:8pt; color:#808080;">
+                        <asp:Label ID="lblMsgLogInfo" runat="server"/>
+                    </td>
+                </tr>
+            </table>
+            <ucLogContratos:WuCLogContratos ID="wucLogContrato" runat="server" />
+        </ContentTemplate>
+    </asp:UpdatePanel>    
 </asp:Content>

@@ -13,8 +13,10 @@ namespace Presenters.Contratos.IViews
         string NombreContrato { get; set; }
         string NumeroContrato { get; set; }
         string Empresa { get; set; }
+        string TipoContrato { get; set; }
         string Bloque { get; set; }
         string FechaFirma { get; set; }
+        string FechaEfectiva { get; set; }
         string Periodo { get; set; }
 
         // Admin Comentario Respuesta

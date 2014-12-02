@@ -120,6 +120,7 @@ namespace Modules.Contratos.Admin
 
         protected void BtnBack_Click(object sender, EventArgs e)
         {
+            Response.Redirect(string.Format("../Views/GeneralContractList.aspx?ModuleId={0}", ModuleId));
         }
 
         protected void BtnManageFases_Click(object sender, EventArgs e)
