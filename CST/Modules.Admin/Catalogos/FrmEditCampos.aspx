@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmEditTercero.aspx.cs" Inherits="Modules.Admin.Catalogos.FrmEditTercero" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmEditCampos.aspx.cs" Inherits="Modules.Admin.Catalogos.FrmEditCampos" %>
 <%@ Register TagPrefix="ajaxToolkit" Namespace="AjaxControlToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -8,7 +8,6 @@
 	<asp:button id="btnSave" runat="server" OnClick="BtnSaveClick" text="Guardar"></asp:button>
     <asp:button id="btnAct" runat="server" OnClick="BtnActClick" text="Guardar"></asp:button>
 	<asp:button id="btnEliminar" OnClientClick="return confirm('¿Esta seguro?');" runat="server" OnClick="BtnDeleteClick" causesvalidation="False" text="Borrar"></asp:button>
-	
 </div>
 
 <table width="100%" class="tblSecciones">
@@ -22,36 +21,61 @@
 					    </tr>
 					    <tr>
                             <th style="width:1px">*</th>
-						    <th style="text-align:left; vertical-align:top">Id Tercero</th>
+						    <th style="text-align:left; vertical-align:top">Id Campo</th>
 						    <td align="left" class="Line">
-                            <asp:textbox id="txtIdTercero" MaxLength="10" runat="server"></asp:textbox>
+                            <asp:textbox id="txtIdCampo" MaxLength="10" runat="server"></asp:textbox>
                             
-                             <asp:requiredfieldvalidator id="rfvIdTercero" 
+                             <asp:requiredfieldvalidator id="rfvIdCampo" 
 						        runat="server" 
-						        errormessage="El campo [Id Tercero] es requerido!!." 
+						        errormessage="El campo [Id Campo] es requerido!!." 
 						        cssclass="validator"
 								display="Dynamic" 
 								enableclientscript="true" 
-								controltovalidate="txtIdTercero">
+								controltovalidate="txtIdCampo">
 							</asp:requiredfieldvalidator>
+                            </td>
+					    </tr>
+                        <tr>
+                            <th style="width:1px">*</th>
+						    <th style="text-align:left; vertical-align:top">Bloque</th>
+						    <td align="left" class="Line">
+				            <asp:DropDownList 
+                            CssClass="CombosGenericos"
+						    ID="ddlBloque" 
+						    Width="200"
+						    runat="server"></asp:DropDownList>
+                             <asp:requiredfieldvalidator id="rfvBloque" 
+						        runat="server" 
+						        errormessage="El campo [Bloque] es requerido!!." 
+						        cssclass="validator"
+								display="Dynamic" 
+								enableclientscript="true" 
+								controltovalidate="ddlBloque">
+								</asp:requiredfieldvalidator>
                             </td>
 					    </tr>
 					    <tr>
                             <th style="width:1px">*</th>
-						    <th style="text-align:left; vertical-align:top">Nombre</th>
+						    <th style="text-align:left; vertical-align:top">Descripción</th>
 						    <td align="left" class="Line">
-						        <asp:textbox id="txtNombre" runat="server" width="400px">
+						        <asp:textbox id="txtDescripción" runat="server" width="400px">
 						        </asp:textbox>
-						        <asp:requiredfieldvalidator id="rfvtxtNombre" 
+						        <asp:requiredfieldvalidator id="rfvtxtDescripción" 
 						        runat="server" 
-						        errormessage="El campo [Nombre] es requerido!!." 
+						        errormessage="El campo [Descripción] es requerido!!." 
 						        cssclass="validator"
 								display="Dynamic" 
 								enableclientscript="true" 
-								controltovalidate="txtNombre">
+								controltovalidate="txtDescripción">
 								</asp:requiredfieldvalidator>
 						</td>
-					    </tr>				
+					    </tr>
+					    
+					    <tr>
+                            <th style="width:1px"></th>
+						    <th style="text-align:left; vertical-align:top">Activa</th>
+						    <td align="left" class="Line"><asp:checkbox id="chkActive" runat="server" Checked="true"></asp:checkbox></td>
+					    </tr>					
 				    </table>
     			
 		

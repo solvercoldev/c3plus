@@ -5,7 +5,7 @@ using Domain.MainModules.Entities;
 
 namespace Presenters.Admin.IViews
 {
-    public interface IFrmViewCamposView : IView
+    public interface IFrmViewPozoView : IView
     {
         event EventHandler FilterEvent;
 
@@ -15,6 +15,6 @@ namespace Presenters.Admin.IViews
 
         string ModuleSetupId { get; set; }
 
-        void GetCampos(List<Campos> items);
+        void GetPozos(List<Pozos> items);
     }
 }

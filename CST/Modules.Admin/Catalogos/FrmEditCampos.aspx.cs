@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
 using ASP.NETCLIENTE.UI;
 using Domain.MainModules.Entities;
 using Presenters.Admin.IViews;
@@ -6,20 +8,40 @@ using Presenters.Admin.Presenters;
 
 namespace Modules.Admin.Catalogos
 {
-    public partial class FrmEditBloque : ViewPage<FrmEditBloquePresenter, IFrmEditBloqueView>, IFrmEditBloqueView
+    public partial class FrmEditCampos : ViewPage<FrmEditCamposPresenter, IFrmEditCamposView>, IFrmEditCamposView 
     {
-
         public event EventHandler SaveEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler ActualizarEvent;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ImprimirTituloVentana(string.IsNullOrEmpty(IdBloque) ? "Nuevo Bloque" : "Editar Bloque");
-            btnEliminar.Visible = !string.IsNullOrEmpty(IdBloque);
-            btnAct.Visible = !string.IsNullOrEmpty(IdBloque);
-            btnSave.Visible = string.IsNullOrEmpty(IdBloque);
-            txtIdBloque.Enabled = string.IsNullOrEmpty(IdBloque);
+            ImprimirTituloVentana(string.IsNullOrEmpty(IdCampo) ? "Nuevo Campo" : "Editar Campo");
+            btnEliminar.Visible = !string.IsNullOrEmpty(IdCampo);
+            btnAct.Visible = !string.IsNullOrEmpty(IdCampo);
+            btnSave.Visible = string.IsNullOrEmpty(IdCampo);
+            txtIdCampo.Enabled = string.IsNullOrEmpty(IdCampo);
+        }
+
+        public TBL_Admin_Usuarios UserSession
+        {
+            get { return AuthenticatedUser; }
+        }
+
+        public string IdModule
+        {
+            get { return ModuleId; }
+        }
+
+        public void ListadoBloques(List<Bloques> items)
+        {
+            ddlBloque.DataSource = items;
+            ddlBloque.DataValueField = "IdBloque";
+            ddlBloque.DataTextField = "Descripcion";
+            ddlBloque.DataBind();
+
+            var li = new ListItem("--Selected--", "");
+            ddlBloque.Items.Insert(0, li);
         }
 
         public bool Activo
@@ -34,10 +56,16 @@ namespace Modules.Admin.Catalogos
             set { txtDescripción.Text = value; }
         }
 
+        public string IdCampo
+        {
+            get { return string.IsNullOrEmpty(Request.QueryString["TemplateId"]) ? txtIdCampo.Text : Request.QueryString["TemplateId"]; }
+            set { txtIdCampo.Text = value; }
+        }
+
         public string IdBloque
         {
-            get { return string.IsNullOrEmpty(Request.QueryString["TemplateId"]) ? txtIdBloque.Text : Request.QueryString["TemplateId"]; }
-            set { txtIdBloque.Text = value; }
+            get { return ddlBloque.SelectedValue; }
+            set { ddlBloque.SelectedValue = value; }
         }
 
         public string CreatedBy
@@ -66,7 +94,7 @@ namespace Modules.Admin.Catalogos
 
         protected void BtnBackClick(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("FrmViewBloques.aspx{0}", GetBaseQueryString()));
+            Response.Redirect(string.Format("FrmViewCampos.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnSaveClick(object sender, EventArgs e)
@@ -85,16 +113,6 @@ namespace Modules.Admin.Catalogos
         {
             if (ActualizarEvent != null)
                 ActualizarEvent(null, EventArgs.Empty);
-        }
-
-        public TBL_Admin_Usuarios UserSession
-        {
-            get { return AuthenticatedUser; }
-        }
-
-        public string IdModule
-        {
-            get { return ModuleId; }
         }
 
     }

@@ -8,5 +8,6 @@ namespace Application.MainModule.Contratos.IServices
     public interface ISfPozosManagementServices : IGenericServices<Pozos>
     {
         List<Pozos> GetByBloque(string idBloque);
+        Pozos GetById(string id);
     }
 }

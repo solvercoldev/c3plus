@@ -3,6 +3,7 @@ using Application.Core;
 using Application.MainModule.Contratos.IServices;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Admin.IViews;
+using System.Linq;
 
 namespace Presenters.Admin.Presenters
 {
@@ -39,7 +40,7 @@ namespace Presenters.Admin.Presenters
 
                 var listado = _bloques.FindPaged(currentPage, View.PageZise);
 
-                View.GetBloques(listado);
+                View.GetBloques(listado.OrderBy(o=>o.IdBloque).ToList());
 
             }
             catch (Exception ex)

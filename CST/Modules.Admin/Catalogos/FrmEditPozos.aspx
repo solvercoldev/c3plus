@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmEditTipoObligacion.aspx.cs" Inherits="Modules.Admin.Catalogos.FrmEditTipoObligacion" %>
-<%@ Register TagPrefix="ajaxToolkit" Namespace="AjaxControlToolkit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmEditPozos.aspx.cs" Inherits="Modules.Admin.Catalogos.FrmEditPozos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <asp:ValidationSummary ID="vsGeneral" runat="server" DisplayMode="BulletList" ShowMessageBox="true" CssClass="validator" ShowSummary="False" ValidationGroup="vgGeneral"/>
@@ -8,7 +7,6 @@
 	<asp:button id="btnSave" runat="server" OnClick="BtnSaveClick" text="Guardar"></asp:button>
     <asp:button id="btnAct" runat="server" OnClick="BtnActClick" text="Guardar"></asp:button>
 	<asp:button id="btnEliminar" OnClientClick="return confirm('¿Esta seguro?');" runat="server" OnClick="BtnDeleteClick" causesvalidation="False" text="Borrar"></asp:button>
-	
 </div>
 
 <table width="100%" class="tblSecciones">
@@ -22,40 +20,69 @@
 					    </tr>
 					    <tr>
                             <th style="width:1px">*</th>
-						    <th style="text-align:left; vertical-align:top">Tipo Pago Obligación</th>
+						    <th style="text-align:left; vertical-align:top">Id Pozo</th>
 						    <td align="left" class="Line">
-                            <asp:textbox id="txtIdTipoObligacion" MaxLength="10" runat="server"></asp:textbox>
+                            <asp:textbox id="txtIdPozo" MaxLength="10" runat="server"></asp:textbox>
                             
-                             <asp:requiredfieldvalidator id="rfvIdTipoObligacion" 
+                             <asp:requiredfieldvalidator id="rfvIdCampo" 
 						        runat="server" 
-						        errormessage="El campo [Tipo Pago Obligación] es requerido!!." 
+						        errormessage="El campo [Id Pozo] es requerido!!." 
 						        cssclass="validator"
 								display="Dynamic" 
 								enableclientscript="true" 
-								controltovalidate="txtIdTipoObligacion">
+								controltovalidate="txtIdPozo">
 							</asp:requiredfieldvalidator>
+                            </td>
+					    </tr>
+                        <tr>
+                            <th style="width:1px">*</th>
+						    <th style="text-align:left; vertical-align:top">Campo</th>
+						    <td align="left" class="Line">
+				            <asp:DropDownList 
+                            CssClass="CombosGenericos"
+						    ID="ddlCampo" 
+						    Width="200"
+						    runat="server"></asp:DropDownList>
+                             <asp:requiredfieldvalidator id="rfvCampo" 
+						        runat="server" 
+						        errormessage="El campo [Campo] es requerido!!." 
+						        cssclass="validator"
+								display="Dynamic" 
+								enableclientscript="true" 
+								controltovalidate="ddlCampo">
+								</asp:requiredfieldvalidator>
                             </td>
 					    </tr>
 					    <tr>
                             <th style="width:1px">*</th>
 						    <th style="text-align:left; vertical-align:top">Descripción</th>
 						    <td align="left" class="Line">
-						        <asp:textbox id="txtDescripcion" runat="server" width="400px">
+						        <asp:textbox id="txtDescripción" runat="server" width="400px">
 						        </asp:textbox>
-						        <asp:requiredfieldvalidator id="rfvtxtNombre" 
+						        <asp:requiredfieldvalidator id="rfvtxtDescripción" 
 						        runat="server" 
-						        errormessage="El campo [Descripcion] es requerido!!." 
+						        errormessage="El campo [Descripción] es requerido!!." 
 						        cssclass="validator"
 								display="Dynamic" 
 								enableclientscript="true" 
-								controltovalidate="txtDescripcion">
+								controltovalidate="txtDescripción">
 								</asp:requiredfieldvalidator>
 						</td>
-					    </tr>				
+					    </tr>
+					    
+					    <tr>
+                            <th style="width:1px"></th>
+						    <th style="text-align:left; vertical-align:top">Activa</th>
+						    <td align="left" class="Line"><asp:checkbox id="chkActive" runat="server" Checked="true"></asp:checkbox></td>
+					    </tr>					
 				    </table>
-
+    			
+		
             </td>
+       
+        
         </tr>
+    
     </table>
 
 </asp:Content>

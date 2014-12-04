@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace Presenters.Admin.Presenters
 {
-    public class FrmViewTercerosPresenter : Presenter<IFrmViewTercerosView>
+    public class FrmViewPozoPresenter : Presenter<IFrmViewPozoView>
     {
-        private readonly ISfTercerosManagementServices _Terceros;
+        private readonly ISfPozosManagementServices _pozos;
 
-        public FrmViewTercerosPresenter(ISfTercerosManagementServices Terceros)
+        public FrmViewPozoPresenter(ISfPozosManagementServices pozos)
         {
-            _Terceros = Terceros;
+            _pozos = pozos;
         }
 
         public override void SubscribeViewToEvents()
@@ -38,9 +38,9 @@ namespace Presenters.Admin.Presenters
             try
             {
 
-                var listado = _Terceros.FindPaged(currentPage, View.PageZise);
+                var listado = _pozos.FindPaged(currentPage, View.PageZise);
 
-                View.GetTerceros(listado.OrderBy(o=>o.IdTercero).ToList());
+                View.GetPozos(listado.OrderBy(o=>o.IdPozo).ToList());
 
             }
             catch (Exception ex)
@@ -48,5 +48,6 @@ namespace Presenters.Admin.Presenters
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
         }
+
     }
 }

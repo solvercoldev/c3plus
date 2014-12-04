@@ -115,7 +115,13 @@ namespace Application.MainModule.Contratos.Services
             return _EmpresasRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public Empresas GetById(string id)
+        {
+             Specification<Empresas> specification = new DirectSpecification<Empresas>(u => u.Nit == id);
+             return _EmpresasRepository.GetEntityBySpec(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<Empresas> FindPaged(int pageIndex, int pageCount)

@@ -6,8 +6,7 @@ namespace Application.MainModule.Contratos.IServices
 {
     public interface ISfEmpresasManagementServices : IGenericServices<Empresas>
     {
-     
-
+        Empresas GetById(string id);
     }
 }
     

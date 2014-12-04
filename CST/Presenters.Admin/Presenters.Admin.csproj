@@ -53,11 +53,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IViews\IFrmEditBloqueView.cs" />
+    <Compile Include="IViews\IFrmEditCamposView.cs" />
+    <Compile Include="IViews\IFrmEditEmpresasView.cs" />
+    <Compile Include="IViews\IFrmEditPozosView.cs" />
     <Compile Include="IViews\IFrmEditTerceroView.cs" />
+    <Compile Include="IViews\IFrmEditTipoContratoView.cs" />
     <Compile Include="IViews\IFrmEditTipoObligacionView.cs" />
     <Compile Include="IViews\IFrmViewBloquesView.cs" />
     <Compile Include="IViews\IFrmViewCamposView.cs" />
+    <Compile Include="IViews\IFrmViewEmpresasView.cs" />
+    <Compile Include="IViews\IFrmViewPozoView.cs" />
     <Compile Include="IViews\IFrmViewTercerosView.cs" />
+    <Compile Include="IViews\IFrmViewTipoContratoView.cs" />
     <Compile Include="IViews\IFrmViewTipoObligacionView.cs" />
     <Compile Include="IViews\ILogout.cs">
       <SubType>Code</SubType>
@@ -82,11 +89,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Presenters\FrmEditBloquePresenter.cs" />
+    <Compile Include="Presenters\FrmEditCamposPresenter.cs" />
+    <Compile Include="Presenters\FrmEditEmpresasPresenter.cs" />
+    <Compile Include="Presenters\FrmEditPozosPresenter.cs" />
     <Compile Include="Presenters\FrmEditTerceroPresenter.cs" />
+    <Compile Include="Presenters\FrmEditTipoContratoPresenter.cs" />
     <Compile Include="Presenters\FrmEditTipoObligacionPresenter.cs" />
+    <Compile Include="Presenters\FrmEmpresasPresenter.cs" />
     <Compile Include="Presenters\FrmViewBloquesPresenter.cs" />
     <Compile Include="Presenters\FrmViewCamposPresenter.cs" />
+    <Compile Include="Presenters\FrmViewPozoPresenter.cs" />
     <Compile Include="Presenters\FrmViewTercerosPresenter.cs" />
+    <Compile Include="Presenters\FrmViewTipoContratoPresenter.cs" />
     <Compile Include="Presenters\FrmViewTipoObligacionPresenter.cs" />
     <Compile Include="Presenters\LogoutPresenter.cs">
       <SubType>Code</SubType>

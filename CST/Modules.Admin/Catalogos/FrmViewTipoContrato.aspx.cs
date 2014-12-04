@@ -7,16 +7,15 @@ using Presenters.Admin.IViews;
 using Presenters.Admin.Presenters;
 using ServerControls;
 
-
 namespace Modules.Admin.Catalogos
 {
-    public partial class FrmViewCampos : ViewPage<FrmViewCamposPresenter, IFrmViewCamposView>, IFrmViewCamposView
+    public partial class FrmViewTipoContrato : ViewPage<FrmViewTipoContratoPresenter, IFrmViewTipoContratoView>, IFrmViewTipoContratoView
     {
         public event EventHandler FilterEvent;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ImprimirTituloVentana("Administración Campos");
+            ImprimirTituloVentana("Administración Tipos Contrato");
         }
 
         public TBL_Admin_Usuarios UserSession
@@ -43,33 +42,17 @@ namespace Modules.Admin.Catalogos
         {
             get { return ViewState["ModuleSetupId"] == null ? string.Empty : ViewState["ModuleSetupId"].ToString(); }
             set { ViewState["ModuleSetupId"] = value; }
-        }
+        } 
 
-        public void GetCampos(List<Campos> items)
+        public void GetTiposContrato(List<TiposContrato> items)
         {
             rptListado.DataSource = items;
-            rptListado.DataBind();
-        }
-
-        protected void PgrChanged(object sender, PageChanged e)
-        {
-            if (FilterEvent != null)
-                FilterEvent(e.CurrentPage, EventArgs.Empty);
-        }
-
-        protected void RptListadoItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            Response.Redirect(string.Format("FrmEditCampos.aspx{0}&TemplateId={1}", GetBaseQueryString(), e.CommandArgument));
-        }
-
-        protected void BtnNewClick(object sender, EventArgs e)
-        {
-            Response.Redirect(string.Format("FrmEditCampos.aspx{0}", GetBaseQueryString()));
+            rptListado.DataBind(); 
         }
 
         protected void RptListadoItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            var rol = e.Item.DataItem as Campos;
+            var rol = e.Item.DataItem as TiposContrato;
 
             if (rol == null) return;
 
@@ -77,7 +60,7 @@ namespace Modules.Admin.Catalogos
 
             if (cmdEditar != null)
             {
-                cmdEditar.CommandArgument = rol.IdCampo;
+                cmdEditar.CommandArgument = rol.IdTipoContrato.ToString();
             }
 
             var chkActivo = e.Item.FindControl("chkActivo") as CheckBox;
@@ -86,6 +69,22 @@ namespace Modules.Admin.Catalogos
             {
                 chkActivo.Checked = rol.IsActive;
             }
+        }
+
+        protected void RptListadoItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            Response.Redirect(string.Format("FrmEditTipoContrato.aspx{0}&TemplateId={1}", GetBaseQueryString(), e.CommandArgument));
+        }
+
+        protected void BtnNewClick(object sender, EventArgs e)
+        {
+            Response.Redirect(string.Format("FrmEditTipoContrato.aspx{0}", GetBaseQueryString()));
+        }
+
+        protected void PgrChanged(object sender, PageChanged e)
+        {
+            if (FilterEvent != null)
+                FilterEvent(e.CurrentPage, EventArgs.Empty);
         }
     }
 }

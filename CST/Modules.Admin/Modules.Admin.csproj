@@ -76,6 +76,13 @@
     <Content Include="Catalogos\FrmViewTipoObligacion.aspx" />
     <Content Include="Catalogos\FrmEditTipoObligacion.aspx" />
     <Content Include="Catalogos\FrmViewCampos.aspx" />
+    <Content Include="Catalogos\FrmEditCampos.aspx" />
+    <Content Include="Catalogos\FrmViewPozos.aspx" />
+    <Content Include="Catalogos\FrmEditPozos.aspx" />
+    <Content Include="Catalogos\FrmViewEmpresas.aspx" />
+    <Content Include="Catalogos\FrmEditEmpresas.aspx" />
+    <Content Include="Catalogos\FrmViewTipoContrato.aspx" />
+    <Content Include="Catalogos\FrmEditTipoContrato.aspx" />
     <Content Include="Install\DataBase\mssql2000\1.0.0.sql" />
     <Content Include="Install\DataBase\mssql2000\Install.sql" />
     <Content Include="Web.config" />
@@ -171,6 +178,55 @@
     </Compile>
     <Compile Include="Catalogos\FrmViewCampos.aspx.designer.cs">
       <DependentUpon>FrmViewCampos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditCampos.aspx.cs">
+      <DependentUpon>FrmEditCampos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditCampos.aspx.designer.cs">
+      <DependentUpon>FrmEditCampos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewPozos.aspx.cs">
+      <DependentUpon>FrmViewPozos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewPozos.aspx.designer.cs">
+      <DependentUpon>FrmViewPozos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditPozos.aspx.cs">
+      <DependentUpon>FrmEditPozos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditPozos.aspx.designer.cs">
+      <DependentUpon>FrmEditPozos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewEmpresas.aspx.cs">
+      <DependentUpon>FrmViewEmpresas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewEmpresas.aspx.designer.cs">
+      <DependentUpon>FrmViewEmpresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditEmpresas.aspx.cs">
+      <DependentUpon>FrmEditEmpresas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditEmpresas.aspx.designer.cs">
+      <DependentUpon>FrmEditEmpresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewTipoContrato.aspx.cs">
+      <DependentUpon>FrmViewTipoContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmViewTipoContrato.aspx.designer.cs">
+      <DependentUpon>FrmViewTipoContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditTipoContrato.aspx.cs">
+      <DependentUpon>FrmEditTipoContrato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditTipoContrato.aspx.designer.cs">
+      <DependentUpon>FrmEditTipoContrato.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

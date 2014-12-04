@@ -3,6 +3,7 @@ using Application.Core;
 using Application.MainModule.Contratos.IServices;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Admin.IViews;
+using System.Linq;
 
 namespace Presenters.Admin.Presenters
 {
@@ -39,7 +40,7 @@ namespace Presenters.Admin.Presenters
 
                 var listado = _tiposPagoObligacion.FindPaged(currentPage, View.PageZise);
 
-                View.GetTipoObligacion(listado);
+                View.GetTipoObligacion(listado.OrderBy(o=>o.IdTipoPagoObligacion).ToList());
 
             }
             catch (Exception ex)

@@ -7,16 +7,15 @@ using Presenters.Admin.IViews;
 using Presenters.Admin.Presenters;
 using ServerControls;
 
-
 namespace Modules.Admin.Catalogos
 {
-    public partial class FrmViewCampos : ViewPage<FrmViewCamposPresenter, IFrmViewCamposView>, IFrmViewCamposView
+    public partial class FrmViewPozos : ViewPage<FrmViewPozoPresenter, IFrmViewPozoView>, IFrmViewPozoView
     {
         public event EventHandler FilterEvent;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ImprimirTituloVentana("Administración Campos");
+            ImprimirTituloVentana("Administración Pozos");
         }
 
         public TBL_Admin_Usuarios UserSession
@@ -45,7 +44,7 @@ namespace Modules.Admin.Catalogos
             set { ViewState["ModuleSetupId"] = value; }
         }
 
-        public void GetCampos(List<Campos> items)
+        public void GetPozos(List<Pozos> items)
         {
             rptListado.DataSource = items;
             rptListado.DataBind();
@@ -59,17 +58,17 @@ namespace Modules.Admin.Catalogos
 
         protected void RptListadoItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            Response.Redirect(string.Format("FrmEditCampos.aspx{0}&TemplateId={1}", GetBaseQueryString(), e.CommandArgument));
+            Response.Redirect(string.Format("FrmEditPozos.aspx{0}&TemplateId={1}", GetBaseQueryString(), e.CommandArgument));
         }
 
         protected void BtnNewClick(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("FrmEditCampos.aspx{0}", GetBaseQueryString()));
+            Response.Redirect(string.Format("FrmEditPozos.aspx{0}", GetBaseQueryString()));
         }
 
         protected void RptListadoItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            var rol = e.Item.DataItem as Campos;
+            var rol = e.Item.DataItem as Pozos;
 
             if (rol == null) return;
 
@@ -77,7 +76,7 @@ namespace Modules.Admin.Catalogos
 
             if (cmdEditar != null)
             {
-                cmdEditar.CommandArgument = rol.IdCampo;
+                cmdEditar.CommandArgument = rol.IdPozo;
             }
 
             var chkActivo = e.Item.FindControl("chkActivo") as CheckBox;
