@@ -10,7 +10,7 @@
 namespace Modules.Admin.Catalogos {
     
     
-    public partial class FrmViewCampos {
+    public partial class FrmViewPozos {
         
         /// <summary>
         /// btnNew control.

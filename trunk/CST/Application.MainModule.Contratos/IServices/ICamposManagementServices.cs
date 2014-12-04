@@ -8,5 +8,6 @@ namespace Application.MainModule.Contratos.IServices
     public interface ISfCamposManagementServices : IGenericServices<Campos>
     {
         List<Campos> GetByBloque(string idBloque);
+        Campos GetById(string id);
     }
 }

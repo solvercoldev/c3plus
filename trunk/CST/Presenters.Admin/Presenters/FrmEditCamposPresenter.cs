@@ -6,12 +6,14 @@ using Presenters.Admin.IViews;
 
 namespace Presenters.Admin.Presenters
 {
-    public class FrmEditBloquePresenter : Presenter<IFrmEditBloqueView>
+    public class FrmEditCamposPresenter : Presenter<IFrmEditCamposView>
     {
+        private readonly ISfCamposManagementServices _campo;
         private readonly ISfBloquesManagementServices _bloque;
 
-        public FrmEditBloquePresenter(ISfBloquesManagementServices bloque)
+        public FrmEditCamposPresenter(ISfCamposManagementServices campo, ISfBloquesManagementServices bloque)
         {
+            _campo = campo;
             _bloque = bloque;
         }
 
@@ -27,57 +29,59 @@ namespace Presenters.Admin.Presenters
         {
             if (View.IsPostBack) return;
             Load();
+            GetBloques();
         }
 
         void ViewSaveEvent(object sender, EventArgs e)
         {
-            GuardarBloque();
+            GuardarCampo();
         }
 
         void ViewActEvent(object sender, EventArgs e)
         {
-            ActualizarBloque();
+            ActualizarCampo();
         }
 
         void ViewDeleteEvent(object sender, EventArgs e)
         {
-            EliminarBloque();
+            EliminarCampo();
         }
-
 
         private void Load()
         {
-            if (string.IsNullOrEmpty(View.IdBloque)) return;
+            if (string.IsNullOrEmpty(View.IdCampo)) return;
 
-            var bloque = _bloque.GetById(View.IdBloque);
+            var campo = _campo.GetById(View.IdCampo);
 
-            if (bloque == null) return;
+            if (campo == null) return;
 
-            View.IdBloque = bloque.IdBloque;
-            View.Descripcion = bloque.Descripcion;
-            View.Activo = bloque.IsActive;
+            View.IdCampo = campo.IdCampo;
+            View.IdBloque = campo.IdBloque;
+            View.Descripcion = campo.Descripcion;
+            View.Activo = campo.IsActive;
             //View.CreatedBy = bloque.CreateBy.ToString();
             //View.CreatedOn = bloque.CreateOn.ToString();
             //View.ModifiedBy = bloque.ModifiedBy.ToString();
             //View.ModifiedOn = bloque.ModifiedOn.ToString();
         }
 
-        private void GuardarBloque()
+        private void GuardarCampo()
         {
 
             try
             {
 
-                var bloque = _bloque.NewEntity();
-                bloque.IdBloque = View.IdBloque.ToUpper();
-                bloque.Descripcion = View.Descripcion;
-                bloque.IsActive = View.Activo;
-                bloque.CreateOn = DateTime.Now;
-                bloque.CreateBy = View.UserSession.IdUser;
-                bloque.ModifiedOn = DateTime.Now;
-                bloque.ModifiedBy = View.UserSession.IdUser;
+                var campo = _campo.NewEntity();
+                campo.IdCampo = View.IdCampo.ToUpper();
+                campo.IdBloque = View.IdBloque;
+                campo.Descripcion = View.Descripcion;
+                campo.IsActive = View.Activo;
+                campo.CreateOn = DateTime.Now;
+                campo.CreateBy = View.UserSession.IdUser;
+                campo.ModifiedOn = DateTime.Now;
+                campo.ModifiedBy = View.UserSession.IdUser;
 
-                _bloque.Add(bloque);
+                _campo.Add(campo);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
             catch (Exception ex)
@@ -88,22 +92,23 @@ namespace Presenters.Admin.Presenters
 
         }
 
-        private void ActualizarBloque()
+        private void ActualizarCampo()
         {
 
             try
             {
 
-                if (View.IdBloque == "") return;
-                var bloque = _bloque.GetById(View.IdBloque);
-                if (bloque == null) return;
+                if (View.IdCampo == "") return;
+                var campo = _campo.GetById(View.IdCampo);
+                if (campo == null) return;
 
-                bloque.Descripcion = View.Descripcion;
-                bloque.IsActive = View.Activo;
-                bloque.ModifiedOn = DateTime.Now;
-                bloque.ModifiedBy = View.UserSession.IdUser;
+                campo.IdBloque = View.IdBloque;
+                campo.Descripcion = View.Descripcion;
+                campo.IsActive = View.Activo;
+                campo.ModifiedOn = DateTime.Now;
+                campo.ModifiedBy = View.UserSession.IdUser;
 
-                _bloque.Modify(bloque);
+                _campo.Modify(campo);
 
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
@@ -114,17 +119,14 @@ namespace Presenters.Admin.Presenters
             }
         }
 
-        /// <summary>
-        /// Elimina la plantilla seleccionada en Base de Datos
-        /// </summary>
-        private void EliminarBloque()
+        private void EliminarCampo()
         {
             try
             {
-                if (View.IdBloque == "") return;
-                var bloque = _bloque.GetById(View.IdBloque);
-                if (bloque == null) return;
-                _bloque.Remove(bloque);
+                if (View.IdCampo == "") return;
+                var campo = _campo.GetById(View.IdCampo);
+                if (campo == null) return;
+                _campo.Remove(campo);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
             catch (Exception ex)
@@ -134,5 +136,18 @@ namespace Presenters.Admin.Presenters
             }
         }
 
+        private void GetBloques()
+        {
+            try
+            {
+                var listado = _bloque.FindBySpec(true);
+                View.ListadoBloques(listado);
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+                InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.GetObjectError, " Listado de Paises"), TypeError.Error));
+            }
+        }
     }
 }

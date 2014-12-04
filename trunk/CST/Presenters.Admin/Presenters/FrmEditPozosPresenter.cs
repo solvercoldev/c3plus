@@ -6,13 +6,15 @@ using Presenters.Admin.IViews;
 
 namespace Presenters.Admin.Presenters
 {
-    public class FrmEditBloquePresenter : Presenter<IFrmEditBloqueView>
+    public class  FrmEditPozosPresenter : Presenter<IFrmEditPozosView>
     {
-        private readonly ISfBloquesManagementServices _bloque;
+        private readonly ISfPozosManagementServices _pozos;
+        private readonly ISfCamposManagementServices _campos;
 
-        public FrmEditBloquePresenter(ISfBloquesManagementServices bloque)
+        public FrmEditPozosPresenter(ISfPozosManagementServices pozos, ISfCamposManagementServices campos)
         {
-            _bloque = bloque;
+            _pozos = pozos;
+            _campos = campos;
         }
 
         public override void SubscribeViewToEvents()
@@ -27,57 +29,59 @@ namespace Presenters.Admin.Presenters
         {
             if (View.IsPostBack) return;
             Load();
+            GetCampos();
         }
 
         void ViewSaveEvent(object sender, EventArgs e)
         {
-            GuardarBloque();
+            GuardarPozo();
         }
 
         void ViewActEvent(object sender, EventArgs e)
         {
-            ActualizarBloque();
+            ActualizarPozo();
         }
 
         void ViewDeleteEvent(object sender, EventArgs e)
         {
-            EliminarBloque();
+            EliminarPozo();
         }
-
 
         private void Load()
         {
-            if (string.IsNullOrEmpty(View.IdBloque)) return;
+            if (string.IsNullOrEmpty(View.IdPozo)) return;
 
-            var bloque = _bloque.GetById(View.IdBloque);
+            var pozo = _pozos.GetById(View.IdPozo);
 
-            if (bloque == null) return;
+            if (pozo == null) return;
 
-            View.IdBloque = bloque.IdBloque;
-            View.Descripcion = bloque.Descripcion;
-            View.Activo = bloque.IsActive;
+            View.IdPozo = pozo.IdPozo;
+            View.IdCampo = pozo.IdCampo;
+            View.Descripcion = pozo.Descripcion;
+            View.Activo = pozo.IsActive;
             //View.CreatedBy = bloque.CreateBy.ToString();
             //View.CreatedOn = bloque.CreateOn.ToString();
             //View.ModifiedBy = bloque.ModifiedBy.ToString();
             //View.ModifiedOn = bloque.ModifiedOn.ToString();
         }
 
-        private void GuardarBloque()
+        private void GuardarPozo()
         {
 
             try
             {
 
-                var bloque = _bloque.NewEntity();
-                bloque.IdBloque = View.IdBloque.ToUpper();
-                bloque.Descripcion = View.Descripcion;
-                bloque.IsActive = View.Activo;
-                bloque.CreateOn = DateTime.Now;
-                bloque.CreateBy = View.UserSession.IdUser;
-                bloque.ModifiedOn = DateTime.Now;
-                bloque.ModifiedBy = View.UserSession.IdUser;
+                var pozo = _pozos.NewEntity();
+                pozo.IdPozo = View.IdPozo.ToUpper();
+                pozo.IdCampo = View.IdCampo;
+                pozo.Descripcion = View.Descripcion;
+                pozo.IsActive = View.Activo;
+                pozo.CreateOn = DateTime.Now;
+                pozo.CreateBy = View.UserSession.IdUser;
+                pozo.ModifiedOn = DateTime.Now;
+                pozo.ModifiedBy = View.UserSession.IdUser;
 
-                _bloque.Add(bloque);
+                _pozos.Add(pozo);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
             catch (Exception ex)
@@ -88,22 +92,23 @@ namespace Presenters.Admin.Presenters
 
         }
 
-        private void ActualizarBloque()
+        private void ActualizarPozo()
         {
 
             try
             {
 
-                if (View.IdBloque == "") return;
-                var bloque = _bloque.GetById(View.IdBloque);
-                if (bloque == null) return;
+                if (View.IdPozo == "") return;
+                var pozo = _pozos.GetById(View.IdPozo);
+                if (pozo == null) return;
 
-                bloque.Descripcion = View.Descripcion;
-                bloque.IsActive = View.Activo;
-                bloque.ModifiedOn = DateTime.Now;
-                bloque.ModifiedBy = View.UserSession.IdUser;
+                pozo.IdPozo = View.IdPozo;
+                pozo.Descripcion = View.Descripcion;
+                pozo.IsActive = View.Activo;
+                pozo.ModifiedOn = DateTime.Now;
+                pozo.ModifiedBy = View.UserSession.IdUser;
 
-                _bloque.Modify(bloque);
+                _pozos.Modify(pozo);
 
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
@@ -114,17 +119,14 @@ namespace Presenters.Admin.Presenters
             }
         }
 
-        /// <summary>
-        /// Elimina la plantilla seleccionada en Base de Datos
-        /// </summary>
-        private void EliminarBloque()
+        private void EliminarPozo()
         {
             try
             {
-                if (View.IdBloque == "") return;
-                var bloque = _bloque.GetById(View.IdBloque);
-                if (bloque == null) return;
-                _bloque.Remove(bloque);
+                if (View.IdPozo == "") return;
+                var pozo = _pozos.GetById(View.IdPozo);
+                if (pozo == null) return;
+                _pozos.Remove(pozo);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
             catch (Exception ex)
@@ -134,5 +136,18 @@ namespace Presenters.Admin.Presenters
             }
         }
 
+        private void GetCampos()
+        {
+            try
+            {
+                var listado = _campos.FindBySpec(true);
+                View.ListadoCampos(listado);
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+                InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.GetObjectError, " Listado de Paises"), TypeError.Error));
+            }
+        }
     }
 }

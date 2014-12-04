@@ -6,13 +6,13 @@ using Presenters.Admin.IViews;
 
 namespace Presenters.Admin.Presenters
 {
-    public class FrmEditTerceroPresenter : Presenter<IFrmEditTerceroView>
+    public class FrmEditTipoContratoPresenter : Presenter<IFrmEditTipoContratoView>
     {
-        private readonly ISfTercerosManagementServices _terceros;
+        private readonly ISfTiposContratoManagementServices _tipoContrato;
 
-        public FrmEditTerceroPresenter(ISfTercerosManagementServices tercero)
+        public FrmEditTipoContratoPresenter(ISfTiposContratoManagementServices tipoContrato)
         {
-            _terceros = tercero;
+            _tipoContrato = tipoContrato;
         }
 
         public override void SubscribeViewToEvents()
@@ -31,42 +31,52 @@ namespace Presenters.Admin.Presenters
 
         void ViewSaveEvent(object sender, EventArgs e)
         {
-            GuardarTercero();
+            GuardarTipoContrato();
         }
 
         void ViewActEvent(object sender, EventArgs e)
         {
-            ActualizarTercero();
+            ActualizarTipoContrato();
         }
 
         void ViewDeleteEvent(object sender, EventArgs e)
         {
-            EliminarTercero();
+            EliminarTipoContrato();
         }
-
 
         private void Load()
         {
-            if (string.IsNullOrEmpty(View.IdTercero)) return;
+            if (string.IsNullOrEmpty(View.IdTipoContrato)) return;
 
-            var tercero = _terceros.GetById(View.IdTercero);
+            var tiposContrato = _tipoContrato.GetById(View.IdTipoContrato);
 
-            if (tercero == null) return;
+            if (tiposContrato == null) return;
 
-            View.IdTercero = tercero.IdTercero;
-            View.Nombre = tercero.Nombre;
+            View.IdTipoContrato = tiposContrato.IdTipoContrato;
+            View.Descripcion = tiposContrato.Descripcion;
+            View.Activo = tiposContrato.IsActive;
+            //View.CreatedBy = bloque.CreateBy.ToString();
+            //View.CreatedOn = bloque.CreateOn.ToString();
+            //View.ModifiedBy = bloque.ModifiedBy.ToString();
+            //View.ModifiedOn = bloque.ModifiedOn.ToString();
         }
 
-        private void GuardarTercero()
+        private void GuardarTipoContrato()
         {
 
             try
             {
-                var tercero = _terceros.NewEntity();
-                tercero.IdTercero = View.IdTercero.ToUpper();
-                tercero.Nombre = View.Nombre;
 
-                _terceros.Add(tercero);
+                var tipoContato = _tipoContrato.NewEntity();
+                tipoContato.IdTipoContrato = View.IdTipoContrato.ToUpper();
+                tipoContato.Descripcion = View.Descripcion;
+                tipoContato.IsActive = View.Activo;
+                tipoContato.CreateOn = DateTime.Now;
+                tipoContato.CreateBy = View.UserSession.IdUser;
+                tipoContato.ModifiedOn = DateTime.Now;
+                tipoContato.ModifiedBy = View.UserSession.IdUser;
+
+                _tipoContrato.Add(tipoContato);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
             catch (Exception ex)
@@ -77,19 +87,22 @@ namespace Presenters.Admin.Presenters
 
         }
 
-        private void ActualizarTercero()
+        private void ActualizarTipoContrato()
         {
 
             try
             {
 
-                if (View.IdTercero == "") return;
-                var tercero = _terceros.GetById(View.IdTercero);
-                if (tercero == null) return;
+                if (View.IdTipoContrato == "") return;
+                var tiposContrato = _tipoContrato.GetById(View.IdTipoContrato);
+                if (tiposContrato == null) return;
 
-                tercero.Nombre = View.Nombre;
+                tiposContrato.Descripcion = View.Descripcion;
+                tiposContrato.IsActive = View.Activo;
+                tiposContrato.ModifiedOn = DateTime.Now;
+                tiposContrato.ModifiedBy = View.UserSession.IdUser;
 
-                _terceros.Modify(tercero);
+                _tipoContrato.Modify(tiposContrato);
 
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
@@ -100,17 +113,14 @@ namespace Presenters.Admin.Presenters
             }
         }
 
-        /// <summary>
-        /// Elimina la plantilla seleccionada en Base de Datos
-        /// </summary>
-        private void EliminarTercero()
+        private void EliminarTipoContrato()
         {
             try
             {
-                if (View.IdTercero == "") return;
-                var tercero = _terceros.GetById(View.IdTercero);
-                if (tercero == null) return;
-                _terceros.Remove(tercero);
+                if (View.IdTipoContrato == "") return;
+                var bloque = _tipoContrato.GetById(View.IdTipoContrato);
+                if (bloque == null) return;
+                _tipoContrato.Remove(bloque);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
             }
             catch (Exception ex)

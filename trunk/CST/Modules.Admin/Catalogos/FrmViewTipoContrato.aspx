@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmViewCampos.aspx.cs" Inherits="Modules.Admin.Catalogos.FrmViewCampos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmViewTipoContrato.aspx.cs" Inherits="Modules.Admin.Catalogos.FrmViewTipoContrato" %>
 <%@ Register TagPrefix="csc" Namespace="ServerControls" Assembly="ServerControls" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <div style="padding:3px; text-align:right;">
-  <asp:button id="btnNew" OnClick="BtnNewClick" runat="server" text="Nuevo Campo" Visible="true"></asp:button>
+  <asp:button id="btnNew" OnClick="BtnNewClick" runat="server" text="Nuevo Tipo Contrato" Visible="true"></asp:button>
 </div>
 
 <table style="width:100%" cellpadding="0" cellspacing="0">
@@ -18,7 +18,7 @@
                     OnItemDataBound="RptListadoItemDataBound">
 	                    <headertemplate>
 		                    <tr>
-                                <th>Campo</th>
+                                <th>Tipo Contrato</th>
 		                        <th>Descripción</th>
 			                    <th>Create On</th>
 			                    <th style="width:50px;">Active</th>
@@ -27,7 +27,7 @@
 	                    </headertemplate>
 	                    <itemtemplate>
 		                    <tr>
-			                    <td align="left"><%# DataBinder.Eval(Container.DataItem, "IdCampo")%></td>
+			                    <td align="left"><%# DataBinder.Eval(Container.DataItem, "IdTipoContrato")%></td>
                                 <td align="left"><%# DataBinder.Eval(Container.DataItem, "Descripcion")%></td>
 			                    <td align="center"><%# DataBinder.Eval(Container.DataItem, "CreateOn", "{0:d}")%></td>
 			                    <td align="center"><asp:CheckBox id="chkActivo" runat="server" Enabled="false"></asp:CheckBox></td>
@@ -38,7 +38,7 @@
 	                    </itemtemplate>
                         <AlternatingItemTemplate>
                             <tr class="AlternateGridStyle">
-		                        <td align="left"><%# DataBinder.Eval(Container.DataItem, "IdCampo")%></td>
+		                        <td align="left"><%# DataBinder.Eval(Container.DataItem, "IdTipoContrato")%></td>
                                 <td align="left"><%# DataBinder.Eval(Container.DataItem, "Descripcion")%></td>
 			                    <td align="center"><%# DataBinder.Eval(Container.DataItem, "CreateOn", "{0:d}")%></td>
 			                    <td align="center"><asp:CheckBox id="chkActivo" runat="server" Enabled="false"></asp:CheckBox></td>

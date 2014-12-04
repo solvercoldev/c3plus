@@ -6,20 +6,29 @@ using Presenters.Admin.Presenters;
 
 namespace Modules.Admin.Catalogos
 {
-    public partial class FrmEditBloque : ViewPage<FrmEditBloquePresenter, IFrmEditBloqueView>, IFrmEditBloqueView
+    public partial class FrmEditTipoContrato : ViewPage<FrmEditTipoContratoPresenter, IFrmEditTipoContratoView>, IFrmEditTipoContratoView
     {
-
         public event EventHandler SaveEvent;
         public event EventHandler DeleteEvent;
         public event EventHandler ActualizarEvent;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ImprimirTituloVentana(string.IsNullOrEmpty(IdBloque) ? "Nuevo Bloque" : "Editar Bloque");
-            btnEliminar.Visible = !string.IsNullOrEmpty(IdBloque);
-            btnAct.Visible = !string.IsNullOrEmpty(IdBloque);
-            btnSave.Visible = string.IsNullOrEmpty(IdBloque);
-            txtIdBloque.Enabled = string.IsNullOrEmpty(IdBloque);
+            ImprimirTituloVentana(string.IsNullOrEmpty(IdTipoContrato) ? "Nuevo Tipo Contrato" : "Editar Tipo Contrato");
+            btnEliminar.Visible = !string.IsNullOrEmpty(IdTipoContrato);
+            btnAct.Visible = !string.IsNullOrEmpty(IdTipoContrato);
+            btnSave.Visible = string.IsNullOrEmpty(IdTipoContrato);
+            txtIdTipoContrato.Enabled = string.IsNullOrEmpty(IdTipoContrato);
+        }
+
+        public TBL_Admin_Usuarios UserSession
+        {
+            get { return AuthenticatedUser; }
+        }
+
+        public string IdModule
+        {
+            get { return ModuleId; }
         }
 
         public bool Activo
@@ -34,10 +43,10 @@ namespace Modules.Admin.Catalogos
             set { txtDescripción.Text = value; }
         }
 
-        public string IdBloque
+        public string IdTipoContrato
         {
-            get { return string.IsNullOrEmpty(Request.QueryString["TemplateId"]) ? txtIdBloque.Text : Request.QueryString["TemplateId"]; }
-            set { txtIdBloque.Text = value; }
+            get { return string.IsNullOrEmpty(Request.QueryString["TemplateId"]) ? txtIdTipoContrato.Text : Request.QueryString["TemplateId"]; }
+            set { txtIdTipoContrato.Text = value; }
         }
 
         public string CreatedBy
@@ -66,7 +75,7 @@ namespace Modules.Admin.Catalogos
 
         protected void BtnBackClick(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("FrmViewBloques.aspx{0}", GetBaseQueryString()));
+            Response.Redirect(string.Format("FrmViewTipoContrato.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnSaveClick(object sender, EventArgs e)
@@ -86,16 +95,5 @@ namespace Modules.Admin.Catalogos
             if (ActualizarEvent != null)
                 ActualizarEvent(null, EventArgs.Empty);
         }
-
-        public TBL_Admin_Usuarios UserSession
-        {
-            get { return AuthenticatedUser; }
-        }
-
-        public string IdModule
-        {
-            get { return ModuleId; }
-        }
-
     }
 }

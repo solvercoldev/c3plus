@@ -7,13 +7,13 @@ using System.Linq;
 
 namespace Presenters.Admin.Presenters
 {
-    public class FrmViewTercerosPresenter : Presenter<IFrmViewTercerosView>
+    public class FrmEmpresasPresenter : Presenter<IFrmViewEmpresasView>
     {
-        private readonly ISfTercerosManagementServices _Terceros;
+        private readonly ISfEmpresasManagementServices _empresas;
 
-        public FrmViewTercerosPresenter(ISfTercerosManagementServices Terceros)
+        public FrmEmpresasPresenter(ISfEmpresasManagementServices empresas)
         {
-            _Terceros = Terceros;
+            _empresas = empresas;
         }
 
         public override void SubscribeViewToEvents()
@@ -38,9 +38,9 @@ namespace Presenters.Admin.Presenters
             try
             {
 
-                var listado = _Terceros.FindPaged(currentPage, View.PageZise);
+                var listado = _empresas.FindPaged(currentPage, View.PageZise);
 
-                View.GetTerceros(listado.OrderBy(o=>o.IdTercero).ToList());
+                View.GetEmpresas(listado.OrderBy(o=>o.Nit).ToList());
 
             }
             catch (Exception ex)

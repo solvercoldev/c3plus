@@ -115,7 +115,13 @@ namespace Application.MainModule.Contratos.Services
             return _TiposContratoRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public TiposContrato GetById(string id)
+        {
+            Specification<TiposContrato> specification = new DirectSpecification<TiposContrato>(u => u.IdTipoContrato == id);
+            return _TiposContratoRepository.GetEntityBySpec(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<TiposContrato> FindPaged(int pageIndex, int pageCount)

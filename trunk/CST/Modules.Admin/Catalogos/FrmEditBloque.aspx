@@ -6,9 +6,8 @@
  <div style="padding:3px; text-align:right;">
     <asp:button id="btnReturn" runat="server" OnClick="BtnBackClick" text="Regresar" causesvalidation="False"></asp:button>
 	<asp:button id="btnSave" runat="server" OnClick="BtnSaveClick" text="Guardar"></asp:button>
-    <asp:button id="btnAct" runat="server" OnClick="BtnActClick" text="Actualizar"></asp:button>
+    <asp:button id="btnAct" runat="server" OnClick="BtnActClick" text="Guardar"></asp:button>
 	<asp:button id="btnEliminar" OnClientClick="return confirm('¿Esta seguro?');" runat="server" OnClick="BtnDeleteClick" causesvalidation="False" text="Borrar"></asp:button>
-	
 </div>
 
 <table width="100%" class="tblSecciones">
@@ -21,8 +20,9 @@
 						    <td>&nbsp;</td>
 					    </tr>
 					    <tr>
-						    <th align="left">Id Bloque</th>
-						    <td align="left">
+                            <th style="width:1px">*</th>
+						    <th style="text-align:left; vertical-align:top">Id Bloque</th>
+						    <td align="left" class="Line">
                             <asp:textbox id="txtIdBloque" MaxLength="10" runat="server"></asp:textbox>
                             
                              <asp:requiredfieldvalidator id="rfvIdBloque" 
@@ -36,8 +36,9 @@
                             </td>
 					    </tr>
 					    <tr>
-						    <th align="left">Descripción</th>
-						    <td align="left">
+                            <th style="width:1px">*</th>
+						    <th style="text-align:left; vertical-align:top">Descripción</th>
+						    <td align="left" class="Line">
 						        <asp:textbox id="txtDescripción" runat="server" width="400px">
 						        </asp:textbox>
 						        <asp:requiredfieldvalidator id="rfvtxtDescripción" 
@@ -50,10 +51,10 @@
 								</asp:requiredfieldvalidator>
 						</td>
 					    </tr>
-					    
 					    <tr>
-						    <th align="left">Activa</th>
-						    <td align="left"><asp:checkbox id="chkActive" runat="server" Checked="true"></asp:checkbox></td>
+                            <th style="width:1px"></th>
+						    <th style="text-align:left; vertical-align:top">Activa</th>
+						    <td align="left" class="Line"><asp:checkbox id="chkActive" runat="server" Checked="true"></asp:checkbox></td>
 					    </tr>					
 				    </table>
     			

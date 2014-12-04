@@ -158,6 +158,12 @@ namespace Application.MainModule.Contratos.Services
             Specification<Pozos> specification = new DirectSpecification<Pozos>(u => u.Campos.IdBloque == idBloque);
             return _PozosRepository.GetBySpec(specification).ToList();
         }
+
+        public Pozos GetById(string id)
+        {
+            Specification<Pozos> specification = new DirectSpecification<Pozos>(u => u.IdPozo == id);
+            return _PozosRepository.GetEntityBySpec(specification);
+        }
     }
 }
     

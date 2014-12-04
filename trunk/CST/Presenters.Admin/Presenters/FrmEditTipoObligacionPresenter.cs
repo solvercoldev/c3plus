@@ -62,7 +62,7 @@ namespace Presenters.Admin.Presenters
             try
             {
                 var tiposPagoObligacion = _tiposPagoObligacion.NewEntity();
-                tiposPagoObligacion.IdTipoPagoObligacion = View.IdTipoPagoObligacion;
+                tiposPagoObligacion.IdTipoPagoObligacion = View.IdTipoPagoObligacion.ToUpper();
                 tiposPagoObligacion.Descripcion = View.Descripcion;
 
                 _tiposPagoObligacion.Add(tiposPagoObligacion);

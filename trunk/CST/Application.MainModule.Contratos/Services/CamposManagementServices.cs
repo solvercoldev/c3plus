@@ -132,6 +132,18 @@ namespace Application.MainModule.Contratos.Services
             return _CamposRepository.GetPagedElements(pageIndex, pageCount, u => u.Descripcion, onlyEnabledSpec, true).ToList();
          }
 
+         public List<Campos> GetByBloque(string idBloque)
+         {
+             Specification<Campos> specification = new DirectSpecification<Campos>(u => u.IdBloque == idBloque);
+             return _CamposRepository.GetBySpec(specification).ToList();
+         }
+
+         public Campos GetById(string id)
+         {
+             Specification<Campos> specification = new DirectSpecification<Campos>(u => u.IdCampo == id);
+             return _CamposRepository.GetEntityBySpec(specification);
+         }
+
          #endregion
 
          #region IDisposable Members
@@ -153,11 +165,6 @@ namespace Application.MainModule.Contratos.Services
 
         #endregion
 
-        public List<Campos> GetByBloque(string idBloque)
-        {
-            Specification<Campos> specification = new DirectSpecification<Campos>(u => u.IdBloque == idBloque);
-            return _CamposRepository.GetBySpec(specification).ToList();
-        }
     }
 }
     

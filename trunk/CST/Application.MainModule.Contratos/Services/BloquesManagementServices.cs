@@ -127,6 +127,12 @@ namespace Application.MainModule.Contratos.Services
             return _BloquesRepository.GetPagedElements(pageIndex, pageCount, u => u.Descripcion, onlyEnabledSpec, true).ToList();
          }
 
+         public Bloques GetById(string id)
+         {
+             Specification<Bloques> specification = new DirectSpecification<Bloques>(u => u.IdBloque == id);
+             return _BloquesRepository.GetCompleteEntity(specification);
+         }
+
          #endregion
 
          #region IDisposable Members
@@ -148,13 +154,6 @@ namespace Application.MainModule.Contratos.Services
 
         #endregion
 
-
-        public Bloques GetById(string id)
-        {
-            Specification<Bloques> specification = new DirectSpecification<Bloques>(u => u.IdBloque == id);
-
-            return _BloquesRepository.GetCompleteEntity(specification);
-        }
     }
 }
     
