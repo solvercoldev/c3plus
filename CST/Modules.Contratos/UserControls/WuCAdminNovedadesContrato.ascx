@@ -87,13 +87,17 @@
         </td>
         <td style="width:15%; text-align:center;vertical-align:top;" >
 
-            <asp:Button ID="btnSuspender" runat="server" Text="Suspender" CommandArgument="Suspensión" Width="80px" OnClick="BtnAddNovedad_Click" />
-            
-            <asp:Button ID="btnRestituir" runat="server" Text="Restituir" CommandArgument="Reiniciar" Width="80px" OnClick="BtnAddNovedad_Click" />
-            
-            <asp:Button ID="btnRenunciar" runat="server" Text="Renunciar" CommandArgument="Renuncia" Width="80px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnModFechaEff" runat="server" Text="Mod.Fecha Effectiva" CommandArgument="Modificación Fecha Efectiva" Width="120px" OnClick="BtnAddNovedad_Click" />
 
-            <asp:Button ID="btnTerminar" runat="server" Text="Terminar" CommandArgument="Terminación" Width="80px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnSuspender" runat="server" Text="Suspender" CommandArgument="Suspensión" Width="120px" OnClick="BtnAddNovedad_Click" />
+            
+            <asp:Button ID="btnRestituir" runat="server" Text="Restituir" CommandArgument="Reiniciar" Width="120px" OnClick="BtnAddNovedad_Click" />
+            
+            <asp:Button ID="btnRenunciar" runat="server" Text="Renunciar" CommandArgument="Renuncia" Width="120px" OnClick="BtnAddNovedad_Click" />
+
+            <asp:Button ID="btnTerminar" runat="server" Text="Terminar" CommandArgument="Terminación" Width="120px" OnClick="BtnAddNovedad_Click" />
+
+            <asp:Button ID="btnAnular" runat="server" Text="Anular" CommandArgument="Anulación" Width="120px" OnClick="BtnAddNovedad_Click" />
         </td>
     </tr>    
 </table>
@@ -128,9 +132,9 @@
 
                         <td class="Separador"></td>
                     </tr>
-                    <tr>
+                    <tr id="trInicioNovedad" runat="server" >
                         <th style="text-align:left; vertical-align:top">
-                            Fecha Inicio Novedad :
+                            Fecha Inicio :
                         </th>
 
                         <td class="Separador"></td>
@@ -149,7 +153,7 @@
                     </tr>
                     <tr id="trFinNovedad" runat="server" >
                         <th style="text-align:left; vertical-align:top">
-                            Fecha Fin Novedad :
+                            Fecha Fin :
                         </th>
 
                         <td class="Separador"></td>

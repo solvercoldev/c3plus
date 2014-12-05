@@ -15,6 +15,8 @@ namespace Presenters.Contratos.IViews
         DateTime FechaNovedad { get; set; }
         DateTime FechaFinNovedad { get; set; }
 
+        DateTime FechaFirma { set; }
+
         void LoadNovedades(List<NovedadesContrato> items);
         void ShowAdminWindow(bool visible);
 
@@ -22,5 +24,6 @@ namespace Presenters.Contratos.IViews
         bool CanRestituir { get; set; }
         bool CanRenunciar { get; set; }
         bool CanTerminar { get; set; }
+        bool CanAnular { get; set; }
     }
 }

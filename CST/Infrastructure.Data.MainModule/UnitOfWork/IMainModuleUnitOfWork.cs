@@ -48,6 +48,9 @@ namespace Infrastructure.Data.MainModule.UnitOfWork
         IObjectSet<Dependencias> Dependencias{get;}
         
     
+        IObjectSet<DocumentosAnexoContrato> DocumentosAnexoContrato{get;}
+        
+    
         IObjectSet<DocumentosContrato> DocumentosContrato{get;}
         
     

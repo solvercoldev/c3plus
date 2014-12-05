@@ -29,6 +29,7 @@ where	f.IdFase = @IdFase
 -- Actualizando Fase
 update	f
 set		f.FechaFinalizacion = @FechaFin
+		,f.DuracionMeses = datediff(mm, f.FechaInicio, @FechaFin)
 from	Fases f with(nolock)
 where	f.IdFase = @IdFase
 

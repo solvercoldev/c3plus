@@ -111,6 +111,9 @@ namespace Modules.Contratos.UserControls
                 var lblCreadoPor = e.Item.FindControl("lblCreadoPor") as Label;
                 if (lblCreadoPor != null) lblCreadoPor.Text = string.Format("{0}", item.TBL_Admin_Usuarios.Nombres);
 
+                var lblFecha = e.Item.FindControl("lblFecha") as Label;
+                if (lblFecha != null) lblFecha.Text = string.Format("{0:dd/MM/yyyy}", item.CreateOn);
+
                 var btnDownLoadFile = e.Item.FindControl("btnDownLoadFile") as LinkButton;
                 if (btnDownLoadFile != null)
                 {

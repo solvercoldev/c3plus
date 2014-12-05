@@ -79,6 +79,8 @@ namespace Modules.Contratos.Admin
             ManualMedio = string.Format("{0}", manual.Medio);
             ManualEntrega = string.Format("{0}", manual.Entrega);
 
+            tvManualANH.SelectedNode.Selected = false;
+
             ShowAdminEntregable(true);
         }
 

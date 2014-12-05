@@ -175,15 +175,6 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.RadioButtonList rblRespuestaPendiente;
         
         /// <summary>
-        /// fuArchivoAnexo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuArchivoAnexo;
-        
-        /// <summary>
         /// tblRespuestaRadicado control.
         /// </summary>
         /// <remarks>
@@ -254,5 +245,41 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFechaAlarma;
+        
+        /// <summary>
+        /// litAnexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litAnexo;
+        
+        /// <summary>
+        /// fuArchivoAnexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuArchivoAnexo;
+        
+        /// <summary>
+        /// trInfoArchivoAnexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trInfoArchivoAnexo;
+        
+        /// <summary>
+        /// bntArchivoRadicado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton bntArchivoRadicado;
     }
 }

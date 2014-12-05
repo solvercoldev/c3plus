@@ -226,6 +226,12 @@ namespace Infrastructure.Data.MainModule.UnitOfWork
         }
         private ObjectSet<Dependencias> _dependencias;
     
+        public IObjectSet<DocumentosAnexoContrato> DocumentosAnexoContrato
+        {
+            get { return _documentosAnexoContrato  ?? (_documentosAnexoContrato = CreateObjectSet<DocumentosAnexoContrato>("DocumentosAnexoContrato")); }
+        }
+        private ObjectSet<DocumentosAnexoContrato> _documentosAnexoContrato;
+    
         public IObjectSet<DocumentosContrato> DocumentosContrato
         {
             get { return _documentosContrato  ?? (_documentosContrato = CreateObjectSet<DocumentosContrato>("DocumentosContrato")); }

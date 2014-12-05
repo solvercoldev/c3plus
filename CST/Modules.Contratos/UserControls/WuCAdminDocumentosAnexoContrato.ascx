@@ -31,8 +31,11 @@
                     <th style="width:20%;text-align:left; vertical-align:top">
                         Documento
                     </th>
-                    <th style="width:23%; text-align:left;;vertical-align:top">
+                    <th style="width:13%; text-align:left;;vertical-align:top">
                         Creado Por
+                    </th>
+                    <th style="width:10%; text-align:left;;vertical-align:top">
+                        Fecha
                     </th>   
                     <th style="width:2%; text-align:left;;vertical-align:top">                        
                     </th>                            
@@ -57,8 +60,11 @@
                                 <td style="text-align:left;width:20%;vertical-align:top">
                                     <asp:LinkButton ID="btnDownLoadFile" runat="server" OnClick="BtnDownLoadAnexo_Click" />
                                 </td>  
-                                <td style="text-align:left;width:23%;vertical-align:top">
+                                <td style="text-align:left;width:13%;vertical-align:top">
                                     <asp:Label ID="lblCreadoPor" runat="server" />
+                                </td> 
+                                <td style="text-align:left;width:10%;vertical-align:top">
+                                    <asp:Label ID="lblFecha" runat="server" />
                                 </td>         
                             </tr>
                         </ItemTemplate>
@@ -78,9 +84,12 @@
                                 <td style="text-align:left;width:20%;vertical-align:top">
                                     <asp:LinkButton ID="btnDownLoadFile" runat="server" OnClick="BtnDownLoadAnexo_Click" />
                                 </td>  
-                                <td style="text-align:left;width:23%;vertical-align:top">
+                                <td style="text-align:left;width:13%;vertical-align:top">
                                     <asp:Label ID="lblCreadoPor" runat="server" />
-                                </td>               
+                                </td> 
+                                <td style="text-align:left;width:10%;vertical-align:top">
+                                    <asp:Label ID="lblFecha" runat="server" />
+                                </td>         
                             </tr>
                         </AlternatingItemTemplate>
                     </asp:repeater>

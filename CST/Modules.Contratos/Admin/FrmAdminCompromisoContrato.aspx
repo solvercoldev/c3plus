@@ -103,7 +103,7 @@
                                     <td class="Separador"></td>
 
                                     <td class="Line" style="vertical-align:top;" >
-                                        <asp:Label ID="lblInfoContrato" runat="server" />
+                                        <asp:HyperLink ID="lblInfoContrato" runat="server" />
                                     </td>
                                 </tr>    
                             </table>

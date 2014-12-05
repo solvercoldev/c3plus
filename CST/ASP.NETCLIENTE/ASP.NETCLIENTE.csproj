@@ -246,6 +246,7 @@
     <Content Include="Resources\Images\Cabezote.jpg" />
     <Content Include="Resources\Images\CabezoteHome.jpg" />
     <Content Include="Resources\Images\calendar.png" />
+    <Content Include="Resources\Images\cancel.png" />
     <Content Include="Resources\Images\Categorias.png" />
     <Content Include="Resources\Images\check.png" />
     <Content Include="Resources\Images\ChildNode3.png" />

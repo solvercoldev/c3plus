@@ -54,8 +54,8 @@ namespace Modules.Contratos.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ImprimirTituloVentana(string.Format("Nuevo Radicado - "));
-            ImprimirAuxTituloVentana("Registro");
+            ImprimirTituloVentana(string.IsNullOrEmpty(IdRadicado) ? "Nuevo Radicado - " : "Editar Radicado - ");
+            ImprimirAuxTituloVentana(string.IsNullOrEmpty(IdRadicado) ? "Registro" : "Edición");
         }
 
         protected override void OnInit(EventArgs e)
@@ -86,10 +86,10 @@ namespace Modules.Contratos.Admin
             if (string.IsNullOrEmpty(Asunto))
                 messages.Add(string.Format("Es necesario ingresar un asunto para el radicado."));
 
-            if (string.IsNullOrEmpty(Numero))
-                messages.Add(string.Format("Es necesario ingresar un numero para el radicado."));
+            if (string.IsNullOrEmpty(EnviadoPor))
+                messages.Add(string.Format("Es necesario ingresar un valor para el campo enviado por."));
 
-            if (!fuArchivoAnexo.HasFile)
+            if (!fuArchivoAnexo.HasFile && string.IsNullOrEmpty(IdRadicado))
                 messages.Add(string.Format("Es necesario ingresar un archivo adjunto para el radicado."));            
 
             if (messages.Any())
@@ -98,8 +98,16 @@ namespace Modules.Contratos.Admin
                 return;
             }
 
-            Presenter.SaveRadicado();
-        }        
+            if (string.IsNullOrEmpty(IdRadicado))
+                Presenter.SaveRadicado();
+            else
+                Presenter.UpdateRadicado();
+        }
+
+        protected void BntArchivoRadicado_Click(object sender, EventArgs e)
+        {
+            DownloadDocument((byte[])ArchivoAdjunto.ComplexValue, ArchivoAdjunto.Value, "application/octet-stream");
+        }
 
         #endregion
 
@@ -142,12 +150,12 @@ namespace Modules.Contratos.Admin
 
         protected void RblRespondeRE_IndexChanged(object sender, EventArgs e)
         {
-            trRadicadoEntrada.Visible = RespondeRE;
+            ShowRadicadoSalida(RespondeRE);
         }
 
         protected void RblRespuestaPendiente_IndexChanged(object sender, EventArgs e)
         {
-            tblRespuestaRadicado.Visible = RespuestaPendiente;
+            ShowRespuestaRadicado(RespuestaPendiente);
         }
      
         #endregion
@@ -155,6 +163,21 @@ namespace Modules.Contratos.Admin
         #endregion
 
         #region Methods
+
+        public void ShowRespuestaRadicado(bool visible)
+        {
+            tblRespuestaRadicado.Visible = visible;
+        }
+
+        public void ShowRespondeRadicadoSalida(bool visible)
+        {
+            trRespondeRadicadoEntrada.Visible = visible;
+        }
+
+        public void ShowRadicadoSalida(bool visible)
+        {
+            trRadicadoEntrada.Visible = visible;
+        }
 
         void AddErrorMessages(List<string> messages)
         {
@@ -211,6 +234,9 @@ namespace Modules.Contratos.Admin
                 case "fases":
                     Response.Redirect(string.Format("FrmManageFasesContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
                     break;
+                default:
+                    Response.Redirect(string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
+                    break;
             }
         }
 
@@ -236,7 +262,12 @@ namespace Modules.Contratos.Admin
         public string IdContrato
         {
             get { return Request.QueryString.Get("IdContrato"); }
-        }       
+        }
+
+        public string IdRadicado
+        {
+            get { return Request.QueryString.Get("IdRadicado"); }
+        }
      
         public int DiasAlarma
         {
@@ -409,7 +440,21 @@ namespace Modules.Contratos.Admin
                 txtFechaRespuesta.Text = value.ToString("dd/MM/yyyy");
                 CheckAlarmaText();
             }
-        }       
+        }
+
+        public DTO_ValueKey ArchivoAdjunto
+        {
+            get
+            {
+                return Session["NewRadicado_ArchivoAdjunto"] as DTO_ValueKey;
+            }
+            set
+            {
+                Session["NewRadicado_ArchivoAdjunto"] = value;
+                bntArchivoRadicado.Text = value.Value;
+                trInfoArchivoAnexo.Visible = true;
+            }
+        }
    
         #endregion
 

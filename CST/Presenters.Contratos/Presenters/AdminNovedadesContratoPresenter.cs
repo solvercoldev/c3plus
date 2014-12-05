@@ -6,6 +6,7 @@ using Applications.MainModule.Admin.IServices;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using Domain.MainModules.Entities;
+using Application.MainModule.SqlServices.IServices;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -15,18 +16,21 @@ namespace Presenters.Contratos.Presenters
         readonly ISfNovedadesContratoManagementServices _novedadesContratoService;
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
         readonly ISfEstadosAccionManagementServices _estadosAccionService;
+        readonly IContratosAdoService _adoService;
         readonly ISfLogContratosManagementServices _log;
 
         public AdminNovedadesContratoPresenter(ISfContratosManagementServices contratoService,
                                                ISfNovedadesContratoManagementServices novedadesContratoService,
                                                ISfTBL_Admin_UsuariosManagementServices usuariosService,
                                                ISfEstadosAccionManagementServices estadosAccionService,
+                                               IContratosAdoService adoService,
                                                ISfLogContratosManagementServices log)
         {
             _contratoService = contratoService;
             _novedadesContratoService = novedadesContratoService;
             _usuariosService = usuariosService;
             _estadosAccionService = estadosAccionService;
+            _adoService = adoService;
             _log = log;
         }
 
@@ -60,7 +64,7 @@ namespace Presenters.Contratos.Presenters
 
             try
             {
-                var contrato = _contratoService.GetContratoWithNavsById(Convert.ToInt32(View.IdContrato));
+                var contrato = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
                 if (contrato != null)
                 {
                     var estadoAccion = _estadosAccionService.GetByEstado(contrato.Estado);
@@ -71,7 +75,10 @@ namespace Presenters.Contratos.Presenters
                         View.CanTerminar = estadoAccion.Terminar;
                         View.CanSuspender = estadoAccion.Suspender;
                         View.CanRestituir = estadoAccion.Restituir;
-                    }                    
+                        View.CanAnular = contrato.Estado != "Anulado" && contrato.Estado != "Terminado" && contrato.Estado != "Vencido";
+                    }
+
+                    View.FechaFirma = contrato.FechaFirma;
                 }
             }
             catch (Exception ex)
@@ -100,8 +107,10 @@ namespace Presenters.Contratos.Presenters
             {
                 var model = GetModel();
                 _novedadesContratoService.Add(model);
-                var contrato = _contratoService.GetContratoWithNavsById(Convert.ToInt32(View.IdContrato));
-                contrato.Estado = GetEstadoByTipoOperacionContrato();
+                ProcessNovedad();
+                var contrato = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
+                if (View.TipoOperacion != "Modificación Fecha Efectiva")
+                    contrato.Estado = GetEstadoByTipoOperacionContrato();
                 contrato.ModifiedBy = View.UserSession.IdUser;
                 contrato.ModifiedOn = DateTime.Now;
                 _contratoService.Modify(contrato);
@@ -113,6 +122,31 @@ namespace Presenters.Contratos.Presenters
             catch (Exception ex)
             {
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        void ProcessNovedad()
+        {
+            switch (View.TipoOperacion)
+            {
+                case "Suspensión":
+                    _adoService.SuspenderContrato(Convert.ToInt32(View.IdContrato), View.FechaNovedad, View.FechaFinNovedad);
+                    break;
+                case "Reiniciar":
+                    _adoService.RestitucionManualContrato(Convert.ToInt32(View.IdContrato), View.FechaNovedad);
+                    break;
+                case "Renuncia":
+                    _adoService.RenunciarContrato(Convert.ToInt32(View.IdContrato));
+                    break;
+                case "Terminación":
+                    _adoService.RenunciarContrato(Convert.ToInt32(View.IdContrato));
+                    break;
+                case "Anulación":
+                    _adoService.RenunciarContrato(Convert.ToInt32(View.IdContrato));
+                    break;
+                case "Modificación Fecha Efectiva":
+                    _adoService.ModificarFechaEfectivaContrato(Convert.ToInt32(View.IdContrato), View.FechaNovedad);
+                    break;
             }
         }
 
@@ -133,6 +167,9 @@ namespace Presenters.Contratos.Presenters
                     break;
                 case "Terminación":
                     estado = "Terminado";
+                    break;
+                case "Anulación":
+                    estado = "Anulado";
                     break;
             }
 
@@ -165,7 +202,7 @@ namespace Presenters.Contratos.Presenters
 
             model.IdLog = Guid.NewGuid();
             model.IdContrato = Convert.ToInt32(View.IdContrato);
-            model.Descripcion = string.Format("El usuario [{0}] ha ingresado una novedad al contrato de tipo [{1}]", View.UserSession.Nombres, View.TipoOperacion);
+            model.Descripcion = string.Format("El usuario [{0}] ha ingresado una novedad al contrato de tipo [{1}]. Comentarios: [{2}]", View.UserSession.Nombres, View.TipoOperacion, View.Descripcion);
             model.IsActive = true;
             model.CreateBy = View.UserSession.IdUser;
             model.CreateOn = DateTime.Now;

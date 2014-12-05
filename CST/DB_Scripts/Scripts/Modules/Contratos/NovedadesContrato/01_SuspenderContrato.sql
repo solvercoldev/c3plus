@@ -1,0 +1,54 @@
+﻿IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'SuspenderContrato') AND type in (N'P', N'PC'))
+DROP PROCEDURE SuspenderContrato
+GO
+-- =============================================
+-- Author:		Solver
+-- Create date: 00-00-0000
+-- Description:
+-- =============================================
+CREATE PROCEDURE SuspenderContrato
+(
+	@IdContrato int,
+	@FechaInicio datetime,
+	@FechaFin datetime
+)
+AS
+/*****************************************************/
+--declare	@IdContrato int, @FechaInicio datetime, @FechaFin datetime
+
+--set @IdContrato = 1
+--set	@FechaInicio = '2015-01-12'
+--set	@FechaFin = '2015-12-24'
+/*****************************************************/
+
+-- Variables de Trabajo
+declare @DiffDias int
+
+set	@DiffDias = datediff(dd, @FechaInicio, @FechaFin)	
+
+-- Actualizando Contrato
+update	c
+set		c.FechaInicioSuspension = @FechaInicio
+		,c.DiasSuspension = @DiffDias
+		,c.FechaTerminacionSuspension = @FechaFin
+		,c.FechaTerminacion = dateadd(dd,@DiffDias, c.FechaTerminacion)
+from	Contratos c with(nolock)
+where	c.IdContrato = @IdContrato
+
+-- Actualizando Fases
+update	f
+set		f.FechaInicio = dateadd(dd,@DiffDias, f.FechaInicio)
+		,f.FechaFinalizacion = dateadd(dd,@DiffDias, f.FechaFinalizacion)
+from	Fases f with(nolock)
+where	f.IdContrato = @IdContrato
+		and f.NumeroFase > 0
+
+-- Actualizando Compromisos
+update	comp
+set		comp.FechaCumplimiento = dateadd(dd,@DiffDias,comp.FechaCumplimiento)
+from	Compromisos comp with(nolock)
+		join Fases f with(nolock)
+			on comp.IdFase = f.IdFase
+where	f.IdContrato = @IdContrato
+		and f.NumeroFase > 0
+		and comp.FechaCumplimiento >= @FechaInicio

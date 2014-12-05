@@ -67,6 +67,7 @@ namespace Presenters.Contratos.Presenters
                 items.Add(new DTO_ValueKey() { Id = "Suspendido", Value = "Suspendido" });
                 items.Add(new DTO_ValueKey() { Id = "Terminado", Value = "Terminado" });
                 items.Add(new DTO_ValueKey() { Id = "Renunciado", Value = "Renunciado" });
+                items.Add(new DTO_ValueKey() { Id = "Anulado", Value = "Anulado" });
                 items.Add(new DTO_ValueKey() { Id = "Vencido", Value = "Vencido" });
 
                 View.LoadEstados(items);

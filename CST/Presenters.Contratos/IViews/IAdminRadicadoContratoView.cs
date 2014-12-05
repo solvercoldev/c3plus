@@ -41,6 +41,8 @@ namespace Presenters.Contratos.IViews
         void ShowRespuesta(bool visible);
         void ShowREAsociado(bool visible);
 
+        void EnableMarcarOK(bool enable);
+
         void EnableEdit(bool enable);
 
         void EnableActions(bool enable);

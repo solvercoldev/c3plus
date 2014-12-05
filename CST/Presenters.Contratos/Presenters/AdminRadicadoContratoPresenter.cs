@@ -80,8 +80,8 @@ namespace Presenters.Contratos.Presenters
                 {
                     View.Numero = string.Format("{0} - ",radicado.Numero);
                     View.Estado = radicado.EstadoRadicado;
-                    View.FechaVencimiento = string.Format("{0:dd MMMM de yyyy}", radicado.FechaReciboSalida);
-                    View.FechaCreacion = string.Format("{0:dd MMMM de yyyy}", radicado.CreateOn);
+                    View.FechaVencimiento = string.Format("{0:dd MMMM yyyy}", radicado.FechaReciboSalida);
+                    View.FechaCreacion = string.Format("{0:dd MMMM yyyy}", radicado.CreateOn);
                     View.Asunto = radicado.Asunto;
                     View.EnviadoPor = radicado.IdFromExterno;
                     View.DirigidoA = radicado.TBL_Admin_Usuarios4.Nombres;
@@ -97,8 +97,8 @@ namespace Presenters.Contratos.Presenters
                     if (radicado.RespuestaPendiente)
                     {
                         View.ResponsableRespuesta = radicado.TBL_Admin_Usuarios2.Nombres;
-                        View.FechaRespuesta = string.Format("{0:dd MMMM de yyyy}", radicado.FechaRespuesta);
-                        View.FechaAlarmaRespuesta = string.Format("{0:dd MMMM de yyyy}", radicado.FechaRespuesta.GetValueOrDefault().AddDays(radicado.DiasAlarma.GetValueOrDefault() * (-1)));
+                        View.FechaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta);
+                        View.FechaAlarmaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta.GetValueOrDefault().AddDays(radicado.DiasAlarma.GetValueOrDefault() * (-1)));
 
                         View.ShowRespuesta(radicado.RespuestaPendiente);
                     }
@@ -111,6 +111,7 @@ namespace Presenters.Contratos.Presenters
 
                     View.EnableEdit(false);
                     View.EnableActions(radicado.EstadoRadicado != "Respondido" && radicado.EstadoRadicado != "Anulado");
+                    View.EnableMarcarOK(radicado.TipoRadicado == "RS");
 
                     LoadDocumentoRadicado();
                 }

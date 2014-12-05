@@ -2,6 +2,7 @@
 using Application.Core;
 using Application.MainModule.Contratos.DTO;
 using Domain.MainModules.Entities;
+using System.Data;
 
 namespace Presenters.Contratos.IViews
 {
@@ -11,6 +12,7 @@ namespace Presenters.Contratos.IViews
 
         string NombreContrato { get; set; }
         string NumeroContrato { get; set; }
+        string EstadoContrato { get; set; }
         string Empresa { get; set; }
         string Bloque { get; set; }
         string TipoContrato { get; set; }
@@ -19,6 +21,23 @@ namespace Presenters.Contratos.IViews
         string Periodo { get; set; }
         string ImagenContrato { set; }
 
-        void LoadGmapMarkers(List<Dto_GoogleMapMarker> items);        
+        string IdEmpresa { get; set; }
+        string IdTipoContrato { get; set; }
+        string IdBloque { get; set; }
+        string ImagenContratoEdit { get; }
+        decimal? Longitud { get; set; }
+        decimal? Latitud { get; set; }
+
+        void LoadEmpresas(List<Empresas> items);
+        void LoadTipoContratos(List<TiposContrato> items);
+        void LoadBloques(DataTable items);
+
+        void SaveImagenContrato(int idContrato);
+
+        void LoadGmapMarkers(List<Dto_GoogleMapMarker> items);
+
+        void CanEdit(bool enable);
+        void EnableEdit(bool enable);
+        void AddErrorMessages(List<string> errors);
     }
 }

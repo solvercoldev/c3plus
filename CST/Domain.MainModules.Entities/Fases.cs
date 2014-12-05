@@ -95,7 +95,7 @@ namespace Domain.MainModules.Entities
         private string _periodo;
     
         [DataMember]
-        public short NumeroFase
+        public int NumeroFase
         {
             get { return _numeroFase; }
             set
@@ -107,7 +107,7 @@ namespace Domain.MainModules.Entities
                 }
             }
         }
-        private short _numeroFase;
+        private int _numeroFase;
     
         [DataMember]
         public string Nombre
@@ -140,7 +140,7 @@ namespace Domain.MainModules.Entities
         private System.DateTime _fechaInicio;
     
         [DataMember]
-        public short DuracionMeses
+        public int DuracionMeses
         {
             get { return _duracionMeses; }
             set
@@ -152,7 +152,7 @@ namespace Domain.MainModules.Entities
                 }
             }
         }
-        private short _duracionMeses;
+        private int _duracionMeses;
     
         [DataMember]
         public System.DateTime FechaFinalizacion
