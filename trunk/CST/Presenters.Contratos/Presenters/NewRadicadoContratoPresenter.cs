@@ -6,6 +6,7 @@ using Applications.MainModule.Admin.IServices;
 using Domain.MainModules.Entities;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
+using Application.MainModule.SqlServices.IServices;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -15,18 +16,21 @@ namespace Presenters.Contratos.Presenters
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
         readonly ISfRadicadosManagementServices _radicadoService;
         readonly ISfDocumentosRadicadoManagementServices _documentoRadicadoService;
+        readonly IContratosAdoService _adoService;
         readonly ISfLogContratosManagementServices _log;
 
         public NewRadicadoContratoPresenter(ISfContratosManagementServices contratoService,
                                                 ISfTBL_Admin_UsuariosManagementServices usuariosService,
                                                 ISfRadicadosManagementServices radicadoService,
                                                 ISfDocumentosRadicadoManagementServices documentoRadicadoService,
+                                                IContratosAdoService adoService,
                                                 ISfLogContratosManagementServices log)
         {
             _contratoService = contratoService;
             _usuariosService = usuariosService;
             _radicadoService = radicadoService;
             _documentoRadicadoService = documentoRadicadoService;
+            _adoService = adoService;
             _log = log;
         }
 
@@ -39,7 +43,10 @@ namespace Presenters.Contratos.Presenters
         {
             if (View.IsPostBack) return;
             InitView();
-            LoadInit();            
+            LoadInit();
+
+            if (!string.IsNullOrEmpty(View.IdRadicado))
+                LoadRadicado();
         }
 
         public void LoadInit()
@@ -80,6 +87,77 @@ namespace Presenters.Contratos.Presenters
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
         }
+
+        void LoadRadicado()
+        {
+            if (string.IsNullOrEmpty(View.IdRadicado)) return;
+
+            try
+            {
+                var model = _radicadoService.GetCompleteById(Convert.ToInt64(View.IdRadicado));
+
+                if (model != null)
+                {
+                    View.TipoRadicado = model.TipoRadicado;
+                    View.Numero = model.Numero;
+                    View.FechaRadicado = model.FechaReciboSalida;
+                    View.Asunto = model.Asunto;
+                    View.EnviadoPor = model.IdFromExterno;
+                    View.DirigidoA = model.IdTo.GetValueOrDefault();
+                    View.Resumen = model.Resumen;
+                    View.RespuestaPendiente = model.RespuestaPendiente;
+
+                    View.ShowRespondeRadicadoSalida(model.TipoRadicado == "RS");
+
+                    if (model.RespuestaPendiente)
+                    {
+                        View.FechaRespuesta = model.FechaRespuesta.GetValueOrDefault();
+                        View.ResponsableRespuesta = model.ResponsableRespuesta.GetValueOrDefault();
+                        View.DiasAlarma = model.DiasAlarma.GetValueOrDefault();
+
+                        View.ShowRespuestaRadicado(true);
+                    }
+
+                    if (model.IdRadicadoEntrada.HasValue)
+                    {
+                        View.ShowRespondeRadicadoSalida(true);
+                        View.ShowRadicadoSalida(true);
+                        View.RespondeRE = true;
+                        View.IdRadicadoEntradaAsociado = model.IdRadicadoEntrada.GetValueOrDefault();
+                    }                        
+
+                    LoadDocumentoRadicado();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        public void LoadDocumentoRadicado()
+        {
+            if (string.IsNullOrEmpty(View.IdRadicado)) return;
+
+            try
+            {
+                var doc = _documentoRadicadoService.GetByIdRadicado(Convert.ToInt64(View.IdRadicado));
+                if (doc != null)
+                {
+                    var dto = new DTO_ValueKey();
+                    dto.Id = string.Format("{0}", doc.IdDocumentoRadicado);
+                    dto.Value = doc.NombreArchivo;
+                    dto.ComplexValue = doc.Archivo;
+
+                    View.ArchivoAdjunto = dto;
+                }
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
       
         public void SaveRadicado()
         {
@@ -108,11 +186,70 @@ namespace Presenters.Contratos.Presenters
             }
         }
 
+        public void UpdateRadicado()
+        {
+            try
+            {
+                var model = _radicadoService.GetById(Convert.ToInt64(View.IdRadicado));
+
+                model.IdContrato = Convert.ToInt32(View.IdContrato);
+                model.TipoRadicado = View.TipoRadicado;
+                model.Numero = View.Numero;
+                model.FechaReciboSalida = View.FechaRadicado;
+                model.Asunto = View.Asunto;
+                model.IdFromExterno = View.EnviadoPor;
+                model.IdTo = View.DirigidoA;
+                model.Resumen = View.Resumen;
+                model.RespuestaPendiente = View.RespuestaPendiente;                
+
+                if (View.RespuestaPendiente)
+                {
+                    model.FechaRespuesta = View.FechaRespuesta;
+                    model.ResponsableRespuesta = View.ResponsableRespuesta;
+                    model.DiasAlarma = View.DiasAlarma;
+                }
+                else
+                {
+                    model.ResponsableRespuesta = View.UserSession.IdUser;
+                }
+
+                if (View.RespondeRE)
+                    model.IdRadicadoEntrada = View.IdRadicadoEntradaAsociado;
+                else
+                    model.IdRadicadoEntrada = null;
+
+                model.ModifiedBy = View.UserSession.IdUser;
+                model.ModifiedOn = DateTime.Now;
+
+                _radicadoService.Modify(model);
+                var contrato = _contratoService.FindById(Convert.ToInt32(View.IdContrato));
+
+                if (!string.IsNullOrEmpty(View.NombreAnexo))
+                    AddDocumentoRadicado(model.IdRadicado);
+
+                var log = GetLog();
+                log.Descripcion = string.Format("El usuario [{0}], ha modificado radicado [{1}].", View.UserSession.Nombres, model.Numero);
+                _log.Add(log);
+
+                contrato.ModifiedBy = View.UserSession.IdUser;
+                contrato.ModifiedOn = DateTime.Now;
+
+                _contratoService.Modify(contrato);
+
+                View.GoToRadicadoView(model.IdRadicado);
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
         public void AddDocumentoRadicado(long idRadicado)
         {
             try
             {
                 var model = GetDocumentoModel(idRadicado);
+                _adoService.DeleteDocumentoRadicado(idRadicado);
                 _documentoRadicadoService.Add(model);
             }
             catch (Exception ex)

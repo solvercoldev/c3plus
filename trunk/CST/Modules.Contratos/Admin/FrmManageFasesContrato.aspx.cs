@@ -206,7 +206,7 @@ namespace Modules.Contratos.Admin
                 if (lblFechaFin != null) lblFechaFin.Text = string.Format("{0:dd/MM/yyyy}", item.FechaFinalizacion);
 
                 var lblDuracion = e.Item.FindControl("lblDuracion") as Label;
-                if (lblDuracion != null) lblDuracion.Text = string.Format("{0}", DiffMonths(item.FechaInicio, item.FechaFinalizacion));
+                if (lblDuracion != null) lblDuracion.Text = string.Format("{0}", item.DuracionMeses);
 
                 var trFase = e.Item.FindControl("trFase") as HtmlTableRow;
 
@@ -222,6 +222,8 @@ namespace Modules.Contratos.Admin
                         {
                             trFase.Attributes.Add("style", "background-color: #6ec138");
                         }
+
+                        btnUnificar.Visible = !item.NumFaseUnificada.HasValue;
                     }
                     else if (DateTime.Now > item.FechaFinalizacion)
                     {

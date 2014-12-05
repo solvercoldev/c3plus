@@ -137,13 +137,13 @@
             <td style="text-align:center;vertical-align:top;" >
                 <asp:Button ID="btnExtender" runat="server" Text="Extender Fase" Width="125px" CommandArgument="Extensión" OnClick="BtnAddNovedad_Click" />
                 <br />
-                <asp:Button ID="btnProrrogar" runat="server" Text="Prorrogar Fase" Width="125px" CommandArgument="Prorroga" OnClick="BtnAddNovedad_Click" />
+                <asp:Button ID="btnProrrogar" runat="server" Text="Prorrogar Fase" Width="125px" CommandArgument="Prorroga" OnClick="BtnAddNovedad_Click" />                
                 <br />
-                <asp:Button ID="btnUnificar" runat="server" Text="Unificar Fase" Width="125px" CommandArgument="Unificación" OnClick="BtnAddNovedad_Click" />
-                <br />
-                <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" />
+                <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" />                
                 <br />
                 <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px" />
+                <br />
+                <asp:Button ID="btnUnificar" runat="server" Text="Unificar Fase" Width="125px" CommandArgument="Unificación" OnClick="BtnAddNovedad_Click" />
             </td>
             <td></td>
         </tr>

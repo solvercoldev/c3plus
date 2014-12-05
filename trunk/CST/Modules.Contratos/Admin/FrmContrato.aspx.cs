@@ -182,7 +182,7 @@ namespace Modules.Contratos.Admin
                 if (lblFechaFin != null) lblFechaFin.Text = string.Format("{0:dd/MM/yyyy}", item.FechaFinalizacion);
 
                 var lblDuracion = e.Item.FindControl("lblDuracion") as Label;
-                if (lblDuracion != null) lblDuracion.Text = string.Format("{0}", DiffMonths(item.FechaInicio, item.FechaFinalizacion));
+                if (lblDuracion != null) lblDuracion.Text = string.Format("{0}", item.DuracionMeses);
 
                 var trFase = e.Item.FindControl("trFase") as HtmlTableRow;
 
@@ -194,7 +194,7 @@ namespace Modules.Contratos.Admin
                         imgFase.ImageUrl = "~/Resources/images/sandglass.png";
                         item.FaseActiva = true;
 
-                        if (trFase != null)
+                        if (trFase != null && EstadoContrato.Trim() != "Anulado")
                         {
                             trFase.Attributes.Add("style", "background-color: #6ec138");
                         }
@@ -206,6 +206,11 @@ namespace Modules.Contratos.Admin
                     else if (DateTime.Now < item.FechaInicio)
                     {
                         imgFase.ImageUrl = "~/Resources/images/calendar.png";
+                    }
+
+                    if (EstadoContrato.Trim() == "Anulado")
+                    {
+                        imgFase.ImageUrl = "~/Resources/images/cancel.png";
                     }
                 }
 
@@ -298,6 +303,7 @@ namespace Modules.Contratos.Admin
         void RefreshContratoInfo()
         {
             Presenter.LoadContrato();
+            Presenter.LoadFases();
             wucLogContrato.CargarLog();
             ImprimirAuxTituloVentana(EstadoContrato);
         }

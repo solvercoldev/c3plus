@@ -70,6 +70,8 @@
     <Folder Include="Scripts\Modules\Contratos\TrabajarFases" />
     <Folder Include="Scripts\Modules\Contratos\Contrato" />
     <Folder Include="Scripts\Modules\Contratos\Bloques" />
+    <Folder Include="Scripts\Modules\Contratos\NovedadesContrato" />
+    <Folder Include="Scripts\Modules\Contratos\Radicados" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -108,6 +110,24 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Scripts\Modules\Contratos\Bloques\01_GetBloquesSinContrato.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\NovedadesContrato\01_SuspenderContrato.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\NovedadesContrato\02_RestitucionManualContrato.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\NovedadesContrato\03_RenunciarContrato.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Bloques\02_GetBloquesSinContratoIncluyeBloque.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\NovedadesContrato\04_ModificarFechaEfectivaContrato.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Radicados\01_DeleteDocumentoRadicado.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
   </ItemGroup>

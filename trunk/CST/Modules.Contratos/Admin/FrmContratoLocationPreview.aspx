@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmContratoLocationPreview.aspx.cs" Inherits="Modules.Contratos.Admin.FrmContratoLocationPreview" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register    Assembly="Infragistics4.Web.v11.1, Version=11.1.20111.2238, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb"
+                Namespace="Infragistics.Web.UI.EditorControls" TagPrefix="ig" %>  
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -27,7 +29,7 @@
                 ];
         var mapOptions = {
             center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
-            zoom: 8,
+            zoom: 4,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var infoWindow = new google.maps.InfoWindow();
@@ -50,15 +52,46 @@
     }
 </script>
 
+<script type="text/javascript">
+
+    function RebindScripts() {
+        $(".chzn-select").chosen({ allow_single_deselect: true });
+
+        $(".chzn-select-deselect").chosen({ allow_single_deselect: true });
+    }       
+ 
+</script>
+
+<script language="javascript" type="text/javascript">
+    var divModal = 'DivModal';
+
+    function ShowSplashModalLoading() {
+        var adiv = $get(divModal);
+        adiv.style.visibility = 'visible';
+    }
+</script>
+
     
     <asp:UpdatePanel ID="upgeneral" runat="server">
         <ContentTemplate>    
         <script type="text/javascript" language="javascript">
             Sys.Application.add_load(InitGMapers);
+            Sys.Application.add_load(RebindScripts);
         </script> 
     
+    <div id="DivModal">
+        <div id="VentanaMensaje">
+            <div id="Msg">
+                <img id="Img1"  src="~/Resources/images/Barloading.gif" runat="server" alt="" />
+            </div>
+        </div>
+    </div>
+
+
     <div style="padding:3px; text-align:right; margin-top:-35px; height:30px;">
         <asp:Button ID="btnBackToContrato" runat="server" Text="Regresar"  OnClick="BtnBackToContrato_Click" />
+        <asp:Button ID="btnEditar" runat="server" Text="Editar"  OnClick="BtnEditar_Click" OnClientClick="return ShowSplashModalLoading();" />
+        <asp:Button ID="btnSave" runat="server" Text="Guardar"  OnClick="BtnSave_Click" OnClientClick="return ShowSplashModalLoading();" />
     </div>   
 
     <table width="100%" cellpadding="0" cellspacing="0" style="padding-top:10px">
@@ -85,6 +118,7 @@
                         <td ></td>
                         <td class="SeccionesH4">
                             <asp:Label ID="lblContrato" runat="server" />
+                            <asp:TextBox ID="txtNumeroContrato" runat="server" Width="450px" CssClass="TextUppercase" />
                         </td>
                     </tr>                    
                     <tr>
@@ -94,6 +128,7 @@
                         <td ></td>
                         <td class="SeccionesH4">
                             <asp:Label ID="lblEmpresa" runat="server" />
+                            <asp:DropDownList ID="ddlEmpresa" runat="server" Width="450px"  class="chzn-select" />
                         </td>
                     </tr>  
                     <tr>
@@ -103,6 +138,7 @@
                         <td ></td>
                         <td class="SeccionesH4">
                             <asp:Label ID="lblBloque" runat="server" />
+                            <asp:DropDownList ID="ddlBloque" runat="server" Width="450px"  class="chzn-select" />
                         </td>
                     </tr>    
                     <tr>
@@ -112,6 +148,7 @@
                         <td ></td>
                         <td class="SeccionesH4">
                             <asp:Label ID="lblTipoContrato" runat="server" />
+                            <asp:DropDownList ID="ddlTipoContrato" runat="server" Width="450px"  class="chzn-select" />
                         </td>
                     </tr>                 
                     <tr>
@@ -140,7 +177,52 @@
                         <td class="SeccionesH4">
                             <asp:Label ID="lblPeriodo" runat="server" />
                         </td>
-                    </tr>                     
+                    </tr>
+                    <tr id="trUbicacion" runat="server" >
+                        <td  class="SeccionesH3" style="text-align:left; vertical-align:top">
+                            Ubicación Contrato :
+                        </td>
+
+                        <td class="Separador"></td>
+
+                        <td class="SeccionesH4" >
+                            <table width="100%">
+                                 <tr>
+                                    <td  class="SeccionesH3" style="width:10%;">
+                                        Latitud:
+                                    </td>
+                                    <td>
+                                        <ig:WebNumericEditor    Id="txtLatitud" runat="server"  MaxDecimalPlaces="6"
+                                                                Nullable="false" Width="380px" HorizontalAlign="Left" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td  class="SeccionesH3" style="width:10%;">
+                                        Longitud:
+                                    </td>
+                                    <td>
+                                        <ig:WebNumericEditor    Id="txtLongitud" runat="server"  MaxDecimalPlaces="6"
+                                                                Nullable="false" Width="380px" HorizontalAlign="Left" />
+                                    </td>
+                                </tr>                               
+                            </table>
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr>  
+                    <tr id="trArchivoSitio" runat="server">
+                        <td  class="SeccionesH3" style="text-align:left; vertical-align:top">
+                            Imagen Sitio :
+                        </td>
+
+                        <td class="Separador"></td>
+
+                        <td class="SeccionesH4" >                         
+                            <asp:FileUpload ID="fuImagenContrato" runat="server" Width="450px" />
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr>              
                 </table>
             </td>
         </tr>
@@ -164,6 +246,9 @@
     </table>
 
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btnSave" />
+        </Triggers>
     </asp:UpdatePanel>
 
 </asp:Content>

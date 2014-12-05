@@ -76,7 +76,7 @@ namespace Modules.Contratos.Admin
 
         protected void BtnEdit_Click(object sender, EventArgs e)
         {
-            EnableEdit(true);
+            Response.Redirect(string.Format("FrmNewRadicadoContrato.aspx?ModuleId={0}&IdContrato={1}&from={2}&IdRadicado={3}", ModuleId, IdContrato, FromPage, IdRadicado));
         }
 
         protected void BtnSalir_Click(object sender, EventArgs e)
@@ -234,6 +234,11 @@ namespace Modules.Contratos.Admin
         public void EnableActions(bool enable)
         {
             divActionButtons.Visible = enable;
+        }
+
+        public void EnableMarcarOK(bool enable)
+        {
+            btnMarcarOk.Visible = enable;
         }
 
         public void GoToContratoView()
@@ -516,6 +521,7 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblInfoContrato.Text = value;
+                lblInfoContrato.NavigateUrl = string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato);
             }
         }
 

@@ -505,6 +505,11 @@
                 <div class="popup_Body">                                                    
                     <table width="100%" class="tblSecciones">                        
                         <tr>
+                            <td colspan="3">
+                                <asp:Label ID="lblWarning" runat="server" Text="**Para seleccionar haga click en el checkbox y click en el item para consultar su contenido" ForeColor="Red" Font-Size="7pt" Font-Italic="true" />
+                            </td>
+                        </tr>
+                        <tr>
                             <td style="text-align:left; vertical-align:top; width:49%; border:1px solid #F4F4F3;">
                                 <asp:Panel ID="pnlManualesANH" runat="server" Width="570px" Height="270px" ScrollBars="Auto">
                                     <asp:TreeView ID="tvManualANH" runat="server" Font-Size="8pt" OnSelectedNodeChanged="ManualesSelect_Change"

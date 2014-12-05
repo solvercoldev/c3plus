@@ -639,6 +639,7 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblInfoContrato.Text = value;
+                lblInfoContrato.NavigateUrl = string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato);
             }
         }
 

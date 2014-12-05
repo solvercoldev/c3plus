@@ -34,6 +34,7 @@ update	f
 set		f.FechaFinalizacion = @FechaFin
 		,f.Nombre = 'Fase ' + cast(f.NumeroFase as varchar(2)) + ' y ' + cast(f.NumeroFase + 1 as varchar(2))
 		,f.NumFaseUnificada = f.NumeroFase + 1
+		,f.DuracionMeses = datediff(mm, f.FechaInicio, @FechaFin)
 from	Fases f with(nolock)
 where	f.IdFase = @IdFase
 

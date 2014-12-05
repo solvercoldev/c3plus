@@ -202,20 +202,7 @@
                         </td>
 
                         <td class="Separador"></td>
-                    </tr>   
-                    <tr>
-                        <th style="text-align:left; vertical-align:top">
-                            * Archivo Anexo :
-                        </th>
-
-                        <td class="Separador"></td>
-
-                        <td class="Line" >                         
-                            <asp:FileUpload ID="fuArchivoAnexo" runat="server" Width="450px" />
-                        </td>
-
-                        <td class="Separador"></td>
-                    </tr>                          
+                    </tr>                                              
                 </table>
     
                 <table width="100%" class="tblSecciones" style="margin-top:10px" id="tblRespuestaRadicado" runat="server" visible="false" >
@@ -284,6 +271,47 @@
                     </tr>
                 </table>
 
+                <table width="100%" class="tblSecciones" style="padding-top:10px">
+                    <tr>
+                        <td style="width: 20%;"></td>
+                        <td class="Separador"></td>
+                        <td style="width: 70%;"></td>
+                        <td class="Separador"></td>
+                    </tr> 
+                    <tr>
+                        <td colspan="4" style="padding-bottom:5px">
+                            <div style="display:block; padding:5px;" class="TituloVentana">
+                                <asp:Literal ID="litAnexo" runat="server" Text="Anexo" />
+                            </div>  
+                        </td>
+                    </tr>
+                    <tr >
+                        <th style="text-align:left; vertical-align:top">
+                            * Archivo Anexo :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line" >                         
+                            <asp:FileUpload ID="fuArchivoAnexo" runat="server" Width="450px" />
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr> 
+                    <tr id="trInfoArchivoAnexo" runat="server" visible="false" >
+                        <th style="text-align:left; vertical-align:top">                            
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line" >                         
+                            <asp:LinkButton ID="bntArchivoRadicado" runat="server" OnClick="BntArchivoRadicado_Click" />
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr>  
+                </table>
+
         </ContentTemplate>
         <Triggers>
             <asp:PostBackTrigger ControlID="btnSave" />
@@ -292,6 +320,7 @@
             <asp:PostBackTrigger ControlID="rblRespuestaPendiente" />
             <asp:PostBackTrigger ControlID="txtFechaRespuesta" />
             <asp:PostBackTrigger ControlID="txtDiasAlarma" />
+            <asp:PostBackTrigger ControlID="bntArchivoRadicado" />
         </Triggers>
     </asp:UpdatePanel>
 

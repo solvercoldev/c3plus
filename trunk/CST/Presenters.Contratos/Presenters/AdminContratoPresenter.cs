@@ -245,8 +245,8 @@ namespace Presenters.Contratos.Presenters
         {
             var model = new Domain.MainModules.Entities.Contratos();
 
-            model.NumeroContrato = View.NumeroContrato;
-            model.Nombre = View.Nombre;
+            model.NumeroContrato = View.NumeroContrato.ToUpper();
+            model.Nombre = View.Nombre.ToUpper();
             model.Descripcion = View.Descripcion;
             model.FechaFirma = View.FechaFirma;
             model.FechaInicio = View.FechaEfectiva;

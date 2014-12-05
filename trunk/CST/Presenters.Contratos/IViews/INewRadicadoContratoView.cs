@@ -7,7 +7,8 @@ namespace Presenters.Contratos.IViews
 {
     public interface INewRadicadoContratoView : IView
     {
-        string IdContrato { get; }        
+        string IdContrato { get; }
+        string IdRadicado { get; }    
 
         string TipoRadicado { get; set; }
         string Numero { get; set; }
@@ -26,9 +27,15 @@ namespace Presenters.Contratos.IViews
         DateTime FechaRespuesta { get; set; }
         int DiasAlarma { get; set; }
 
+        DTO_ValueKey ArchivoAdjunto { get; set; }
+
         void LoadUsuarios(List<TBL_Admin_Usuarios> items);
         void LoadRadicadosPendientes(List<Radicados> items);
         void GoToContratoView();
         void GoToRadicadoView(long idRadicado);
+
+        void ShowRespondeRadicadoSalida(bool visible);
+        void ShowRespuestaRadicado(bool visible);
+        void ShowRadicadoSalida(bool visible);
     }
 }

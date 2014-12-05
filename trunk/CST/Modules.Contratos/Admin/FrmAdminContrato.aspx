@@ -25,20 +25,21 @@
  
 </script>
     
-    <div id="DivModal">
-        <div id="VentanaMensaje">
-            <div id="Msg">
-                <img id="Img1"  src="~/Resources/images/Barloading.gif" runat="server" alt="" />
-            </div>
-        </div>
-    </div>
-
+    
     
     <asp:UpdatePanel ID="upgeneral" runat="server">
         <ContentTemplate>    
             <script type="text/javascript" language="javascript">
                 Sys.Application.add_load(RebindScripts);
             </script>
+                <div id="DivModal">
+                    <div id="VentanaMensaje">
+                        <div id="Msg">
+                            <img id="Img1"  src="~/Resources/images/Barloading.gif" runat="server" alt="" />
+                        </div>
+                    </div>
+                </div>
+
                 <div style="padding:3px; text-align:right; margin-top:-35px; height:30px;">
                     <asp:Button ID="btnBack" runat="server" Text="Cancelar" OnClick="BtnBack_Click" />
                     <asp:Button ID="btnSave" runat="server" Text="Registrar Fases"  ValidationGroup="vgGeneral" OnClientClick="return ShowSplashModal();" OnClick="BtnSave_Click" />
@@ -61,7 +62,7 @@
                         <td class="Separador"></td>
 
                         <td class="Line" >
-                            <asp:TextBox ID="txtNumeroContrato" runat="server" Width="450px" />
+                            <asp:TextBox ID="txtNumeroContrato" runat="server" Width="450px" CssClass="TextUppercase" />
                         </td>
 
                         <td class="Separador"></td>
@@ -74,7 +75,7 @@
                         <td class="Separador"></td>
 
                         <td class="Line" >
-                            <asp:TextBox ID="txtNombreContrato" runat="server" Width="450px" />
+                            <asp:TextBox ID="txtNombreContrato" runat="server" Width="450px" CssClass="TextUppercase" />
                         </td>
 
                         <td class="Separador"></td>

@@ -31,6 +31,15 @@ namespace Modules.Contratos.UserControls {
         protected global::System.Web.UI.WebControls.Repeater rptNovedadesList;
         
         /// <summary>
+        /// btnModFechaEff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModFechaEff;
+        
+        /// <summary>
         /// btnSuspender control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace Modules.Contratos.UserControls {
         protected global::System.Web.UI.WebControls.Button btnTerminar;
         
         /// <summary>
+        /// btnAnular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAnular;
+        
+        /// <summary>
         /// upModal control.
         /// </summary>
         /// <remarks>
@@ -101,6 +119,15 @@ namespace Modules.Contratos.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveNovedad;
+        
+        /// <summary>
+        /// trInicioNovedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trInicioNovedad;
         
         /// <summary>
         /// txtFechaNovedad control.

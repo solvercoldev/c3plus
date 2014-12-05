@@ -166,7 +166,7 @@ namespace Presenters.Contratos.Presenters
                     fase.Nombre = f.Fase;
                     fase.FechaInicio = f.FechaInicio;
                     fase.FechaFinalizacion = f.FechaFin;
-                    fase.DuracionMeses = 6;
+                    fase.DuracionMeses = f.DuracionFase;
                     fase.Estado = 1;
                     fase.Grupo = f.Grupo;
                     fase.Aplica = true;

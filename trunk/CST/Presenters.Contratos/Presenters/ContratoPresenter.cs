@@ -7,13 +7,14 @@ using Application.MainModule.Contratos.IServices;
 using Applications.MainModule.Admin.IServices;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
+using Infrastructure.CrossCutting.IoC;
 
 namespace Presenters.Contratos.Presenters
 {
     public class ContratoPresenter : Presenter<IContratoView>
     {
-        readonly ISfContratosManagementServices _contratoService;
-        readonly ISfFasesManagementServices _fasesService;
+        ISfContratosManagementServices _contratoService;
+        ISfFasesManagementServices _fasesService;
         readonly ISfTBL_Admin_SeccionesManagementServices _seccionesServices;
         readonly ISfEstadosAccionManagementServices _estadosAccionService;
 
@@ -57,6 +58,7 @@ namespace Presenters.Contratos.Presenters
 
             try
             {
+                _contratoService = IoC.Resolve<ISfContratosManagementServices>();
                 var contrato = _contratoService.GetContratoWithNavsById(Convert.ToInt32(View.IdContrato));
                 if (contrato != null)
                 {
@@ -87,12 +89,13 @@ namespace Presenters.Contratos.Presenters
             }
         }
 
-        void LoadFases()
+        public void LoadFases()
         {
             if (string.IsNullOrEmpty(View.IdContrato)) return;
 
             try
             {
+                _fasesService = IoC.Resolve<ISfFasesManagementServices>();
                 var fases = _fasesService.GetFasesByContrato(Convert.ToInt32(View.IdContrato));
                 View.LoadFases(fases);
             }

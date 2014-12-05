@@ -203,7 +203,7 @@ namespace Presenters.Contratos.Presenters
 
             model.IdLog = Guid.NewGuid();
             model.IdContrato = Convert.ToInt32(View.IdContrato);
-            model.Descripcion = string.Format("El usuario [{0}] ha ingresado una novedad de fase de tipo [{1}]", View.UserSession.Nombres, View.TipoOperacion);
+            model.Descripcion = string.Format("El usuario [{0}] ha ingresado una novedad de fase de tipo [{1}]. Comentarios", View.UserSession.Nombres, View.TipoOperacion, View.Descripcion);
             model.IsActive = true;
             model.CreateBy = View.UserSession.IdUser;
             model.CreateOn = DateTime.Now;

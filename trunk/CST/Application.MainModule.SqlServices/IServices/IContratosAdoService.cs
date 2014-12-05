@@ -12,9 +12,18 @@ namespace Application.MainModule.SqlServices.IServices
 
         DataTable GetBloquesSinContrato();
 
+        DataTable GetBloquesSinContratoIncluyeBloque(string idBloque);
+
         void ExtenderFase(int idFase, DateTime fechaFin);
         void ProrrogarFase(int idFase, DateTime fechaFin);
         void CorregirFechaFinFase(int idFase, DateTime fechaFin);
         void UnificarFase(int idFase, DateTime fechaFin);
+
+        void SuspenderContrato(int idContrato, DateTime fechaInicio, DateTime fechaFin);
+        void RestitucionManualContrato(int idContrato, DateTime fechaInicio);
+        void ModificarFechaEfectivaContrato(int idContrato, DateTime fechaInicio);
+        void RenunciarContrato(int idContrato);
+
+        void DeleteDocumentoRadicado(long idRadicado);
     }
 }

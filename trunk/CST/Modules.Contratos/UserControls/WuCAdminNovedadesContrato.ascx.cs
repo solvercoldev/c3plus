@@ -111,6 +111,13 @@ namespace Modules.Contratos.UserControls
                 case "Terminación":
                     trFinNovedad.Visible = false;
                     break;
+                case "Anulación":
+                    trInicioNovedad.Visible = false;
+                    trFinNovedad.Visible = false;
+                    break;
+                case "Modificación Fecha Efectiva":
+                    trFinNovedad.Visible = false;
+                    break;
             }
         }
 
@@ -251,8 +258,30 @@ namespace Modules.Contratos.UserControls
             }
         }
 
+        public bool CanAnular
+        {
+            get
+            {
+                return btnAnular.Visible;
+            }
+            set
+            {
+                btnAnular.Visible = value;
+                btnModFechaEff.Visible = value;
+            }
+        }
+
+        public DateTime FechaFirma
+        {
+            set
+            {
+                cexTxtFechaNovedad.StartDate = value;
+                cexTxtFechaFinNovedad.StartDate = value;
+            }
+        }
+
         #endregion
 
-        #endregion        
+        #endregion                   
     }
 }

@@ -129,5 +129,96 @@ namespace Application.MainModule.SqlServices.Services
                 throw new SqlExecutionException("GetBloquesSinContrato", ex);
             }
         }
+
+        public DataTable GetBloquesSinContratoIncluyeBloque(string idBloque)
+        {
+            var sql = "GetBloquesSinContratoIncluyeBloque";
+
+            try
+            {
+                return _sql.ExecuteDataTable(sql, CommandType.StoredProcedure, new SqlParameter("IdBloque", idBloque));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("GetBloquesSinContratoIncluyeBloque", ex);
+            }
+        }
+
+        public void SuspenderContrato(int idContrato, DateTime fechaInicio, DateTime fechaFin)
+        {
+            var sql = "SuspenderContrato";
+            try
+            {
+                _sql.ExecuteNonquery(sql, CommandType.StoredProcedure,
+                                    new SqlParameter("IdContrato", idContrato)
+                                    , new SqlParameter("FechaInicio", fechaInicio)
+                                    , new SqlParameter("FechaFin", fechaFin));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("SuspenderContrato", ex);
+            }
+        }
+
+        public void RestitucionManualContrato(int idContrato, DateTime fechaInicio)
+        {
+            var sql = "RestitucionManualContrato";
+            try
+            {
+                _sql.ExecuteNonquery(sql, CommandType.StoredProcedure,
+                                    new SqlParameter("IdContrato", idContrato)
+                                    , new SqlParameter("FechaInicio", fechaInicio));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("RestitucionManualContrato", ex);
+            }
+        }
+
+
+        public void RenunciarContrato(int idContrato)
+        {
+            var sql = "RenunciarContrato";
+            try
+            {
+                _sql.ExecuteNonquery(sql, CommandType.StoredProcedure,
+                                    new SqlParameter("IdContrato", idContrato));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("RenunciarContrato", ex);
+            }
+        }
+
+
+        public void ModificarFechaEfectivaContrato(int idContrato, DateTime fechaInicio)
+        {
+            var sql = "ModificarFechaEfectivaContrato";
+            try
+            {
+                _sql.ExecuteNonquery(sql, CommandType.StoredProcedure,
+                                    new SqlParameter("IdContrato", idContrato)
+                                    , new SqlParameter("FechaInicio", fechaInicio));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("ModificarFechaEfectivaContrato", ex);
+            }
+        }
+
+
+        public void DeleteDocumentoRadicado(long idRadicado)
+        {
+            var sql = "DeleteDocumentoRadicado";
+            try
+            {
+                _sql.ExecuteNonquery(sql, CommandType.StoredProcedure,
+                                    new SqlParameter("IdRadicado", idRadicado));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("DeleteDocumentoRadicado", ex);
+            }
+        }
     }
 }

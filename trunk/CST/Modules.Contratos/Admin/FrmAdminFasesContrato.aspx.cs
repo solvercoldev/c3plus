@@ -121,7 +121,7 @@ namespace Modules.Contratos.Admin
                                             Fase = string.Format("Fase {0}", 0),
                                             DuracionFase = MinDuracionFaseCero,
                                             FechaInicio = FechaFirmaInit.AddDays(1),
-                                            FechaFin = auxDate.AddMonths(MinDuracionFaseCero).AddDays(-1),
+                                            FechaFin = FechaFirmaInit.AddMonths(MinDuracionFaseCero),
                                             MinDuracionFase = MinDuracionFaseCero,
                                             MaxDuracionFase = -1,
                                             Grupo = 0

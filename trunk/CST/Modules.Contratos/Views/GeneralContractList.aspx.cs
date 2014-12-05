@@ -90,7 +90,7 @@ namespace Modules.Contratos.Views
                 var hplContrato = e.Item.FindControl("hplContrato") as HyperLink;
                 if (hplContrato != null)
                 {
-                    hplContrato.Text = string.Format("{0} - {1}", item.Nombre, item.NumeroContrato);
+                    hplContrato.Text = string.Format("{0} - {1} - Bloque: {2}", item.Nombre, item.NumeroContrato, item.Bloques.Descripcion);
                     hplContrato.NavigateUrl = string.Format("../Admin/FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, item.IdContrato);
                 }
 
