@@ -6,7 +6,7 @@ namespace Domain.MainModule.Contratos.Contracts
 {
     public interface IPozosRepository : IRepository<Pozos>
     {
-        
+        Pozos GetCompleteEntity(ISpecification<Pozos> specification);
     }
 }
     

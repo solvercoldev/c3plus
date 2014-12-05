@@ -55,10 +55,10 @@ namespace Presenters.Admin.Presenters
             View.IdTipoContrato = tiposContrato.IdTipoContrato;
             View.Descripcion = tiposContrato.Descripcion;
             View.Activo = tiposContrato.IsActive;
-            //View.CreatedBy = bloque.CreateBy.ToString();
-            //View.CreatedOn = bloque.CreateOn.ToString();
-            //View.ModifiedBy = bloque.ModifiedBy.ToString();
-            //View.ModifiedOn = bloque.ModifiedOn.ToString();
+            View.CreatedBy = tiposContrato.TBL_Admin_Usuarios.Nombres;
+            View.CreatedOn = tiposContrato.CreateOn.ToString();
+            View.ModifiedBy = tiposContrato.TBL_Admin_Usuarios1.Nombres;
+            View.ModifiedOn = tiposContrato.ModifiedOn.ToString();
         }
 
         private void GuardarTipoContrato()

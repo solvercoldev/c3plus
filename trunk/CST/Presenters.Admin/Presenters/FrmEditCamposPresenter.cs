@@ -59,10 +59,10 @@ namespace Presenters.Admin.Presenters
             View.IdBloque = campo.IdBloque;
             View.Descripcion = campo.Descripcion;
             View.Activo = campo.IsActive;
-            //View.CreatedBy = bloque.CreateBy.ToString();
-            //View.CreatedOn = bloque.CreateOn.ToString();
-            //View.ModifiedBy = bloque.ModifiedBy.ToString();
-            //View.ModifiedOn = bloque.ModifiedOn.ToString();
+            View.CreatedBy = campo.TBL_Admin_Usuarios.Nombres;
+            View.CreatedOn = campo.CreateOn.ToString();
+            View.ModifiedBy = campo.TBL_Admin_Usuarios1.Nombres;
+            View.ModifiedOn = campo.ModifiedOn.ToString();
         }
 
         private void GuardarCampo()

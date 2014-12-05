@@ -20,10 +20,10 @@ namespace Presenters.Admin.IViews
         bool Activo { get; set; }
         string Descripcion { get; set; }
         string IdTipoContrato { get; set; }
-        string CreatedBy { get; set; }
-        string CreatedOn { get; set; }
-        string ModifiedBy { get; set; }
-        string ModifiedOn { get; set; }
+        string CreatedBy { set; }
+        string CreatedOn { set; }
+        string ModifiedBy { set; }
+        string ModifiedOn { set; }
 
         #endregion
     }

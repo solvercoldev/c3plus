@@ -59,10 +59,10 @@ namespace Presenters.Admin.Presenters
             View.Telefono2 = empresa.TelefonoDos;
             View.Logo = empresa.Logo;
             View.Activo = empresa.IsActive;
-            //View.CreatedBy = bloque.CreateBy.ToString();
-            //View.CreatedOn = bloque.CreateOn.ToString();
-            //View.ModifiedBy = bloque.ModifiedBy.ToString();
-            //View.ModifiedOn = bloque.ModifiedOn.ToString();
+            View.CreatedBy = empresa.TBL_Admin_Usuarios.Nombres;
+            View.CreatedOn = empresa.CreateOn.ToString();
+            View.ModifiedBy = empresa.TBL_Admin_Usuarios1.Nombres;
+            View.ModifiedOn = empresa.ModifiedOn.ToString();
         }
 
         private void GuardarEmpresa()

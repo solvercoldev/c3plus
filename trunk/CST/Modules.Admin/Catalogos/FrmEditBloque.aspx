@@ -57,15 +57,19 @@
 						    <td align="left" class="Line"><asp:checkbox id="chkActive" runat="server" Checked="true"></asp:checkbox></td>
 					    </tr>					
 				    </table>
-    			
-		
             </td>
-       
-        
         </tr>
-    
     </table>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Footer" runat="server">
+<div class="StyleFooter">Created by 
+    <asp:Literal ID="LitCreatedBy" runat="server"></asp:Literal>
+    On 
+    <asp:Literal ID="LitCreatedOn" runat="server"></asp:Literal>
+    -- Last Modified By
+    <asp:Literal ID="LiModifiedBy" runat="server"></asp:Literal>
+    On
+    <asp:Literal ID="LiModifiedOn" runat="server"></asp:Literal>
+</div>
 </asp:Content>

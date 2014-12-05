@@ -22,10 +22,10 @@ namespace Presenters.Admin.IViews
         string Telefono1 { get; set; }
         string Telefono2 { get; set; }
         string Logo { get; set; }
-        string CreatedBy { get; set; }
-        string CreatedOn { get; set; }
-        string ModifiedBy { get; set; }
-        string ModifiedOn { get; set; }
+        string CreatedBy { set; }
+        string CreatedOn { set; }
+        string ModifiedBy { set; }
+        string ModifiedOn { set; }
 
         #endregion
     }

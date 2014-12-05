@@ -118,7 +118,7 @@ namespace Application.MainModule.Contratos.Services
         public Empresas GetById(string id)
         {
              Specification<Empresas> specification = new DirectSpecification<Empresas>(u => u.Nit == id);
-             return _EmpresasRepository.GetEntityBySpec(specification);
+             return _EmpresasRepository.GetCompleteEntity(specification);
         }
 
         /// <summary>

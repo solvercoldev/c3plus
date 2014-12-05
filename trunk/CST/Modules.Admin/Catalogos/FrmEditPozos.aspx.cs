@@ -70,28 +70,25 @@ namespace Modules.Admin.Catalogos
             set { txtIdPozo.Text = value; }
         }
 
-        public string CreatedBy
+                public string CreatedBy
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            set { LitCreatedBy.Text = value; }
         }
 
         public string CreatedOn
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            set { LitCreatedOn.Text = value; }
         }
 
         public string ModifiedBy
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            set { LiModifiedBy.Text = value; }
         }
 
         public string ModifiedOn
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            set { LiModifiedOn.Text = value; }
+
         }
 
         protected void BtnBackClick(object sender, EventArgs e)
