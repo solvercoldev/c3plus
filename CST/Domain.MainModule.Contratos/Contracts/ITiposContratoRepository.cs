@@ -6,7 +6,7 @@ namespace Domain.MainModule.Contratos.Contracts
 {
     public interface ITiposContratoRepository : IRepository<TiposContrato>
     {
-        
+        TiposContrato GetCompleteEntity(ISpecification<TiposContrato> specification);
     }
 }
     

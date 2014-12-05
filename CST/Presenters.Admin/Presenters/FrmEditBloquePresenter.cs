@@ -56,10 +56,10 @@ namespace Presenters.Admin.Presenters
             View.IdBloque = bloque.IdBloque;
             View.Descripcion = bloque.Descripcion;
             View.Activo = bloque.IsActive;
-            //View.CreatedBy = bloque.CreateBy.ToString();
-            //View.CreatedOn = bloque.CreateOn.ToString();
-            //View.ModifiedBy = bloque.ModifiedBy.ToString();
-            //View.ModifiedOn = bloque.ModifiedOn.ToString();
+            View.CreatedBy = bloque.TBL_Admin_Usuarios.Nombres;
+            View.CreatedOn = bloque.CreateOn.ToString();
+            View.ModifiedBy = bloque.TBL_Admin_Usuarios1.Nombres;
+            View.ModifiedOn = bloque.ModifiedOn.ToString();
         }
 
         private void GuardarBloque()

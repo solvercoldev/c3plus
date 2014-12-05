@@ -141,7 +141,7 @@ namespace Application.MainModule.Contratos.Services
          public Campos GetById(string id)
          {
              Specification<Campos> specification = new DirectSpecification<Campos>(u => u.IdCampo == id);
-             return _CamposRepository.GetEntityBySpec(specification);
+             return _CamposRepository.GetCompleteEntity(specification);
          }
 
          #endregion

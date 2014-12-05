@@ -6,7 +6,7 @@ namespace Domain.MainModule.Contratos.Contracts
 {
     public interface ICamposRepository : IRepository<Campos>
     {
-        
+        Campos GetCompleteEntity(ISpecification<Campos> specification);
     }
 }
     

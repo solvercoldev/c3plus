@@ -162,7 +162,7 @@ namespace Application.MainModule.Contratos.Services
         public Pozos GetById(string id)
         {
             Specification<Pozos> specification = new DirectSpecification<Pozos>(u => u.IdPozo == id);
-            return _PozosRepository.GetEntityBySpec(specification);
+            return _PozosRepository.GetCompleteEntity(specification);
         }
     }
 }

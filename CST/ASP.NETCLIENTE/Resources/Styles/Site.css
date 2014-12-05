@@ -1571,3 +1571,12 @@ background-color: #ffc0c0;
 .TextCapitalize {
     text-transform: capitalize;
 }
+
+.StyleFooter
+{
+    background-color:#F2F2F2;
+    color:#808080;
+    font-size:0.7em;
+    font-family: Arial, Sans-Serif,Segoe UI, Verdana;
+    font-style:italic;
+}

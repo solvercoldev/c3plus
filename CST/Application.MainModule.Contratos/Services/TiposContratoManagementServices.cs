@@ -118,7 +118,7 @@ namespace Application.MainModule.Contratos.Services
         public TiposContrato GetById(string id)
         {
             Specification<TiposContrato> specification = new DirectSpecification<TiposContrato>(u => u.IdTipoContrato == id);
-            return _TiposContratoRepository.GetEntityBySpec(specification);
+            return _TiposContratoRepository.GetCompleteEntity(specification);
         }
 
         /// <summary>

@@ -6,7 +6,7 @@ namespace Domain.MainModule.Contratos.Contracts
 {
     public interface IEmpresasRepository : IRepository<Empresas>
     {
-        
+        Empresas GetCompleteEntity(ISpecification<Empresas> specification);
     }
 }
     

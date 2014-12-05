@@ -59,10 +59,10 @@ namespace Presenters.Admin.Presenters
             View.IdCampo = pozo.IdCampo;
             View.Descripcion = pozo.Descripcion;
             View.Activo = pozo.IsActive;
-            //View.CreatedBy = bloque.CreateBy.ToString();
-            //View.CreatedOn = bloque.CreateOn.ToString();
-            //View.ModifiedBy = bloque.ModifiedBy.ToString();
-            //View.ModifiedOn = bloque.ModifiedOn.ToString();
+            View.CreatedBy = pozo.TBL_Admin_Usuarios.Nombres;
+            View.CreatedOn = pozo.CreateOn.ToString();
+            View.ModifiedBy = pozo.TBL_Admin_Usuarios1.Nombres;
+            View.ModifiedOn = pozo.ModifiedOn.ToString();
         }
 
         private void GuardarPozo()
