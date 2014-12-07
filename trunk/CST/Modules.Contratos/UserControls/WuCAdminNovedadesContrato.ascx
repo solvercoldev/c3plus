@@ -20,7 +20,7 @@
                         Tipo
                     </th>
                     <th style="width:30%;text-align:left;vertical-align:top">
-                        Descripción
+                        Comentarios
                     </th>
                     <th style="width:23%; text-align:left;vertical-align:top">
                         Responsable
@@ -87,17 +87,17 @@
         </td>
         <td style="width:15%; text-align:center;vertical-align:top;" >
 
-            <asp:Button ID="btnModFechaEff" runat="server" Text="Mod.Fecha Effectiva" CommandArgument="Modificación Fecha Efectiva" Width="120px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnModFechaEff" runat="server" Text="Mod.Fecha Effectiva" CommandArgument="Modificación Fecha Efectiva" Width="120px" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
 
-            <asp:Button ID="btnSuspender" runat="server" Text="Suspender" CommandArgument="Suspensión" Width="120px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnSuspender" runat="server" Text="Suspender" CommandArgument="Suspensión" Width="120px" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
             
-            <asp:Button ID="btnRestituir" runat="server" Text="Restituir" CommandArgument="Reiniciar" Width="120px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnRestituir" runat="server" Text="Restituir" CommandArgument="Reiniciar" Width="120px" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
             
-            <asp:Button ID="btnRenunciar" runat="server" Text="Renunciar" CommandArgument="Renuncia" Width="120px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnRenunciar" runat="server" Text="Renunciar" CommandArgument="Renuncia" Width="120px" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
 
-            <asp:Button ID="btnTerminar" runat="server" Text="Terminar" CommandArgument="Terminación" Width="120px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnTerminar" runat="server" Text="Terminar" CommandArgument="Terminación" Width="120px" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
 
-            <asp:Button ID="btnAnular" runat="server" Text="Anular" CommandArgument="Anulación" Width="120px" OnClick="BtnAddNovedad_Click" />
+            <asp:Button ID="btnAnular" runat="server" Text="Anular" CommandArgument="Anulación" Width="120px" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
         </td>
     </tr>    
 </table>
@@ -115,9 +115,11 @@
             </div>
 
             <div style="padding:3px; text-align:right;">
-                <asp:Button ID="btnCancelarNovedad" runat="server" Text="Regresar"  />
-                <asp:Button ID="btnSaveNovedad" runat="server" Text="Agregar Novedad" OnClick="BtnSaveNovedad_Click"  />
+                <asp:Button ID="btnCancelarNovedad" runat="server" Text="Regresar" CausesValidation="false" />
+                <asp:Button ID="btnSaveNovedad" runat="server" Text="Agregar Novedad" OnClick="BtnSaveNovedad_Click" ValidationGroup="vsNovedadContrato" />
             </div>
+
+            <asp:ValidationSummary ID="vsNovedadContrato" runat="server" DisplayMode="BulletList" ShowMessageBox="false" CssClass="validator" ShowSummary="true" ValidationGroup="vsNovedadContrato"/>
 
             <div class="popup_Body">                                                    
                 <table width="100%" class="tblSecciones">
@@ -181,7 +183,9 @@
                             <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" Width="98%" />
                         </td>
 
-                        <td class="Separador"></td>
+                        <td class="Separador">                            
+                        <asp:RequiredFieldValidator ID="reqObservacionesNovedad" runat="server" ForeColor="Red" CssClass="validator" ControlToValidate="txtDescripcion" ErrorMessage="Es necesario ingresar una observación" ValidationGroup="vsNovedadContrato" >*</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                 </table>
             </div>
