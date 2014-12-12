@@ -85,7 +85,7 @@ namespace Modules.Contratos.Views
                 var item = (Domain.MainModules.Entities.Contratos)(e.Item.DataItem);
                 // Bindind data
 
-                var fase = item.Fases.Where(x => x.FechaInicio >= DateTime.Now && x.FechaFinalizacion <= DateTime.Now).FirstOrDefault();
+                var fase = item.Fases.Where(x => DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion).FirstOrDefault();
 
                 var hplContrato = e.Item.FindControl("hplContrato") as HyperLink;
                 if (hplContrato != null)
@@ -107,7 +107,7 @@ namespace Modules.Contratos.Views
                 if (lblPeriodo != null) lblPeriodo.Text = string.Format("{0:dd/MM/yyyy} - {1:dd/MM/yyyy}", item.FechaInicio, item.FechaTerminacion);
 
                 var lblFaseActual = e.Item.FindControl("lblFaseActual") as Label;
-                if (lblFaseActual != null) lblFaseActual.Text = string.Format("Fase actual : Fase_{0}", fase != null ? fase.NumeroFase : 0);
+                if (lblFaseActual != null) lblFaseActual.Text = string.Format("Fase actual : {0}", fase != null ? fase.Nombre : "");
             }
         }
 

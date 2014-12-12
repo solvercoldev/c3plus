@@ -241,6 +241,22 @@ namespace Modules.Contratos.Admin
             btnMarcarOk.Visible = enable;
         }
 
+        public void EnableAnular(bool enable)
+        {
+            btnAnular.Visible = enable;
+        }
+
+        public void EnableReprogramar(bool enable)
+        {
+            btnReprogramar.Visible = enable;
+        }
+
+        public void EnableReasignar(bool enable)
+        {
+            btnReasignar.Visible = enable;
+        }
+
+
         public void GoToContratoView()
         {
             switch (FromPage)
@@ -473,6 +489,7 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblResponsableRespuesta.Text = value;
+                lblResponsable.Text = value;
             }
         }
 

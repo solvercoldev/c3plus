@@ -83,8 +83,18 @@ namespace Presenters.Contratos.Presenters
                     View.FechaVencimiento = string.Format("{0:dd MMMM yyyy}", radicado.FechaReciboSalida);
                     View.FechaCreacion = string.Format("{0:dd MMMM yyyy}", radicado.CreateOn);
                     View.Asunto = radicado.Asunto;
-                    View.EnviadoPor = radicado.IdFromExterno;
-                    View.DirigidoA = radicado.TBL_Admin_Usuarios4.Nombres;
+
+                    if (radicado.TipoRadicado == "RE")
+                    {
+                        View.EnviadoPor = radicado.IdFromExterno;
+                        View.DirigidoA = radicado.TBL_Admin_Usuarios4.Nombres;
+                    }
+                    else
+                    {
+                        View.EnviadoPor = radicado.TBL_Admin_Usuarios3.Nombres;
+                        View.DirigidoA = radicado.IdToExterno;
+                    }
+                    
                     View.Descripcion = radicado.Resumen;
                     View.FechaReprogramacion = radicado.FechaReciboSalida;
 
@@ -94,17 +104,6 @@ namespace Presenters.Contratos.Presenters
                         View.ShowREAsociado(true);
                     }
 
-                    if (radicado.RespuestaPendiente)
-                    {
-                        View.ResponsableRespuesta = radicado.TBL_Admin_Usuarios2.Nombres;
-                        View.FechaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta);
-                        View.FechaAlarmaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta.GetValueOrDefault().AddDays(radicado.DiasAlarma.GetValueOrDefault() * (-1)));
-
-                        View.ShowRespuesta(radicado.RespuestaPendiente);
-                    }
-
-                    LoadContrato();
-
                     View.MsgLogInfo = string.Format("Creado por {0} en {1:dd/MM/yyyy hh:mm tt}. Modificado por {2} en {3:dd/MM/yyyy hh:mm tt}.",
                                                     radicado.TBL_Admin_Usuarios.Nombres, radicado.CreateOn,
                                                     radicado.TBL_Admin_Usuarios1.Nombres, radicado.ModifiedOn);
@@ -113,7 +112,21 @@ namespace Presenters.Contratos.Presenters
                     View.EnableActions(radicado.EstadoRadicado != "Respondido" && radicado.EstadoRadicado != "Anulado");
                     View.EnableMarcarOK(radicado.TipoRadicado == "RS");
 
-                    LoadDocumentoRadicado();
+                    if (radicado.RespuestaPendiente)
+                    {
+                        View.ResponsableRespuesta = radicado.TBL_Admin_Usuarios2.Nombres;
+                        View.FechaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta);
+                        View.FechaAlarmaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta.GetValueOrDefault().AddDays(radicado.DiasAlarma.GetValueOrDefault() * (-1)));
+
+                        View.ShowRespuesta(radicado.RespuestaPendiente);
+
+                        View.EnableReasignar(false);
+                        View.EnableReprogramar(false);
+                        View.EnableMarcarOK(false);
+                    }
+
+                    LoadContrato();
+                    LoadDocumentoRadicado();                    
                 }
             }
             catch (Exception ex)
@@ -200,9 +213,22 @@ namespace Presenters.Contratos.Presenters
                             break;
                         case "Confirmar":
                             radicado.EstadoRadicado = "Respondido";
+
+                            if (radicado.IdRadicadoEntrada.HasValue)
+                            {
+                                var radicadoEntrada = _radicadoService.GetById(radicado.IdRadicadoEntrada.GetValueOrDefault());
+
+                                radicadoEntrada.EstadoRadicado = "Respondido";
+                                radicadoEntrada.ModifiedBy = View.UserSession.IdUser;
+                                radicadoEntrada.ModifiedOn = DateTime.Now;
+
+                                _radicadoService.Modify(radicadoEntrada);
+                            }
+
                             break;
                         case "Reprogramar":
                             radicado.FechaReciboSalida = View.FechaReprogramacion;
+                            radicado.FechaRespuesta = View.FechaReprogramacion;
                             break;
                         case "ReAsignar":
                             radicado.IdFromExterno = View.ResponsableReprogramacion;

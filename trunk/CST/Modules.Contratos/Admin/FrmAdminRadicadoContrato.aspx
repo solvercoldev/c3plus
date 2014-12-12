@@ -162,11 +162,11 @@
 
                         <td rowspan="3" style="text-align:right; vertical-align:top;">
                             <div style="padding:3px; text-align:right; width:150px;"  id="divActionButtons" runat="server" >
-                                <asp:Button ID="btnEdit" runat="server" Text="Editar" OnClick="BtnEdit_Click" Width="100px" />
-                                <asp:Button ID="btnAnular" runat="server" Text="Anular" Width="100px" OnClick="BtnAddNovedad_Click" CommandArgument="Anular" />
-                                <asp:Button ID="btnMarcarOk" runat="server" Text="Marcar OK" Width="100px" OnClick="BtnAddNovedad_Click" CommandArgument="Confirmar" />
-                                <asp:Button ID="btnReprogramar" runat="server" Text="Reprogramar" Width="100px" OnClick="BtnAddNovedad_Click" CommandArgument="Reprogramar" />
-                                <asp:Button ID="btnReasignar" runat="server" Text="Re-Asignar" Width="100px" OnClick="BtnAddNovedad_Click" CommandArgument="ReAsignar" />
+                                <asp:Button ID="btnEdit" runat="server" Text="Editar" OnClick="BtnEdit_Click" Width="120px" />
+                                <asp:Button ID="btnAnular" runat="server" Text="Anular" Width="120px" OnClick="BtnAddNovedad_Click" CommandArgument="Anular" />
+                                <asp:Button ID="btnMarcarOk" runat="server" Text="Marcar Respondido" Width="120px" OnClick="BtnAddNovedad_Click" CommandArgument="Confirmar" />
+                                <asp:Button ID="btnReprogramar" runat="server" Text="Reprogramar" Width="120px" OnClick="BtnAddNovedad_Click" CommandArgument="Reprogramar" />
+                                <asp:Button ID="btnReasignar" runat="server" Text="Re-Asignar" Width="120px" OnClick="BtnAddNovedad_Click" CommandArgument="ReAsignar" />
                             </div>
                         </td>
                     </tr>                                             
