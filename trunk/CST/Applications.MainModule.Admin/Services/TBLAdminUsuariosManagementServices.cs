@@ -122,6 +122,12 @@ namespace Applications.MainModule.Admin.Services
             return _tblAdminUsuariosRepository.RetornarUsuariosConRoles(specification).ToList();
          }
 
+        public TBL_Admin_Usuarios GetById(int id)
+        {
+            Specification<TBL_Admin_Usuarios> specification = new DirectSpecification<TBL_Admin_Usuarios>(u => u.IdUser == id);
+            return _tblAdminUsuariosRepository.GetEntityBySpec(specification);
+        }
+
         public TBL_Admin_Usuarios GetUserByCredential(string userName, string password)
         {
             Specification<TBL_Admin_Usuarios> specification = new DirectSpecification<TBL_Admin_Usuarios>(u => u.UserName.Equals(userName) && u.Password.Equals(password));

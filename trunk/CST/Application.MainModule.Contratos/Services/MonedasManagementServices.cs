@@ -115,7 +115,14 @@ namespace Application.MainModule.Contratos.Services
             return _MonedasRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public Monedas GetById(string id)
+        {
+            Specification<Monedas> specification = new DirectSpecification<Monedas>(u => u.IdMoneda == id);
+
+            return _MonedasRepository.GetEntityBySpec(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<Monedas> FindPaged(int pageIndex, int pageCount)

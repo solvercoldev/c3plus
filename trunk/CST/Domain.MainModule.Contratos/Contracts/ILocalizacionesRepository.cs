@@ -6,7 +6,7 @@ namespace Domain.MainModule.Contratos.Contracts
 {
     public interface ILocalizacionesRepository : IRepository<Localizaciones>
     {
-        
+        Localizaciones GetCompleteEntity(ISpecification<Localizaciones> specification);
     }
 }
     

@@ -115,7 +115,13 @@ namespace Application.MainModule.Contratos.Services
             return _DependenciasRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public Dependencias GetById(string id)
+        {
+            Specification<Dependencias> specification = new DirectSpecification<Dependencias>(u => u.IdDependencia == id);
+            return _DependenciasRepository.GetCompleteEntity(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<Dependencias> FindPaged(int pageIndex, int pageCount)

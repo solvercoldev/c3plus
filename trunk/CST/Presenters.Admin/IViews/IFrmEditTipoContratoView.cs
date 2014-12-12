@@ -8,9 +8,7 @@ namespace Presenters.Admin.IViews
         #region Events
 
         event EventHandler SaveEvent;
-
         event EventHandler DeleteEvent;
-
         event EventHandler ActualizarEvent;
 
         #endregion

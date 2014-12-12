@@ -6,7 +6,7 @@
     <asp:button id="btnReturn" runat="server" OnClick="BtnBackClick" text="Regresar" causesvalidation="False"></asp:button>
 	<asp:button id="btnSave" runat="server" OnClick="BtnSaveClick" text="Guardar"></asp:button>
     <asp:button id="btnAct" runat="server" OnClick="BtnActClick" text="Guardar"></asp:button>
-	<asp:button id="btnEliminar" OnClientClick="return confirm('¿Esta seguro?');" runat="server" OnClick="BtnDeleteClick" causesvalidation="False" text="Borrar"></asp:button>
+	<asp:button causesvalidation="False" id="btnEliminar" OnClick="BtnDeleteClick" OnClientClick="return confirm('¿Esta seguro?');" runat="server" text="Borrar" style="display: none"></asp:button>
 </div>
 
 <table width="100%" class="tblSecciones">

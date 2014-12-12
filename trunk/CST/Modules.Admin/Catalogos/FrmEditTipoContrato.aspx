@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 <asp:ValidationSummary ID="vsGeneral" runat="server" DisplayMode="BulletList" ShowMessageBox="true" CssClass="validator" ShowSummary="False" ValidationGroup="vgGeneral"/>
- <div style="padding:3px; text-align:right;">
+<div style="padding:3px; text-align:right;">
     <asp:button id="btnReturn" runat="server" OnClick="BtnBackClick" text="Regresar" causesvalidation="False"></asp:button>
 	<asp:button id="btnSave" runat="server" OnClick="BtnSaveClick" text="Guardar"></asp:button>
     <asp:button id="btnAct" runat="server" OnClick="BtnActClick" text="Guardar"></asp:button>
-	<asp:button id="btnEliminar" OnClientClick="return confirm('¿Esta seguro?');" runat="server" OnClick="BtnDeleteClick" causesvalidation="False" text="Borrar"></asp:button>
+	<asp:button causesvalidation="False" id="btnEliminar" OnClick="BtnDeleteClick" OnClientClick="return confirm('¿Esta seguro?');" runat="server" text="Borrar" style="display: none"></asp:button>
 </div>
 
 <table width="100%" class="tblSecciones">
@@ -69,6 +69,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Footer" runat="server">
+
 <div class="StyleFooter">Created by 
     <asp:Literal ID="LitCreatedBy" runat="server"></asp:Literal>
     On 
@@ -78,4 +79,5 @@
     On
     <asp:Literal ID="LiModifiedOn" runat="server"></asp:Literal>
 </div>
+
 </asp:Content>
