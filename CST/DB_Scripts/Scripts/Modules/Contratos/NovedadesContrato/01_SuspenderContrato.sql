@@ -42,7 +42,8 @@ set		f.FechaInicio = dateadd(dd,@DiffDias, f.FechaInicio)
 from	Fases f with(nolock)
 where	f.IdContrato = @IdContrato
 		and f.NumeroFase > 0
-		and f.FechaInicio >= @FechaInicio
+		and (f.FechaInicio >= @FechaInicio
+			or f.FechaFinalizacion >= @FechaInicio)
 
 -- Actualizando Compromisos
 update	comp
@@ -52,4 +53,5 @@ from	Compromisos comp with(nolock)
 			on comp.IdFase = f.IdFase
 where	f.IdContrato = @IdContrato
 		and f.NumeroFase > 0
-		and comp.FechaCumplimiento >= @FechaInicio
+		and (f.FechaInicio >= @FechaInicio
+			or f.FechaFinalizacion >= @FechaInicio)

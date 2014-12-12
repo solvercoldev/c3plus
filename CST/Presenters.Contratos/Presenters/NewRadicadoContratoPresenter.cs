@@ -102,8 +102,18 @@ namespace Presenters.Contratos.Presenters
                     View.Numero = model.Numero;
                     View.FechaRadicado = model.FechaReciboSalida;
                     View.Asunto = model.Asunto;
-                    View.EnviadoPor = model.IdFromExterno;
-                    View.DirigidoA = model.IdTo.GetValueOrDefault();
+
+                    if (model.TipoRadicado == "RE")
+                    {
+                        View.EnviadoPor = model.IdFromExterno;
+                        View.DirigidoA = model.IdTo.GetValueOrDefault();
+                    }
+                    else
+                    {
+                        View.IdEnviadoPor = model.IdFrom.GetValueOrDefault();
+                        View.DirigidoAExterno = model.IdToExterno;
+                    }
+                    
                     View.Resumen = model.Resumen;
                     View.RespuestaPendiente = model.RespuestaPendiente;
 
@@ -197,8 +207,18 @@ namespace Presenters.Contratos.Presenters
                 model.Numero = View.Numero;
                 model.FechaReciboSalida = View.FechaRadicado;
                 model.Asunto = View.Asunto;
-                model.IdFromExterno = View.EnviadoPor;
-                model.IdTo = View.DirigidoA;
+
+                if (model.TipoRadicado == "RE")
+                {
+                    model.IdFromExterno = View.EnviadoPor;
+                    model.IdTo = View.DirigidoA;
+                }
+                else
+                {
+                    model.IdFrom = View.IdEnviadoPor;
+                    model.IdToExterno = View.DirigidoAExterno;
+                }
+
                 model.Resumen = View.Resumen;
                 model.RespuestaPendiente = View.RespuestaPendiente;                
 
@@ -266,18 +286,20 @@ namespace Presenters.Contratos.Presenters
             model.TipoRadicado = View.TipoRadicado;
             model.Numero = View.Numero;
             model.FechaReciboSalida = View.FechaRadicado;
-            model.Asunto = View.Asunto;
-            model.IdFromExterno = View.EnviadoPor;
-            model.IdTo = View.DirigidoA;
+            model.Asunto = View.Asunto;           
             model.Resumen = View.Resumen;
             model.RespuestaPendiente = View.RespuestaPendiente;
             switch (View.TipoRadicado)
             {
                 case "RE":
                     model.EstadoRadicado = "Radicado";
+                    model.IdFromExterno = View.EnviadoPor;
+                    model.IdTo = View.DirigidoA;
                     break;
                 case "RS":
                     model.EstadoRadicado = "Enviado";
+                    model.IdFrom = View.IdEnviadoPor;
+                    model.IdToExterno = View.DirigidoAExterno;
                     break;
             }
 

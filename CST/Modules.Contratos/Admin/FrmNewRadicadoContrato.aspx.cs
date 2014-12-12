@@ -86,7 +86,10 @@ namespace Modules.Contratos.Admin
             if (string.IsNullOrEmpty(Asunto))
                 messages.Add(string.Format("Es necesario ingresar un asunto para el radicado."));
 
-            if (string.IsNullOrEmpty(EnviadoPor))
+            if (string.IsNullOrEmpty(DirigidoAExterno) && TipoRadicado == "RS")
+                messages.Add(string.Format("Es necesario ingresar un valor para el campo dirigido a."));
+
+            if (string.IsNullOrEmpty(EnviadoPor) && TipoRadicado == "RE")
                 messages.Add(string.Format("Es necesario ingresar un valor para el campo enviado por."));
 
             if (!fuArchivoAnexo.HasFile && string.IsNullOrEmpty(IdRadicado))
@@ -139,11 +142,19 @@ namespace Modules.Contratos.Admin
                 case "RE":
                     trRespondeRadicadoEntrada.Visible = false;
                     trRadicadoEntrada.Visible = false;
+                    ddlDirigidoA.Visible = true;
+                    ddlEnviadoPor.Visible = false;
+                    txtDirigidoA.Visible = false;
+                    txtEnviadoPor.Visible = true;
                     break;
                 case "RS":
                     trRespondeRadicadoEntrada.Visible = true;;
                     RespondeRE = false;
                     trRadicadoEntrada.Visible = false;
+                    ddlDirigidoA.Visible = false;
+                    ddlEnviadoPor.Visible = true;
+                    txtDirigidoA.Visible = true;
+                    txtEnviadoPor.Visible = false;
                     break;
             }
         }
@@ -172,6 +183,10 @@ namespace Modules.Contratos.Admin
         public void ShowRespondeRadicadoSalida(bool visible)
         {
             trRespondeRadicadoEntrada.Visible = visible;
+            ddlDirigidoA.Visible = !visible;
+            ddlEnviadoPor.Visible = visible;
+            txtDirigidoA.Visible = visible;
+            txtEnviadoPor.Visible = !visible;
         }
 
         public void ShowRadicadoSalida(bool visible)
@@ -209,6 +224,11 @@ namespace Modules.Contratos.Admin
             ddlDirigidoA.DataTextField = "Nombres";
             ddlDirigidoA.DataValueField = "IdUser";
             ddlDirigidoA.DataBind();
+
+            ddlEnviadoPor.DataSource = items;
+            ddlEnviadoPor.DataTextField = "Nombres";
+            ddlEnviadoPor.DataValueField = "IdUser";
+            ddlEnviadoPor.DataBind();
 
             ddlResponsableRadicado.DataSource = items;
             ddlResponsableRadicado.DataTextField = "Nombres";
@@ -338,6 +358,30 @@ namespace Modules.Contratos.Admin
             set
             {
                 ddlDirigidoA.SelectedValue = value.ToString();
+            }
+        }
+
+        public int IdEnviadoPor
+        {
+            get
+            {
+                return Convert.ToInt32(ddlEnviadoPor.SelectedValue);
+            }
+            set
+            {
+                ddlEnviadoPor.SelectedValue = value.ToString();
+            }
+        }
+
+        public string DirigidoAExterno
+        {
+            get
+            {
+                return txtDirigidoA.Text;
+            }
+            set
+            {
+                txtDirigidoA.Text = value;
             }
         }
 

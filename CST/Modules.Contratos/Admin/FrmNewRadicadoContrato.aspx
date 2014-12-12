@@ -126,6 +126,7 @@
 
                         <td class="Line" >
                             <asp:DropDownList ID="ddlDirigidoA" runat="server" Width="450px"  class="chzn-select" />
+                            <asp:TextBox ID="txtDirigidoA" runat="server" Width="450px" MaxLength="512" Visible="false" />
                         </td>
 
                         <td class="Separador"></td>
@@ -137,8 +138,9 @@
 
                         <td class="Separador"></td>
 
-                        <td class="Line" >
+                        <td class="Line" >                            
                             <asp:TextBox ID="txtEnviadoPor" runat="server" Width="450px" MaxLength="512" />
+                            <asp:DropDownList ID="ddlEnviadoPor" runat="server" Width="450px"  class="chzn-select" Visible="false" />
                         </td>
 
                         <td class="Separador"></td>

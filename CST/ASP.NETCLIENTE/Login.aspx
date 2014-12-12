@@ -37,7 +37,7 @@
 	            </div>
             </div>
            <div  class="FooterDiv">
-                © - Diseñado por Solver de Colombia Ltda.
+                © - Todos los derechos reservados CST SAS - Diseñado por Solver de Colombia Ltda.
            </div>
         </div>
 	</form>

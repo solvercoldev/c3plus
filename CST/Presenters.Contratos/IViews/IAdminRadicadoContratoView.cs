@@ -45,6 +45,12 @@ namespace Presenters.Contratos.IViews
 
         void EnableEdit(bool enable);
 
+        void EnableAnular(bool enable);
+
+        void EnableReprogramar(bool enable);
+
+        void EnableReasignar(bool enable);
+
         void EnableActions(bool enable);
 
         string MsgLogInfo { get; set; }

@@ -112,6 +112,15 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlDirigidoA;
         
         /// <summary>
+        /// txtDirigidoA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDirigidoA;
+        
+        /// <summary>
         /// txtEnviadoPor control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEnviadoPor;
+        
+        /// <summary>
+        /// ddlEnviadoPor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEnviadoPor;
         
         /// <summary>
         /// txtResumen control.

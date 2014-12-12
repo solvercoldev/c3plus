@@ -15,7 +15,9 @@ namespace Presenters.Contratos.IViews
         DateTime FechaRadicado { get; set; }
         string Asunto { get; set; }
         int DirigidoA { get; set; }
+        int IdEnviadoPor { get; set; }
         string EnviadoPor { get; set; }
+        string DirigidoAExterno { get; set; }
         string Resumen { get; set; }
         bool RespondeRE { get; set; }
         long IdRadicadoEntradaAsociado { get; set; }
