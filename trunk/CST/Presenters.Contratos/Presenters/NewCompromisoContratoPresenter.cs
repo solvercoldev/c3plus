@@ -403,6 +403,7 @@ namespace Presenters.Contratos.Presenters
             model.ValorCobertura = View.ValorCoberturaPago;
             model.Valor = View.ValorPago;
             model.IdMoneda = View.IdMoneda;
+            model.IdMonedaCobertura = View.IdMonedaCobertura;
             model.Estado = "Programado";
             model.IsActive = true;
             model.CreateBy = View.UserSession.IdUser;

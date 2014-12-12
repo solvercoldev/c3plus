@@ -33,6 +33,7 @@ namespace Presenters.Contratos.IViews
         string IdTercero { get; set; }
         string IdTipoPagoObligacion { get; set; }        
         string IdMoneda { get; set; }
+        string IdMonedaCobertura { get; set; }
         decimal ValorPago { get; set; }
         decimal ValorCoberturaPago { get; set; }
 

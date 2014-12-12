@@ -97,6 +97,41 @@ namespace Domain.MainModules.Entities
             }
         }
         private TrackableCollection<PagosObligaciones> _pagosObligaciones;
+    
+        [DataMember]
+        public TrackableCollection<PagosObligaciones> PagosObligaciones1
+        {
+            get
+            {
+                if (_pagosObligaciones1 == null)
+                {
+                    _pagosObligaciones1 = new TrackableCollection<PagosObligaciones>();
+                    _pagosObligaciones1.CollectionChanged += FixupPagosObligaciones1;
+                }
+                return _pagosObligaciones1;
+            }
+            set
+            {
+                if (!ReferenceEquals(_pagosObligaciones1, value))
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
+                    }
+                    if (_pagosObligaciones1 != null)
+                    {
+                        _pagosObligaciones1.CollectionChanged -= FixupPagosObligaciones1;
+                    }
+                    _pagosObligaciones1 = value;
+                    if (_pagosObligaciones1 != null)
+                    {
+                        _pagosObligaciones1.CollectionChanged += FixupPagosObligaciones1;
+                    }
+                    OnNavigationPropertyChanged("PagosObligaciones1");
+                }
+            }
+        }
+        private TrackableCollection<PagosObligaciones> _pagosObligaciones1;
 
         #endregion
         #region ChangeTracking
@@ -177,6 +212,7 @@ namespace Domain.MainModules.Entities
         protected virtual void ClearNavigationProperties()
         {
             PagosObligaciones.Clear();
+            PagosObligaciones1.Clear();
         }
 
         #endregion
@@ -216,6 +252,45 @@ namespace Domain.MainModules.Entities
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
                         ChangeTracker.RecordRemovalFromCollectionProperties("PagosObligaciones", item);
+                    }
+                }
+            }
+        }
+    
+        private void FixupPagosObligaciones1(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (e.NewItems != null)
+            {
+                foreach (PagosObligaciones item in e.NewItems)
+                {
+                    item.Monedas1 = this;
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        if (!item.ChangeTracker.ChangeTrackingEnabled)
+                        {
+                            item.StartTracking();
+                        }
+                        ChangeTracker.RecordAdditionToCollectionProperties("PagosObligaciones1", item);
+                    }
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (PagosObligaciones item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.Monedas1, this))
+                    {
+                        item.Monedas1 = null;
+                    }
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        ChangeTracker.RecordRemovalFromCollectionProperties("PagosObligaciones1", item);
                     }
                 }
             }

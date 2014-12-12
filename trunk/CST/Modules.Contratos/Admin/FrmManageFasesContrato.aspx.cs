@@ -154,8 +154,16 @@ namespace Modules.Contratos.Admin
         {
             var fase = FasesAdminList.Where(x => x.IdFase == IdFase).First();
 
-            cexTxtFechaNovedad.StartDate = fase.FechaFinalizacion;
-            FechaFinalExtension = fase.FechaFinalizacion;
+            if (TipoOperacion != "CorrecciónFechaFin")
+            {
+                cexTxtFechaNovedad.StartDate = fase.FechaFinalizacion.AddDays(1);
+                FechaFinalExtension = fase.FechaFinalizacion.AddDays(1);
+            }
+            else
+            {
+                cexTxtFechaNovedad.StartDate = FasesAdminList[0].FechaInicio.AddDays(1);
+                FechaFinalExtension = FasesAdminList[0].FechaInicio.AddDays(1);
+            }
 
             if (TipoOperacion == "Unificación")
             {
@@ -327,6 +335,11 @@ namespace Modules.Contratos.Admin
 
             var fases = FasesAdminList.Where(x => DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion);
 
+            if (TipoOperacion == "CorrecciónFechaFin")
+            {
+                fases = FasesAdminList.Where(x => x.FechaInicio >= DateTime.Now || x.FechaFinalizacion >= DateTime.Now);
+            }
+
             FechaFinalExtension = DateTime.Now;
             Descripcion = string.Empty;
             
@@ -335,8 +348,8 @@ namespace Modules.Contratos.Admin
                 fasesList = fases.ToList();
 
                 faseIni = fasesList[0];
-                cexTxtFechaNovedad.StartDate = faseIni.FechaFinalizacion;
-                FechaFinalExtension = faseIni.FechaFinalizacion;
+                cexTxtFechaNovedad.StartDate = faseIni.FechaFinalizacion.AddDays(1);
+                FechaFinalExtension = faseIni.FechaFinalizacion.AddDays(1);
             }
 
             ddlFaseOperacion.DataSource = fasesList;

@@ -203,6 +203,8 @@
                             <asp:Label ID="lblValorCobertura" runat="server" />
                             <ig:WebNumericEditor    Id="txtValorCoberturaPago" runat="server"  Visible="false"
                                                     Nullable="false" MinValue="0" Width="250px" HorizontalAlign="Left" />
+                                                    
+                            <asp:DropDownList ID="ddlMonedaCobertura" runat="server" Visible="false" />
                         </td>
 
                         <td class="Separador"></td>

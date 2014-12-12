@@ -166,6 +166,7 @@ namespace Modules.Contratos.Admin
             lblValor.Visible = !enable;
 
             ddlMoneda.Visible = enable;
+            ddlMonedaCobertura.Visible = enable;
 
             btnSave.Visible = enable;
 
@@ -213,6 +214,11 @@ namespace Modules.Contratos.Admin
             ddlMoneda.DataTextField = "Nombre";
             ddlMoneda.DataValueField = "IdMoneda";
             ddlMoneda.DataBind();
+
+            ddlMonedaCobertura.DataSource = items;
+            ddlMonedaCobertura.DataTextField = "Nombre";
+            ddlMonedaCobertura.DataValueField = "IdMoneda";
+            ddlMonedaCobertura.DataBind();
         }
 
         public void LoadTipoPago(List<TiposPagoObligacion> items)
@@ -555,6 +561,18 @@ namespace Modules.Contratos.Admin
             set
             {
                 ddlMoneda.SelectedValue = value;
+            }
+        }
+
+        public string IdMonedaCobertura
+        {
+            get
+            {
+                return ddlMonedaCobertura.SelectedValue;
+            }
+            set
+            {
+                ddlMonedaCobertura.SelectedValue = value;
             }
         }
 
