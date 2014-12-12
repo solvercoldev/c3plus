@@ -3,6 +3,7 @@ using Application.Core;
 using Application.MainModule.Contratos.IServices;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Admin.IViews;
+using System.Linq;
 
 namespace Presenters.Admin.Presenters
 {
@@ -141,7 +142,7 @@ namespace Presenters.Admin.Presenters
             try
             {
                 var listado = _campos.FindBySpec(true);
-                View.ListadoCampos(listado);
+                View.ListadoCampos(listado.OrderBy(o=>o.Descripcion).ToList());
             }
             catch (Exception ex)
             {

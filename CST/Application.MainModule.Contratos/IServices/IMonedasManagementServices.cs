@@ -6,8 +6,7 @@ namespace Application.MainModule.Contratos.IServices
 {
     public interface ISfMonedasManagementServices : IGenericServices<Monedas>
     {
-     
-
+        Monedas GetById(string id);
     }
 }
     

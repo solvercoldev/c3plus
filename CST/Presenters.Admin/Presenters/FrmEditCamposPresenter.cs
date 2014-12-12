@@ -3,6 +3,7 @@ using Application.Core;
 using Application.MainModule.Contratos.IServices;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Admin.IViews;
+using System.Linq;
 
 namespace Presenters.Admin.Presenters
 {
@@ -141,12 +142,12 @@ namespace Presenters.Admin.Presenters
             try
             {
                 var listado = _bloque.FindBySpec(true);
-                View.ListadoBloques(listado);
+                View.ListadoBloques(listado.OrderBy(o=>o.Descripcion).ToList());
             }
             catch (Exception ex)
             {
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
-                InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.GetObjectError, " Listado de Paises"), TypeError.Error));
+                InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.GetObjectError, " Listado de Bloques"), TypeError.Error));
             }
         }
     }

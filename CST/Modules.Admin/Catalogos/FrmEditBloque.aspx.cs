@@ -69,18 +69,24 @@ namespace Modules.Admin.Catalogos
         {
             if (SaveEvent != null)
                 SaveEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewBloques.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnDeleteClick(object sender, EventArgs e)
         {
             if (DeleteEvent != null)
                 DeleteEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewBloques.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnActClick(object sender, EventArgs e)
         {
             if (ActualizarEvent != null)
                 ActualizarEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewBloques.aspx{0}", GetBaseQueryString()));
         }
 
         public TBL_Admin_Usuarios UserSession

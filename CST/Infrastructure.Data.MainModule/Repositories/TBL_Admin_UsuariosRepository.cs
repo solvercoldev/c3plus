@@ -124,7 +124,6 @@ namespace Infrastructure.Data.MainModule.Repositories
                           .SingleOrDefault();
             }
             return null;
-        }  
-        
+        }
     }
 }

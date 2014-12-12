@@ -56,18 +56,24 @@ namespace Modules.Admin.Catalogos
         {
             if (DeleteEvent != null)
                 DeleteEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewTerceros.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnActClick(object sender, EventArgs e)
         {
             if (ActualizarEvent != null)
                 ActualizarEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewTerceros.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnSaveClick(object sender, EventArgs e)
         {
             if (SaveEvent != null)
                 SaveEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewTerceros.aspx{0}", GetBaseQueryString()));
         }
 
     }

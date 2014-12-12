@@ -58,7 +58,7 @@ namespace Modules.Admin.Catalogos
         public void GetTerceros(List<Terceros> items)
         {
             rptListado.DataSource = items;
-            rptListado.DataBind(); ;
+            rptListado.DataBind(); 
         }
 
         protected void RptListadoItemDataBound(object sender, RepeaterItemEventArgs e)

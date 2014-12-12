@@ -115,7 +115,13 @@ namespace Application.MainModule.Contratos.Services
             return _LocalizacionesRepository.GetBySpec(specification).ToList();
          }
 
-          /// <summary>
+        public Localizaciones GetById(string id)
+        {
+            Specification<Localizaciones> specification = new DirectSpecification<Localizaciones>(u => u.IdLocalizacion == id);
+            return _LocalizacionesRepository.GetCompleteEntity(specification);
+        }
+
+        /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
          public List<Localizaciones> FindPaged(int pageIndex, int pageCount)

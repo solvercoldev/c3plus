@@ -11,7 +11,6 @@ namespace Presenters.Admin.Presenters
     {
         private readonly ISfTiposContratoManagementServices _tipoContrato;
 
-
         public FrmViewTipoContratoPresenter(ISfTiposContratoManagementServices tipoContatos)
         {
             _tipoContrato = tipoContatos;
