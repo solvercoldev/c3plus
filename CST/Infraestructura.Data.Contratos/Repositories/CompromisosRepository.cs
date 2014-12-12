@@ -42,6 +42,7 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
                                     .Include(x => x.Campos)
                                     .Include(x => x.PagosObligaciones)
                                     .Include(x => x.PagosObligaciones.Select(e => e.Monedas))
+                                    .Include(x => x.PagosObligaciones.Select(e => e.Monedas1))
                                     .Include(x => x.PagosObligaciones.Select(e => e.Terceros))
                                     .Include(x => x.PagosObligaciones.Select(e => e.TiposPagoObligacion))
                                     .Include(x => x.EntregablesANHCompromiso)

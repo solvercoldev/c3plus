@@ -187,6 +187,29 @@ namespace Domain.MainModules.Entities
         private string _idMoneda;
     
         [DataMember]
+        public string IdMonedaCobertura
+        {
+            get { return _idMonedaCobertura; }
+            set
+            {
+                if (_idMonedaCobertura != value)
+                {
+                    ChangeTracker.RecordOriginalValue("IdMonedaCobertura", _idMonedaCobertura);
+                    if (!IsDeserializing)
+                    {
+                        if (Monedas1 != null && Monedas1.IdMoneda != value)
+                        {
+                            Monedas1 = null;
+                        }
+                    }
+                    _idMonedaCobertura = value;
+                    OnPropertyChanged("IdMonedaCobertura");
+                }
+            }
+        }
+        private string _idMonedaCobertura;
+    
+        [DataMember]
         public string Estado
         {
             get { return _estado; }
@@ -328,6 +351,23 @@ namespace Domain.MainModules.Entities
             }
         }
         private Monedas _monedas;
+    
+        [DataMember]
+        public Monedas Monedas1
+        {
+            get { return _monedas1; }
+            set
+            {
+                if (!ReferenceEquals(_monedas1, value))
+                {
+                    var previousValue = _monedas1;
+                    _monedas1 = value;
+                    FixupMonedas1(previousValue);
+                    OnNavigationPropertyChanged("Monedas1");
+                }
+            }
+        }
+        private Monedas _monedas1;
     
         [DataMember]
         public TBL_Admin_Usuarios TBL_Admin_Usuarios
@@ -477,6 +517,7 @@ namespace Domain.MainModules.Entities
         {
             Compromisos = null;
             Monedas = null;
+            Monedas1 = null;
             TBL_Admin_Usuarios = null;
             TBL_Admin_Usuarios1 = null;
             Terceros = null;
@@ -560,6 +601,50 @@ namespace Domain.MainModules.Entities
                 if (Monedas != null && !Monedas.ChangeTracker.ChangeTrackingEnabled)
                 {
                     Monedas.StartTracking();
+                }
+            }
+        }
+    
+        private void FixupMonedas1(Monedas previousValue, bool skipKeys = false)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (previousValue != null && previousValue.PagosObligaciones1.Contains(this))
+            {
+                previousValue.PagosObligaciones1.Remove(this);
+            }
+    
+            if (Monedas1 != null)
+            {
+                if (!Monedas1.PagosObligaciones1.Contains(this))
+                {
+                    Monedas1.PagosObligaciones1.Add(this);
+                }
+    
+                IdMonedaCobertura = Monedas1.IdMoneda;
+            }
+            else if (!skipKeys)
+            {
+                IdMonedaCobertura = null;
+            }
+    
+            if (ChangeTracker.ChangeTrackingEnabled)
+            {
+                if (ChangeTracker.OriginalValues.ContainsKey("Monedas1")
+                    && (ChangeTracker.OriginalValues["Monedas1"] == Monedas1))
+                {
+                    ChangeTracker.OriginalValues.Remove("Monedas1");
+                }
+                else
+                {
+                    ChangeTracker.RecordOriginalValue("Monedas1", previousValue);
+                }
+                if (Monedas1 != null && !Monedas1.ChangeTracker.ChangeTrackingEnabled)
+                {
+                    Monedas1.StartTracking();
                 }
             }
         }

@@ -167,11 +167,12 @@ namespace Presenters.Contratos.Presenters
                             View.Entidad = string.Format("{0}", compromiso.PagosObligaciones.First().Terceros.Nombre);
                             View.NumeroDocumento = string.Format("{0}", compromiso.PagosObligaciones.First().NumeroDocumento);
                             View.Valor = string.Format("{0:0,0.0} - {1}", compromiso.PagosObligaciones.First().Valor, compromiso.PagosObligaciones.First().Monedas.Nombre);
-                            View.ValorCobertura = string.Format("{0:0,0.0} - {1}", compromiso.PagosObligaciones.First().ValorCobertura, compromiso.PagosObligaciones.First().Monedas.Nombre);
+                            View.ValorCobertura = string.Format("{0:0,0.0} - {1}", compromiso.PagosObligaciones.First().ValorCobertura, compromiso.PagosObligaciones.First().Monedas1.Nombre);
 
                             View.IdTipoPagoObligacion = compromiso.PagosObligaciones.First().IdTipoPagoObligacion;
                             View.IdTercero = compromiso.PagosObligaciones.First().IdTercero;
                             View.IdMoneda = compromiso.PagosObligaciones.First().IdMoneda;
+                            View.IdMonedaCobertura = compromiso.PagosObligaciones.First().IdMonedaCobertura;
                             View.ValorPago = compromiso.PagosObligaciones.First().Valor;
                             View.ValorCoberturaPago = compromiso.PagosObligaciones.First().ValorCobertura.GetValueOrDefault();
 
@@ -243,6 +244,7 @@ namespace Presenters.Contratos.Presenters
                             pago.NumeroDocumento = View.NumeroDocumento;
                             pago.IdTercero = View.IdTercero;
                             pago.IdMoneda = View.IdMoneda;
+                            pago.IdMonedaCobertura = View.IdMonedaCobertura;
                             pago.Valor = View.ValorPago;
                             pago.ValorCobertura = View.ValorCoberturaPago;
 

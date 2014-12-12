@@ -135,15 +135,15 @@
             
             <td></td>
             <td style="text-align:center;vertical-align:top;" >
-                <asp:Button ID="btnExtender" runat="server" Text="Extender Fase" Width="125px" CommandArgument="Extensión" OnClick="BtnAddNovedad_Click" />
+                <asp:Button ID="btnExtender" runat="server" Text="Extender Fase" Width="125px" CommandArgument="Extensión" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
                 <br />
-                <asp:Button ID="btnProrrogar" runat="server" Text="Prorrogar Fase" Width="125px" CommandArgument="Prorroga" OnClick="BtnAddNovedad_Click" />                
+                <asp:Button ID="btnProrrogar" runat="server" Text="Prorrogar Fase" Width="125px" CommandArgument="Prorroga" OnClick="BtnAddNovedad_Click" CausesValidation="false" />                
                 <br />
-                <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" />                
+                <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" CausesValidation="false" />                
                 <br />
-                <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px" />
+                <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px" CausesValidation="false" />
                 <br />
-                <asp:Button ID="btnUnificar" runat="server" Text="Unificar Fase" Width="125px" CommandArgument="Unificación" OnClick="BtnAddNovedad_Click" />
+                <asp:Button ID="btnUnificar" runat="server" Text="Unificar Fase" Width="125px" CommandArgument="Unificación" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
             </td>
             <td></td>
         </tr>
@@ -196,9 +196,11 @@
             </div>
 
             <div style="padding:3px; text-align:right;">
-                <asp:Button ID="btnCancelarNovedad" runat="server" Text="Regresar"  />
-                <asp:Button ID="btnSaveNovedad" runat="server" Text="Confirmar Novedad" OnClick="BtnSaveNovedad_Click" />
+                <asp:Button ID="btnCancelarNovedad" runat="server" Text="Regresar" CausesValidation="false"  />
+                <asp:Button ID="btnSaveNovedad" runat="server" Text="Confirmar Novedad" OnClick="BtnSaveNovedad_Click" ValidationGroup="vgAddNovedadFase" />
             </div>
+
+            <asp:ValidationSummary ID="vsAddNovedadFase" runat="server" DisplayMode="BulletList" ShowMessageBox="false" CssClass="validator" ShowSummary="true" ValidationGroup="vgAddNovedadFase"/>
 
             <div class="popup_Body">                                                    
                 <table width="100%" class="tblSecciones">
@@ -224,7 +226,9 @@
                             <asp:DropDownList ID="ddlFaseOperacion" runat="server" Width="90%" OnSelectedIndexChanged="DdlFases_IndexChanged" AutoPostBack="true" />
                         </td>
 
-                        <td class="Separador"></td>
+                        <td class="Separador">
+
+                        </td>
                     </tr>
                     <tr id="trFaseunificacion" runat="server" visible="false" >
                         <th style="text-align:left; vertical-align:top">
@@ -254,7 +258,7 @@
                     </tr>
                     <tr id="trFechaExtension" runat="server" >
                         <th style="text-align:left; vertical-align:top">
-                            Fecha Final Extensión :
+                            Fecha Final :
                         </th>
 
                         <td class="Separador"></td>
@@ -282,7 +286,9 @@
                             <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4" Width="98%" />
                         </td>
 
-                        <td class="Separador"></td>
+                        <td class="Separador">
+                            <asp:RequiredFieldValidator ID="reqObservaciones" runat="server" ForeColor="Red" ControlToValidate="txtDescripcion" ValidationGroup="vgAddNovedadFase" ErrorMessage="Es necesario ingresar las observaciones">*</asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                 </table>
             </div>

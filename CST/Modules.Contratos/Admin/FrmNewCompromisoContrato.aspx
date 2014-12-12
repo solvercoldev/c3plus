@@ -444,6 +444,8 @@
                         <td class="Line" >
                             <ig:WebNumericEditor    Id="txtValorCoberturaPago" runat="server" 
                                                     Nullable="false" MinValue="0" Width="250px" HorizontalAlign="Left" />
+                            -
+                            <asp:DropDownList ID="ddlMonedaCobertura" runat="server" />
                         </td>
 
                         <td class="Separador"></td>

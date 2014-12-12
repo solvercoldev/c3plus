@@ -166,6 +166,15 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Button btnSaveNovedad;
         
         /// <summary>
+        /// vsAddNovedadFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsAddNovedadFase;
+        
+        /// <summary>
         /// ddlFaseOperacion control.
         /// </summary>
         /// <remarks>
@@ -245,6 +254,15 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+        
+        /// <summary>
+        /// reqObservaciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqObservaciones;
         
         /// <summary>
         /// btnPopUpAdminNovedadTargetControl control.
