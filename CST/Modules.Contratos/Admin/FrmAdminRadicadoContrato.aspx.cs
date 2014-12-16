@@ -209,7 +209,7 @@ namespace Modules.Contratos.Admin
         {
             ddlResponsable.DataSource = items;
             ddlResponsable.DataTextField = "Nombres";
-            ddlResponsable.DataValueField = "Nombres";
+            ddlResponsable.DataValueField = "IdUser";
             ddlResponsable.DataBind();
         }       
 
@@ -256,6 +256,10 @@ namespace Modules.Contratos.Admin
             btnReasignar.Visible = enable;
         }
 
+        public void EnableResponsableVence(bool enable)
+        {
+            trResponsableVence.Visible = enable;
+        }
 
         public void GoToContratoView()
         {
@@ -323,15 +327,15 @@ namespace Modules.Contratos.Admin
             }
         }
 
-        public string ResponsableReprogramacion
+        public int ResponsableReprogramacion
         {
             get
             {
-                return ddlResponsable.SelectedValue;
+                return Convert.ToInt32(ddlResponsable.SelectedValue);
             }
             set
             {
-                ddlResponsable.SelectedValue = value;
+                ddlResponsable.SelectedValue = value.ToString();
             }
         }    
 

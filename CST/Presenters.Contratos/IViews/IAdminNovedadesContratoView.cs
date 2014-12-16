@@ -12,6 +12,7 @@ namespace Presenters.Contratos.IViews
         string TipoOperacion { get; set; }
         
         string Descripcion { get; set; }
+
         DateTime FechaNovedad { get; set; }
         DateTime FechaFinNovedad { get; set; }
 
@@ -25,5 +26,8 @@ namespace Presenters.Contratos.IViews
         bool CanRenunciar { get; set; }
         bool CanTerminar { get; set; }
         bool CanAnular { get; set; }
+
+        DateTime FechaInicioSuspensionContrato { get; set; }
+        DateTime FechaFinSuspensionContrato { get; set; }
     }
 }

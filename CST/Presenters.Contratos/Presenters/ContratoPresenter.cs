@@ -65,6 +65,12 @@ namespace Presenters.Contratos.Presenters
                     View.NombreContrato = contrato.Nombre;
                     View.NumeroContrato = contrato.NumeroContrato;
                     View.EstadoContrato = string.Format(" {0}", contrato.Estado);
+
+                    if (contrato.Estado == "Suspendido")
+                    {
+                        View.EstadoContrato = string.Format(" {0} ({1:dd/MM/yyyy} - {2:dd/MM/yyyy})", contrato.Estado, contrato.FechaInicioSuspension, contrato.FechaTerminacionSuspension);
+                    }
+
                     View.Empresa = contrato.Empresas.RazonSocial;
                     View.TipoContrato = contrato.TiposContrato.Descripcion;
                     View.Bloque = contrato.Bloques.Descripcion;

@@ -53,7 +53,7 @@
                         <td style="width: 400px;"></td>
                         <td class="Separador" style="width: 200px;"></td>
                     </tr>      
-                    <tr>
+                    <tr id="trResponsableVence" runat="server">
                         <td style="text-align:left; vertical-align:top;" class="Line" colspan="3" >
                             Responsable:<asp:Label ID="lblResponsable" runat="server" /> &nbsp;-&nbsp;
                             Vence: <asp:Label ID="lblFechaRadicado" runat="server" ForeColor="Red" />

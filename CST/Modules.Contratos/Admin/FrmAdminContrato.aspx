@@ -198,7 +198,7 @@
                     </tr> 
                     <tr>
                         <th style="text-align:left; vertical-align:top">
-                            * Ubicación Contrato :
+                            Ubicación Contrato :
                         </th>
 
                         <td class="Separador"></td>
@@ -230,7 +230,7 @@
                     </tr>  
                     <tr>
                         <th style="text-align:left; vertical-align:top">
-                            * Imagen Sitio :
+                            Imagen Sitio :
                         </th>
 
                         <td class="Separador"></td>

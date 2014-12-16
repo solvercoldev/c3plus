@@ -140,7 +140,7 @@ namespace Modules.Contratos.Admin
                 fase.DuracionFase = MinDuracionFaseExploratorio;
                 fase.MinDuracionFase = MinDuracionFaseExploratorio;
                 fase.MaxDuracionFase = MaxDuracionFaseExploratorio;
-                fase.Grupo = 0;
+                fase.Grupo = 1;
 
                 FasesContrato.Add(fase);
 

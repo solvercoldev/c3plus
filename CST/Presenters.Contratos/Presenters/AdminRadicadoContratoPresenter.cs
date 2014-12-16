@@ -115,13 +115,21 @@ namespace Presenters.Contratos.Presenters
                     if (radicado.RespuestaPendiente)
                     {
                         View.ResponsableRespuesta = radicado.TBL_Admin_Usuarios2.Nombres;
+                        View.FechaVencimiento = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta);
                         View.FechaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta);
                         View.FechaAlarmaRespuesta = string.Format("{0:dd MMMM yyyy}", radicado.FechaRespuesta.GetValueOrDefault().AddDays(radicado.DiasAlarma.GetValueOrDefault() * (-1)));
 
                         View.ShowRespuesta(radicado.RespuestaPendiente);
 
+                        View.EnableReasignar(true);
+                        View.EnableReprogramar(true);
+                        View.EnableMarcarOK(true);
+                    }
+                    else
+                    {
                         View.EnableReasignar(false);
                         View.EnableReprogramar(false);
+                        View.EnableResponsableVence(false);
                         View.EnableMarcarOK(false);
                     }
 
@@ -213,25 +221,13 @@ namespace Presenters.Contratos.Presenters
                             break;
                         case "Confirmar":
                             radicado.EstadoRadicado = "Respondido";
-
-                            if (radicado.IdRadicadoEntrada.HasValue)
-                            {
-                                var radicadoEntrada = _radicadoService.GetById(radicado.IdRadicadoEntrada.GetValueOrDefault());
-
-                                radicadoEntrada.EstadoRadicado = "Respondido";
-                                radicadoEntrada.ModifiedBy = View.UserSession.IdUser;
-                                radicadoEntrada.ModifiedOn = DateTime.Now;
-
-                                _radicadoService.Modify(radicadoEntrada);
-                            }
-
                             break;
                         case "Reprogramar":
                             radicado.FechaReciboSalida = View.FechaReprogramacion;
                             radicado.FechaRespuesta = View.FechaReprogramacion;
                             break;
                         case "ReAsignar":
-                            radicado.IdFromExterno = View.ResponsableReprogramacion;
+                            radicado.ResponsableRespuesta = View.ResponsableReprogramacion;
                             break;
                     }
 
