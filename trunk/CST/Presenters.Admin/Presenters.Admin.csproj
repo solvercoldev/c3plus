@@ -54,18 +54,29 @@
     </Compile>
     <Compile Include="IViews\IFrmEditBloqueView.cs" />
     <Compile Include="IViews\IFrmEditCamposView.cs" />
+    <Compile Include="IViews\IFrmEditDependeciasView.cs" />
     <Compile Include="IViews\IFrmEditEmpresasView.cs" />
+    <Compile Include="IViews\IFrmEditLocalizacionesView.cs" />
+    <Compile Include="IViews\IFrmEditMonedasView.cs" />
     <Compile Include="IViews\IFrmEditPozosView.cs" />
+    <Compile Include="IViews\IFrmEditRolesView.cs" />
     <Compile Include="IViews\IFrmEditTerceroView.cs" />
     <Compile Include="IViews\IFrmEditTipoContratoView.cs" />
     <Compile Include="IViews\IFrmEditTipoObligacionView.cs" />
+    <Compile Include="IViews\IFrmEditUsuariosView.cs" />
+    <Compile Include="IViews\IFrmMonedasView.cs" />
     <Compile Include="IViews\IFrmViewBloquesView.cs" />
     <Compile Include="IViews\IFrmViewCamposView.cs" />
+    <Compile Include="IViews\IFrmViewDependenciasView.cs" />
     <Compile Include="IViews\IFrmViewEmpresasView.cs" />
+    <Compile Include="IViews\IFrmViewLocalizacionesView.cs" />
+    <Compile Include="IViews\IFrmViewManualView.cs" />
     <Compile Include="IViews\IFrmViewPozoView.cs" />
+    <Compile Include="IViews\IFrmViewRolesView.cs" />
     <Compile Include="IViews\IFrmViewTercerosView.cs" />
     <Compile Include="IViews\IFrmViewTipoContratoView.cs" />
     <Compile Include="IViews\IFrmViewTipoObligacionView.cs" />
+    <Compile Include="IViews\IFrmViewUsuariosView.cs" />
     <Compile Include="IViews\ILogout.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -90,18 +101,29 @@
     </Compile>
     <Compile Include="Presenters\FrmEditBloquePresenter.cs" />
     <Compile Include="Presenters\FrmEditCamposPresenter.cs" />
+    <Compile Include="Presenters\FrmEditDependenciasPresenter.cs" />
     <Compile Include="Presenters\FrmEditEmpresasPresenter.cs" />
+    <Compile Include="Presenters\FrmEditLocalizacionesPresenter.cs" />
+    <Compile Include="Presenters\FrmEditMonedasPresenter.cs" />
     <Compile Include="Presenters\FrmEditPozosPresenter.cs" />
+    <Compile Include="Presenters\FrmEditRolesPresenter.cs" />
     <Compile Include="Presenters\FrmEditTerceroPresenter.cs" />
     <Compile Include="Presenters\FrmEditTipoContratoPresenter.cs" />
     <Compile Include="Presenters\FrmEditTipoObligacionPresenter.cs" />
+    <Compile Include="Presenters\FrmEditUsuarioPresenter.cs" />
     <Compile Include="Presenters\FrmEmpresasPresenter.cs" />
     <Compile Include="Presenters\FrmViewBloquesPresenter.cs" />
     <Compile Include="Presenters\FrmViewCamposPresenter.cs" />
+    <Compile Include="Presenters\FrmViewDependenciasPresenter.cs" />
+    <Compile Include="Presenters\FrmViewManualPresenter.cs" />
+    <Compile Include="Presenters\FrmViewMonedasPesenter.cs" />
     <Compile Include="Presenters\FrmViewPozoPresenter.cs" />
+    <Compile Include="Presenters\FrmViewRolesPresenter.cs" />
     <Compile Include="Presenters\FrmViewTercerosPresenter.cs" />
     <Compile Include="Presenters\FrmViewTipoContratoPresenter.cs" />
     <Compile Include="Presenters\FrmViewTipoObligacionPresenter.cs" />
+    <Compile Include="Presenters\FrmViewUsuariosPresenter.cs" />
+    <Compile Include="Presenters\IFrmViewLocalizacionesPresenter.cs" />
     <Compile Include="Presenters\LogoutPresenter.cs">
       <SubType>Code</SubType>
     </Compile>

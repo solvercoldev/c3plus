@@ -161,8 +161,8 @@ namespace Modules.Contratos.Admin
             }
             else
             {
-                cexTxtFechaNovedad.StartDate = FasesAdminList[0].FechaInicio.AddDays(1);
-                FechaFinalExtension = FasesAdminList[0].FechaInicio.AddDays(1);
+                cexTxtFechaNovedad.StartDate = fase.FechaInicio.AddDays(1);
+                FechaFinalExtension = fase.FechaInicio.AddDays(1);
             }
 
             if (TipoOperacion == "Unificación")
@@ -337,7 +337,7 @@ namespace Modules.Contratos.Admin
 
             if (TipoOperacion == "CorrecciónFechaFin")
             {
-                fases = FasesAdminList.Where(x => x.FechaInicio >= DateTime.Now || x.FechaFinalizacion >= DateTime.Now);
+                fases = FasesAdminList;
             }
 
             FechaFinalExtension = DateTime.Now;
@@ -350,6 +350,12 @@ namespace Modules.Contratos.Admin
                 faseIni = fasesList[0];
                 cexTxtFechaNovedad.StartDate = faseIni.FechaFinalizacion.AddDays(1);
                 FechaFinalExtension = faseIni.FechaFinalizacion.AddDays(1);
+
+                if (TipoOperacion == "CorrecciónFechaFin")
+                {
+                    cexTxtFechaNovedad.StartDate = faseIni.FechaInicio.AddDays(1);
+                    FechaFinalExtension = faseIni.FechaInicio.AddDays(1);
+                }
             }
 
             ddlFaseOperacion.DataSource = fasesList;

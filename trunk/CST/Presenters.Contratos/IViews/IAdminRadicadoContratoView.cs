@@ -36,7 +36,7 @@ namespace Presenters.Contratos.IViews
 
         void LoadResponsables(List<TBL_Admin_Usuarios> items);
 
-        string ResponsableReprogramacion { get; set; }
+        int ResponsableReprogramacion { get; set; }
 
         void ShowRespuesta(bool visible);
         void ShowREAsociado(bool visible);
@@ -52,6 +52,8 @@ namespace Presenters.Contratos.IViews
         void EnableReasignar(bool enable);
 
         void EnableActions(bool enable);
+
+        void EnableResponsableVence(bool enable);
 
         string MsgLogInfo { get; set; }
     }

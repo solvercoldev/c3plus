@@ -50,5 +50,4 @@ from	Compromisos comp with(nolock)
 			on comp.IdFase = f.IdFase
 where	f.IdContrato = @IdContrato
 		and f.NumeroFase > 0
-		and (f.FechaInicio >= @FechaInicio
-			or f.FechaFinalizacion >= @FechaInicio)
+		and comp.FechaCumplimiento >= @FechaInicio

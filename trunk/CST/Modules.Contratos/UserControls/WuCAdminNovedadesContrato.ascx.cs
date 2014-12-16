@@ -52,6 +52,14 @@ namespace Modules.Contratos.UserControls
 
         #region DropDownList
 
+        protected void TxtFechaInicioNovedad_TextChanged(object sender, EventArgs e)
+        {
+            cexTxtFechaFinNovedad.StartDate = FechaNovedad.AddDays(1);
+            FechaFinNovedad = FechaNovedad.AddDays(1);
+
+            ShowAdminWindow(true);
+        }
+
         #endregion
 
         #region Repeaters
@@ -93,8 +101,12 @@ namespace Modules.Contratos.UserControls
 
         void InitNovedad()
         {
+            cexTxtFechaNovedad.StartDate = FechaFirma;
+            
+
             FechaNovedad = DateTime.Now;
-            FechaFinNovedad = DateTime.Now.AddDays(60);
+            cexTxtFechaFinNovedad.StartDate = DateTime.Now.AddDays(1);
+            FechaFinNovedad = DateTime.Now.AddDays(1);
             Descripcion = string.Empty;
 
             switch (TipoOperacion)
@@ -104,6 +116,9 @@ namespace Modules.Contratos.UserControls
                     break;
                 case "Reiniciar":
                     trFinNovedad.Visible = false;
+                    cexTxtFechaNovedad.StartDate = FechaInicioSuspensionContrato;
+                    cexTxtFechaNovedad.EndDate = FechaFinSuspensionContrato;
+                    FechaNovedad = FechaInicioSuspensionContrato.AddDays(1);
                     break;
                 case "Renuncia":
                     trFinNovedad.Visible = false;
@@ -273,15 +288,42 @@ namespace Modules.Contratos.UserControls
 
         public DateTime FechaFirma
         {
+            get
+            {
+                return Convert.ToDateTime(ViewState["AdminNovedadesContrato_FechaFirma"]);
+            }
             set
             {
-                cexTxtFechaNovedad.StartDate = value;
-                cexTxtFechaFinNovedad.StartDate = value;
+                ViewState["AdminNovedadesContrato_FechaFirma"] = value;
+            }
+        }
+
+        public DateTime FechaInicioSuspensionContrato
+        {
+            get
+            {
+                return Convert.ToDateTime(ViewState["AdminNovedadesContrato_FechaInicioSuspensionContrato"]);
+            }
+            set
+            {
+                ViewState["AdminNovedadesContrato_FechaInicioSuspensionContrato"] = value;
+            }
+        }
+
+        public DateTime FechaFinSuspensionContrato
+        {
+            get
+            {
+                return Convert.ToDateTime(ViewState["AdminNovedadesContrato_FechaFinSuspensionContrato"]);
+            }
+            set
+            {
+                ViewState["AdminNovedadesContrato_FechaFinSuspensionContrato"] = value;
             }
         }
 
         #endregion
 
-        #endregion                   
+        #endregion           
     }
 }

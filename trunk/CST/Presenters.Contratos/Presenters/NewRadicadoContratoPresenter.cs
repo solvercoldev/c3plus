@@ -188,6 +188,17 @@ namespace Presenters.Contratos.Presenters
 
                 _contratoService.Modify(contrato);
 
+                if (model.IdRadicadoEntrada.HasValue)
+                {
+                    var radicadoEntrada = _radicadoService.GetById(model.IdRadicadoEntrada.GetValueOrDefault());
+
+                    radicadoEntrada.EstadoRadicado = "Respondido";
+                    radicadoEntrada.ModifiedBy = View.UserSession.IdUser;
+                    radicadoEntrada.ModifiedOn = DateTime.Now;
+
+                    _radicadoService.Modify(radicadoEntrada);
+                }
+
                 View.GoToRadicadoView(model.IdRadicado);
             }
             catch (Exception ex)
@@ -255,6 +266,18 @@ namespace Presenters.Contratos.Presenters
                 contrato.ModifiedOn = DateTime.Now;
 
                 _contratoService.Modify(contrato);
+
+
+                if (model.IdRadicadoEntrada.HasValue)
+                {
+                    var radicadoEntrada = _radicadoService.GetById(model.IdRadicadoEntrada.GetValueOrDefault());
+
+                    radicadoEntrada.EstadoRadicado = "Respondido";
+                    radicadoEntrada.ModifiedBy = View.UserSession.IdUser;
+                    radicadoEntrada.ModifiedOn = DateTime.Now;
+
+                    _radicadoService.Modify(radicadoEntrada);
+                }
 
                 View.GoToRadicadoView(model.IdRadicado);
             }

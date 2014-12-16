@@ -79,6 +79,12 @@ namespace Presenters.Contratos.Presenters
                     }
 
                     View.FechaFirma = contrato.FechaFirma;
+
+                    if (contrato.FechaInicioSuspension.HasValue)
+                    {
+                        View.FechaInicioSuspensionContrato = contrato.FechaInicioSuspension.GetValueOrDefault();
+                        View.FechaFinSuspensionContrato = contrato.FechaTerminacionSuspension.GetValueOrDefault();
+                    }                    
                 }
             }
             catch (Exception ex)

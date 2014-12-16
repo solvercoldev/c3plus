@@ -214,12 +214,26 @@ namespace Presenters.Contratos.Presenters
                     View.FechaEfectiva = model.FechaInicio;
                     View.IdEmpresa = model.IdEmpresa;
                     View.IdTipoContrato = model.IdTipoContrato;
-                    View.IdBloque = model.IdBloque;
+                    LoadBloquesEdit(model.IdBloque);
                     View.IdResponsable = model.IdResponsable;
-                    model.GLongitud = View.Longitud;
-                    model.GLatitud = View.Latitud;
+                    View.Longitud = model.GLongitud;
+                    View.Latitud = model.GLatitud;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        void LoadBloquesEdit(string idBloque)
+        {
+            try
+            {
+                var items = _adoService.GetBloquesSinContratoIncluyeBloque(idBloque);
+                View.LoadBloques(items);
+                View.IdBloque = idBloque;
             }
             catch (Exception ex)
             {

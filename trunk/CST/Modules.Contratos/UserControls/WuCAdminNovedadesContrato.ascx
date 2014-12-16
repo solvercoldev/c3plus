@@ -142,7 +142,7 @@
                         <td class="Separador"></td>
 
                         <td class="Line">
-                            <asp:TextBox ID="txtFechaNovedad" OnKeyDown="return false;" runat="server" />
+                            <asp:TextBox ID="txtFechaNovedad" OnKeyDown="return false;" runat="server" OnTextChanged="TxtFechaInicioNovedad_TextChanged" AutoPostBack="true" />
                             <ajaxToolkit:CalendarExtender 
                                     ID="cexTxtFechaNovedad" 
                                     runat="server"  
