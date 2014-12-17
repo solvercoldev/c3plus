@@ -39,7 +39,8 @@ namespace Presenters.Admin.Presenters
             Load();
             GetLocalizaciones();
             GetDependencias();
-            GetRoles();
+            GetAllRoles();
+            ValidarRol();
         }
 
         void ViewSaveEvent(object sender, EventArgs e)
@@ -94,6 +95,7 @@ namespace Presenters.Admin.Presenters
                 usuario.CodigoUser = View.CodigoUser;
                 usuario.Nombres = View.Nombres;
                 usuario.UserName = View.UserName;
+                usuario.FechaIngreso = DateTime.Now;
                 usuario.Password = View.Password;
                 usuario.Email = View.Email;
                 usuario.Documento = View.Documento;
@@ -109,6 +111,14 @@ namespace Presenters.Admin.Presenters
                 usuario.CreateBy = View.UserSession.IdUser.ToString();
                 usuario.ModifiedOn = DateTime.Now;
                 usuario.ModifiedBy = View.UserSession.IdUser.ToString();
+
+                var roles = View.GetSelectdRole();
+                foreach (var objRol in
+                from object r in roles select _roles.FindById(Convert.ToInt32(r)))
+                {
+                    if (objRol == null) return;
+                    usuario.TBL_Admin_Roles.Add(objRol);
+                }
 
                 _usuario.Add(usuario);
                 InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.ProcessOk), TypeError.Ok));
@@ -146,6 +156,16 @@ namespace Presenters.Admin.Presenters
                 usuario.IsActive = View.Activo;
                 usuario.ModifiedOn = DateTime.Now;
                 usuario.ModifiedBy = View.UserSession.IdUser.ToString();
+
+                usuario.TBL_Admin_Roles.Clear();
+                var roles = View.GetSelectdRole();
+
+                foreach (var objRol in
+                    from object r in roles select _roles.FindById(Convert.ToInt32(r)))
+                {
+                    if (objRol == null) return;
+                    usuario.TBL_Admin_Roles.Add(objRol);
+                }
 
                 _usuario.Modify(usuario);
 
@@ -186,18 +206,17 @@ namespace Presenters.Admin.Presenters
             }
         }
 
-        private void GetRoles()
+        private void GetAllRoles()
         {
-            try
-            {
-                var listado = _roles.FindBySpec(true);
-                View.ListadoRoles(listado.OrderBy(o => o.NombreRol).ToList());
-            }
-            catch (Exception ex)
-            {
-                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, System.Reflection.MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
-                InvokeMessageBox(new MessageBoxEventArgs(string.Format(Message.GetObjectError, " Listado de Roles"), TypeError.Error));
-            }
+            var listado = _roles.FindPaged(0, 10);
+            View.GetAllRoles(listado);
+        }
+
+        private void ValidarRol()
+        {
+            if (string.IsNullOrEmpty(View.IdUser)) return;
+            var user = _usuario.FindById(Convert.ToInt32(View.IdUser));
+            View.RolesAsigandos(user.TBL_Admin_Roles);
         }
     }
 }

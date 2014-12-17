@@ -182,11 +182,24 @@
                             <th style="width:1px"></th>
 						    <th style="text-align:left; vertical-align:top">Roles</th>
 						    <td align="left" class="Line">
-                                <asp:CheckBoxList 
-                                ID="chkRoles" 
-                                runat="server"
-                                Width="400">
-                                </asp:CheckBoxList>
+                                <table id="roles" width="30%">
+                                    <asp:repeater id="rptRoles" OnItemDataBound="RptRolesItemDataBound" runat="server">
+                                        <headertemplate>
+	                                        <tr>
+		                                        <th></th>
+		                                        <th></th>
+	                                        </tr>
+                                        </headertemplate>
+	                                    <itemtemplate>
+		                                    <tr>
+			                                    <td><%# DataBinder.Eval(Container.DataItem, "NombreRol") %></td>
+			                                    <td style="text-align:left">
+				                                    <asp:checkbox id="chkRole" runat="server"></asp:checkbox>
+			                                    </td>
+		                                    </tr>
+	                                    </itemtemplate>
+                                    </asp:repeater>
+                                </table>
                             </td>
                         </tr>
                         <tr>
