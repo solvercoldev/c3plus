@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 using ASP.NETCLIENTE.UI;
 using Domain.MainModules.Entities;
@@ -54,12 +56,28 @@ namespace Modules.Admin.Catalogos
             ddlLocalizacion.Items.Insert(0, li);
         }
 
-        public void ListadoRoles(List<TBL_Admin_Roles> items)
+        public void RolesAsigandos(IList<TBL_Admin_Roles> items)
         {
-            chkRoles.DataSource = items;
-            chkRoles.DataValueField = "IdRol";
-            chkRoles.DataTextField = "NombreRol";
-            chkRoles.DataBind();
+            foreach (RepeaterItem ri in rptRoles.Items)
+            {
+                var roleId = (int)ViewState[ri.UniqueID];
+                var chk = (CheckBox)ri.FindControl("chkRole");
+                chk.Checked = items.Any(r => r.IdRol == roleId);
+            }
+        }
+
+        public ArrayList GetSelectdRole()
+        {
+            var arrayList = new ArrayList();
+            foreach (var roleId in from RepeaterItem ri in rptRoles.Items
+                                   let roleId = (int)ViewState[ri.UniqueID]
+                                   let chk = (CheckBox)ri.FindControl("chkRole")
+                                   where chk.Checked
+                                   select roleId)
+            {
+                arrayList.Add(roleId);
+            }
+            return arrayList;
         }
 
         public bool Activo
@@ -191,6 +209,19 @@ namespace Modules.Admin.Catalogos
                 ActualizarEvent(null, EventArgs.Empty);
 
             Response.Redirect(string.Format("FrmViewUsuarios.aspx{0}", GetBaseQueryString()));
+        }
+
+        public void RptRolesItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            var role = e.Item.DataItem as TBL_Admin_Roles;
+            if (role == null) return;
+            ViewState[e.Item.UniqueID] = role.IdRol;
+        }
+
+        public void GetAllRoles(IList<TBL_Admin_Roles> items)
+        {
+            rptRoles.DataSource = items;
+            rptRoles.DataBind();
         }
     }
 }

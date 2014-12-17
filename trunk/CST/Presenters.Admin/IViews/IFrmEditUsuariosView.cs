@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Application.Core;
 using Domain.MainModules.Entities;
@@ -18,7 +19,9 @@ namespace Presenters.Admin.IViews
 
         void ListadoDependencias(List<Dependencias> items);
         void ListadoLocalizacion(List<Localizaciones> items);
-        void ListadoRoles(List<TBL_Admin_Roles> items);
+        void GetAllRoles(IList<TBL_Admin_Roles> items);
+        void RolesAsigandos(IList<TBL_Admin_Roles> items);
+        ArrayList GetSelectdRole();
         bool Activo { get; set; }
         string IdUser { get; set; }
         string CodigoUser { get; set; }
