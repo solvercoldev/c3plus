@@ -32,7 +32,7 @@ set		c.FechaInicio = @FechaInicio
 from	Contratos c with(nolock)
 where	c.IdContrato = @IdContrato
 
--- Actualizando Fases
+-- Actualizando Fases -- Aca debe generar las fases como en la app
 update	f
 set		f.FechaInicio = dateadd(dd,@DiffDias, f.FechaInicio)
 		,f.FechaFinalizacion = dateadd(dd,@DiffDias, f.FechaFinalizacion)

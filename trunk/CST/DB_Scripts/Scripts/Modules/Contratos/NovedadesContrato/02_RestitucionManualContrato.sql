@@ -41,6 +41,30 @@ where	f.IdContrato = @IdContrato
 		and f.NumeroFase > 0
 		and (f.FechaInicio >= @FechaInicio
 			or f.FechaFinalizacion >= @FechaInicio)
+		and f.IdFase not in
+			(
+				select	f2.IdFase
+				from	Fases f2 with(nolock)
+				where	f2.IdContrato = @IdContrato
+						and @FechaInicio >= f2.FechaInicio
+						and @FechaInicio <= f2.FechaFinalizacion
+			)
+
+update	f
+set		f.FechaFinalizacion = dateadd(dd,@DiffDias, f.FechaFinalizacion)
+from	Fases f with(nolock)
+where	f.IdContrato = @IdContrato
+		and f.NumeroFase > 0
+		and (f.FechaInicio >= @FechaInicio
+			or f.FechaFinalizacion >= @FechaInicio)
+		and f.IdFase in
+			(
+				select	f2.IdFase
+				from	Fases f2 with(nolock)
+				where	f2.IdContrato = @IdContrato
+						and @FechaInicio >= f2.FechaInicio
+						and @FechaInicio <= f2.FechaFinalizacion
+			)
 
 -- Actualizando Compromisos
 update	comp

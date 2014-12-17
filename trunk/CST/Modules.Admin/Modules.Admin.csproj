@@ -120,12 +120,14 @@
     </Compile>
     <Compile Include="Catalogos\FrmEditDependencias.aspx.cs">
       <DependentUpon>FrmEditDependencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmEditDependencias.aspx.designer.cs">
       <DependentUpon>FrmEditDependencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\FrmEditLocalizaciones.aspx.cs">
       <DependentUpon>FrmEditLocalizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmEditLocalizaciones.aspx.designer.cs">
       <DependentUpon>FrmEditLocalizaciones.aspx</DependentUpon>
@@ -146,30 +148,35 @@
     </Compile>
     <Compile Include="Catalogos\FrmEditRoles.aspx.cs">
       <DependentUpon>FrmEditRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmEditRoles.aspx.designer.cs">
       <DependentUpon>FrmEditRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\FrmEditUsuarios.aspx.cs">
       <DependentUpon>FrmEditUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmEditUsuarios.aspx.designer.cs">
       <DependentUpon>FrmEditUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\FrmViewDependencias.aspx.cs">
       <DependentUpon>FrmViewDependencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmViewDependencias.aspx.designer.cs">
       <DependentUpon>FrmViewDependencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\FrmViewLocalizaciones.aspx.cs">
       <DependentUpon>FrmViewLocalizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmViewLocalizaciones.aspx.designer.cs">
       <DependentUpon>FrmViewLocalizaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\FrmViewMonedas.aspx.cs">
       <DependentUpon>FrmViewMonedas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmViewMonedas.aspx.designer.cs">
       <DependentUpon>FrmViewMonedas.aspx</DependentUpon>
@@ -197,6 +204,7 @@
     </Compile>
     <Compile Include="Catalogos\FrmViewRoles.aspx.cs">
       <DependentUpon>FrmViewRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmViewRoles.aspx.designer.cs">
       <DependentUpon>FrmViewRoles.aspx</DependentUpon>
@@ -287,6 +295,7 @@
     </Compile>
     <Compile Include="Catalogos\FrmViewUsuarios.aspx.cs">
       <DependentUpon>FrmViewUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catalogos\FrmViewUsuarios.aspx.designer.cs">
       <DependentUpon>FrmViewUsuarios.aspx</DependentUpon>
