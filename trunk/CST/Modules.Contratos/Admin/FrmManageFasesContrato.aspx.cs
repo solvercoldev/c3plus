@@ -337,7 +337,7 @@ namespace Modules.Contratos.Admin
 
             if (TipoOperacion == "CorrecciónFechaFin")
             {
-                fases = FasesAdminList;
+                fases = FasesAdminList.Where(x => DateTime.Now >= x.FechaFinalizacion || DateTime.Now >= x.FechaInicio);
             }
 
             FechaFinalExtension = DateTime.Now;

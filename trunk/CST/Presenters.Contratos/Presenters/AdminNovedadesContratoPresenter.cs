@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using Application.Core;
 using Application.MainModule.Contratos.IServices;
@@ -13,6 +14,7 @@ namespace Presenters.Contratos.Presenters
     public class AdminNovedadesContratoPresenter : Presenter<IAdminNovedadesContratoView>
     {
         readonly ISfContratosManagementServices _contratoService;
+        readonly ISfFasesManagementServices _fasesService;
         readonly ISfNovedadesContratoManagementServices _novedadesContratoService;
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
         readonly ISfEstadosAccionManagementServices _estadosAccionService;
@@ -20,6 +22,7 @@ namespace Presenters.Contratos.Presenters
         readonly ISfLogContratosManagementServices _log;
 
         public AdminNovedadesContratoPresenter(ISfContratosManagementServices contratoService,
+                                               ISfFasesManagementServices fasesService,
                                                ISfNovedadesContratoManagementServices novedadesContratoService,
                                                ISfTBL_Admin_UsuariosManagementServices usuariosService,
                                                ISfEstadosAccionManagementServices estadosAccionService,
@@ -27,6 +30,7 @@ namespace Presenters.Contratos.Presenters
                                                ISfLogContratosManagementServices log)
         {
             _contratoService = contratoService;
+            _fasesService = fasesService;
             _novedadesContratoService = novedadesContratoService;
             _usuariosService = usuariosService;
             _estadosAccionService = estadosAccionService;
@@ -50,6 +54,7 @@ namespace Presenters.Contratos.Presenters
         {
             LoadNovedades();
             LoadContrato();
+            LoadFasesContrato();
         }
 
         void InitView()
@@ -85,6 +90,38 @@ namespace Presenters.Contratos.Presenters
                         View.FechaInicioSuspensionContrato = contrato.FechaInicioSuspension.GetValueOrDefault();
                         View.FechaFinSuspensionContrato = contrato.FechaTerminacionSuspension.GetValueOrDefault();
                     }                    
+                }
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        public void LoadFasesContrato()
+        {
+            if (string.IsNullOrEmpty(View.IdContrato)) return;
+
+            try
+            {
+                var fases = _fasesService.GetFasesByContrato(Convert.ToInt32(View.IdContrato));
+
+                if (fases.Any())
+                {
+                    var faseActual = fases.Where(item => DateTime.Now >= item.FechaInicio && DateTime.Now <= item.FechaFinalizacion);
+
+                    if (faseActual.Any())
+                    {
+                        View.FechaInicioFaseActual = faseActual.FirstOrDefault().FechaInicio.AddDays(1);
+                    }
+                    else
+                    {
+                        View.FechaInicioFaseActual = View.FechaFirma.AddDays(1);
+                    }
+                }
+                else
+                {
+                    View.FechaInicioFaseActual = View.FechaFirma.AddDays(1);
                 }
             }
             catch (Exception ex)

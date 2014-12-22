@@ -16,7 +16,8 @@ namespace Presenters.Contratos.IViews
         DateTime FechaNovedad { get; set; }
         DateTime FechaFinNovedad { get; set; }
 
-        DateTime FechaFirma { set; }
+        DateTime FechaFirma { set; get; }
+        DateTime FechaInicioFaseActual { get; set; }
 
         void LoadNovedades(List<NovedadesContrato> items);
         void ShowAdminWindow(bool visible);

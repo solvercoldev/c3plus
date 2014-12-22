@@ -141,8 +141,8 @@
                 <br />
                 <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" CausesValidation="false" />                
                 <br />
-                <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px" CausesValidation="false" />
-                <br />
+                <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px" CausesValidation="false" Visible="false" />
+                <%--<br />--%>
                 <asp:Button ID="btnUnificar" runat="server" Text="Unificar Fase" Width="125px" CommandArgument="Unificación" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
             </td>
             <td></td>

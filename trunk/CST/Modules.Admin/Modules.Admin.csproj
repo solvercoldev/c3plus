@@ -69,6 +69,7 @@
     <Content Include="Catalogos\FrmEditDependencias.aspx" />
     <Content Include="Catalogos\FrmEditLocalizaciones.aspx" />
     <Content Include="Catalogos\FrmEditModule.aspx" />
+    <Content Include="Catalogos\FrmEditMonedas.aspx" />
     <Content Include="Catalogos\FrmEditOptionItem.aspx" />
     <Content Include="Catalogos\FrmEditRoles.aspx" />
     <Content Include="Catalogos\FrmEditUsuarios.aspx" />
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="Catalogos\FrmEditModule.aspx.designer.cs">
       <DependentUpon>FrmEditModule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditMonedas.aspx.cs">
+      <DependentUpon>FrmEditMonedas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogos\FrmEditMonedas.aspx.designer.cs">
+      <DependentUpon>FrmEditMonedas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Catalogos\FrmEditOptionItem.aspx.cs">
       <DependentUpon>FrmEditOptionItem.aspx</DependentUpon>
