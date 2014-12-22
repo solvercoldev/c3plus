@@ -39,6 +39,9 @@ namespace Presenters.Admin.Presenters
         {
             try
             {
+                var total = _roles.CountByPaged();
+
+                View.TotalRegistrosPaginador = total == 0 ? 1 : total;
 
                 var listado = _roles.FindPaged(currentPage, View.PageZise);
 

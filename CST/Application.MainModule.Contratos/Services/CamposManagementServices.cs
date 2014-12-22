@@ -144,7 +144,14 @@ namespace Application.MainModule.Contratos.Services
              return _CamposRepository.GetCompleteEntity(specification);
          }
 
-         #endregion
+        public int CountByPaged()
+        {
+            Specification<Campos> onlyEnabledSpec = new DirectSpecification<Campos>(u => true);
+
+            return _CamposRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
+
+        #endregion
 
          #region IDisposable Members
 

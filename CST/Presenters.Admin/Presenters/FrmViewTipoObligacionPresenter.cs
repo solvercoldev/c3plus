@@ -37,6 +37,9 @@ namespace Presenters.Admin.Presenters
         {
             try
             {
+                var total = _tiposPagoObligacion.CountByPaged();
+
+                View.TotalRegistrosPaginador = total == 0 ? 1 : total;
 
                 var listado = _tiposPagoObligacion.FindPaged(currentPage, View.PageZise);
 

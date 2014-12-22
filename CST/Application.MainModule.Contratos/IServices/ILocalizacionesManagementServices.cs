@@ -7,6 +7,7 @@ namespace Application.MainModule.Contratos.IServices
     public interface ISfLocalizacionesManagementServices : IGenericServices<Localizaciones>
     {
         Localizaciones GetById(string id);
+        int CountByPaged();
     }
 }
     

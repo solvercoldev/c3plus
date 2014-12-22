@@ -47,7 +47,7 @@ namespace Modules.Admin.Catalogos
         public void GetTipoObligacion(List<TiposPagoObligacion> items)
         {
             rptListado.DataSource = items;
-            rptListado.DataBind(); ;
+            rptListado.DataBind();
         }
 
         protected void RptListadoItemDataBound(object sender, RepeaterItemEventArgs e)

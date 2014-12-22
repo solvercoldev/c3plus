@@ -122,6 +122,13 @@ namespace Application.MainModule.Contratos.Services
             return _TercerosRepository.GetEntityBySpec(specification);
         }
 
+        public int CountByPaged()
+        {
+            Specification<Terceros> onlyEnabledSpec = new DirectSpecification<Terceros>(u => true);
+
+            return _TercerosRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
+
         public object FindByIdString(string id)
         {
             if (string.IsNullOrEmpty(id))

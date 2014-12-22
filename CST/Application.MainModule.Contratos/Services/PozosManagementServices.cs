@@ -164,6 +164,13 @@ namespace Application.MainModule.Contratos.Services
             Specification<Pozos> specification = new DirectSpecification<Pozos>(u => u.IdPozo == id);
             return _PozosRepository.GetCompleteEntity(specification);
         }
+
+        public int CountByPaged()
+        {
+            Specification<Pozos> onlyEnabledSpec = new DirectSpecification<Pozos>(u => true);
+
+            return _PozosRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
     }
 }
     

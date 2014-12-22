@@ -37,6 +37,9 @@ namespace Presenters.Admin.Presenters
         {
             try
             {
+                var total = _localizaciones.CountByPaged();
+
+                View.TotalRegistrosPaginador = total == 0 ? 1 : total;
 
                 var listado = _localizaciones.FindPaged(currentPage, View.PageZise);
 

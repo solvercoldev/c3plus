@@ -8,5 +8,6 @@ namespace Application.MainModule.Contratos.IServices
     public interface ISfBloquesManagementServices : IGenericServices<Bloques>
     {
         Bloques GetById(string id);
+        int CountByPaged();
     }
 }
