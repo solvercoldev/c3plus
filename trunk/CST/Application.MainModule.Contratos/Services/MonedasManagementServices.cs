@@ -122,6 +122,13 @@ namespace Application.MainModule.Contratos.Services
             return _MonedasRepository.GetEntityBySpec(specification);
         }
 
+        public int CountByPaged()
+        {
+            Specification<Monedas> onlyEnabledSpec = new DirectSpecification<Monedas>(u => true);
+
+            return _MonedasRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
+
         /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>

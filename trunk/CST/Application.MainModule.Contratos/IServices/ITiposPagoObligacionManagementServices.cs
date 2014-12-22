@@ -7,6 +7,7 @@ namespace Application.MainModule.Contratos.IServices
     public interface ISfTiposPagoObligacionManagementServices : IGenericServices<TiposPagoObligacion>
     {
         TiposPagoObligacion GetById(string id);
+        int CountByPaged();
     }
 }
     

@@ -49,12 +49,16 @@ namespace Modules.Admin.Catalogos
         {
             if (ActualizarEvent != null)
                 ActualizarEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewTipoObligacion.aspx{0}", GetBaseQueryString()));
         }
 
         protected void BtnSaveClick(object sender, EventArgs e)
         {
             if (SaveEvent != null)
                 SaveEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewTipoObligacion.aspx{0}", GetBaseQueryString()));
         }
 
         public string Descripcion
@@ -73,6 +77,8 @@ namespace Modules.Admin.Catalogos
         {
             if (DeleteEvent != null)
                 DeleteEvent(null, EventArgs.Empty);
+
+            Response.Redirect(string.Format("FrmViewTipoObligacion.aspx{0}", GetBaseQueryString()));
         }
     }
 }

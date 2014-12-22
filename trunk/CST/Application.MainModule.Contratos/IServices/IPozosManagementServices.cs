@@ -9,5 +9,7 @@ namespace Application.MainModule.Contratos.IServices
     {
         List<Pozos> GetByBloque(string idBloque);
         Pozos GetById(string id);
+        int CountByPaged();
+
     }
 }

@@ -128,6 +128,13 @@ namespace Applications.MainModule.Admin.Services
             return _tblAdminUsuariosRepository.GetEntityBySpec(specification);
         }
 
+        public int CountByPaged()
+        {
+            Specification<TBL_Admin_Usuarios> onlyEnabledSpec = new DirectSpecification<TBL_Admin_Usuarios>(u => true);
+
+            return _tblAdminUsuariosRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
+
         public TBL_Admin_Usuarios GetUserByCredential(string userName, string password)
         {
             Specification<TBL_Admin_Usuarios> specification = new DirectSpecification<TBL_Admin_Usuarios>(u => u.UserName.Equals(userName) && u.Password.Equals(password));
@@ -147,7 +154,7 @@ namespace Applications.MainModule.Admin.Services
                 throw new ArgumentException(Resources.Messages.exception_InvalidPageCount, "pageCount");
 
 
-            Specification<TBL_Admin_Usuarios> onlyEnabledSpec = new DirectSpecification<TBL_Admin_Usuarios>(u => u.IsActive);
+            Specification<TBL_Admin_Usuarios> onlyEnabledSpec = new DirectSpecification<TBL_Admin_Usuarios>(u => true);
 
             return _tblAdminUsuariosRepository.GetPagedElements(pageIndex, pageCount, u => u.IdUser, onlyEnabledSpec, true).ToList();
          }

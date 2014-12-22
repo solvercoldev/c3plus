@@ -130,15 +130,6 @@ namespace Modules.Admin.Catalogos {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// rfvEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
-        
-        /// <summary>
         /// txtDocumento control.
         /// </summary>
         /// <remarks>
@@ -184,6 +175,15 @@ namespace Modules.Admin.Catalogos {
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalizacion;
         
         /// <summary>
+        /// rfvLocalizacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLocalizacion;
+        
+        /// <summary>
         /// txtDireccion control.
         /// </summary>
         /// <remarks>
@@ -200,6 +200,15 @@ namespace Modules.Admin.Catalogos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDependencia;
+        
+        /// <summary>
+        /// rfvDependencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDependencia;
         
         /// <summary>
         /// txtCargo control.

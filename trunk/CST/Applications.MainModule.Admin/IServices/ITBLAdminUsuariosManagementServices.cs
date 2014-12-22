@@ -19,6 +19,7 @@ namespace Applications.MainModule.Admin.IServices
         TBL_Admin_Usuarios GetUserByCredential(string trim, string s);
         List<TBL_Admin_Usuarios> FindBySpecWithRols(bool isActive);
         TBL_Admin_Usuarios GetById(int id);
+        int CountByPaged();
     }
 }
     

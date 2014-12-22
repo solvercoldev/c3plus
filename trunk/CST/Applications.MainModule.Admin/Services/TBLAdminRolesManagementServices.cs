@@ -126,7 +126,7 @@ namespace Applications.MainModule.Admin.Services
                 throw new ArgumentException(Messages.exception_InvalidPageCount, "pageCount");
 
 
-            Specification<TBL_Admin_Roles> onlyEnabledSpec = new DirectSpecification<TBL_Admin_Roles>(u => u.Activo);
+            Specification<TBL_Admin_Roles> onlyEnabledSpec = new DirectSpecification<TBL_Admin_Roles>(u => true);
 
             return _tblAdminRolesRepository.GetPagedElements(pageIndex, pageCount, u => u.IdRol, onlyEnabledSpec, true).ToList();
          }
@@ -161,6 +161,13 @@ namespace Applications.MainModule.Admin.Services
             }
 
             return _tblAdminRolesRepository.GetPagedElements(currentPage, pageZise, u => u.IdRol, onlyEnabledSpec, true).ToList();
+        }
+
+        public int CountByPaged()
+        {
+            Specification<TBL_Admin_Roles> onlyEnabledSpec = new DirectSpecification<TBL_Admin_Roles>(u => true);
+
+            return _tblAdminRolesRepository.GetBySpec(onlyEnabledSpec).Count();
         }
 
         #endregion

@@ -19,6 +19,7 @@ namespace Applications.MainModule.Admin.IServices
         TBL_Admin_Roles FindRoleByName(string name);
         int CountByFilter(string role);
         IEnumerable<TBL_Admin_Roles> FindRoleByFilter(string role, int currentPage, int pageZise);
+        int CountByPaged();
     }
 }
     

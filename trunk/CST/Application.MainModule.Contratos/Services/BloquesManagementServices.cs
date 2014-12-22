@@ -133,7 +133,14 @@ namespace Application.MainModule.Contratos.Services
              return _BloquesRepository.GetCompleteEntity(specification);
          }
 
-         #endregion
+        public int CountByPaged()
+        {
+            Specification<Bloques> onlyEnabledSpec = new DirectSpecification<Bloques>(u => true);
+
+            return _BloquesRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
+
+        #endregion
 
          #region IDisposable Members
 

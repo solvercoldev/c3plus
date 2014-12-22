@@ -9,5 +9,6 @@ namespace Application.MainModule.Contratos.IServices
     {
         List<Campos> GetByBloque(string idBloque);
         Campos GetById(string id);
+        int CountByPaged();
     }
 }

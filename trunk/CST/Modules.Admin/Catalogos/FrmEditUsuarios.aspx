@@ -41,7 +41,7 @@
 					    </tr>
                         <tr>
                             <th style="width:1px">*</th>
-						    <th style="text-align:left; vertical-align:top">Nombre</th>
+						    <th style="text-align:left; vertical-align:top">Nombres </th>
 						    <td align="left" class="Line">
                             <asp:textbox id="txtNombre" runat="server" width="400px"></asp:textbox>
                             
@@ -88,19 +88,11 @@
 						    </td>
 					    </tr>
                         <tr>
-                            <th style="width:1px">*</th>
+                            <th style="width:1px"></th>
 						    <th style="text-align:left; vertical-align:top">Email</th>
 						    <td align="left" class="Line">
 						        <asp:textbox id="txtEmail" runat="server" width="400px">
 						        </asp:textbox>
-						        <asp:requiredfieldvalidator id="rfvEmail" 
-						        runat="server" 
-						        errormessage="El campo [Email] es requerido!!." 
-						        cssclass="validator"
-								display="Dynamic" 
-								enableclientscript="true" 
-								controltovalidate="txtEmail">
-								</asp:requiredfieldvalidator>
 						    </td>
 					    </tr>
                         <tr>
@@ -136,14 +128,22 @@
 						    </td>
 					    </tr>
                         <tr>
-                            <th style="width:1px"></th>
+                            <th style="width:1px">*</th>
 						    <th style="text-align:left; vertical-align:top">Localización</th>
 						    <td align="left" class="Line">
                                 <asp:DropDownList 
                                 CssClass="CombosGenericos"
 						        ID="ddlLocalizacion" 
 						        Width="200"
-						        runat="server"></asp:DropDownList>				        
+						        runat="server"></asp:DropDownList>
+                                <asp:requiredfieldvalidator id="rfvLocalizacion" 
+						            runat="server" 
+						            errormessage="El campo [Localización] es requerido!!." 
+						            cssclass="validator"
+								    display="Dynamic" 
+								    enableclientscript="true" 
+								    controltovalidate="ddlLocalizacion">
+							    </asp:requiredfieldvalidator>				        
 						    </td>
 					    </tr>
                         <tr>
@@ -155,14 +155,22 @@
 						    </td>
 					    </tr>
                         <tr>
-                            <th style="width:1px"></th>
+                            <th style="width:1px">*</th>
 						    <th style="text-align:left; vertical-align:top">Dependencia</th>
 						    <td align="left" class="Line">
                                 <asp:DropDownList 
                                 CssClass="CombosGenericos"
 						        ID="ddlDependencia" 
 						        Width="200"
-						        runat="server"></asp:DropDownList>				        
+						        runat="server"></asp:DropDownList>	
+                                <asp:requiredfieldvalidator id="rfvDependencia" 
+						            runat="server" 
+						            errormessage="El campo [Dependencia] es requerido!!." 
+						            cssclass="validator"
+								    display="Dynamic" 
+								    enableclientscript="true" 
+								    controltovalidate="ddlDependencia">
+							    </asp:requiredfieldvalidator>				        
 						    </td>
 					    </tr>
                         <tr>

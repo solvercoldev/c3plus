@@ -122,6 +122,13 @@ namespace Application.MainModule.Contratos.Services
             return _TiposPagoObligacionRepository.GetEntityBySpec(specification);
         }
 
+        public int CountByPaged()
+        {
+            Specification<TiposPagoObligacion> onlyEnabledSpec = new DirectSpecification<TiposPagoObligacion>(u => true);
+
+            return _TiposPagoObligacionRepository.GetBySpec(onlyEnabledSpec).Count();
+        }
+
         /// <summary>
           /// Obtiene el listado de entidades activas y paginadas.
           /// </summary>
