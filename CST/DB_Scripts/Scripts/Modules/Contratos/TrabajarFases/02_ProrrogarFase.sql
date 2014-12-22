@@ -60,3 +60,9 @@ from	Compromisos comp with(nolock)
 where	f.IdContrato = @IdContrato
 		and f.Grupo = @Grupo
 		and f.NumeroFase > @NumFase
+
+-- Actualizando Contrato
+update	c
+set		c.FechaTerminacion = dateadd(dd,@DiffDias,c.FechaTerminacion)
+from	Contratos c with(nolock)
+where	c.IdContrato = @IdContrato

@@ -18,27 +18,86 @@ AS
 --set @IdContrato = 1
 --set	@FechaInicio = '2015-01-12'
 /*****************************************************/
-
--- Variables de Trabajo
-declare @DiffDias int
+-- Definiendo Variables de trabajo
+declare	@FechaAux datetime, @DiffDias int, @TotalFasesPost int, @IndexFases int, @AuxDuracionMeses int
+declare	@FasesPosteriores table
+		(
+			Id					int
+			,IdContrato			int
+			,IdFase				bigint
+			,NumeroFase			int
+			,DuracionMeses		int
+			,FechaInicio		datetime
+			,FechaFinalizacion	datetime
+			
+		)				
 
 select	@DiffDias = datediff(dd, c.FechaInicio, @FechaInicio)	
 from	Contratos c with(nolock)
 where	c.IdContrato = @IdContrato
 
--- Actualizando Contrato
-update	c
-set		c.FechaInicio = @FechaInicio
-from	Contratos c with(nolock)
-where	c.IdContrato = @IdContrato
-
--- Actualizando Fases -- Aca debe generar las fases como en la app
-update	f
-set		f.FechaInicio = dateadd(dd,@DiffDias, f.FechaInicio)
-		,f.FechaFinalizacion = dateadd(dd,@DiffDias, f.FechaFinalizacion)
+-- Actualizando Fases Posteriores
+-- Seleccionando fases a trabajar
+insert	into
+		@FasesPosteriores
+		(
+			Id
+			,IdContrato
+			,IdFase
+			,NumeroFase
+			,DuracionMeses
+			,FechaInicio
+			,FechaFinalizacion
+		)
+select	row_number() over(order by f.NumeroFase asc) as Id
+		,f.IdContrato
+		,f.IdFase
+		,f.NumeroFase
+		,f.DuracionMeses
+		,f.FechaInicio
+		,f.FechaFinalizacion
 from	Fases f with(nolock)
 where	f.IdContrato = @IdContrato
 		and f.NumeroFase > 0
+
+select	@TotalFasesPost = max(Id)
+from	@FasesPosteriores
+
+-- Calculando Fechas Para Fases Posteriores		
+set	@IndexFases = 1
+set	@FechaAux = dateadd(dd,1,@FechaInicio)
+
+while @IndexFases <= @TotalFasesPost
+begin
+	select	@AuxDuracionMeses = DuracionMeses
+	from	@FasesPosteriores	
+	where	Id = @IndexFases
+	
+	update	f
+	set		f.FechaInicio =	@FechaAux
+			,f.FechaFinalizacion = dateadd(dd,-1,dateadd(mm,DuracionMeses,@FechaAux))
+	from	@FasesPosteriores f
+	where	f.Id = @IndexFases
+	
+	set @FechaAux = dateadd(mm,@AuxDuracionMeses,@FechaAux)
+	set	@IndexFases = @IndexFases + 1
+	
+end
+
+--Actualizando fases
+update	f
+set		f.FechaInicio = fp.FechaInicio
+		,f.FechaFinalizacion = fp.FechaFinalizacion
+from	Fases f
+		inner join @FasesPosteriores fp
+			on f.IdFase = fp.IdFase
+
+-- Actualizando Contrato
+update	c
+set		c.FechaInicio = @FechaInicio
+		,c.FechaTerminacion = @FechaAux
+from	Contratos c with(nolock)
+where	c.IdContrato = @IdContrato
 
 -- Actualizando Compromisos
 update	comp

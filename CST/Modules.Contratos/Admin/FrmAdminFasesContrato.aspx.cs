@@ -168,7 +168,7 @@ namespace Modules.Contratos.Admin
             if (id != 0)
             {
                 id++;
-                while (id < FasesContrato.Count)
+                while (id <= FasesContrato.Count)
                 {
                     fase = FasesContrato.Where(x => x.FaseId == id).First();
                     fase.FechaInicio = auxDate;
@@ -200,7 +200,7 @@ namespace Modules.Contratos.Admin
             if (id != 0)
             {
                 id++;
-                while (id < FasesContrato.Count)
+                while (id <= FasesContrato.Count)
                 {
                     fase = FasesContrato.Where(x => x.FaseId == id).First();
                     fase.FechaInicio = auxDate;
@@ -255,6 +255,8 @@ namespace Modules.Contratos.Admin
                 {
                     txtFechaFin.Text = string.Format("{0:dd/MM/yyyy}", item.FechaFin);
                     txtFechaFin.ToolTip = string.Format("{0}", item.FaseId);
+
+                    txtFechaFin.Enabled = (DateTime.Now >= item.FechaFin || DateTime.Now >= item.FechaInicio);                    
                 }
 
                 var cexTxtfechaInicio = e.Item.FindControl("cexTxtfechaInicio") as CalendarExtender;

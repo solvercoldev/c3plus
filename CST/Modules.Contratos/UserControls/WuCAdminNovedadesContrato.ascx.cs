@@ -113,6 +113,8 @@ namespace Modules.Contratos.UserControls
             {
                 case "Suspensión":
                     trFinNovedad.Visible = true;
+                    cexTxtFechaNovedad.StartDate = FechaInicioFaseActual;
+                    FechaNovedad = FechaInicioFaseActual;
                     break;
                 case "Reiniciar":
                     trFinNovedad.Visible = false;
@@ -319,6 +321,18 @@ namespace Modules.Contratos.UserControls
             set
             {
                 ViewState["AdminNovedadesContrato_FechaFinSuspensionContrato"] = value;
+            }
+        }
+
+        public DateTime FechaInicioFaseActual
+        {
+            get
+            {
+                return Convert.ToDateTime(ViewState["AdminNovedadesContrato_FechaInicioFaseActual"]);
+            }
+            set
+            {
+                ViewState["AdminNovedadesContrato_FechaInicioFaseActual"] = value;
             }
         }
 
