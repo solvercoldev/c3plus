@@ -139,15 +139,6 @@ namespace Modules.Admin.Catalogos {
         protected global::System.Web.UI.WebControls.TextBox txtTelefono2;
         
         /// <summary>
-        /// rfvTelefono2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefono2;
-        
-        /// <summary>
         /// txtLogo control.
         /// </summary>
         /// <remarks>
@@ -155,15 +146,6 @@ namespace Modules.Admin.Catalogos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLogo;
-        
-        /// <summary>
-        /// rfvLogo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLogo;
         
         /// <summary>
         /// chkActive control.

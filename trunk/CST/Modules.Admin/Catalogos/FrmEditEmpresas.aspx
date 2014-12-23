@@ -84,35 +84,19 @@
 						    </td>
 					    </tr>
                         <tr>
-                            <th style="width:1px">*</th>
+                            <th style="width:1px"></th>
 						    <th style="text-align:left; vertical-align:top">Telefono 2</th>
 						    <td align="left" class="Line">
 						        <asp:textbox id="txtTelefono2" runat="server">
 						        </asp:textbox>
-						        <asp:requiredfieldvalidator id="rfvTelefono2" 
-						        runat="server" 
-						        errormessage="El campo [Telefono 2] es requerido!!." 
-						        cssclass="validator"
-								display="Dynamic" 
-								enableclientscript="true" 
-								controltovalidate="txtTelefono2">
-								</asp:requiredfieldvalidator>
 						    </td>
 					    </tr>
                         <tr>
-                            <th style="width:1px">*</th>
+                            <th style="width:1px"></th>
 						    <th style="text-align:left; vertical-align:top">Logo</th>
 						    <td align="left" class="Line">
 						        <asp:textbox id="txtLogo" runat="server" width="400px">
 						        </asp:textbox>
-						        <asp:requiredfieldvalidator id="rfvLogo" 
-						        runat="server" 
-						        errormessage="El campo [Logo] es requerido!!." 
-						        cssclass="validator"
-								display="Dynamic" 
-								enableclientscript="true" 
-								controltovalidate="txtLogo">
-								</asp:requiredfieldvalidator>
 						    </td>
 					    </tr>
 					    <tr>
