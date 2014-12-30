@@ -74,5 +74,10 @@ namespace Application.Core
             return new string(a);
         }
 
+        protected int DiffMonths(DateTime start, DateTime end)
+        {
+            return (end.Year * 12 + end.Month) - (start.Year * 12 + start.Month);
+        }
+
     }
 }

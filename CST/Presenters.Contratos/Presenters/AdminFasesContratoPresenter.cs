@@ -162,7 +162,7 @@ namespace Presenters.Contratos.Presenters
                     var fase = new Fases();
                     fase.IdContrato = Convert.ToInt32(View.IdContrato);
                     fase.Periodo = f.Periodo;
-                    fase.NumeroFase = (byte)f.FaseId;
+                    fase.NumeroFase = f.FaseId;
                     fase.Nombre = f.Fase;
                     fase.FechaInicio = f.FechaInicio;
                     fase.FechaFinalizacion = f.FechaFin;

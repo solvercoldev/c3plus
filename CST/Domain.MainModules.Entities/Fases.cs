@@ -394,6 +394,21 @@ namespace Domain.MainModules.Entities
             }
         }
         private System.DateTime _modifiedOn;
+    
+        [DataMember]
+        public bool TieneFaseProduccion
+        {
+            get { return _tieneFaseProduccion; }
+            set
+            {
+                if (_tieneFaseProduccion != value)
+                {
+                    _tieneFaseProduccion = value;
+                    OnPropertyChanged("TieneFaseProduccion");
+                }
+            }
+        }
+        private bool _tieneFaseProduccion;
 
         #endregion
         #region Navigation Properties

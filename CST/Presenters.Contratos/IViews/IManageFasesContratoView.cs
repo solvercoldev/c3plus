@@ -23,5 +23,18 @@ namespace Presenters.Contratos.IViews
         // Load
         void LoadSecciones(IEnumerable<TBL_Admin_Secciones> secciones);
         void LoadInitControl();
+
+        // Nueva Fase
+        string PeriodoNuevaFase { get; set; }
+        string ObservacionesNuevaFase { get; set; }
+        DateTime FechaInicioNuevaFase { get; set; }
+        DateTime FechaFinNuevaFase { get; set; }
+        int IdFaseEvaluacion { get; set; }
+
+        DateTime FechaFinContrato { get; set; }
+        DateTime FechaEfectivaContrato { get; set; }
+
+        List<Fases> FasesAdminList { get; set; }
+
     }
 }

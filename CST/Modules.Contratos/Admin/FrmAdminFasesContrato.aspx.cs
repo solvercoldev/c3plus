@@ -167,13 +167,15 @@ namespace Modules.Contratos.Admin
             
             if (id != 0)
             {
-                id++;
-                while (id <= FasesContrato.Count)
+                while (id < FasesContrato.Count)
                 {
-                    fase = FasesContrato.Where(x => x.FaseId == id).First();
-                    fase.FechaInicio = auxDate;
-                    auxDate = fase.FechaInicio.AddMonths(fase.DuracionFase);
-                    fase.FechaFin = auxDate.AddDays(-1);
+                    if (id != fase.FaseId)
+                    {
+                        fase = FasesContrato.Where(x => x.FaseId == id).First();
+                        fase.FechaInicio = auxDate;
+                        auxDate = fase.FechaInicio.AddMonths(fase.DuracionFase);
+                        fase.FechaFin = auxDate.AddDays(-1);
+                    }
 
                     id++;
                 }
@@ -199,13 +201,15 @@ namespace Modules.Contratos.Admin
 
             if (id != 0)
             {
-                id++;
-                while (id <= FasesContrato.Count)
+                while (id < FasesContrato.Count)
                 {
-                    fase = FasesContrato.Where(x => x.FaseId == id).First();
-                    fase.FechaInicio = auxDate;
-                    auxDate = fase.FechaInicio.AddMonths(fase.DuracionFase);
-                    fase.FechaFin = auxDate.AddDays(-1);
+                    if (id != fase.FaseId)
+                    {
+                        fase = FasesContrato.Where(x => x.FaseId == id).First();
+                        fase.FechaInicio = auxDate;
+                        auxDate = fase.FechaInicio.AddMonths(fase.DuracionFase);
+                        fase.FechaFin = auxDate.AddDays(-1);
+                    }                    
 
                     id++;
                 }
