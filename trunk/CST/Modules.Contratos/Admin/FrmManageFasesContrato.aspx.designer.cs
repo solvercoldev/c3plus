@@ -40,6 +40,15 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
+        /// pnlContainerFases control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlContainerFases;
+        
+        /// <summary>
         /// rptFases control.
         /// </summary>
         /// <remarks>
@@ -76,15 +85,6 @@ namespace Modules.Contratos.Admin {
         protected global::System.Web.UI.WebControls.Button btnCorregirFechaFinal;
         
         /// <summary>
-        /// btnAgregarFase control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarFase;
-        
-        /// <summary>
         /// btnUnificar control.
         /// </summary>
         /// <remarks>
@@ -92,6 +92,15 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUnificar;
+        
+        /// <summary>
+        /// btnAgregarFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarFase;
         
         /// <summary>
         /// upSecciones control.
@@ -281,5 +290,158 @@ namespace Modules.Contratos.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mpeAdminNovedad;
+        
+        /// <summary>
+        /// upModalAddFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upModalAddFase;
+        
+        /// <summary>
+        /// pnlAdminAddFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAdminAddFase;
+        
+        /// <summary>
+        /// btnCancelarFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelarFase;
+        
+        /// <summary>
+        /// btnSaveFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveFase;
+        
+        /// <summary>
+        /// vsAddFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsAddFase;
+        
+        /// <summary>
+        /// rdbTipoNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbTipoNuevaFase;
+        
+        /// <summary>
+        /// trFaseEvaluacionNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trFaseEvaluacionNuevaFase;
+        
+        /// <summary>
+        /// ddlFaseEvaluacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFaseEvaluacion;
+        
+        /// <summary>
+        /// txtFechaInicioNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaInicioNuevaFase;
+        
+        /// <summary>
+        /// cextFechaInicioNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender cextFechaInicioNuevaFase;
+        
+        /// <summary>
+        /// lblFechaInicialNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFechaInicialNuevaFase;
+        
+        /// <summary>
+        /// txtFechaFinNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFinNuevaFase;
+        
+        /// <summary>
+        /// cextFechaFinNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender cextFechaFinNuevaFase;
+        
+        /// <summary>
+        /// txtObservacionesNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionesNuevaFase;
+        
+        /// <summary>
+        /// reqObservacionesNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqObservacionesNuevaFase;
+        
+        /// <summary>
+        /// btnPopUpAdminFaseTargetControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPopUpAdminFaseTargetControl;
+        
+        /// <summary>
+        /// mpAdminNuevaFase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender mpAdminNuevaFase;
     }
 }

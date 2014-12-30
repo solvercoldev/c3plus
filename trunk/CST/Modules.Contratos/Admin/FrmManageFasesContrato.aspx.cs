@@ -10,6 +10,7 @@ using Modules.Contratos.UI;
 using Presenters.Contratos.IViews;
 using Presenters.Contratos.Presenters;
 using System.Web.UI.HtmlControls;
+using Application.Core;
 
 namespace Modules.Contratos.Admin
 {
@@ -128,10 +129,34 @@ namespace Modules.Contratos.Admin
             ShowAdminWindow(true);
         }
 
+        protected void BtnAddFase_Click(object sender, EventArgs e)
+        {
+            TipoOperacion = "Adición Fase";
+            InitAddFase();
+            ShowAdminFase(true);
+        }
+
         protected void BtnSaveNovedad_Click(object sender, EventArgs e)
         {
             Presenter.SaveNovedad();
 
+            LoadUserControl();
+        }
+
+        protected void BtnSaveFase_Click(object sender, EventArgs e)
+        {
+            switch (PeriodoNuevaFase)
+            {
+                case "Evaluación":
+                    Presenter.AddFaseEvaluacion();
+                    break;
+                case "Exp.Posterior":
+                    Presenter.AddFaseExpPosterior();
+                    break;
+                case "Producción":
+                    Presenter.AddFaseProduccion();
+                    break;
+            }
             LoadUserControl();
         }
         
@@ -144,6 +169,47 @@ namespace Modules.Contratos.Admin
                 AddErrorMessages(messages);
                 return;
             }
+        }
+
+        #endregion
+
+        #region RadioButtons
+
+        protected void RdbTipoNuevaFase_IndexChanged(Object sender, EventArgs e)
+        {
+            trFaseEvaluacionNuevaFase.Visible = false;
+
+            switch (PeriodoNuevaFase)
+            {
+                case "Evaluación":                    
+                    txtFechaInicioNuevaFase.Visible = true;
+                    lblFechaInicialNuevaFase.Visible = false;
+                    LoadInfoAdminFase();
+                    break;
+                case "Exp.Posterior":
+                    txtFechaInicioNuevaFase.Visible = false;
+                    lblFechaInicialNuevaFase.Visible = true;
+                    LoadInfoFaseActual();
+                    break;
+                case "Producción":
+                    txtFechaInicioNuevaFase.Visible = false;
+                    lblFechaInicialNuevaFase.Visible = true;
+                    LoadFasesEvaluacion();
+                    LoadInfoFaseEvaluacion();
+                    break;
+            }
+            ShowAdminFase(true);
+        }
+
+        #endregion
+
+        #region TextBoxes
+
+        protected void TxtFechaInicioNuevaFase_TextChanged(Object sender, EventArgs e)
+        {
+            cextFechaFinNuevaFase.StartDate = FechaInicioNuevaFase.AddDays(1);
+            FechaFinNuevaFase = FechaInicioNuevaFase.AddDays(1);
+            ShowAdminFase(true);
         }
 
         #endregion
@@ -180,6 +246,22 @@ namespace Modules.Contratos.Admin
             }
 
             ShowAdminWindow(true);
+        }
+
+        protected void DdlFasesEvaluacion_IndexChanged(Object sender, EventArgs e)
+        {
+            var faseEvaluacion = FasesAdminList.Where(x => x.IdFase == IdFaseEvaluacion);
+
+            if (faseEvaluacion.Any())
+            {
+                cextFechaInicioNuevaFase.StartDate = faseEvaluacion.FirstOrDefault().FechaInicio.AddDays(1);
+                cextFechaFinNuevaFase.StartDate = faseEvaluacion.FirstOrDefault().FechaInicio.AddDays(2);
+
+                FechaInicioNuevaFase = faseEvaluacion.FirstOrDefault().FechaInicio.AddDays(1);
+                FechaFinNuevaFase = faseEvaluacion.FirstOrDefault().FechaInicio.AddDays(2);
+            }
+
+            ShowAdminFase(true);
         }
 
         #endregion
@@ -224,6 +306,7 @@ namespace Modules.Contratos.Admin
                     if (DateTime.Now >= item.FechaInicio && DateTime.Now <= item.FechaFinalizacion)
                     {
                         imgFase.ImageUrl = "~/Resources/images/sandglass.png";
+                        imgFase.Focus();
                         item.FaseActiva = true;
 
                         if (trFase != null)
@@ -387,7 +470,138 @@ namespace Modules.Contratos.Admin
             }
         }
 
+        private void InitAddFase()
+        {
+            ObservacionesNuevaFase = string.Empty;
+            LoadPeriodoNuevaFase();
+        }
 
+        void LoadPeriodoNuevaFase()
+        {
+            var periodoNuevaFase = new List<DTO_ValueKey>();
+            bool CanExploratorio = false;
+            bool CanProduccion = false;
+            trFaseEvaluacionNuevaFase.Visible = false;
+            lblFechaInicialNuevaFase.Visible = false;
+            txtFechaInicioNuevaFase.Visible = true;
+            periodoNuevaFase.Add(new DTO_ValueKey() { Id = "Evaluación", Value = "Evaluación" });
+
+            // Verificando si el contrato se encuentra en la ultima fase y es de tipo exploratorio
+            var fasesExploratorio = FasesAdminList.Where(x => (DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion)
+                                                  && x.FechaFinalizacion == FechaFinContrato
+                                                  && x.Periodo.Contains("Exploratorio")
+                                            );
+            CanExploratorio = fasesExploratorio.Any();
+
+            // Verificando si el contrato tiene fases de Evaluacion sin produccion
+            var fasesEvaluacion = FasesAdminList.Where(x => x.IsActive && x.TipoEvalFase == 1 && !x.TieneFaseProduccion);
+            CanProduccion = fasesEvaluacion.Any();
+
+            // Cargando Vista
+            cextFechaInicioNuevaFase.StartDate = FechaEfectivaContrato.AddDays(1);
+            cextFechaFinNuevaFase.StartDate = FechaEfectivaContrato.AddDays(2);
+            FechaInicioNuevaFase = FechaEfectivaContrato.AddDays(1);
+            FechaFinNuevaFase = FechaEfectivaContrato.AddDays(2);
+
+            if (CanExploratorio)
+            {
+                periodoNuevaFase.Add(new DTO_ValueKey() { Id = "Exp.Posterior", Value = "Exp.Posterior" });
+                var faseExp = fasesExploratorio.FirstOrDefault();
+
+                FechaInicioNuevaFase = faseExp.FechaInicio.AddDays(1);
+                FechaFinNuevaFase = faseExp.FechaFinalizacion;
+            }
+
+            if (CanProduccion)
+            {
+                periodoNuevaFase.Add(new DTO_ValueKey() { Id = "Producción", Value = "Producción" });                
+            }
+
+            rdbTipoNuevaFase.DataSource = periodoNuevaFase;
+            rdbTipoNuevaFase.DataTextField = "Value";
+            rdbTipoNuevaFase.DataValueField = "Id";
+            rdbTipoNuevaFase.DataBind();
+
+
+            rdbTipoNuevaFase.SelectedIndex = 0;
+        }
+
+        void LoadFasesEvaluacion()
+        {
+            var fasesEvaluacion = new List<Fases>();
+            var faseIni = new Fases();
+            var fases = FasesAdminList.Where(x => x.TipoEvalFase == 1 && x.IsActive && !x.TieneFaseProduccion);
+
+            if (fases.Any())
+            {
+                fasesEvaluacion = fases.ToList();
+                faseIni = fasesEvaluacion[0];
+
+                cextFechaInicioNuevaFase.StartDate = faseIni.FechaFinalizacion.AddDays(1);
+                cextFechaFinNuevaFase.StartDate = faseIni.FechaFinalizacion.AddDays(1);
+                FechaInicioNuevaFase = faseIni.FechaFinalizacion.AddDays(1);
+                FechaFinNuevaFase = FechaInicioNuevaFase.AddYears(1);
+
+                lblFechaInicialNuevaFase.Visible = true;
+                txtFechaInicioNuevaFase.Visible = false;
+            }
+
+            ddlFaseEvaluacion.DataSource = fasesEvaluacion;
+            ddlFaseEvaluacion.DataTextField = "Nombre";
+            ddlFaseEvaluacion.DataValueField = "IdFase";
+            ddlFaseEvaluacion.DataBind(); ;
+
+            trFaseEvaluacionNuevaFase.Visible = true;
+        }
+
+        void LoadInfoAdminFase()
+        {
+            // Verificando si el contrato se encuentra en la ultima fase y es de tipo exploratorio
+            var fasesExploratorio = FasesAdminList.Where(x => (DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion)
+                                                  && x.FechaFinalizacion == FechaFinContrato
+                                                  && x.Periodo == "Exploratorio"
+                                            );
+            // Cargando Vista
+            cextFechaInicioNuevaFase.StartDate = FechaEfectivaContrato.AddDays(1);
+            cextFechaFinNuevaFase.StartDate = FechaEfectivaContrato.AddDays(1);
+            FechaInicioNuevaFase = FechaEfectivaContrato.AddDays(1);
+            FechaFinNuevaFase = FechaEfectivaContrato.AddDays(1);
+
+            if (fasesExploratorio.Any())
+            {
+                var faseExp = fasesExploratorio.FirstOrDefault();
+                FechaInicioNuevaFase = faseExp.FechaInicio.AddDays(1);
+                FechaFinNuevaFase = faseExp.FechaFinalizacion;
+            }
+        }
+
+        void LoadInfoFaseEvaluacion()
+        {
+            var faseExploratoria = FasesAdminList.Where(x => x.IdFase == IdFaseEvaluacion);
+
+            if (faseExploratoria.Any())
+            {
+                cextFechaInicioNuevaFase.StartDate = faseExploratoria.FirstOrDefault().FechaFinalizacion.AddDays(1);
+                cextFechaFinNuevaFase.StartDate = faseExploratoria.FirstOrDefault().FechaFinalizacion.AddDays(1);
+
+                FechaInicioNuevaFase = faseExploratoria.FirstOrDefault().FechaFinalizacion.AddDays(1);
+                FechaFinNuevaFase = faseExploratoria.FirstOrDefault().FechaFinalizacion.AddDays(1);
+            }
+        }
+
+        void LoadInfoFaseActual()
+        {
+            var faseActual = FasesAdminList.Where(x => DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion);
+
+            if (faseActual.Any())
+            {
+                cextFechaInicioNuevaFase.StartDate = faseActual.FirstOrDefault().FechaFinalizacion.AddDays(1);
+                cextFechaFinNuevaFase.StartDate = faseActual.FirstOrDefault().FechaFinalizacion.AddDays(1);
+
+                FechaInicioNuevaFase = faseActual.FirstOrDefault().FechaFinalizacion.AddDays(1);
+                FechaFinNuevaFase = faseActual.FirstOrDefault().FechaFinalizacion.AddDays(1);
+            }
+        }
 
         #endregion
 
@@ -401,6 +615,14 @@ namespace Modules.Contratos.Admin
                 mpeAdminNovedad.Show();
             else
                 mpeAdminNovedad.Hide();
+        }
+
+        public void ShowAdminFase(bool visible)
+        {
+            if (visible)
+                mpAdminNuevaFase.Show();
+            else
+                mpAdminNuevaFase.Hide();
         }
         
         public void LoadFases(List<Fases> items)
@@ -508,7 +730,64 @@ namespace Modules.Contratos.Admin
             get { return Convert.ToInt32(ddlFaseOperacion.SelectedValue); }
             set { ddlFaseOperacion.SelectedValue = value.ToString(); }
         }
-        
+
+        public int IdFaseEvaluacion
+        {
+            get { return Convert.ToInt32(ddlFaseEvaluacion.SelectedValue); }
+            set { ddlFaseEvaluacion.SelectedValue = value.ToString(); }
+        }
+
+        public string PeriodoNuevaFase
+        {
+            get { return rdbTipoNuevaFase.SelectedValue; }
+            set { rdbTipoNuevaFase.SelectedValue = value; }
+        }
+
+        public string ObservacionesNuevaFase
+        {
+            get { return txtObservacionesNuevaFase.Text; }
+            set { txtObservacionesNuevaFase.Text = value; }
+        }
+
+        public DateTime FechaInicioNuevaFase
+        {
+            get { return Convert.ToDateTime(txtFechaInicioNuevaFase.Text); }
+            set 
+            {
+                txtFechaInicioNuevaFase.Text = value.ToString("dd/MM/yyyy");
+                lblFechaInicialNuevaFase.Text = value.ToString("dd/MM/yyyy");
+            }
+        }
+
+        public DateTime FechaFinNuevaFase
+        {
+            get { return Convert.ToDateTime(txtFechaFinNuevaFase.Text); }
+            set { txtFechaFinNuevaFase.Text = value.ToString("dd/MM/yyyy"); }
+        }
+
+        public DateTime FechaFinContrato
+        {
+            get
+            {
+                return Convert.ToDateTime(ViewState["ManageFases_FechaFinContrato"]);
+            }
+            set
+            {
+                ViewState["ManageFases_FechaFinContrato"] = value;
+            }
+        }
+
+        public DateTime FechaEfectivaContrato
+        {
+            get
+            {
+                return Convert.ToDateTime(ViewState["ManageFases_FechaEfectivaContrato"]);
+            }
+            set
+            {
+                ViewState["ManageFases_FechaEfectivaContrato"] = value;
+            }
+        }
 
         #endregion
 

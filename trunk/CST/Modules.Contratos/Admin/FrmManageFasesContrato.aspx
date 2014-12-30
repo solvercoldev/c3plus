@@ -51,86 +51,92 @@
             <td></td>
             <td>
                 <table class="tbl" width="100%">
-                    <asp:repeater id="rptFases" runat="server" OnItemDataBound="RptFases_ItemDataBound" >
-                        <HeaderTemplate>
-                            <tr>                    
-                                <th style="width:5%;">                        
-                                </th>
-                                <th style="width:25%;">
-                                    Período
-                                </th>
-                                <th style="width:8%;">
-                                    Fase
-                                </th>
-                                <th style="width:15%;">
-                                    Duración
-                                </th>
-                                <th style="width:20%;">
-                                    Fecha Inicio
-                                </th>
-                                <th style="width:20%;">
-                                    Fecha Fin
-                                </th>
-                                <th style="width:4%;">
-                                </th>
-                            </tr>
-                        </HeaderTemplate>   
-                        <ItemTemplate>
-                            <tr class="Normal" id="trFase" runat="server">
-                                 <td style="text-align:center; ">
-                                    <asp:HiddenField ID="hddIdFase" runat="server" />
-                                    <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblPeriodo" runat="server" />
-                                </td>
-                                <td style="text-align:center">                                    
-                                    <asp:Label ID="lblFase" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblDuracion" runat="server" />
-                                    -Meses
-                                </td>                                
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaInicio" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaFin" runat="server" />
-                                </td>                                
-                                <td >
-                                    <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
-                                </td>                          
-                            </tr>
-                        </ItemTemplate>
-                        <AlternatingItemTemplate>
-                            <tr class="Alternative" id="trFase" runat="server">
-                                 <td style="text-align:center; ">
-                                    <asp:HiddenField ID="hddIdFase" runat="server" />
-                                    <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblPeriodo" runat="server" />
-                                </td>
-                                <td style="text-align:center">                                    
-                                    <asp:Label ID="lblFase" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblDuracion" runat="server" />
-                                    -Meses
-                                </td>                                
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaInicio" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaFin" runat="server" />
-                                </td>                                
-                                <td >
-                                    <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
-                                </td>                          
-                            </tr>
-                        </AlternatingItemTemplate>
-                    </asp:repeater>
+                    <tr>                    
+                        <th style="width:5%;">                        
+                        </th>
+                        <th style="width:25%;">
+                            Período
+                        </th>
+                        <th style="width:8%;">
+                            Fase
+                        </th>
+                        <th style="width:15%;">
+                            Duración
+                        </th>
+                        <th style="width:18%;">
+                            Fecha Inicio
+                        </th>
+                        <th style="width:18%;">
+                            Fecha Fin
+                        </th>
+                        <th style="width:8%;">
+                        </th>
+                    </tr>
                 </table>
+                <asp:Panel ID="pnlContainerFases" runat="server" Width="100%" Height="170px" ScrollBars="Auto">
+                    <table class="tbl" width="100%">
+                        <asp:repeater id="rptFases" runat="server" OnItemDataBound="RptFases_ItemDataBound" >
+                            <ItemTemplate>
+                                <tr class="Normal" id="trFase" runat="server">
+                                    <td style="text-align:center; width:5%; ">
+                                        <asp:HiddenField ID="hddIdFase" runat="server" />
+                                        <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
+                                    </td>
+                                    <td style="text-align:center;width:25%;">
+                                        <asp:Label ID="lblPeriodo" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:8%;">                                    
+                                        <asp:Label ID="lblFase" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:15%;">
+                                        <asp:Label ID="lblDuracion" runat="server" />
+                                        -Meses
+                                    </td>                                
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaInicio" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaFin" runat="server" />
+                                    </td>                                
+                                    <td style="width:4%;">
+                                        <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
+                                    </td>  
+                                    <td style="width:1%;">
+                                    </td>                          
+                                </tr>
+                            </ItemTemplate>
+                            <AlternatingItemTemplate>
+                                <tr class="Alternative" id="trFase" runat="server">
+                                    <td style="text-align:center; width:5%; ">
+                                        <asp:HiddenField ID="hddIdFase" runat="server" />
+                                        <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
+                                    </td>
+                                    <td style="text-align:center;width:25%;">
+                                        <asp:Label ID="lblPeriodo" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:8%;">                                    
+                                        <asp:Label ID="lblFase" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:15%;">
+                                        <asp:Label ID="lblDuracion" runat="server" />
+                                        -Meses
+                                    </td>                                
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaInicio" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaFin" runat="server" />
+                                    </td>                                
+                                    <td style="width:4%;">
+                                        <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
+                                    </td>  
+                                    <td style="width:1%;">
+                                    </td>                  
+                                </tr>
+                            </AlternatingItemTemplate>
+                        </asp:repeater>
+                    </table>
+                </asp:Panel>                
             </td>
             
             <td></td>
@@ -139,11 +145,11 @@
                 <br />
                 <asp:Button ID="btnProrrogar" runat="server" Text="Prorrogar Fase" Width="125px" CommandArgument="Prorroga" OnClick="BtnAddNovedad_Click" CausesValidation="false" />                
                 <br />
-                <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" CausesValidation="false" />                
+                <asp:Button ID="btnCorregirFechaFinal" runat="server" Text="Corregir Fecha Final" Width="125px" CommandArgument="CorrecciónFechaFin" OnClick="BtnAddNovedad_Click" CausesValidation="false" />                                
                 <br />
-                <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px" CausesValidation="false" Visible="false" />
-                <%--<br />--%>
                 <asp:Button ID="btnUnificar" runat="server" Text="Unificar Fase" Width="125px" CommandArgument="Unificación" OnClick="BtnAddNovedad_Click" CausesValidation="false" />
+                <br />
+                <asp:Button ID="btnAgregarFase" runat="server" Text="Agregar Fase" Width="125px"  OnClick="BtnAddFase_Click" CausesValidation="false" />
             </td>
             <td></td>
         </tr>
@@ -303,6 +309,139 @@
         PopupControlID="pnlAdminNovedad" 
         BackgroundCssClass="ModalPopupBG" DropShadow="true" 
         cancelcontrolid="divCloseAdminNovedad"> 
+        </ajaxToolkit:ModalPopupExtender>   
+    </ContentTemplate>
+    <Triggers>
+    </Triggers>
+</asp:UpdatePanel>
+
+<asp:UpdatePanel ID="upModalAddFase" runat="server">
+    <ContentTemplate> 
+        <asp:Panel ID="pnlAdminAddFase"  runat="server" CssClass="popup_Container" Width="550px" Height="300px" style="display:none;">  
+
+            <div class="popup_Titlebar" id="PopupHeaderAddFase">
+                <div class="TitlebarLeft">
+                    Adicionar Nueva Fase
+                </div>
+                <div class="TitlebarRight" id="divCloseAdminAddFase">
+                </div>
+            </div>
+
+            <div style="padding:3px; text-align:right;">
+                <asp:Button ID="btnCancelarFase" runat="server" Text="Regresar" CausesValidation="false"  />
+                <asp:Button ID="btnSaveFase" runat="server" Text="Confirmar Fase" OnClick="BtnSaveFase_Click" ValidationGroup="vgAddFase" />
+            </div>
+
+            <asp:ValidationSummary ID="vsAddFase" runat="server" DisplayMode="BulletList" ShowMessageBox="false" CssClass="validator" ShowSummary="true" ValidationGroup="vgAddFase"/>
+
+            <div class="popup_Body">                                                    
+                <table width="100%" class="tblSecciones">
+                    <tr>
+                        <th style="width: 30%;">
+                        </th>
+
+                        <td style="width: 5px;"></td>
+
+                        <td class="Line" style="width:60%;">
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:left; vertical-align:top">
+                            Período :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line">
+                            <asp:RadioButtonList ID="rdbTipoNuevaFase" runat="server" RepeatLayout="Table" RepeatDirection="Vertical" RepeatColumns="3" OnSelectedIndexChanged="RdbTipoNuevaFase_IndexChanged" AutoPostBack="true" />
+                        </td>
+
+                        <td class="Separador">
+
+                        </td>
+                    </tr>
+                    <tr id="trFaseEvaluacionNuevaFase" runat="server" visible="false">
+                        <th style="text-align:left; vertical-align:top">
+                            Fase Evaluación :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line">
+                            <asp:DropDownList ID="ddlFaseEvaluacion" runat="server" Width="90%" OnSelectedIndexChanged="DdlFasesEvaluacion_IndexChanged" AutoPostBack="true" />
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr>
+                    <tr >
+                        <th style="text-align:left; vertical-align:top">
+                            Fecha Inicial :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line">
+                            <asp:TextBox ID="txtFechaInicioNuevaFase" OnKeyDown="return false;" runat="server" OnTextChanged="TxtFechaInicioNuevaFase_TextChanged" AutoPostBack="true" />
+                            <ajaxToolkit:CalendarExtender 
+                                    ID="cextFechaInicioNuevaFase" 
+                                    runat="server"  
+                                    TargetControlID="txtFechaInicioNuevaFase" 
+                                    PopupButtonID="txtFechaInicioNuevaFase"
+                                    Format="dd/MM/yyyy"/>
+                            <asp:Label ID="lblFechaInicialNuevaFase" runat="server" Visible="false" />
+                        </td>                        
+
+                        <td class="Separador"></td>
+                    </tr>
+                    <tr >
+                        <th style="text-align:left; vertical-align:top">
+                            Fecha Final :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line">
+                            <asp:TextBox ID="txtFechaFinNuevaFase" OnKeyDown="return false;" runat="server" />
+                            <ajaxToolkit:CalendarExtender 
+                                    ID="cextFechaFinNuevaFase" 
+                                    runat="server"  
+                                    TargetControlID="txtFechaFinNuevaFase" 
+                                    PopupButtonID="txtFechaFinNuevaFase"
+                                    Format="dd/MM/yyyy"/>
+                        </td>
+
+                        <td class="Separador"></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align:left; vertical-align:top">
+                            Observaciones :
+                        </th>
+
+                        <td class="Separador"></td>
+
+                        <td class="Line">
+                            <asp:TextBox ID="txtObservacionesNuevaFase" runat="server" TextMode="MultiLine" Rows="4" Width="98%" />
+                        </td>
+
+                        <td class="Separador">
+                            <asp:RequiredFieldValidator ID="reqObservacionesNuevaFase" runat="server" ForeColor="Red" ControlToValidate="txtObservacionesNuevaFase" ValidationGroup="vgAddFase" ErrorMessage="Es necesario ingresar las observaciones">*</asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </asp:Panel>
+    
+        <asp:Button ID="btnPopUpAdminFaseTargetControl" runat="server" style="display:none; "/>    
+
+        <ajaxToolkit:ModalPopupExtender 
+        ID="mpAdminNuevaFase" 
+        runat="server" 
+        TargetControlID="btnPopUpAdminFaseTargetControl" 
+        PopupControlID="pnlAdminAddFase" 
+        BackgroundCssClass="ModalPopupBG" DropShadow="true" 
+        cancelcontrolid="divCloseAdminAddFase"> 
         </ajaxToolkit:ModalPopupExtender>   
     </ContentTemplate>
     <Triggers>

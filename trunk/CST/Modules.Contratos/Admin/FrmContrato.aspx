@@ -130,89 +130,95 @@
                     </tr>                    
                 </table>
             </td>
-            <td></td>
+            <td style="width:10px;"></td>
             <td>
                 <table class="tbl" width="100%">
-                    <asp:repeater id="rptFases" runat="server" OnItemDataBound="RptFases_ItemDataBound" >
-                        <HeaderTemplate>
-                            <tr>                    
-                                <th style="width:6%;">                        
-                                </th>
-                                <th style="width:25%;">
-                                    Periodo
-                                </th>
-                                <th style="width:8%;">
-                                    Fase
-                                </th>
-                                <th style="width:15%;">
-                                    Duración
-                                </th>
-                                <th style="width:20%;">
-                                    Fecha Inicio
-                                </th>
-                                <th style="width:20%;">
-                                    Fecha Fin
-                                </th>
-                                <th style="width:2%;">
-                                </th>
-                            </tr>
-                        </HeaderTemplate>   
-                        <ItemTemplate>
-                            <tr class="Normal" id="trFase" runat="server">
-                                <td style="text-align:center;">
-                                    <asp:HiddenField ID="hddIdFase" runat="server" />
-                                    <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblPeriodo" runat="server" />
-                                </td>
-                                <td style="text-align:center">                                    
-                                    <asp:Label ID="lblFase" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblDuracion" runat="server" />
-                                    -Meses
-                                </td>                                
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaInicio" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaFin" runat="server" />
-                                </td>                                
-                                <td >
-                                    <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
-                                </td>                    
-                            </tr>
-                        </ItemTemplate>
-                        <AlternatingItemTemplate>
-                            <tr class="Alternative" id="trFase" runat="server" >
-                                <td style="text-align:center;">
-                                    <asp:HiddenField ID="hddIdFase" runat="server" />
-                                    <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblPeriodo" runat="server" />
-                                </td>
-                                <td style="text-align:center">                                    
-                                    <asp:Label ID="lblFase" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblDuracion" runat="server" />
-                                    -Meses
-                                </td>                                
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaInicio" runat="server" />
-                                </td>
-                                <td style="text-align:center">
-                                    <asp:Label ID="lblFechaFin" runat="server" />
-                                </td>                                
-                                <td >
-                                    <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
-                                </td>                    
-                            </tr>
-                        </AlternatingItemTemplate>
-                    </asp:repeater>
+                     <tr>                    
+                        <th style="width:5%;">                        
+                        </th>
+                        <th style="width:20%;">
+                            Periodo
+                        </th>
+                        <th style="width:8%;">
+                            Fase
+                        </th>
+                        <th style="width:15%;">
+                            Duración
+                        </th>
+                        <th style="width:18%;">
+                            Fecha Inicio
+                        </th>
+                        <th style="width:18%;">
+                            Fecha Fin
+                        </th>
+                        <th style="width:8%;">
+                        </th>
+                    </tr>                    
                 </table>
+                <asp:Panel ID="pnlContainerFases" runat="server" Width="100%" Height="170px" ScrollBars="Auto">
+                    <table class="tbl" width="100%">
+                        <asp:repeater id="rptFases" runat="server" OnItemDataBound="RptFases_ItemDataBound" >                       
+                            <ItemTemplate>
+                                <tr class="Normal" id="trFase" runat="server">
+                                    <td style="text-align:center;width:5%;">
+                                        <asp:HiddenField ID="hddIdFase" runat="server" />
+                                        <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
+                                    </td>
+                                    <td style="text-align:center;width:20%;">
+                                        <asp:Label ID="lblPeriodo" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:8%;">                                    
+                                        <asp:Label ID="lblFase" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:15%;">
+                                        <asp:Label ID="lblDuracion" runat="server" />
+                                        -Meses
+                                    </td>                                
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaInicio" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaFin" runat="server" />
+                                    </td>                                
+                                    <td style="width:4%;">
+                                        <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
+                                    </td>   
+                                     <td style="width:1%;">
+                                    </td>                    
+                                </tr>
+                            </ItemTemplate>
+                            <AlternatingItemTemplate>
+                                <tr class="Alternative" id="trFase" runat="server" >
+                                    <td style="text-align:center;width:5%;">
+                                        <asp:HiddenField ID="hddIdFase" runat="server" />
+                                        <asp:Image ID="imgFase" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/check.png" />
+                                    </td>
+                                    <td style="text-align:center;width:20%;">
+                                        <asp:Label ID="lblPeriodo" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:8%;">                                    
+                                        <asp:Label ID="lblFase" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:15%;">
+                                        <asp:Label ID="lblDuracion" runat="server" />
+                                        -Meses
+                                    </td>                                
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaInicio" runat="server" />
+                                    </td>
+                                    <td style="text-align:center;width:18%;">
+                                        <asp:Label ID="lblFechaFin" runat="server" />
+                                    </td>                                
+                                    <td style="width:4%;">
+                                        <asp:Image ID="imgeUnify" runat="server" Width="12px" Height="12px" ImageUrl="~/Resources/Images/unification.png" Visible="false" />
+                                    </td>   
+                                     <td style="width:1%;">
+                                    </td>             
+                                </tr>
+                            </AlternatingItemTemplate>
+                        </asp:repeater>
+                    </table>
+                </asp:Panel>                
             </td>
         </tr>
         
