@@ -39,9 +39,52 @@ namespace Application.MainModule.SqlServices.Services
             }
             catch (Exception ex)
             {
-                throw new SqlExecutionException("InsertUsuarioCopiaComentario", ex);
+                throw new SqlExecutionException("Vistas_AllCompromisos", ex);
             }
         }
+
+        public DataTable GetCompromisosPendientesView(string usuario)
+        {
+            var sql = "Vistas_MisCompromisosPendientes";
+
+            try
+            {
+                return _sql.ExecuteDataTable(sql, CommandType.StoredProcedure, new SqlParameter("@IdUsuario", usuario));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("Vistas_MisCompromisosPendientes", ex);
+            }
+        }
+
+        public DataTable GetRadicadosView()
+        {
+            var sql = "Vistas_AllRadicados";
+
+            try
+            {
+                return _sql.ExecuteDataTable(sql, CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("Vistas_AllRadicados", ex);
+            }
+        }
+
+        public DataTable GetRadicadosPendientesView(int idUsuario)
+        {
+            var sql = "Vistas_MisRadicadosPendientes";
+
+            try
+            {
+                return _sql.ExecuteDataTable(sql, CommandType.StoredProcedure, new SqlParameter("@IdUsuario", idUsuario));
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("Vistas_MisRadicadosPendientes", ex);
+            }
+        }
+
 
         public void ExtenderFase(int idFase, DateTime fechaFin)
         {

@@ -130,5 +130,14 @@
     <NotInBuild Include="Scripts\Modules\Contratos\Radicados\01_DeleteDocumentoRadicado.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Vistas\02_Vistas_AllRadicados.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Vistas\03_Vistas_MisCompromisosPendientes.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Vistas\04_Vistas_MisRadicadosPendientes.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
   </ItemGroup>
 </Project>

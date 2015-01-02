@@ -9,6 +9,9 @@ namespace Application.MainModule.SqlServices.IServices
         void DeleteContrato(int idContrato);
 
         DataTable GetCompromisosView();
+        DataTable GetCompromisosPendientesView(string usuario);
+        DataTable GetRadicadosView();
+        DataTable GetRadicadosPendientesView(int idUsuario);
 
         DataTable GetBloquesSinContrato();
 

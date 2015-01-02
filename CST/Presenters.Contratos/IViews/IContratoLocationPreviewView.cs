@@ -12,6 +12,7 @@ namespace Presenters.Contratos.IViews
 
         string NombreContrato { get; set; }
         string NumeroContrato { get; set; }
+        string DescripcionContrato { get; set; }
         string EstadoContrato { get; set; }
         string Empresa { get; set; }
         string Bloque { get; set; }

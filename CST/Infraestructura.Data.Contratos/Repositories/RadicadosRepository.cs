@@ -35,6 +35,8 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
                 //perform operation in this repository
                 var specific = specification.SatisfiedBy();
                 return activeContext.Radicados
+                                    .Include(x => x.Contratos)
+                                    .Include(x => x.Contratos.Bloques)
                                     .Include(x => x.TBL_Admin_Usuarios)
                                     .Include(x => x.TBL_Admin_Usuarios1)
                                     .Include(x => x.TBL_Admin_Usuarios2)

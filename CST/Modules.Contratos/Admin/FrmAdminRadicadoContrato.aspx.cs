@@ -84,6 +84,12 @@ namespace Modules.Contratos.Admin
             EnableEdit(false);
         }
 
+        protected void BtnSendNotify_Click(object sender, EventArgs e)
+        {
+            Presenter.SendNotifyMail();
+            ShowMessageOk("Notificación Enviada a Responsable");
+        }
+
         protected void BtnAddNovedad_Click(object sender, EventArgs e)
         {
             var btn = (Button)sender;
@@ -174,8 +180,9 @@ namespace Modules.Contratos.Admin
             //ddlMoneda.Visible = enable;
 
             btnSave.Visible = enable;
+            btnSendNotify.Visible = !enable;
 
-            btnEdit.Visible = !enable;
+            btnEdit.Visible = !enable;            
             btnAnular.Visible = !enable;
             btnMarcarOk.Visible = !enable;
             btnReprogramar.Visible = !enable;
@@ -265,8 +272,11 @@ namespace Modules.Contratos.Admin
         {
             switch (FromPage)
             {
-                case "vcompromisos":
-                    Response.Redirect(string.Format("../Views/FrmTotalCompromisos.aspx?ModuleId={0}", ModuleId));
+                case "vradicados":
+                    Response.Redirect(string.Format("../Views/FrmTotalRadicados.aspx?ModuleId={0}", ModuleId));
+                    break;
+                case "misradpendiente":
+                    Response.Redirect(string.Format("../Views/MisRadicadosPendientes.aspx?ModuleId={0}", ModuleId));
                     break;
                 case "fases":
                     Response.Redirect(string.Format("FrmManageFasesContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));

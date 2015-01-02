@@ -23,6 +23,8 @@ using Microsoft.Practices.Unity.InterceptionExtension;
 using Infraestructure.CrossCutting.NetCommunication;
 using Application.MainModule.SqlServices.Services;
 using Application.MainModule.SqlServices.IServices;
+using Application.MainModule.Communication.Services;
+using Application.MainModule.Communication.IServices;
 
 namespace Infrastructure.CrossCutting.IoC
 {
@@ -133,6 +135,9 @@ namespace Infrastructure.CrossCutting.IoC
             container.RegisterType<IEmailTemplateEngine, SimpleEmailTemplateEngine>(new TransientLifetimeManager());
             container.RegisterType<IEmailSender, SmtpNet2EmailSender>(new TransientLifetimeManager());
             container.RegisterType<ISystemActionsManagementServices, SystemActionsManagementServices>(new TransientLifetimeManager());
+
+            container.RegisterType<IContratoMailService, ContratoMailService>(new TransientLifetimeManager());
+
             #endregion
 
             #region Servicios Capa de Dominio

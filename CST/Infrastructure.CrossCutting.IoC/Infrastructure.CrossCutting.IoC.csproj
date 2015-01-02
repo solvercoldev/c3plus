@@ -72,6 +72,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application.MainModule.Communication\Application.MainModule.Communication.csproj">
+      <Project>{91486A82-654D-4A25-B9A9-C1DEB34698A7}</Project>
+      <Name>Application.MainModule.Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Application.MainModule.ExportExcel\Application.MainModule.ExportExcel.csproj">
       <Project>{2C0DDACE-A17D-43FA-913D-23CF5FCD568F}</Project>
       <Name>Application.MainModule.ExportExcel</Name>

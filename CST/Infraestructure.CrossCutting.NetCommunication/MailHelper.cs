@@ -79,17 +79,23 @@ namespace Infraestructure.CrossCutting.NetCommunication
                     _MailMessage.To.Add(sTO);
             }
             // Adicionando Copia
-            foreach (string sCC in SMTP_CC)
+            if (SMTP_CC != null)
             {
-                if (!string.IsNullOrEmpty(sCC))
-                    _MailMessage.CC.Add(sCC);
-            }
+                foreach (string sCC in SMTP_CC)
+                {
+                    if (!string.IsNullOrEmpty(sCC))
+                        _MailMessage.CC.Add(sCC);
+                }
+            }            
             // Adicionando Copia Oculta
-            foreach (string sBCC in SMTP_BCC)
+            if (SMTP_BCC != null)
             {
-                if (!string.IsNullOrEmpty(sBCC))
-                    _MailMessage.Bcc.Add(sBCC);
-            }
+                foreach (string sBCC in SMTP_BCC)
+                {
+                    if (!string.IsNullOrEmpty(sBCC))
+                        _MailMessage.Bcc.Add(sBCC);
+                }
+            }            
             // Adicionando Archivos Adjuntos
             if (AttachementsFileList != null)
             {

@@ -25,6 +25,7 @@ namespace Presenters.Contratos.IViews
         void LoadInitControl();
 
         // Nueva Fase
+        int TotalFasesExpPosterior { get; set; }
         string PeriodoNuevaFase { get; set; }
         string ObservacionesNuevaFase { get; set; }
         DateTime FechaInicioNuevaFase { get; set; }

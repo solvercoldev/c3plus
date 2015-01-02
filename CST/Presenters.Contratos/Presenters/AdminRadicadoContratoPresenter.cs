@@ -8,6 +8,8 @@ using Domain.MainModules.Entities;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using System.Collections.Generic;
+using Application.MainModule.Communication.IServices;
+using System.Threading;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -17,18 +19,21 @@ namespace Presenters.Contratos.Presenters
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
         readonly ISfRadicadosManagementServices _radicadoService;
         readonly ISfDocumentosRadicadoManagementServices _documentoRadicadoService;
+        readonly IContratoMailService _contratoMailService;
         readonly ISfLogContratosManagementServices _log;
 
         public AdminRadicadoContratoPresenter(ISfContratosManagementServices contratoService,
                                                 ISfTBL_Admin_UsuariosManagementServices usuariosService,
                                                 ISfRadicadosManagementServices radicadoService,
                                                 ISfDocumentosRadicadoManagementServices documentoRadicadoService,
+                                                IContratoMailService contratoMailService,
                                                 ISfLogContratosManagementServices log)
         {
             _contratoService = contratoService;
             _usuariosService = usuariosService;
             _radicadoService = radicadoService;
             _documentoRadicadoService = documentoRadicadoService;
+            _contratoMailService = contratoMailService;
             _log = log;
         }
 
@@ -183,6 +188,17 @@ namespace Presenters.Contratos.Presenters
             {
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
+        }
+
+        public void SendNotifyMail()
+        {
+            object[] parameters = new object[3];
+            parameters[0] = Convert.ToInt64(View.IdRadicado);
+            parameters[1] = Convert.ToInt32(View.IdModule);
+            parameters[2] = ServerHostPath;
+
+            Thread mailThread = new Thread(_contratoMailService.SendRadicadoMailNotification);
+            mailThread.Start(parameters);
         }
       
         public void SaveRadicado()

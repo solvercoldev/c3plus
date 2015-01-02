@@ -105,6 +105,7 @@ namespace Presenters.Contratos.Presenters
                 {
                     View.NombreContrato = string.Format("{0} - ", contrato.Nombre);
                     View.NumeroContrato = contrato.NumeroContrato;
+                    View.DescripcionContrato = contrato.Descripcion;
                     View.EstadoContrato = contrato.Estado;
                     View.Empresa = contrato.Empresas.RazonSocial;
                     View.Bloque = contrato.Bloques.Descripcion;
@@ -145,7 +146,7 @@ namespace Presenters.Contratos.Presenters
                     {
                         var dtoMark = new Dto_GoogleMapMarker();
                         dtoMark.Name = contrato.Nombre;
-                        dtoMark.Description = contrato.Descripcion;
+                        dtoMark.Description = contrato.Nombre;
                         dtoMark.Latitude = string.Format("{0}", contrato.GLatitud.Value).Replace(',', '.');
                         dtoMark.Longitude = string.Format("{0}", contrato.GLongitud.Value).Replace(',', '.');
 
@@ -179,6 +180,7 @@ namespace Presenters.Contratos.Presenters
                 }
 
                 model.NumeroContrato = View.NumeroContrato;
+                model.Descripcion = View.DescripcionContrato;
                 model.IdEmpresa = View.IdEmpresa;
                 model.IdBloque = View.IdBloque;
                 model.IdTipoContrato = View.IdTipoContrato;
