@@ -103,7 +103,10 @@
     <Content Include="UserControls\WuCAdminRadicadosContrato.ascx" />
     <Content Include="UserControls\WuCLogContratos.ascx" />
     <Content Include="Views\FrmTotalCompromisos.aspx" />
+    <Content Include="Views\FrmTotalRadicados.aspx" />
     <Content Include="Views\GeneralContractList.aspx" />
+    <Content Include="Views\MisCompromisosPendientes.aspx" />
+    <Content Include="Views\MisRadicadosPendientes.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -263,12 +266,33 @@
     <Compile Include="Views\FrmTotalCompromisos.aspx.designer.cs">
       <DependentUpon>FrmTotalCompromisos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmTotalRadicados.aspx.cs">
+      <DependentUpon>FrmTotalRadicados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FrmTotalRadicados.aspx.designer.cs">
+      <DependentUpon>FrmTotalRadicados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\GeneralContractList.aspx.cs">
       <DependentUpon>GeneralContractList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\GeneralContractList.aspx.designer.cs">
       <DependentUpon>GeneralContractList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MisCompromisosPendientes.aspx.cs">
+      <DependentUpon>MisCompromisosPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MisCompromisosPendientes.aspx.designer.cs">
+      <DependentUpon>MisCompromisosPendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MisRadicadosPendientes.aspx.cs">
+      <DependentUpon>MisRadicadosPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MisRadicadosPendientes.aspx.designer.cs">
+      <DependentUpon>MisRadicadosPendientes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -65,7 +65,7 @@ from	@FasesPosteriores
 
 -- Calculando Fechas Para Fases Posteriores		
 set	@IndexFases = 1
-set	@FechaAux = dateadd(dd,1,@FechaInicio)
+set	@FechaAux = @FechaInicio
 
 while @IndexFases <= @TotalFasesPost
 begin
@@ -75,11 +75,11 @@ begin
 	
 	update	f
 	set		f.FechaInicio =	@FechaAux
-			,f.FechaFinalizacion = dateadd(dd,-1,dateadd(mm,DuracionMeses,@FechaAux))
+			,f.FechaFinalizacion = dateadd(mm,DuracionMeses,@FechaAux)
 	from	@FasesPosteriores f
 	where	f.Id = @IndexFases
 	
-	set @FechaAux = dateadd(mm,@AuxDuracionMeses,@FechaAux)
+	set @FechaAux = dateadd(dd,1,dateadd(mm,@AuxDuracionMeses,@FechaAux))
 	set	@IndexFases = @IndexFases + 1
 	
 end

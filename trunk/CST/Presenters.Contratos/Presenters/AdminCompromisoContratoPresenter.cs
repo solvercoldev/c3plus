@@ -8,6 +8,8 @@ using Domain.MainModules.Entities;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using System.Collections.Generic;
+using Application.MainModule.Communication.IServices;
+using System.Threading;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -20,6 +22,7 @@ namespace Presenters.Contratos.Presenters
         readonly ISfTiposPagoObligacionManagementServices _tipoPagoObligacionService;
         readonly ISfTercerosManagementServices _tercerosService;
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
+        readonly IContratoMailService _contratoMailService;
         readonly ISfLogContratosManagementServices _log;
 
         public AdminCompromisoContratoPresenter(ISfContratosManagementServices contratoService,
@@ -29,6 +32,7 @@ namespace Presenters.Contratos.Presenters
                                                 ISfTiposPagoObligacionManagementServices tipoPagoObligacionService,
                                                 ISfTercerosManagementServices tercerosService,
                                                 ISfTBL_Admin_UsuariosManagementServices usuariosService,
+                                                IContratoMailService contratoMailService,
                                                 ISfLogContratosManagementServices log)
         {
             _contratoService = contratoService;
@@ -38,6 +42,7 @@ namespace Presenters.Contratos.Presenters
             _tipoPagoObligacionService = tipoPagoObligacionService;
             _tercerosService = tercerosService;
             _usuariosService = usuariosService;
+            _contratoMailService = contratoMailService;
             _log = log;
         }
 
@@ -272,6 +277,17 @@ namespace Presenters.Contratos.Presenters
             {
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
+        }
+
+        public void SendNotifyMail()
+        {
+            object[] parameters = new object[3];
+            parameters[0] = Convert.ToInt64(View.IdCompromiso);
+            parameters[1] = Convert.ToInt32(View.IdModule);
+            parameters[2] = ServerHostPath;
+
+            Thread mailThread = new Thread(_contratoMailService.SendCompromisoMailNotification);
+            mailThread.Start(parameters);
         }
 
         public void AddNovedadCompromiso()

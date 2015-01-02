@@ -28,9 +28,8 @@
 		                <br />
                         <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword" Text="Password"></asp:Label>
 		                <asp:TextBox id="txtPassword" runat="server" MaxLength="18" textmode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredtxtPassword" ControlToValidate="txtPassword" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>
-		                <br />
-		                <asp:Label id="lblError" runat="server" enableviewstate="False" visible="False" CssClass="loginerror"></asp:Label>
+                        <asp:RequiredFieldValidator ID="RequiredtxtPassword" ControlToValidate="txtPassword" runat="server" ErrorMessage="*"></asp:RequiredFieldValidator>		                
+		                <asp:Label id="lblError" runat="server" enableviewstate="False" visible="False" CssClass="loginerror" Font-Size="8pt" />
 	                    <div id="btnLoginwrap"><asp:Button id="btnLogin" CssClass="btnLogin" runat="server" 
                                 Text="Login" onclick="BtnLoginClick"></asp:Button></div>
 	                </div>

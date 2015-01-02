@@ -488,10 +488,13 @@ namespace Modules.Contratos.Admin
 
             // Verificando si el contrato se encuentra en la ultima fase y es de tipo exploratorio
             var fasesExploratorio = FasesAdminList.Where(x => (DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion)
-                                                  && x.FechaFinalizacion == FechaFinContrato
-                                                  && x.Periodo.Contains("Exploratorio")
-                                            );
-            CanExploratorio = fasesExploratorio.Any();
+                                                  && x.Periodo.Contains("Exp")
+                                                  ).OrderByDescending(x => x.IdFase);
+
+            var fasesExploratorioPosterior = FasesAdminList.Where(x =>  x.Periodo.Contains("Exp.Posterior")
+                                                  );
+
+            CanExploratorio = fasesExploratorio.Any() && fasesExploratorioPosterior.Count() < TotalFasesExpPosterior;
 
             // Verificando si el contrato tiene fases de Evaluacion sin produccion
             var fasesEvaluacion = FasesAdminList.Where(x => x.IsActive && x.TipoEvalFase == 1 && !x.TieneFaseProduccion);
@@ -558,9 +561,8 @@ namespace Modules.Contratos.Admin
         {
             // Verificando si el contrato se encuentra en la ultima fase y es de tipo exploratorio
             var fasesExploratorio = FasesAdminList.Where(x => (DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion)
-                                                  && x.FechaFinalizacion == FechaFinContrato
-                                                  && x.Periodo == "Exploratorio"
-                                            );
+                                                  && x.Periodo.Contains("Exp")
+                                            ).OrderByDescending(x => x.IdFase);
             // Cargando Vista
             cextFechaInicioNuevaFase.StartDate = FechaEfectivaContrato.AddDays(1);
             cextFechaFinNuevaFase.StartDate = FechaEfectivaContrato.AddDays(1);
@@ -591,7 +593,7 @@ namespace Modules.Contratos.Admin
 
         void LoadInfoFaseActual()
         {
-            var faseActual = FasesAdminList.Where(x => DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion);
+            var faseActual = FasesAdminList.Where(x => x.Periodo.Contains("Exp")).OrderByDescending(x => x.IdFase);
 
             if (faseActual.Any())
             {
@@ -627,6 +629,9 @@ namespace Modules.Contratos.Admin
         
         public void LoadFases(List<Fases> items)
         {
+            if (items.Any())
+                items = items.OrderBy(x => x.FechaInicio).ToList();
+
             rptFases.DataSource = items;
             rptFases.DataBind();
 
@@ -789,8 +794,20 @@ namespace Modules.Contratos.Admin
             }
         }
 
-        #endregion
+        public int TotalFasesExpPosterior
+        {
+            get
+            {
+                return Convert.ToInt32(ViewState["ManageFases_TotalFasesExpPosterior"]);
+            }
+            set
+            {
+                ViewState["ManageFases_TotalFasesExpPosterior"] = value;
+            }
+        }
 
         #endregion
+
+        #endregion       
     }
 }

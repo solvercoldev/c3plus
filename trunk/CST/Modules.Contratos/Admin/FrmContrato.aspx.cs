@@ -316,6 +316,9 @@ namespace Modules.Contratos.Admin
         
         public void LoadFases(List<Fases> items)
         {
+            if (items.Any())
+                items = items.OrderBy(x => x.FechaInicio).ToList();
+
             rptFases.DataSource = items;
             rptFases.DataBind();
         }

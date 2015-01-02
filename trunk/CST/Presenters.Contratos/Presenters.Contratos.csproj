@@ -57,9 +57,12 @@
     <Compile Include="IViews\IContratoLocationPreviewView.cs" />
     <Compile Include="IViews\ILogContratosView.cs" />
     <Compile Include="IViews\IManageFasesContratoView.cs" />
+    <Compile Include="IViews\IMisCompromisosPendientesView.cs" />
+    <Compile Include="IViews\IMisRadicadosPendientesView.cs" />
     <Compile Include="IViews\INewCompromisoContratoView.cs" />
     <Compile Include="IViews\INewRadicadoContratoView.cs" />
     <Compile Include="IViews\ITotalCompromisosView.cs" />
+    <Compile Include="IViews\ITotalRadicadosView.cs" />
     <Compile Include="Presenters\AdminComentarioRespuestaPresenter.cs" />
     <Compile Include="Presenters\AdminComentariosContratoPresenter.cs" />
     <Compile Include="Presenters\AdminCompromisoContratoPresenter.cs" />
@@ -81,9 +84,12 @@
     <Compile Include="Presenters\ContratoPresenter.cs" />
     <Compile Include="Presenters\LogContratosPresenter.cs" />
     <Compile Include="Presenters\ManageFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\MisCompromisosPendientesPresenter.cs" />
+    <Compile Include="Presenters\MisRadicadosPendientesPresenter.cs" />
     <Compile Include="Presenters\NewCompromisoContratoPresenter.cs" />
     <Compile Include="Presenters\NewRadicadoContratoPresenter.cs" />
     <Compile Include="Presenters\TotalCompromisosPresenter.cs" />
+    <Compile Include="Presenters\TotalRadicadosPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Messages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -95,6 +101,10 @@
     <ProjectReference Include="..\Application.Core\Application.Core.csproj">
       <Project>{43E44D76-4378-4A99-9100-7C5CDFB9DAC0}</Project>
       <Name>Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.MainModule.Communication\Application.MainModule.Communication.csproj">
+      <Project>{91486A82-654D-4A25-B9A9-C1DEB34698A7}</Project>
+      <Name>Application.MainModule.Communication</Name>
     </ProjectReference>
     <ProjectReference Include="..\Application.MainModule.Contratos\Application.MainModule.Contratos.csproj">
       <Project>{6EB59DCD-4D37-4BBB-89B7-E180B0749A5C}</Project>

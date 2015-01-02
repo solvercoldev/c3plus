@@ -573,17 +573,20 @@ a
 
 .loginerror
 {
-    clear: right;
-    color: red;
-    display: block;
+    /*
     float: left;
-    font-family: Arial,Helvetica,sans-serif;
-    font-size: small;
-    height: 30px;
-    padding-left: 32px;
-    padding-top: 12px;
+    clear: right;
+    height: 30px;    
     position: relative;
     width: 128px;
+    */
+    
+    color: red;
+    display: block;    
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: small;
+    padding-left: 32px;
+    padding-top: 12px;
 }
 
 #login input

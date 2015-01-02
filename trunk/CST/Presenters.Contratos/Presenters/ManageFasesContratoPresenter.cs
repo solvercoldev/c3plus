@@ -20,6 +20,7 @@ namespace Presenters.Contratos.Presenters
         ISfFasesManagementServices _fasesService;
         readonly ISfTBL_Admin_SeccionesManagementServices _seccionesServices;
         readonly ISfNovedadesFaseManagementServices _novedadesFaseService;
+        readonly ISfTBL_Admin_OptionListManagementServices _optionListService;
         readonly IContratosAdoService _adoService;
         readonly ISfLogContratosManagementServices _log;
 
@@ -27,6 +28,7 @@ namespace Presenters.Contratos.Presenters
                                  ISfFasesManagementServices fasesService,
                                  ISfTBL_Admin_SeccionesManagementServices seccionesServices,
                                  ISfNovedadesFaseManagementServices novedadesFaseService,
+                                 ISfTBL_Admin_OptionListManagementServices optionListService,
                                  IContratosAdoService adoService,
                                  ISfLogContratosManagementServices log)
         {
@@ -34,6 +36,7 @@ namespace Presenters.Contratos.Presenters
             _fasesService = fasesService;
             _seccionesServices = seccionesServices;
             _novedadesFaseService = novedadesFaseService;
+            _optionListService = optionListService;
             _adoService = adoService;
             _log = log;
         }
@@ -54,6 +57,7 @@ namespace Presenters.Contratos.Presenters
         {
             LoadContrato();
             CargarSecciones();
+            LoadOptionList();
         }
 
         void InitView()
@@ -91,6 +95,23 @@ namespace Presenters.Contratos.Presenters
                 _fasesService = IoC.Resolve<ISfFasesManagementServices>();
                 var fases = _fasesService.GetFasesByContrato(Convert.ToInt32(View.IdContrato));
                 View.LoadFases(fases);
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        void LoadOptionList()
+        {
+            try
+            {
+                var op = _optionListService.ObtenerOpcionBykeyModuleId("TotalFasesExpPosterior", Convert.ToInt32(View.IdModule));
+
+                if (op != null)
+                {
+                    View.TotalFasesExpPosterior = Convert.ToInt32(op.Value);
+                }
             }
             catch (Exception ex)
             {
@@ -160,10 +181,9 @@ namespace Presenters.Contratos.Presenters
             try
             {
                 var fase = new Fases();
-                var fasesExploratorio = View.FasesAdminList.Where(x => (DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion)
-                                                  && x.FechaFinalizacion == View.FechaFinContrato
-                                                  && x.Periodo.Contains("Exploratorio")
-                                            );
+                var fasesExploratorio = View.FasesAdminList.Where(x => (DateTime.Now >= x.FechaInicio && DateTime.Now <= x.FechaFinalizacion)                                                  
+                                                  && x.Periodo.Contains("Exp")
+                                            ).OrderByDescending(x => x.IdFase);
 
                 if (fasesExploratorio.Any())
                 {

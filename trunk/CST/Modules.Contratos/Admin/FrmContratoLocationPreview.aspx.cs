@@ -94,6 +94,8 @@ namespace Modules.Contratos.Admin
             lblContrato.Visible = !enable;
             txtNumeroContrato.Visible = enable;
 
+            txtDescripcion.Enabled = enable;
+
             lblEmpresa.Visible = !enable;
             ddlEmpresa.Visible = enable;
 
@@ -302,6 +304,18 @@ namespace Modules.Contratos.Admin
             {
                 txtNumeroContrato.Text = value;
                 lblContrato.Text = value;
+            }
+        }
+
+        public string DescripcionContrato
+        {
+            get
+            {
+                return txtDescripcion.Text;
+            }
+            set
+            {
+                txtDescripcion.Text = value;
             }
         }
 

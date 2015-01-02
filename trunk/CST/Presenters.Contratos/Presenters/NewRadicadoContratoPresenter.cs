@@ -7,6 +7,8 @@ using Domain.MainModules.Entities;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using Application.MainModule.SqlServices.IServices;
+using Application.MainModule.Communication.IServices;
+using System.Threading;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -16,6 +18,7 @@ namespace Presenters.Contratos.Presenters
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
         readonly ISfRadicadosManagementServices _radicadoService;
         readonly ISfDocumentosRadicadoManagementServices _documentoRadicadoService;
+        readonly IContratoMailService _contratoMailService;
         readonly IContratosAdoService _adoService;
         readonly ISfLogContratosManagementServices _log;
 
@@ -23,6 +26,7 @@ namespace Presenters.Contratos.Presenters
                                                 ISfTBL_Admin_UsuariosManagementServices usuariosService,
                                                 ISfRadicadosManagementServices radicadoService,
                                                 ISfDocumentosRadicadoManagementServices documentoRadicadoService,
+                                                IContratoMailService contratoMailService,
                                                 IContratosAdoService adoService,
                                                 ISfLogContratosManagementServices log)
         {
@@ -30,6 +34,7 @@ namespace Presenters.Contratos.Presenters
             _usuariosService = usuariosService;
             _radicadoService = radicadoService;
             _documentoRadicadoService = documentoRadicadoService;
+            _contratoMailService = contratoMailService;
             _adoService = adoService;
             _log = log;
         }
@@ -199,12 +204,26 @@ namespace Presenters.Contratos.Presenters
                     _radicadoService.Modify(radicadoEntrada);
                 }
 
+                if (model.RespuestaPendiente)
+                    SendNotifyMail(model);
+
                 View.GoToRadicadoView(model.IdRadicado);
             }
             catch (Exception ex)
             {
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
+        }
+
+        void SendNotifyMail(Radicados radicado)
+        {
+            object[] parameters = new object[3];
+            parameters[0] = radicado.IdRadicado;
+            parameters[1] = Convert.ToInt32(View.IdModule);
+            parameters[2] = ServerHostPath;
+
+            Thread mailThread = new Thread(_contratoMailService.SendRadicadoMailNotification);
+            mailThread.Start(parameters);
         }
 
         public void UpdateRadicado()
@@ -278,6 +297,9 @@ namespace Presenters.Contratos.Presenters
 
                     _radicadoService.Modify(radicadoEntrada);
                 }
+
+                if (model.RespuestaPendiente)
+                    SendNotifyMail(model);
 
                 View.GoToRadicadoView(model.IdRadicado);
             }

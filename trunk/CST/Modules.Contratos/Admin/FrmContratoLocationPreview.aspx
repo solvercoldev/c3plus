@@ -150,6 +150,15 @@
                             <asp:Label ID="lblTipoContrato" runat="server" />
                             <asp:DropDownList ID="ddlTipoContrato" runat="server" Width="450px"  class="chzn-select" />
                         </td>
+                    </tr> 
+                    <tr>
+                        <td class="SeccionesH3" style="vertical-align:top">
+                            Descripción:
+                        </td>
+                        <td ></td>
+                        <td class="SeccionesH4">
+                            <asp:TextBox ID="txtDescripcion" runat="server"  MaxLength="4000" Rows="3" TextMode="MultiLine" Width="450px" />
+                        </td>
                     </tr>                 
                     <tr>
                         <td class="SeccionesH3">

@@ -8,6 +8,8 @@ using Domain.MainModules.Entities;
 using Infrastructure.CrossCutting.NetFramework.Enums;
 using Presenters.Contratos.IViews;
 using System.Collections.Generic;
+using Application.MainModule.Communication.IServices;
+using System.Threading;
 
 namespace Presenters.Contratos.Presenters
 {
@@ -26,6 +28,7 @@ namespace Presenters.Contratos.Presenters
         readonly ISfTercerosManagementServices _tercerosService;
         readonly ISfManualAnhManagementServices _manualAnhService;
         readonly ISfEntregablesANHCompromisoManagementServices _entregableAnhService;
+        readonly IContratoMailService _contratoMailService;
         readonly ISfLogContratosManagementServices _log;
 
         public NewCompromisoContratoPresenter(ISfContratosManagementServices contratoService,
@@ -41,6 +44,7 @@ namespace Presenters.Contratos.Presenters
                                                 ISfTercerosManagementServices tercerosService,
                                                 ISfManualAnhManagementServices manualAnhService,
                                                 ISfEntregablesANHCompromisoManagementServices entregableAnhService,
+                                                IContratoMailService contratoMailService,
                                                 ISfLogContratosManagementServices log)
         {
             _contratoService = contratoService;
@@ -56,6 +60,7 @@ namespace Presenters.Contratos.Presenters
             _tercerosService = tercerosService;
             _manualAnhService = manualAnhService;
             _entregableAnhService = entregableAnhService;
+            _contratoMailService = contratoMailService;
             _log = log;
         }
 
@@ -257,13 +262,27 @@ namespace Presenters.Contratos.Presenters
                 contrato.ModifiedOn = DateTime.Now;
 
                 _contratoService.Modify(contrato);
+                
+                SendNotifyMail(model);
 
                 View.GoToCompromisoView(model.IdCompromiso);
+
             }
             catch (Exception ex)
             {
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
+        }
+
+        void SendNotifyMail(Compromisos compromiso)
+        {
+            object[] parameters = new object[3];
+            parameters[0] = compromiso.IdCompromiso;
+            parameters[1] = Convert.ToInt32(View.IdModule);
+            parameters[2] = ServerHostPath;
+
+            Thread mailThread = new Thread(_contratoMailService.SendCompromisoMailNotification);
+            mailThread.Start(parameters);
         }
 
         public void AddPagoObligacion(long idCompromiso)

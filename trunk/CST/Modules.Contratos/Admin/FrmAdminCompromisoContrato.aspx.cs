@@ -79,6 +79,12 @@ namespace Modules.Contratos.Admin
             EnableEditCompromiso(true);
         }
 
+        protected void BtnSendNotify_Click(object sender, EventArgs e)
+        {
+            Presenter.SendNotifyMail();
+            ShowMessageOk("Notificación Enviada a Responsable");
+        }
+
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
             EnableEditCompromiso(false);
@@ -169,6 +175,8 @@ namespace Modules.Contratos.Admin
             ddlMonedaCobertura.Visible = enable;
 
             btnSave.Visible = enable;
+
+            btnSendNotify.Visible = !enable;
 
             btnEdit.Visible = !enable;
             btnAnular.Visible = !enable;
@@ -287,6 +295,9 @@ namespace Modules.Contratos.Admin
             {
                 case "vcompromisos":
                     Response.Redirect(string.Format("../Views/FrmTotalCompromisos.aspx?ModuleId={0}", ModuleId));
+                    break;
+                case "miscompendiente":
+                    Response.Redirect(string.Format("../Views/MisCompromisosPendientes.aspx?ModuleId={0}", ModuleId));
                     break;
                 case "fases":
                     Response.Redirect(string.Format("FrmManageFasesContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));

@@ -42,6 +42,7 @@
                 <div style="padding:3px; text-align:right; margin-top:-35px; height:30px;">
                     <asp:Button ID="btnBack" runat="server" Text="Regresar" OnClick="BtnBack_Click" />                    
                     <asp:Button ID="btnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" Visible="false" />   
+                    <asp:Button ID="btnSendNotify" runat="server" Text="Enviar Notificación" OnClick="BtnSendNotify_Click" />
                 </div>                                
 
                 <asp:ValidationSummary ID="vsGeneral" runat="server" DisplayMode="BulletList" ShowMessageBox="false" CssClass="validator" ShowSummary="true" ValidationGroup="vgGeneral"/>
