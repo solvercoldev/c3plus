@@ -43,7 +43,21 @@ namespace Application.MainModule.SqlServices.Services
             }
         }
 
-        public DataTable GetCompromisosPendientesView(string usuario)
+        public DataTable GetCompromisosToNotify()
+        {
+            var sql = "Process_GetCompromisosToNotify";
+
+            try
+            {
+                return _sql.ExecuteDataTable(sql, CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("Process_GetCompromisosToNotify", ex);
+            }
+        }
+
+        public DataTable GetCompromisosPendientesView(int usuario)
         {
             var sql = "Vistas_MisCompromisosPendientes";
 
@@ -68,6 +82,20 @@ namespace Application.MainModule.SqlServices.Services
             catch (Exception ex)
             {
                 throw new SqlExecutionException("Vistas_AllRadicados", ex);
+            }
+        }
+
+        public DataTable GetRadicadosToNotify()
+        {
+            var sql = "Process_GetRadicadosToNotify";
+
+            try
+            {
+                return _sql.ExecuteDataTable(sql, CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+                throw new SqlExecutionException("Process_GetRadicadosToNotify", ex);
             }
         }
 

@@ -60,6 +60,9 @@
                                 <th style="width:350px; text-align:left;vertical-align:top" filter-type='ddl'>
                                     Responsable
                                 </th>
+                                <th style="width:350px; text-align:left;vertical-align:top" filter-type='ddl'>
+                                    Dependencia
+                                </th>
                                 <th style="width:100px; text-align:left;vertical-align:top" filter-type='ddl'>
                                     Estado
                                 </th>
@@ -126,6 +129,9 @@
                                     <asp:Label ID="blResponsable" runat="server" />
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
+                                    <asp:Label ID="lblDependencia" runat="server" />
+                                </td>
+                                <td style="text-align:left;vertical-align:top">
                                     <asp:Label ID="lblEstado" runat="server" />
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
@@ -188,6 +194,9 @@
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
                                     <asp:Label ID="blResponsable" runat="server" />
+                                </td>
+                                <td style="text-align:left;vertical-align:top">
+                                    <asp:Label ID="lblDependencia" runat="server" />
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
                                     <asp:Label ID="lblEstado" runat="server" />

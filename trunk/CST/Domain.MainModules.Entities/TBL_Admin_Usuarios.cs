@@ -785,6 +785,41 @@ namespace Domain.MainModules.Entities
         private TrackableCollection<Compromisos> _compromisos1;
     
         [DataMember]
+        public TrackableCollection<Compromisos> Compromisos2
+        {
+            get
+            {
+                if (_compromisos2 == null)
+                {
+                    _compromisos2 = new TrackableCollection<Compromisos>();
+                    _compromisos2.CollectionChanged += FixupCompromisos2;
+                }
+                return _compromisos2;
+            }
+            set
+            {
+                if (!ReferenceEquals(_compromisos2, value))
+                {
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
+                    }
+                    if (_compromisos2 != null)
+                    {
+                        _compromisos2.CollectionChanged -= FixupCompromisos2;
+                    }
+                    _compromisos2 = value;
+                    if (_compromisos2 != null)
+                    {
+                        _compromisos2.CollectionChanged += FixupCompromisos2;
+                    }
+                    OnNavigationPropertyChanged("Compromisos2");
+                }
+            }
+        }
+        private TrackableCollection<Compromisos> _compromisos2;
+    
+        [DataMember]
         public TrackableCollection<Contratos> Contratos
         {
             get
@@ -2079,39 +2114,39 @@ namespace Domain.MainModules.Entities
         private TrackableCollection<TiposContrato> _tiposContrato1;
     
         [DataMember]
-        public TrackableCollection<Compromisos> Compromisos2
+        public TrackableCollection<Compromisos> Compromisos3
         {
             get
             {
-                if (_compromisos2 == null)
+                if (_compromisos3 == null)
                 {
-                    _compromisos2 = new TrackableCollection<Compromisos>();
-                    _compromisos2.CollectionChanged += FixupCompromisos2;
+                    _compromisos3 = new TrackableCollection<Compromisos>();
+                    _compromisos3.CollectionChanged += FixupCompromisos3;
                 }
-                return _compromisos2;
+                return _compromisos3;
             }
             set
             {
-                if (!ReferenceEquals(_compromisos2, value))
+                if (!ReferenceEquals(_compromisos3, value))
                 {
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
                         throw new InvalidOperationException("Cannot set the FixupChangeTrackingCollection when ChangeTracking is enabled");
                     }
-                    if (_compromisos2 != null)
+                    if (_compromisos3 != null)
                     {
-                        _compromisos2.CollectionChanged -= FixupCompromisos2;
+                        _compromisos3.CollectionChanged -= FixupCompromisos3;
                     }
-                    _compromisos2 = value;
-                    if (_compromisos2 != null)
+                    _compromisos3 = value;
+                    if (_compromisos3 != null)
                     {
-                        _compromisos2.CollectionChanged += FixupCompromisos2;
+                        _compromisos3.CollectionChanged += FixupCompromisos3;
                     }
-                    OnNavigationPropertyChanged("Compromisos2");
+                    OnNavigationPropertyChanged("Compromisos3");
                 }
             }
         }
-        private TrackableCollection<Compromisos> _compromisos2;
+        private TrackableCollection<Compromisos> _compromisos3;
     
         [DataMember]
         public TrackableCollection<Radicados> Radicados5
@@ -2307,6 +2342,7 @@ namespace Domain.MainModules.Entities
             ComentariosRespuesta2.Clear();
             Compromisos.Clear();
             Compromisos1.Clear();
+            Compromisos2.Clear();
             Contratos.Clear();
             Contratos1.Clear();
             Contratos2.Clear();
@@ -2345,7 +2381,7 @@ namespace Domain.MainModules.Entities
             Radicados4.Clear();
             TiposContrato.Clear();
             TiposContrato1.Clear();
-            Compromisos2.Clear();
+            Compromisos3.Clear();
             Radicados5.Clear();
             TBL_Admin_Roles.Clear();
             ComentariosRespuesta3.Clear();
@@ -2866,6 +2902,45 @@ namespace Domain.MainModules.Entities
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
                         ChangeTracker.RecordRemovalFromCollectionProperties("Compromisos1", item);
+                    }
+                }
+            }
+        }
+    
+        private void FixupCompromisos2(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (IsDeserializing)
+            {
+                return;
+            }
+    
+            if (e.NewItems != null)
+            {
+                foreach (Compromisos item in e.NewItems)
+                {
+                    item.TBL_Admin_Usuarios2 = this;
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        if (!item.ChangeTracker.ChangeTrackingEnabled)
+                        {
+                            item.StartTracking();
+                        }
+                        ChangeTracker.RecordAdditionToCollectionProperties("Compromisos2", item);
+                    }
+                }
+            }
+    
+            if (e.OldItems != null)
+            {
+                foreach (Compromisos item in e.OldItems)
+                {
+                    if (ReferenceEquals(item.TBL_Admin_Usuarios2, this))
+                    {
+                        item.TBL_Admin_Usuarios2 = null;
+                    }
+                    if (ChangeTracker.ChangeTrackingEnabled)
+                    {
+                        ChangeTracker.RecordRemovalFromCollectionProperties("Compromisos2", item);
                     }
                 }
             }
@@ -4275,7 +4350,7 @@ namespace Domain.MainModules.Entities
             }
         }
     
-        private void FixupCompromisos2(object sender, NotifyCollectionChangedEventArgs e)
+        private void FixupCompromisos3(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (IsDeserializing)
             {
@@ -4286,9 +4361,9 @@ namespace Domain.MainModules.Entities
             {
                 foreach (Compromisos item in e.NewItems)
                 {
-                    if (!item.TBL_Admin_Usuarios2.Contains(this))
+                    if (!item.TBL_Admin_Usuarios3.Contains(this))
                     {
-                        item.TBL_Admin_Usuarios2.Add(this);
+                        item.TBL_Admin_Usuarios3.Add(this);
                     }
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
@@ -4296,7 +4371,7 @@ namespace Domain.MainModules.Entities
                         {
                             item.StartTracking();
                         }
-                        ChangeTracker.RecordAdditionToCollectionProperties("Compromisos2", item);
+                        ChangeTracker.RecordAdditionToCollectionProperties("Compromisos3", item);
                     }
                 }
             }
@@ -4305,13 +4380,13 @@ namespace Domain.MainModules.Entities
             {
                 foreach (Compromisos item in e.OldItems)
                 {
-                    if (item.TBL_Admin_Usuarios2.Contains(this))
+                    if (item.TBL_Admin_Usuarios3.Contains(this))
                     {
-                        item.TBL_Admin_Usuarios2.Remove(this);
+                        item.TBL_Admin_Usuarios3.Remove(this);
                     }
                     if (ChangeTracker.ChangeTrackingEnabled)
                     {
-                        ChangeTracker.RecordRemovalFromCollectionProperties("Compromisos2", item);
+                        ChangeTracker.RecordRemovalFromCollectionProperties("Compromisos3", item);
                     }
                 }
             }

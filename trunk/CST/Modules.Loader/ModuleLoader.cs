@@ -48,6 +48,71 @@ namespace Modules.Loader
 
         }
 
+        public void LocalRegisterActivatedModules()
+        {
+            IEnumerable<TBL_Admin_ModuleType> moduleTypes = _iSfModuleTypeManagementServices.FindAllModuleType(true);
+            foreach (var mt in moduleTypes.Where(mt => mt.AutoActivar))
+            {
+                LocalActivateModule(mt);
+            }
+        }
+
+        public void LocalActivateModule(TBL_Admin_ModuleType moduleType)
+        {
+
+            // System.Threading.Monitor.Enter(LockObject);
+
+            var assemblyQualifiedName = moduleType.NombreClase + ", " + moduleType.NombreEnsamblado;
+
+            // First, try to get the CLR module type
+            var moduleTypeType = Type.GetType(assemblyQualifiedName);
+
+            if (moduleTypeType == null) return;
+
+            try
+            {
+                // double check, if we should continue
+                if (IoC.HasComponent(moduleTypeType))
+                {
+                    // Module is already registered
+                    _traceManager.LogInfo(string.Format("El modulo {0} ya esta registrado en el contenedor.", moduleTypeType), LogType.Notify);
+                    return;
+                }
+
+                //Registramos los repositorios asociados a los modulos.
+                foreach (var repoService in moduleType.TBL_Admin_ModuleRepository)
+                {
+                    var serviceType = Type.GetType(repoService.RepositoryType);
+                    var classType = Type.GetType(repoService.classtype);
+                    if (serviceType == null || classType == null) continue;
+                    _traceManager.LogInfo(string.Format("Loading module repository {0}, {1}.", repoService.Repositorykey, repoService.classtype), LogType.Notify);
+                    IoC.RegisterType(serviceType, classType);
+                }
+
+                // First, register optional module services that the module might depend on.
+                foreach (var moduleService in moduleType.TBL_Admin_ModuleService)
+                {
+                    var serviceType = Type.GetType(moduleService.servicetype);
+                    var classType = Type.GetType(moduleService.classtype);
+                    if (serviceType == null || classType == null) continue;
+                    _traceManager.LogInfo(string.Format("Loading module service {0}, {1}.", moduleService.servicekey, moduleService.classtype), LogType.Notify);
+                    IoC.RegisterType(serviceType, classType);
+
+                }
+
+                //Register the module
+                //var moduleTypeKey = "module." + moduleTypeType.FullName;
+                IoC.RegisterType(moduleTypeType); // no lifestyle because ModuleBase has the Transient attribute.
+                _traceManager.LogInfo(string.Format("Adding module assembly {0} to the Container.", moduleTypeType.Assembly), LogType.Notify);              
+
+            }
+            catch (Exception ex)
+            {
+                _traceManager.LogInfo(string.Format("Error al cargar el ensamblado al IOC. Error Tecnico : {0}", ex.Message), LogType.Notify);
+            }
+
+        }//end method
+
         public void ActivateModule(TBL_Admin_ModuleType moduleType)
         {
 

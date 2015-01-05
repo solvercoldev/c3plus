@@ -42,6 +42,7 @@ namespace Presenters.Contratos.IViews
         string ObservacionesNovedad { get; set; }               
 
         string ResponsableReprogramacion { get; set; }
+        int IdResponsableReprogramacion { get; set; }
         DateTime FechaReprogramacion { get; set; }
 
         void LoadManuales(List<DTO_ValueKey> items);

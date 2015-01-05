@@ -8,7 +8,7 @@ GO
 -- =============================================
 CREATE PROCEDURE Vistas_MisCompromisosPendientes
 (
-	@IdUsuario	varchar(256)
+	@IdUsuario	int
 )
 AS
 /*************************** Variables De Prueba **********************/
@@ -53,6 +53,7 @@ from	Compromisos comp with(nolock)
 			on pago.IdTipoPagoObligacion = tpo.IdTipoPagoObligacion
 		left join Monedas mnd with(nolock)
 			on pago.IdMoneda = mnd.IdMoneda
-where	comp.NombreResponsable = @IdUsuario
+where	comp.IdResponsable = @IdUsuario
+		and comp.Estado not in ('Realizado','Anulado')
 order	by
 		comp.FechaCumplimiento desc

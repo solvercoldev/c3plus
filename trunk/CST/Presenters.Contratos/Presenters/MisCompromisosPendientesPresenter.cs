@@ -32,7 +32,7 @@ namespace Presenters.Contratos.Presenters
         {
             try
             {
-                var dt = _contratoAdoService.GetCompromisosPendientesView(View.UserSession.Nombres);
+                var dt = _contratoAdoService.GetCompromisosPendientesView(View.UserSession.IdUser);
 
                 View.LoadCompromisos(dt);
             }

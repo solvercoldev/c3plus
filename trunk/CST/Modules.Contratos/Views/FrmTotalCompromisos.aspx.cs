@@ -78,6 +78,9 @@ namespace Modules.Contratos.Views
                 var blResponsable = e.Item.FindControl("blResponsable") as Label;
                 if (blResponsable != null) blResponsable.Text = string.Format("{0}", item["Responsable"]);
 
+                var lblDependencia = e.Item.FindControl("lblDependencia") as Label;
+                if (lblDependencia != null) lblDependencia.Text = string.Format("{0}", item["Dependencia"]);
+
                 var lblEstado = e.Item.FindControl("lblEstado") as Label;
                 if (lblEstado != null) lblEstado.Text = string.Format("{0}", item["Estado"]);
 

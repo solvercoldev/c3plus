@@ -14,7 +14,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySetsBD94E5AA732359BEC1C8EDBC8F62EA728D3836E8D2C43D2FFFCE4BFD5A6FF2AF))]
+[assembly: System.Data.Mapping.EntityViewGenerationAttribute(typeof(Edm_EntityMappingGeneratedViews.ViewsForBaseEntitySets7A8CA8119B6AD476FBB341A7945EBDD503CF2C1B3AE3EB6929AF8E93BA8B6E41))]
 
 namespace Edm_EntityMappingGeneratedViews
 {
@@ -23,19 +23,19 @@ namespace Edm_EntityMappingGeneratedViews
     /// <Summary>
     /// The type contains views for EntitySets and AssociationSets that were generated at design time.
     /// </Summary>
-    public sealed class ViewsForBaseEntitySetsBD94E5AA732359BEC1C8EDBC8F62EA728D3836E8D2C43D2FFFCE4BFD5A6FF2AF : System.Data.Mapping.EntityViewContainer
+    public sealed class ViewsForBaseEntitySets7A8CA8119B6AD476FBB341A7945EBDD503CF2C1B3AE3EB6929AF8E93BA8B6E41 : System.Data.Mapping.EntityViewContainer
     {
         
         /// <Summary>
         /// The constructor stores the views for the extents and also the hash values generated based on the metadata and mapping closure and views.
         /// </Summary>
-        public ViewsForBaseEntitySetsBD94E5AA732359BEC1C8EDBC8F62EA728D3836E8D2C43D2FFFCE4BFD5A6FF2AF()
+        public ViewsForBaseEntitySets7A8CA8119B6AD476FBB341A7945EBDD503CF2C1B3AE3EB6929AF8E93BA8B6E41()
         {
             this.EdmEntityContainerName = "MainModuleContext";
             this.StoreEntityContainerName = "SolutionFrameworkMainModelStoreContainer";
-            this.HashOverMappingClosure = "d2ed37a7c68dd138df9b1398dd05e53cc0dc9f9e5c32931a2d9e02fdd0979715";
-            this.HashOverAllExtentViews = "da8902f526055754358a1ea0eb1a2a6a216e3fc3dae2f7031a094915e0efbfeb";
-            this.ViewCount = 96;
+            this.HashOverMappingClosure = "8059ac8313a71ea6d0df72fe391cfc63f5fd8c18300ba5c6efe1c18eb0789641";
+            this.HashOverAllExtentViews = "ba727c3315594246f3549b15f6bd39e2fb9ddb6f1bef1f1b0199ab1f56049bc4";
+            this.ViewCount = 98;
         }
         
         /// <Summary>
@@ -427,6 +427,14 @@ namespace Edm_EntityMappingGeneratedViews
             {
                 return GetView95();
             }
+            if ((index == 96))
+            {
+                return GetView96();
+            }
+            if ((index == 97))
+            {
+                return GetView97();
+            }
             throw new System.IndexOutOfRangeException();
         }
         
@@ -559,22 +567,23 @@ namespace Edm_EntityMappingGeneratedViews
                     "o, T1.Compromisos_IdMinuta, T1.Compromisos_NombreResponsable, T1.Compromisos_Tip" +
                     "oAsociacion, T1.Compromisos_DiasAlarma, T1.Compromisos_IsActive, T1.Compromisos_" +
                     "CreateBy, T1.Compromisos_CreateOn, T1.Compromisos_ModifiedBy, T1.Compromisos_Mod" +
-                    "ifiedOn)\r\n    FROM (\r\n        SELECT \r\n            T.IdFase AS Compromisos_IdFas" +
-                    "e, \r\n            T.IdCompromiso AS Compromisos_IdCompromiso, \r\n            T.Tip" +
-                    "oCompromiso AS Compromisos_TipoCompromiso, \r\n            T.Nombre AS Compromisos" +
-                    "_Nombre, \r\n            T.Descripcion AS Compromisos_Descripcion, \r\n            T" +
-                    ".Importancia AS Compromisos_Importancia, \r\n            T.FechaCumplimiento AS Co" +
-                    "mpromisos_FechaCumplimiento, \r\n            T.IdCompromisoPadre AS Compromisos_Id" +
-                    "CompromisoPadre, \r\n            T.Estado AS Compromisos_Estado, \r\n            T.I" +
-                    "dCampo AS Compromisos_IdCampo, \r\n            T.IdPozo AS Compromisos_IdPozo, \r\n " +
-                    "           T.IdMinuta AS Compromisos_IdMinuta, \r\n            T.NombreResponsable" +
-                    " AS Compromisos_NombreResponsable, \r\n            T.TipoAsociacion AS Compromisos" +
-                    "_TipoAsociacion, \r\n            T.DiasAlarma AS Compromisos_DiasAlarma, \r\n       " +
-                    "     T.IsActive AS Compromisos_IsActive, \r\n            T.CreateBy AS Compromisos" +
-                    "_CreateBy, \r\n            T.CreateOn AS Compromisos_CreateOn, \r\n            T.Mod" +
-                    "ifiedBy AS Compromisos_ModifiedBy, \r\n            T.ModifiedOn AS Compromisos_Mod" +
-                    "ifiedOn, \r\n            True AS _from0\r\n        FROM MainModuleContext.Compromiso" +
-                    "s AS T\r\n    ) AS T1");
+                    "ifiedOn, T1.Compromisos_IdResponsable)\r\n    FROM (\r\n        SELECT \r\n           " +
+                    " T.IdFase AS Compromisos_IdFase, \r\n            T.IdCompromiso AS Compromisos_IdC" +
+                    "ompromiso, \r\n            T.TipoCompromiso AS Compromisos_TipoCompromiso, \r\n     " +
+                    "       T.Nombre AS Compromisos_Nombre, \r\n            T.Descripcion AS Compromiso" +
+                    "s_Descripcion, \r\n            T.Importancia AS Compromisos_Importancia, \r\n       " +
+                    "     T.FechaCumplimiento AS Compromisos_FechaCumplimiento, \r\n            T.IdCom" +
+                    "promisoPadre AS Compromisos_IdCompromisoPadre, \r\n            T.Estado AS Comprom" +
+                    "isos_Estado, \r\n            T.IdCampo AS Compromisos_IdCampo, \r\n            T.IdP" +
+                    "ozo AS Compromisos_IdPozo, \r\n            T.IdMinuta AS Compromisos_IdMinuta, \r\n " +
+                    "           T.NombreResponsable AS Compromisos_NombreResponsable, \r\n            T" +
+                    ".TipoAsociacion AS Compromisos_TipoAsociacion, \r\n            T.DiasAlarma AS Com" +
+                    "promisos_DiasAlarma, \r\n            T.IsActive AS Compromisos_IsActive, \r\n       " +
+                    "     T.CreateBy AS Compromisos_CreateBy, \r\n            T.CreateOn AS Compromisos" +
+                    "_CreateOn, \r\n            T.ModifiedBy AS Compromisos_ModifiedBy, \r\n            T" +
+                    ".ModifiedOn AS Compromisos_ModifiedOn, \r\n            T.IdResponsable AS Compromi" +
+                    "sos_IdResponsable, \r\n            True AS _from0\r\n        FROM MainModuleContext." +
+                    "Compromisos AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
@@ -637,9 +646,35 @@ namespace Edm_EntityMappingGeneratedViews
         }
         
         /// <Summary>
-        /// return view for SolutionFrameworkMainModelStoreContainer.DocumentosContrato
+        /// return view for SolutionFrameworkMainModelStoreContainer.DocumentosAnexoContrato
         /// </Summary>
         private System.Collections.Generic.KeyValuePair<string, string> GetView8()
+        {
+            return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.DocumentosAnexoContrato", "\r\n    SELECT VALUE -- Constructing DocumentosAnexoContrato\r\n        [SolutionFram" +
+                    "ework.MainModel.Store.DocumentosAnexoContrato](T1.DocumentosAnexoContrato_IdDocu" +
+                    "mentoContrato, T1.DocumentosAnexoContrato_NombreArchivo, T1.DocumentosAnexoContr" +
+                    "ato_Titulo, T1.DocumentosAnexoContrato_Descripcion, T1.DocumentosAnexoContrato_C" +
+                    "ategoria, T1.DocumentosAnexoContrato_Archivo, T1.DocumentosAnexoContrato_IdContr" +
+                    "ato, T1.DocumentosAnexoContrato_IsActive, T1.DocumentosAnexoContrato_CreateBy, T" +
+                    "1.DocumentosAnexoContrato_CreateOn, T1.DocumentosAnexoContrato_ModifiedBy, T1.Do" +
+                    "cumentosAnexoContrato_ModifiedOn)\r\n    FROM (\r\n        SELECT \r\n            T.Id" +
+                    "DocumentoContrato AS DocumentosAnexoContrato_IdDocumentoContrato, \r\n            " +
+                    "T.NombreArchivo AS DocumentosAnexoContrato_NombreArchivo, \r\n            T.Titulo" +
+                    " AS DocumentosAnexoContrato_Titulo, \r\n            T.Descripcion AS DocumentosAne" +
+                    "xoContrato_Descripcion, \r\n            T.Categoria AS DocumentosAnexoContrato_Cat" +
+                    "egoria, \r\n            T.Archivo AS DocumentosAnexoContrato_Archivo, \r\n          " +
+                    "  T.IdContrato AS DocumentosAnexoContrato_IdContrato, \r\n            T.IsActive A" +
+                    "S DocumentosAnexoContrato_IsActive, \r\n            T.CreateBy AS DocumentosAnexoC" +
+                    "ontrato_CreateBy, \r\n            T.CreateOn AS DocumentosAnexoContrato_CreateOn, " +
+                    "\r\n            T.ModifiedBy AS DocumentosAnexoContrato_ModifiedBy, \r\n            " +
+                    "T.ModifiedOn AS DocumentosAnexoContrato_ModifiedOn, \r\n            True AS _from0" +
+                    "\r\n        FROM MainModuleContext.DocumentosAnexoContrato AS T\r\n    ) AS T1");
+        }
+        
+        /// <Summary>
+        /// return view for SolutionFrameworkMainModelStoreContainer.DocumentosContrato
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView9()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.DocumentosContrato", @"
     SELECT VALUE -- Constructing DocumentosContrato
@@ -663,17 +698,17 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.DocumentosRadicado
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView9()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView10()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.DocumentosRadicado", @"
     SELECT VALUE -- Constructing DocumentosRadicado
-        [SolutionFramework.MainModel.Store.DocumentosRadicado](T1.DocumentosRadicado_IdRadicado, T1.DocumentosRadicado_IdDocumentoRadicado, T1.DocumentosRadicado_Nombre, T1.DocumentosRadicado_Descripcion, T1.DocumentosRadicado_IsActive, T1.DocumentosRadicado_CreateBy, T1.DocumentosRadicado_CreateOn, T1.DocumentosRadicado_ModifiedBy, T1.DocumentosRadicado_ModifiedOn)
+        [SolutionFramework.MainModel.Store.DocumentosRadicado](T1.DocumentosRadicado_IdRadicado, T1.DocumentosRadicado_IdDocumentoRadicado, T1.DocumentosRadicado_NombreArchivo, T1.DocumentosRadicado_Archivo, T1.DocumentosRadicado_IsActive, T1.DocumentosRadicado_CreateBy, T1.DocumentosRadicado_CreateOn, T1.DocumentosRadicado_ModifiedBy, T1.DocumentosRadicado_ModifiedOn)
     FROM (
         SELECT 
             T.IdRadicado AS DocumentosRadicado_IdRadicado, 
             T.IdDocumentoRadicado AS DocumentosRadicado_IdDocumentoRadicado, 
-            T.Nombre AS DocumentosRadicado_Nombre, 
-            T.Descripcion AS DocumentosRadicado_Descripcion, 
+            T.NombreArchivo AS DocumentosRadicado_NombreArchivo, 
+            T.Archivo AS DocumentosRadicado_Archivo, 
             T.IsActive AS DocumentosRadicado_IsActive, 
             T.CreateBy AS DocumentosRadicado_CreateBy, 
             T.CreateOn AS DocumentosRadicado_CreateOn, 
@@ -687,7 +722,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Empresas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView10()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView11()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Empresas", @"
     SELECT VALUE -- Constructing Empresas
@@ -713,7 +748,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.EntregablesANHCompromiso
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView11()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView12()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.EntregablesANHCompromiso", @"
     SELECT VALUE -- Constructing EntregablesANHCompromiso
@@ -731,7 +766,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Fases
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView12()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView13()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Fases", "\r\n    SELECT VALUE -- Constructing Fases\r\n        [SolutionFramework.MainModel.St" +
                     "ore.Fases](T1.Fases_IdContrato, T1.Fases_IdFase, T1.Fases_Periodo, T1.Fases_Nume" +
@@ -739,28 +774,29 @@ namespace Edm_EntityMappingGeneratedViews
                     "FechaFinalizacion, T1.Fases_Estado, T1.Fases_Aplica, T1.Fases_TipoEvalFase, T1.F" +
                     "ases_NumeroFaseAnt, T1.Fases_IdCampo, T1.Fases_IdPozo, T1.Fases_UltimaNovedad, T" +
                     "1.Fases_NumFaseUnificada, T1.Fases_Grupo, T1.Fases_IsActive, T1.Fases_CreateBy, " +
-                    "T1.Fases_CreateOn, T1.Fases_ModifiedBy, T1.Fases_ModifiedOn)\r\n    FROM (\r\n      " +
-                    "  SELECT \r\n            T.IdContrato AS Fases_IdContrato, \r\n            T.IdFase " +
-                    "AS Fases_IdFase, \r\n            T.Periodo AS Fases_Periodo, \r\n            T.Numer" +
-                    "oFase AS Fases_NumeroFase, \r\n            T.Nombre AS Fases_Nombre, \r\n           " +
-                    " T.FechaInicio AS Fases_FechaInicio, \r\n            T.DuracionMeses AS Fases_Dura" +
-                    "cionMeses, \r\n            T.FechaFinalizacion AS Fases_FechaFinalizacion, \r\n     " +
-                    "       T.Estado AS Fases_Estado, \r\n            T.Aplica AS Fases_Aplica, \r\n     " +
-                    "       T.TipoEvalFase AS Fases_TipoEvalFase, \r\n            T.NumeroFaseAnt AS Fa" +
-                    "ses_NumeroFaseAnt, \r\n            T.IdCampo AS Fases_IdCampo, \r\n            T.IdP" +
-                    "ozo AS Fases_IdPozo, \r\n            T.UltimaNovedad AS Fases_UltimaNovedad, \r\n   " +
-                    "         T.NumFaseUnificada AS Fases_NumFaseUnificada, \r\n            T.Grupo AS " +
-                    "Fases_Grupo, \r\n            T.IsActive AS Fases_IsActive, \r\n            T.CreateB" +
-                    "y AS Fases_CreateBy, \r\n            T.CreateOn AS Fases_CreateOn, \r\n            T" +
-                    ".ModifiedBy AS Fases_ModifiedBy, \r\n            T.ModifiedOn AS Fases_ModifiedOn," +
-                    " \r\n            True AS _from0\r\n        FROM MainModuleContext.Fases AS T\r\n    ) " +
-                    "AS T1");
+                    "T1.Fases_CreateOn, T1.Fases_ModifiedBy, T1.Fases_ModifiedOn, T1.Fases_TieneFaseP" +
+                    "roduccion)\r\n    FROM (\r\n        SELECT \r\n            T.IdContrato AS Fases_IdCon" +
+                    "trato, \r\n            T.IdFase AS Fases_IdFase, \r\n            T.Periodo AS Fases_" +
+                    "Periodo, \r\n            T.NumeroFase AS Fases_NumeroFase, \r\n            T.Nombre " +
+                    "AS Fases_Nombre, \r\n            T.FechaInicio AS Fases_FechaInicio, \r\n           " +
+                    " T.DuracionMeses AS Fases_DuracionMeses, \r\n            T.FechaFinalizacion AS Fa" +
+                    "ses_FechaFinalizacion, \r\n            T.Estado AS Fases_Estado, \r\n            T.A" +
+                    "plica AS Fases_Aplica, \r\n            T.TipoEvalFase AS Fases_TipoEvalFase, \r\n   " +
+                    "         T.NumeroFaseAnt AS Fases_NumeroFaseAnt, \r\n            T.IdCampo AS Fase" +
+                    "s_IdCampo, \r\n            T.IdPozo AS Fases_IdPozo, \r\n            T.UltimaNovedad" +
+                    " AS Fases_UltimaNovedad, \r\n            T.NumFaseUnificada AS Fases_NumFaseUnific" +
+                    "ada, \r\n            T.Grupo AS Fases_Grupo, \r\n            T.IsActive AS Fases_IsA" +
+                    "ctive, \r\n            T.CreateBy AS Fases_CreateBy, \r\n            T.CreateOn AS F" +
+                    "ases_CreateOn, \r\n            T.ModifiedBy AS Fases_ModifiedBy, \r\n            T.M" +
+                    "odifiedOn AS Fases_ModifiedOn, \r\n            T.TieneFaseProduccion AS Fases_Tien" +
+                    "eFaseProduccion, \r\n            True AS _from0\r\n        FROM MainModuleContext.Fa" +
+                    "ses AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Localizaciones
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView13()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView14()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Localizaciones", @"
     SELECT VALUE -- Constructing Localizaciones
@@ -782,7 +818,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.LogContratos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView14()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView15()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.LogContratos", @"
     SELECT VALUE -- Constructing LogContratos
@@ -803,7 +839,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.ManualAnh
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView15()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView16()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.ManualAnh", @"
     SELECT VALUE -- Constructing ManualAnh
@@ -827,7 +863,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Monedas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView16()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView17()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Monedas", @"
     SELECT VALUE -- Constructing Monedas
@@ -844,7 +880,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.NovedadesContrato
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView17()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView18()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.NovedadesContrato", @"
     SELECT VALUE -- Constructing NovedadesContrato
@@ -872,7 +908,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.NovedadesFase
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView18()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView19()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.NovedadesFase", "\r\n    SELECT VALUE -- Constructing NovedadesFase\r\n        [SolutionFramework.Main" +
                     "Model.Store.NovedadesFase](T1.NovedadesFase_IdNovedad, T1.NovedadesFase_IdFase, " +
@@ -903,35 +939,36 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.PagosObligaciones
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView19()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView20()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.PagosObligaciones", @"
-    SELECT VALUE -- Constructing PagosObligaciones
-        [SolutionFramework.MainModel.Store.PagosObligaciones](T1.PagosObligaciones_IdPagoObligacion, T1.PagosObligaciones_IdCompromiso, T1.PagosObligaciones_IdTercero, T1.PagosObligaciones_IdTipoPagoObligacion, T1.PagosObligaciones_NumeroDocumento, T1.PagosObligaciones_Valor, T1.PagosObligaciones_IdMoneda, T1.PagosObligaciones_Estado, T1.PagosObligaciones_IsActive, T1.PagosObligaciones_CreateBy, T1.PagosObligaciones_CreateOn, T1.PagosObligaciones_ModifiedBy, T1.PagosObligaciones_ModifiedOn)
-    FROM (
-        SELECT 
-            T.IdPagoObligacion AS PagosObligaciones_IdPagoObligacion, 
-            T.IdCompromiso AS PagosObligaciones_IdCompromiso, 
-            T.IdTercero AS PagosObligaciones_IdTercero, 
-            T.IdTipoPagoObligacion AS PagosObligaciones_IdTipoPagoObligacion, 
-            T.NumeroDocumento AS PagosObligaciones_NumeroDocumento, 
-            T.Valor AS PagosObligaciones_Valor, 
-            T.IdMoneda AS PagosObligaciones_IdMoneda, 
-            T.Estado AS PagosObligaciones_Estado, 
-            T.IsActive AS PagosObligaciones_IsActive, 
-            T.CreateBy AS PagosObligaciones_CreateBy, 
-            T.CreateOn AS PagosObligaciones_CreateOn, 
-            T.ModifiedBy AS PagosObligaciones_ModifiedBy, 
-            T.ModifiedOn AS PagosObligaciones_ModifiedOn, 
-            True AS _from0
-        FROM MainModuleContext.PagosObligaciones AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.PagosObligaciones", "\r\n    SELECT VALUE -- Constructing PagosObligaciones\r\n        [SolutionFramework." +
+                    "MainModel.Store.PagosObligaciones](T1.PagosObligaciones_IdPagoObligacion, T1.Pag" +
+                    "osObligaciones_IdCompromiso, T1.PagosObligaciones_IdTercero, T1.PagosObligacione" +
+                    "s_IdTipoPagoObligacion, T1.PagosObligaciones_NumeroDocumento, T1.PagosObligacion" +
+                    "es_ValorCobertura, T1.PagosObligaciones_Valor, T1.PagosObligaciones_IdMoneda, T1" +
+                    ".PagosObligaciones_IdMonedaCobertura, T1.PagosObligaciones_Estado, T1.PagosOblig" +
+                    "aciones_IsActive, T1.PagosObligaciones_CreateBy, T1.PagosObligaciones_CreateOn, " +
+                    "T1.PagosObligaciones_ModifiedBy, T1.PagosObligaciones_ModifiedOn)\r\n    FROM (\r\n " +
+                    "       SELECT \r\n            T.IdPagoObligacion AS PagosObligaciones_IdPagoObliga" +
+                    "cion, \r\n            T.IdCompromiso AS PagosObligaciones_IdCompromiso, \r\n        " +
+                    "    T.IdTercero AS PagosObligaciones_IdTercero, \r\n            T.IdTipoPagoObliga" +
+                    "cion AS PagosObligaciones_IdTipoPagoObligacion, \r\n            T.NumeroDocumento " +
+                    "AS PagosObligaciones_NumeroDocumento, \r\n            T.ValorCobertura AS PagosObl" +
+                    "igaciones_ValorCobertura, \r\n            T.Valor AS PagosObligaciones_Valor, \r\n  " +
+                    "          T.IdMoneda AS PagosObligaciones_IdMoneda, \r\n            T.IdMonedaCobe" +
+                    "rtura AS PagosObligaciones_IdMonedaCobertura, \r\n            T.Estado AS PagosObl" +
+                    "igaciones_Estado, \r\n            T.IsActive AS PagosObligaciones_IsActive, \r\n    " +
+                    "        T.CreateBy AS PagosObligaciones_CreateBy, \r\n            T.CreateOn AS Pa" +
+                    "gosObligaciones_CreateOn, \r\n            T.ModifiedBy AS PagosObligaciones_Modifi" +
+                    "edBy, \r\n            T.ModifiedOn AS PagosObligaciones_ModifiedOn, \r\n            " +
+                    "True AS _from0\r\n        FROM MainModuleContext.PagosObligaciones AS T\r\n    ) AS " +
+                    "T1");
         }
         
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Pozos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView20()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView21()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Pozos", @"
     SELECT VALUE -- Constructing Pozos
@@ -954,37 +991,39 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Radicados
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView21()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView22()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Radicados", "\r\n    SELECT VALUE -- Constructing Radicados\r\n        [SolutionFramework.MainMode" +
                     "l.Store.Radicados](T1.Radicados_IdContrato, T1.Radicados_IdRadicado, T1.Radicado" +
                     "s_TipoRadicado, T1.Radicados_Numero, T1.Radicados_FechaReciboSalida, T1.Radicado" +
                     "s_Asunto, T1.Radicados_IdFrom, T1.Radicados_IdFromExterno, T1.Radicados_IdTo, T1" +
                     ".Radicados_IdToExterno, T1.Radicados_Resumen, T1.Radicados_RespuestaPendiente, T" +
-                    "1.Radicados_EstadoRadicado, T1.Radicados_FechaRespuesta, T1.Radicados_IdRadicado" +
-                    "Entrada, T1.Radicados_IsActive, T1.Radicados_CreateBy, T1.Radicados_CreateOn, T1" +
-                    ".Radicados_ModifiedBy, T1.Radicados_ModifiedOn)\r\n    FROM (\r\n        SELECT \r\n  " +
-                    "          T.IdContrato AS Radicados_IdContrato, \r\n            T.IdRadicado AS Ra" +
-                    "dicados_IdRadicado, \r\n            T.TipoRadicado AS Radicados_TipoRadicado, \r\n  " +
-                    "          T.Numero AS Radicados_Numero, \r\n            T.FechaReciboSalida AS Rad" +
-                    "icados_FechaReciboSalida, \r\n            T.Asunto AS Radicados_Asunto, \r\n        " +
-                    "    T.IdFrom AS Radicados_IdFrom, \r\n            T.IdFromExterno AS Radicados_IdF" +
-                    "romExterno, \r\n            T.IdTo AS Radicados_IdTo, \r\n            T.IdToExterno " +
-                    "AS Radicados_IdToExterno, \r\n            T.Resumen AS Radicados_Resumen, \r\n      " +
-                    "      T.RespuestaPendiente AS Radicados_RespuestaPendiente, \r\n            T.Esta" +
-                    "doRadicado AS Radicados_EstadoRadicado, \r\n            T.FechaRespuesta AS Radica" +
-                    "dos_FechaRespuesta, \r\n            T.IdRadicadoEntrada AS Radicados_IdRadicadoEnt" +
-                    "rada, \r\n            T.IsActive AS Radicados_IsActive, \r\n            T.CreateBy A" +
-                    "S Radicados_CreateBy, \r\n            T.CreateOn AS Radicados_CreateOn, \r\n        " +
-                    "    T.ModifiedBy AS Radicados_ModifiedBy, \r\n            T.ModifiedOn AS Radicado" +
-                    "s_ModifiedOn, \r\n            True AS _from0\r\n        FROM MainModuleContext.Radic" +
-                    "ados AS T\r\n    ) AS T1");
+                    "1.Radicados_EstadoRadicado, T1.Radicados_FechaRespuesta, T1.Radicados_Responsabl" +
+                    "eRespuesta, T1.Radicados_IdRadicadoEntrada, T1.Radicados_DiasAlarma, T1.Radicado" +
+                    "s_IsActive, T1.Radicados_CreateBy, T1.Radicados_CreateOn, T1.Radicados_ModifiedB" +
+                    "y, T1.Radicados_ModifiedOn)\r\n    FROM (\r\n        SELECT \r\n            T.IdContra" +
+                    "to AS Radicados_IdContrato, \r\n            T.IdRadicado AS Radicados_IdRadicado, " +
+                    "\r\n            T.TipoRadicado AS Radicados_TipoRadicado, \r\n            T.Numero A" +
+                    "S Radicados_Numero, \r\n            T.FechaReciboSalida AS Radicados_FechaReciboSa" +
+                    "lida, \r\n            T.Asunto AS Radicados_Asunto, \r\n            T.IdFrom AS Radi" +
+                    "cados_IdFrom, \r\n            T.IdFromExterno AS Radicados_IdFromExterno, \r\n      " +
+                    "      T.IdTo AS Radicados_IdTo, \r\n            T.IdToExterno AS Radicados_IdToExt" +
+                    "erno, \r\n            T.Resumen AS Radicados_Resumen, \r\n            T.RespuestaPen" +
+                    "diente AS Radicados_RespuestaPendiente, \r\n            T.EstadoRadicado AS Radica" +
+                    "dos_EstadoRadicado, \r\n            T.FechaRespuesta AS Radicados_FechaRespuesta, " +
+                    "\r\n            T.ResponsableRespuesta AS Radicados_ResponsableRespuesta, \r\n      " +
+                    "      T.IdRadicadoEntrada AS Radicados_IdRadicadoEntrada, \r\n            T.DiasAl" +
+                    "arma AS Radicados_DiasAlarma, \r\n            T.IsActive AS Radicados_IsActive, \r\n" +
+                    "            T.CreateBy AS Radicados_CreateBy, \r\n            T.CreateOn AS Radica" +
+                    "dos_CreateOn, \r\n            T.ModifiedBy AS Radicados_ModifiedBy, \r\n            " +
+                    "T.ModifiedOn AS Radicados_ModifiedOn, \r\n            True AS _from0\r\n        FROM" +
+                    " MainModuleContext.Radicados AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleRepository
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView22()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView23()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleRepository", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleRepository
@@ -1006,7 +1045,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleService
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView23()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView24()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleService", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleService
@@ -1028,7 +1067,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleType
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView24()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView25()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleType", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleType
@@ -1055,7 +1094,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_Modulos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView25()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView26()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_Modulos", @"
     SELECT VALUE -- Constructing TBL_Admin_Modulos
@@ -1082,7 +1121,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_OpcionesMenu
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView26()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView27()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_OpcionesMenu", "\r\n    SELECT VALUE -- Constructing TBL_Admin_OpcionesMenu\r\n        [SolutionFrame" +
                     "work.MainModel.Store.TBL_Admin_OpcionesMenu](T1.[TBL_Admin_OpcionesMenu.IdOpcion" +
@@ -1111,7 +1150,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_Roles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView27()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView28()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_Roles", @"
     SELECT VALUE -- Constructing TBL_Admin_Roles
@@ -1134,7 +1173,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_Secciones
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView28()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView29()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_Secciones", "\r\n    SELECT VALUE -- Constructing TBL_Admin_Secciones\r\n        [SolutionFramewor" +
                     "k.MainModel.Store.TBL_Admin_Secciones](T1.[TBL_Admin_Secciones.IdSeccion], T1.[T" +
@@ -1162,7 +1201,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_TypeByModules
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView29()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView30()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_TypeByModules", "\r\n    SELECT VALUE -- Constructing TBL_Admin_TypeByModules\r\n        [SolutionFram" +
                     "ework.MainModel.Store.TBL_Admin_TypeByModules](T1.[TBL_Admin_TypeByModules.OID]," +
@@ -1189,7 +1228,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_Usuarios
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView30()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView31()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2334);
             viewString.Append("\r\n    SELECT VALUE -- Constructing TBL_Admin_Usuarios\r\n        [SolutionFramewor");
@@ -1228,7 +1267,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_ModuloDocumentosAnexos_Carpetas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView31()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView32()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_ModuloDocumentosAnexos_Carpetas", @"
     SELECT VALUE -- Constructing TBL_ModuloDocumentosAnexos_Carpetas
@@ -1252,7 +1291,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_ModuloDocumentosAnexos_Documento
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView32()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView33()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2280);
             viewString.Append("\r\n    SELECT VALUE -- Constructing TBL_ModuloDocumentosAnexos_Documento\r\n       ");
@@ -1290,7 +1329,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Terceros
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView33()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView34()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Terceros", @"
     SELECT VALUE -- Constructing Terceros
@@ -1307,7 +1346,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TiposContrato
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView34()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView35()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TiposContrato", @"
     SELECT VALUE -- Constructing TiposContrato
@@ -1329,7 +1368,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TiposPagoObligacion
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView35()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView36()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TiposPagoObligacion", @"
     SELECT VALUE -- Constructing TiposPagoObligacion
@@ -1346,7 +1385,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.ResponsablesCompromiso
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView36()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView37()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.ResponsablesCompromiso", @"
     SELECT VALUE -- Constructing ResponsablesCompromiso
@@ -1363,7 +1402,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.ResponsablesRadicado
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView37()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView38()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.ResponsablesRadicado", @"
     SELECT VALUE -- Constructing ResponsablesRadicado
@@ -1380,7 +1419,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_RolesPorOpcionMenu
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView38()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView39()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_RolesPorOpcionMenu", @"
     SELECT VALUE -- Constructing TBL_Admin_RolesPorOpcionMenu
@@ -1397,7 +1436,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_UsuariosByRol
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView39()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView40()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_UsuariosByRol", @"
     SELECT VALUE -- Constructing TBL_Admin_UsuariosByRol
@@ -1414,7 +1453,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_ModuloDocumentosAnexos_CarpetasXrol
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView40()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView41()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_ModuloDocumentosAnexos_CarpetasXrol", @"
     SELECT VALUE -- Constructing TBL_ModuloDocumentosAnexos_CarpetasXrol
@@ -1431,7 +1470,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.UsuarioCopiaComentariosRespuesta
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView41()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView42()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.UsuarioCopiaComentariosRespuesta", @"
     SELECT VALUE -- Constructing UsuarioCopiaComentariosRespuesta
@@ -1448,7 +1487,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.AlarmasCompromiso
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView42()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView43()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.AlarmasCompromiso", @"
     SELECT VALUE -- Constructing AlarmasCompromiso
@@ -1469,7 +1508,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.AnexosComentarioRespuesta
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView43()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView44()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.AnexosComentarioRespuesta", @"
     SELECT VALUE -- Constructing AnexosComentarioRespuesta
@@ -1493,7 +1532,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Bloques
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView44()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView45()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Bloques", @"
     SELECT VALUE -- Constructing Bloques
@@ -1515,7 +1554,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Campos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView45()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView46()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Campos", @"
     SELECT VALUE -- Constructing Campos
@@ -1538,7 +1577,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.ComentariosRespuesta
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView46()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView47()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.ComentariosRespuesta", @"
     SELECT VALUE -- Constructing ComentariosRespuesta
@@ -1564,7 +1603,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Compromisos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView47()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView48()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Compromisos", "\r\n    SELECT VALUE -- Constructing Compromisos\r\n        [SolutionFramework.MainMo" +
                     "del.Compromisos](T1.Compromisos_IdFase, T1.Compromisos_IdCompromiso, T1.Compromi" +
@@ -1574,28 +1613,29 @@ namespace Edm_EntityMappingGeneratedViews
                     "Compromisos_IdMinuta, T1.Compromisos_NombreResponsable, T1.Compromisos_TipoAsoci" +
                     "acion, T1.Compromisos_DiasAlarma, T1.Compromisos_IsActive, T1.Compromisos_Create" +
                     "By, T1.Compromisos_CreateOn, T1.Compromisos_ModifiedBy, T1.Compromisos_ModifiedO" +
-                    "n)\r\n    FROM (\r\n        SELECT \r\n            T.IdFase AS Compromisos_IdFase, \r\n " +
-                    "           T.IdCompromiso AS Compromisos_IdCompromiso, \r\n            T.TipoCompr" +
-                    "omiso AS Compromisos_TipoCompromiso, \r\n            T.Nombre AS Compromisos_Nombr" +
-                    "e, \r\n            T.Descripcion AS Compromisos_Descripcion, \r\n            T.Impor" +
-                    "tancia AS Compromisos_Importancia, \r\n            T.FechaCumplimiento AS Compromi" +
-                    "sos_FechaCumplimiento, \r\n            T.IdCompromisoPadre AS Compromisos_IdCompro" +
-                    "misoPadre, \r\n            T.Estado AS Compromisos_Estado, \r\n            T.IdCampo" +
-                    " AS Compromisos_IdCampo, \r\n            T.IdPozo AS Compromisos_IdPozo, \r\n       " +
-                    "     T.IdMinuta AS Compromisos_IdMinuta, \r\n            T.NombreResponsable AS Co" +
-                    "mpromisos_NombreResponsable, \r\n            T.TipoAsociacion AS Compromisos_TipoA" +
-                    "sociacion, \r\n            T.DiasAlarma AS Compromisos_DiasAlarma, \r\n            T" +
-                    ".IsActive AS Compromisos_IsActive, \r\n            T.CreateBy AS Compromisos_Creat" +
-                    "eBy, \r\n            T.CreateOn AS Compromisos_CreateOn, \r\n            T.ModifiedB" +
-                    "y AS Compromisos_ModifiedBy, \r\n            T.ModifiedOn AS Compromisos_ModifiedO" +
-                    "n, \r\n            True AS _from0\r\n        FROM SolutionFrameworkMainModelStoreCon" +
-                    "tainer.Compromisos AS T\r\n    ) AS T1");
+                    "n, T1.Compromisos_IdResponsable)\r\n    FROM (\r\n        SELECT \r\n            T.IdF" +
+                    "ase AS Compromisos_IdFase, \r\n            T.IdCompromiso AS Compromisos_IdComprom" +
+                    "iso, \r\n            T.TipoCompromiso AS Compromisos_TipoCompromiso, \r\n           " +
+                    " T.Nombre AS Compromisos_Nombre, \r\n            T.Descripcion AS Compromisos_Desc" +
+                    "ripcion, \r\n            T.Importancia AS Compromisos_Importancia, \r\n            T" +
+                    ".FechaCumplimiento AS Compromisos_FechaCumplimiento, \r\n            T.IdCompromis" +
+                    "oPadre AS Compromisos_IdCompromisoPadre, \r\n            T.Estado AS Compromisos_E" +
+                    "stado, \r\n            T.IdCampo AS Compromisos_IdCampo, \r\n            T.IdPozo AS" +
+                    " Compromisos_IdPozo, \r\n            T.IdMinuta AS Compromisos_IdMinuta, \r\n       " +
+                    "     T.NombreResponsable AS Compromisos_NombreResponsable, \r\n            T.TipoA" +
+                    "sociacion AS Compromisos_TipoAsociacion, \r\n            T.DiasAlarma AS Compromis" +
+                    "os_DiasAlarma, \r\n            T.IsActive AS Compromisos_IsActive, \r\n            T" +
+                    ".CreateBy AS Compromisos_CreateBy, \r\n            T.CreateOn AS Compromisos_Creat" +
+                    "eOn, \r\n            T.ModifiedBy AS Compromisos_ModifiedBy, \r\n            T.Modif" +
+                    "iedOn AS Compromisos_ModifiedOn, \r\n            T.IdResponsable AS Compromisos_Id" +
+                    "Responsable, \r\n            True AS _from0\r\n        FROM SolutionFrameworkMainMod" +
+                    "elStoreContainer.Compromisos AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for MainModuleContext.Contratos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView48()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView49()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2213);
             viewString.Append("\r\n    SELECT VALUE -- Constructing Contratos\r\n        [SolutionFramework.MainMod");
@@ -1632,7 +1672,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Dependencias
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView49()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView50()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Dependencias", @"
     SELECT VALUE -- Constructing Dependencias
@@ -1652,9 +1692,36 @@ namespace Edm_EntityMappingGeneratedViews
         }
         
         /// <Summary>
+        /// return view for MainModuleContext.DocumentosAnexoContrato
+        /// </Summary>
+        private System.Collections.Generic.KeyValuePair<string, string> GetView51()
+        {
+            return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.DocumentosAnexoContrato", "\r\n    SELECT VALUE -- Constructing DocumentosAnexoContrato\r\n        [SolutionFram" +
+                    "ework.MainModel.DocumentosAnexoContrato](T1.DocumentosAnexoContrato_IdDocumentoC" +
+                    "ontrato, T1.DocumentosAnexoContrato_NombreArchivo, T1.DocumentosAnexoContrato_Ti" +
+                    "tulo, T1.DocumentosAnexoContrato_Descripcion, T1.DocumentosAnexoContrato_Categor" +
+                    "ia, T1.DocumentosAnexoContrato_Archivo, T1.DocumentosAnexoContrato_IdContrato, T" +
+                    "1.DocumentosAnexoContrato_IsActive, T1.DocumentosAnexoContrato_CreateBy, T1.Docu" +
+                    "mentosAnexoContrato_CreateOn, T1.DocumentosAnexoContrato_ModifiedBy, T1.Document" +
+                    "osAnexoContrato_ModifiedOn)\r\n    FROM (\r\n        SELECT \r\n            T.IdDocume" +
+                    "ntoContrato AS DocumentosAnexoContrato_IdDocumentoContrato, \r\n            T.Nomb" +
+                    "reArchivo AS DocumentosAnexoContrato_NombreArchivo, \r\n            T.Titulo AS Do" +
+                    "cumentosAnexoContrato_Titulo, \r\n            T.Descripcion AS DocumentosAnexoCont" +
+                    "rato_Descripcion, \r\n            T.Categoria AS DocumentosAnexoContrato_Categoria" +
+                    ", \r\n            T.Archivo AS DocumentosAnexoContrato_Archivo, \r\n            T.Id" +
+                    "Contrato AS DocumentosAnexoContrato_IdContrato, \r\n            T.IsActive AS Docu" +
+                    "mentosAnexoContrato_IsActive, \r\n            T.CreateBy AS DocumentosAnexoContrat" +
+                    "o_CreateBy, \r\n            T.CreateOn AS DocumentosAnexoContrato_CreateOn, \r\n    " +
+                    "        T.ModifiedBy AS DocumentosAnexoContrato_ModifiedBy, \r\n            T.Modi" +
+                    "fiedOn AS DocumentosAnexoContrato_ModifiedOn, \r\n            True AS _from0\r\n    " +
+                    "    FROM SolutionFrameworkMainModelStoreContainer.DocumentosAnexoContrato AS T\r\n" +
+                    "    ) AS T1");
+        }
+        
+        /// <Summary>
         /// return view for MainModuleContext.DocumentosContrato
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView50()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView52()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.DocumentosContrato", @"
     SELECT VALUE -- Constructing DocumentosContrato
@@ -1678,17 +1745,17 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.DocumentosRadicado
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView51()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView53()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.DocumentosRadicado", @"
     SELECT VALUE -- Constructing DocumentosRadicado
-        [SolutionFramework.MainModel.DocumentosRadicado](T1.DocumentosRadicado_IdRadicado, T1.DocumentosRadicado_IdDocumentoRadicado, T1.DocumentosRadicado_Nombre, T1.DocumentosRadicado_Descripcion, T1.DocumentosRadicado_IsActive, T1.DocumentosRadicado_CreateBy, T1.DocumentosRadicado_CreateOn, T1.DocumentosRadicado_ModifiedBy, T1.DocumentosRadicado_ModifiedOn)
+        [SolutionFramework.MainModel.DocumentosRadicado](T1.DocumentosRadicado_IdRadicado, T1.DocumentosRadicado_IdDocumentoRadicado, T1.DocumentosRadicado_NombreArchivo, T1.DocumentosRadicado_Archivo, T1.DocumentosRadicado_IsActive, T1.DocumentosRadicado_CreateBy, T1.DocumentosRadicado_CreateOn, T1.DocumentosRadicado_ModifiedBy, T1.DocumentosRadicado_ModifiedOn)
     FROM (
         SELECT 
             T.IdRadicado AS DocumentosRadicado_IdRadicado, 
             T.IdDocumentoRadicado AS DocumentosRadicado_IdDocumentoRadicado, 
-            T.Nombre AS DocumentosRadicado_Nombre, 
-            T.Descripcion AS DocumentosRadicado_Descripcion, 
+            T.NombreArchivo AS DocumentosRadicado_NombreArchivo, 
+            T.Archivo AS DocumentosRadicado_Archivo, 
             T.IsActive AS DocumentosRadicado_IsActive, 
             T.CreateBy AS DocumentosRadicado_CreateBy, 
             T.CreateOn AS DocumentosRadicado_CreateOn, 
@@ -1702,7 +1769,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Empresas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView52()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView54()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Empresas", @"
     SELECT VALUE -- Constructing Empresas
@@ -1728,7 +1795,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.EntregablesANHCompromiso
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView53()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView55()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.EntregablesANHCompromiso", @"
     SELECT VALUE -- Constructing EntregablesANHCompromiso
@@ -1746,7 +1813,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Fases
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView54()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView56()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Fases", "\r\n    SELECT VALUE -- Constructing Fases\r\n        [SolutionFramework.MainModel.Fa" +
                     "ses](T1.Fases_IdContrato, T1.Fases_IdFase, T1.Fases_Periodo, T1.Fases_NumeroFase" +
@@ -1754,28 +1821,29 @@ namespace Edm_EntityMappingGeneratedViews
                     "inalizacion, T1.Fases_Estado, T1.Fases_Aplica, T1.Fases_TipoEvalFase, T1.Fases_N" +
                     "umeroFaseAnt, T1.Fases_IdCampo, T1.Fases_IdPozo, T1.Fases_UltimaNovedad, T1.Fase" +
                     "s_NumFaseUnificada, T1.Fases_Grupo, T1.Fases_IsActive, T1.Fases_CreateBy, T1.Fas" +
-                    "es_CreateOn, T1.Fases_ModifiedBy, T1.Fases_ModifiedOn)\r\n    FROM (\r\n        SELE" +
-                    "CT \r\n            T.IdContrato AS Fases_IdContrato, \r\n            T.IdFase AS Fas" +
-                    "es_IdFase, \r\n            T.Periodo AS Fases_Periodo, \r\n            T.NumeroFase " +
-                    "AS Fases_NumeroFase, \r\n            T.Nombre AS Fases_Nombre, \r\n            T.Fec" +
-                    "haInicio AS Fases_FechaInicio, \r\n            T.DuracionMeses AS Fases_DuracionMe" +
-                    "ses, \r\n            T.FechaFinalizacion AS Fases_FechaFinalizacion, \r\n           " +
-                    " T.Estado AS Fases_Estado, \r\n            T.Aplica AS Fases_Aplica, \r\n           " +
-                    " T.TipoEvalFase AS Fases_TipoEvalFase, \r\n            T.NumeroFaseAnt AS Fases_Nu" +
-                    "meroFaseAnt, \r\n            T.IdCampo AS Fases_IdCampo, \r\n            T.IdPozo AS" +
-                    " Fases_IdPozo, \r\n            T.UltimaNovedad AS Fases_UltimaNovedad, \r\n         " +
-                    "   T.NumFaseUnificada AS Fases_NumFaseUnificada, \r\n            T.Grupo AS Fases_" +
-                    "Grupo, \r\n            T.IsActive AS Fases_IsActive, \r\n            T.CreateBy AS F" +
-                    "ases_CreateBy, \r\n            T.CreateOn AS Fases_CreateOn, \r\n            T.Modif" +
-                    "iedBy AS Fases_ModifiedBy, \r\n            T.ModifiedOn AS Fases_ModifiedOn, \r\n   " +
-                    "         True AS _from0\r\n        FROM SolutionFrameworkMainModelStoreContainer.F" +
-                    "ases AS T\r\n    ) AS T1");
+                    "es_CreateOn, T1.Fases_ModifiedBy, T1.Fases_ModifiedOn, T1.Fases_TieneFaseProducc" +
+                    "ion)\r\n    FROM (\r\n        SELECT \r\n            T.IdContrato AS Fases_IdContrato," +
+                    " \r\n            T.IdFase AS Fases_IdFase, \r\n            T.Periodo AS Fases_Period" +
+                    "o, \r\n            T.NumeroFase AS Fases_NumeroFase, \r\n            T.Nombre AS Fas" +
+                    "es_Nombre, \r\n            T.FechaInicio AS Fases_FechaInicio, \r\n            T.Dur" +
+                    "acionMeses AS Fases_DuracionMeses, \r\n            T.FechaFinalizacion AS Fases_Fe" +
+                    "chaFinalizacion, \r\n            T.Estado AS Fases_Estado, \r\n            T.Aplica " +
+                    "AS Fases_Aplica, \r\n            T.TipoEvalFase AS Fases_TipoEvalFase, \r\n         " +
+                    "   T.NumeroFaseAnt AS Fases_NumeroFaseAnt, \r\n            T.IdCampo AS Fases_IdCa" +
+                    "mpo, \r\n            T.IdPozo AS Fases_IdPozo, \r\n            T.UltimaNovedad AS Fa" +
+                    "ses_UltimaNovedad, \r\n            T.NumFaseUnificada AS Fases_NumFaseUnificada, \r" +
+                    "\n            T.Grupo AS Fases_Grupo, \r\n            T.IsActive AS Fases_IsActive," +
+                    " \r\n            T.CreateBy AS Fases_CreateBy, \r\n            T.CreateOn AS Fases_C" +
+                    "reateOn, \r\n            T.ModifiedBy AS Fases_ModifiedBy, \r\n            T.Modifie" +
+                    "dOn AS Fases_ModifiedOn, \r\n            T.TieneFaseProduccion AS Fases_TieneFaseP" +
+                    "roduccion, \r\n            True AS _from0\r\n        FROM SolutionFrameworkMainModel" +
+                    "StoreContainer.Fases AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for MainModuleContext.Localizaciones
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView55()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView57()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Localizaciones", @"
     SELECT VALUE -- Constructing Localizaciones
@@ -1797,7 +1865,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.LogContratos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView56()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView58()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.LogContratos", @"
     SELECT VALUE -- Constructing LogContratos
@@ -1818,7 +1886,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.ManualAnh
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView57()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView59()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.ManualAnh", @"
     SELECT VALUE -- Constructing ManualAnh
@@ -1842,7 +1910,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Monedas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView58()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView60()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Monedas", @"
     SELECT VALUE -- Constructing Monedas
@@ -1859,7 +1927,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.NovedadesContrato
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView59()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView61()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.NovedadesContrato", @"
     SELECT VALUE -- Constructing NovedadesContrato
@@ -1887,7 +1955,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.NovedadesFase
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView60()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView62()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.NovedadesFase", "\r\n    SELECT VALUE -- Constructing NovedadesFase\r\n        [SolutionFramework.Main" +
                     "Model.NovedadesFase](T1.NovedadesFase_IdNovedad, T1.NovedadesFase_IdFase, T1.Nov" +
@@ -1919,35 +1987,36 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.PagosObligaciones
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView61()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView63()
         {
-            return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.PagosObligaciones", @"
-    SELECT VALUE -- Constructing PagosObligaciones
-        [SolutionFramework.MainModel.PagosObligaciones](T1.PagosObligaciones_IdPagoObligacion, T1.PagosObligaciones_IdCompromiso, T1.PagosObligaciones_IdTercero, T1.PagosObligaciones_IdTipoPagoObligacion, T1.PagosObligaciones_NumeroDocumento, T1.PagosObligaciones_Valor, T1.PagosObligaciones_IdMoneda, T1.PagosObligaciones_Estado, T1.PagosObligaciones_IsActive, T1.PagosObligaciones_CreateBy, T1.PagosObligaciones_CreateOn, T1.PagosObligaciones_ModifiedBy, T1.PagosObligaciones_ModifiedOn)
-    FROM (
-        SELECT 
-            T.IdPagoObligacion AS PagosObligaciones_IdPagoObligacion, 
-            T.IdCompromiso AS PagosObligaciones_IdCompromiso, 
-            T.IdTercero AS PagosObligaciones_IdTercero, 
-            T.IdTipoPagoObligacion AS PagosObligaciones_IdTipoPagoObligacion, 
-            T.NumeroDocumento AS PagosObligaciones_NumeroDocumento, 
-            T.Valor AS PagosObligaciones_Valor, 
-            T.IdMoneda AS PagosObligaciones_IdMoneda, 
-            T.Estado AS PagosObligaciones_Estado, 
-            T.IsActive AS PagosObligaciones_IsActive, 
-            T.CreateBy AS PagosObligaciones_CreateBy, 
-            T.CreateOn AS PagosObligaciones_CreateOn, 
-            T.ModifiedBy AS PagosObligaciones_ModifiedBy, 
-            T.ModifiedOn AS PagosObligaciones_ModifiedOn, 
-            True AS _from0
-        FROM SolutionFrameworkMainModelStoreContainer.PagosObligaciones AS T
-    ) AS T1");
+            return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.PagosObligaciones", "\r\n    SELECT VALUE -- Constructing PagosObligaciones\r\n        [SolutionFramework." +
+                    "MainModel.PagosObligaciones](T1.PagosObligaciones_IdPagoObligacion, T1.PagosObli" +
+                    "gaciones_IdCompromiso, T1.PagosObligaciones_IdTercero, T1.PagosObligaciones_IdTi" +
+                    "poPagoObligacion, T1.PagosObligaciones_NumeroDocumento, T1.PagosObligaciones_Val" +
+                    "orCobertura, T1.PagosObligaciones_Valor, T1.PagosObligaciones_IdMoneda, T1.Pagos" +
+                    "Obligaciones_IdMonedaCobertura, T1.PagosObligaciones_Estado, T1.PagosObligacione" +
+                    "s_IsActive, T1.PagosObligaciones_CreateBy, T1.PagosObligaciones_CreateOn, T1.Pag" +
+                    "osObligaciones_ModifiedBy, T1.PagosObligaciones_ModifiedOn)\r\n    FROM (\r\n       " +
+                    " SELECT \r\n            T.IdPagoObligacion AS PagosObligaciones_IdPagoObligacion, " +
+                    "\r\n            T.IdCompromiso AS PagosObligaciones_IdCompromiso, \r\n            T." +
+                    "IdTercero AS PagosObligaciones_IdTercero, \r\n            T.IdTipoPagoObligacion A" +
+                    "S PagosObligaciones_IdTipoPagoObligacion, \r\n            T.NumeroDocumento AS Pag" +
+                    "osObligaciones_NumeroDocumento, \r\n            T.ValorCobertura AS PagosObligacio" +
+                    "nes_ValorCobertura, \r\n            T.Valor AS PagosObligaciones_Valor, \r\n        " +
+                    "    T.IdMoneda AS PagosObligaciones_IdMoneda, \r\n            T.IdMonedaCobertura " +
+                    "AS PagosObligaciones_IdMonedaCobertura, \r\n            T.Estado AS PagosObligacio" +
+                    "nes_Estado, \r\n            T.IsActive AS PagosObligaciones_IsActive, \r\n          " +
+                    "  T.CreateBy AS PagosObligaciones_CreateBy, \r\n            T.CreateOn AS PagosObl" +
+                    "igaciones_CreateOn, \r\n            T.ModifiedBy AS PagosObligaciones_ModifiedBy, " +
+                    "\r\n            T.ModifiedOn AS PagosObligaciones_ModifiedOn, \r\n            True A" +
+                    "S _from0\r\n        FROM SolutionFrameworkMainModelStoreContainer.PagosObligacione" +
+                    "s AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for MainModuleContext.Pozos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView62()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView64()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Pozos", @"
     SELECT VALUE -- Constructing Pozos
@@ -1970,37 +2039,39 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Radicados
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView63()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView65()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Radicados", "\r\n    SELECT VALUE -- Constructing Radicados\r\n        [SolutionFramework.MainMode" +
                     "l.Radicados](T1.Radicados_IdContrato, T1.Radicados_IdRadicado, T1.Radicados_Tipo" +
                     "Radicado, T1.Radicados_Numero, T1.Radicados_FechaReciboSalida, T1.Radicados_Asun" +
                     "to, T1.Radicados_IdFrom, T1.Radicados_IdFromExterno, T1.Radicados_IdTo, T1.Radic" +
                     "ados_IdToExterno, T1.Radicados_Resumen, T1.Radicados_RespuestaPendiente, T1.Radi" +
-                    "cados_EstadoRadicado, T1.Radicados_FechaRespuesta, T1.Radicados_IdRadicadoEntrad" +
-                    "a, T1.Radicados_IsActive, T1.Radicados_CreateBy, T1.Radicados_CreateOn, T1.Radic" +
-                    "ados_ModifiedBy, T1.Radicados_ModifiedOn)\r\n    FROM (\r\n        SELECT \r\n        " +
-                    "    T.IdContrato AS Radicados_IdContrato, \r\n            T.IdRadicado AS Radicado" +
-                    "s_IdRadicado, \r\n            T.TipoRadicado AS Radicados_TipoRadicado, \r\n        " +
-                    "    T.Numero AS Radicados_Numero, \r\n            T.FechaReciboSalida AS Radicados" +
-                    "_FechaReciboSalida, \r\n            T.Asunto AS Radicados_Asunto, \r\n            T." +
-                    "IdFrom AS Radicados_IdFrom, \r\n            T.IdFromExterno AS Radicados_IdFromExt" +
-                    "erno, \r\n            T.IdTo AS Radicados_IdTo, \r\n            T.IdToExterno AS Rad" +
-                    "icados_IdToExterno, \r\n            T.Resumen AS Radicados_Resumen, \r\n            " +
-                    "T.RespuestaPendiente AS Radicados_RespuestaPendiente, \r\n            T.EstadoRadi" +
-                    "cado AS Radicados_EstadoRadicado, \r\n            T.FechaRespuesta AS Radicados_Fe" +
-                    "chaRespuesta, \r\n            T.IdRadicadoEntrada AS Radicados_IdRadicadoEntrada, " +
-                    "\r\n            T.IsActive AS Radicados_IsActive, \r\n            T.CreateBy AS Radi" +
-                    "cados_CreateBy, \r\n            T.CreateOn AS Radicados_CreateOn, \r\n            T." +
-                    "ModifiedBy AS Radicados_ModifiedBy, \r\n            T.ModifiedOn AS Radicados_Modi" +
-                    "fiedOn, \r\n            True AS _from0\r\n        FROM SolutionFrameworkMainModelSto" +
-                    "reContainer.Radicados AS T\r\n    ) AS T1");
+                    "cados_EstadoRadicado, T1.Radicados_FechaRespuesta, T1.Radicados_ResponsableRespu" +
+                    "esta, T1.Radicados_IdRadicadoEntrada, T1.Radicados_DiasAlarma, T1.Radicados_IsAc" +
+                    "tive, T1.Radicados_CreateBy, T1.Radicados_CreateOn, T1.Radicados_ModifiedBy, T1." +
+                    "Radicados_ModifiedOn)\r\n    FROM (\r\n        SELECT \r\n            T.IdContrato AS " +
+                    "Radicados_IdContrato, \r\n            T.IdRadicado AS Radicados_IdRadicado, \r\n    " +
+                    "        T.TipoRadicado AS Radicados_TipoRadicado, \r\n            T.Numero AS Radi" +
+                    "cados_Numero, \r\n            T.FechaReciboSalida AS Radicados_FechaReciboSalida, " +
+                    "\r\n            T.Asunto AS Radicados_Asunto, \r\n            T.IdFrom AS Radicados_" +
+                    "IdFrom, \r\n            T.IdFromExterno AS Radicados_IdFromExterno, \r\n            " +
+                    "T.IdTo AS Radicados_IdTo, \r\n            T.IdToExterno AS Radicados_IdToExterno, " +
+                    "\r\n            T.Resumen AS Radicados_Resumen, \r\n            T.RespuestaPendiente" +
+                    " AS Radicados_RespuestaPendiente, \r\n            T.EstadoRadicado AS Radicados_Es" +
+                    "tadoRadicado, \r\n            T.FechaRespuesta AS Radicados_FechaRespuesta, \r\n    " +
+                    "        T.ResponsableRespuesta AS Radicados_ResponsableRespuesta, \r\n            " +
+                    "T.IdRadicadoEntrada AS Radicados_IdRadicadoEntrada, \r\n            T.DiasAlarma A" +
+                    "S Radicados_DiasAlarma, \r\n            T.IsActive AS Radicados_IsActive, \r\n      " +
+                    "      T.CreateBy AS Radicados_CreateBy, \r\n            T.CreateOn AS Radicados_Cr" +
+                    "eateOn, \r\n            T.ModifiedBy AS Radicados_ModifiedBy, \r\n            T.Modi" +
+                    "fiedOn AS Radicados_ModifiedOn, \r\n            True AS _from0\r\n        FROM Solut" +
+                    "ionFrameworkMainModelStoreContainer.Radicados AS T\r\n    ) AS T1");
         }
         
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_ModuleRepository
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView64()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView66()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_ModuleRepository", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleRepository
@@ -2022,7 +2093,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_ModuleService
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView65()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView67()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_ModuleService", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleService
@@ -2044,7 +2115,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_ModuleType
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView66()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView68()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_ModuleType", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleType
@@ -2071,7 +2142,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_Modulos
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView67()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView69()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_Modulos", @"
     SELECT VALUE -- Constructing TBL_Admin_Modulos
@@ -2098,7 +2169,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_OpcionesMenu
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView68()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView70()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_OpcionesMenu", "\r\n    SELECT VALUE -- Constructing TBL_Admin_OpcionesMenu\r\n        [SolutionFrame" +
                     "work.MainModel.TBL_Admin_OpcionesMenu](T1.[TBL_Admin_OpcionesMenu.IdOpcionMenu]," +
@@ -2128,7 +2199,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_Roles
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView69()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView71()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_Roles", @"
     SELECT VALUE -- Constructing TBL_Admin_Roles
@@ -2151,7 +2222,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_Secciones
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView70()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView72()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_Secciones", "\r\n    SELECT VALUE -- Constructing TBL_Admin_Secciones\r\n        [SolutionFramewor" +
                     "k.MainModel.TBL_Admin_Secciones](T1.[TBL_Admin_Secciones.IdSeccion], T1.[TBL_Adm" +
@@ -2179,7 +2250,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_TypeByModules
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView71()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView73()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_TypeByModules", "\r\n    SELECT VALUE -- Constructing TBL_Admin_TypeByModules\r\n        [SolutionFram" +
                     "ework.MainModel.TBL_Admin_TypeByModules](T1.[TBL_Admin_TypeByModules.OID], T1.[T" +
@@ -2206,7 +2277,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_Usuarios
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView72()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView74()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2351);
             viewString.Append("\r\n    SELECT VALUE -- Constructing TBL_Admin_Usuarios\r\n        [SolutionFramewor");
@@ -2245,7 +2316,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_ModuloDocumentosAnexos_Carpetas
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView73()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView75()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_ModuloDocumentosAnexos_Carpetas", @"
     SELECT VALUE -- Constructing TBL_ModuloDocumentosAnexos_Carpetas
@@ -2269,7 +2340,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_ModuloDocumentosAnexos_Documento
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView74()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView76()
         {
             System.Text.StringBuilder viewString = new System.Text.StringBuilder(2297);
             viewString.Append("\r\n    SELECT VALUE -- Constructing TBL_ModuloDocumentosAnexos_Documento\r\n       ");
@@ -2307,7 +2378,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Terceros
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView75()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView77()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Terceros", @"
     SELECT VALUE -- Constructing Terceros
@@ -2324,7 +2395,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TiposContrato
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView76()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView78()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TiposContrato", @"
     SELECT VALUE -- Constructing TiposContrato
@@ -2346,7 +2417,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TiposPagoObligacion
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView77()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView79()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TiposPagoObligacion", @"
     SELECT VALUE -- Constructing TiposPagoObligacion
@@ -2363,7 +2434,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.ResponsablesCompromiso
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView78()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView80()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.ResponsablesCompromiso", @"
     SELECT VALUE -- Constructing ResponsablesCompromiso
@@ -2390,7 +2461,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.ResponsablesRadicado
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView79()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView81()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.ResponsablesRadicado", @"
     SELECT VALUE -- Constructing ResponsablesRadicado
@@ -2417,7 +2488,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_RolesPorOpcionMenu
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView80()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView82()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_RolesPorOpcionMenu", @"
     SELECT VALUE -- Constructing TBL_Admin_RolesPorOpcionMenu
@@ -2444,7 +2515,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_UsuariosByRol
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView81()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView83()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_UsuariosByRol", @"
     SELECT VALUE -- Constructing TBL_Admin_UsuariosByRol
@@ -2471,7 +2542,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_ModuloDocumentosAnexos_CarpetasXrol
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView82()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView84()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_ModuloDocumentosAnexos_CarpetasXrol", "\r\n    SELECT VALUE -- Constructing TBL_ModuloDocumentosAnexos_CarpetasXrol\r\n     " +
                     "   [SolutionFramework.MainModel.TBL_ModuloDocumentosAnexos_CarpetasXrol](T3.[TBL" +
@@ -2499,7 +2570,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.UsuarioCopiaComentariosRespuesta
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView83()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView85()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.UsuarioCopiaComentariosRespuesta", @"
     SELECT VALUE -- Constructing UsuarioCopiaComentariosRespuesta
@@ -2526,7 +2597,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.EstadosAccion
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView84()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView86()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.EstadosAccion", @"
     SELECT VALUE -- Constructing EstadosAccion
@@ -2549,7 +2620,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.EstadosAccion
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView85()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView87()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.EstadosAccion", @"
     SELECT VALUE -- Constructing EstadosAccion
@@ -2572,7 +2643,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.FormatosIndice
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView86()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView88()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.FormatosIndice", @"
     SELECT VALUE -- Constructing FormatosIndice
@@ -2598,7 +2669,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.Parametros
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView87()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView89()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.Parametros", "\r\n    SELECT VALUE -- Constructing Parametros\r\n        [SolutionFramework.MainMod" +
                     "el.Store.Parametros](T1.Parametros_IdParametro, T1.Parametros_ServidorCorreo, T1" +
@@ -2626,7 +2697,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.FormatosIndice
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView88()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView90()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.FormatosIndice", @"
     SELECT VALUE -- Constructing FormatosIndice
@@ -2652,7 +2723,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.Parametros
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView89()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView91()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.Parametros", "\r\n    SELECT VALUE -- Constructing Parametros\r\n        [SolutionFramework.MainMod" +
                     "el.Parametros](T1.Parametros_IdParametro, T1.Parametros_ServidorCorreo, T1.Param" +
@@ -2680,7 +2751,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.LogAuditoria
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView90()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView92()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.LogAuditoria", @"
     SELECT VALUE -- Constructing LogAuditoria
@@ -2701,7 +2772,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.LogAuditoria
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView91()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView93()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.LogAuditoria", @"
     SELECT VALUE -- Constructing LogAuditoria
@@ -2722,7 +2793,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleVersion
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView92()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView94()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_ModuleVersion", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleVersion
@@ -2742,7 +2813,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_ModuleVersion
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView93()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView95()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_ModuleVersion", @"
     SELECT VALUE -- Constructing TBL_Admin_ModuleVersion
@@ -2762,7 +2833,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for SolutionFrameworkMainModelStoreContainer.TBL_Admin_OptionList
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView94()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView96()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("SolutionFrameworkMainModelStoreContainer.TBL_Admin_OptionList", @"
     SELECT VALUE -- Constructing TBL_Admin_OptionList
@@ -2787,7 +2858,7 @@ namespace Edm_EntityMappingGeneratedViews
         /// <Summary>
         /// return view for MainModuleContext.TBL_Admin_OptionList
         /// </Summary>
-        private System.Collections.Generic.KeyValuePair<string, string> GetView95()
+        private System.Collections.Generic.KeyValuePair<string, string> GetView97()
         {
             return new System.Collections.Generic.KeyValuePair<string, string>("MainModuleContext.TBL_Admin_OptionList", @"
     SELECT VALUE -- Constructing TBL_Admin_OptionList

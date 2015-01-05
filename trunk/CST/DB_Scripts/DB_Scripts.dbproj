@@ -72,6 +72,7 @@
     <Folder Include="Scripts\Modules\Contratos\Bloques" />
     <Folder Include="Scripts\Modules\Contratos\NovedadesContrato" />
     <Folder Include="Scripts\Modules\Contratos\Radicados" />
+    <Folder Include="Scripts\Modules\Contratos\Jobs" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -137,6 +138,12 @@
       <SubType>NotInBuild</SubType>
     </NotInBuild>
     <NotInBuild Include="Scripts\Modules\Contratos\Vistas\04_Vistas_MisRadicadosPendientes.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Jobs\01_Process_GetCompromisosToNotify.sql">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
+    <NotInBuild Include="Scripts\Modules\Contratos\Jobs\02_Process_GetRadicadosToNotify.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
   </ItemGroup>

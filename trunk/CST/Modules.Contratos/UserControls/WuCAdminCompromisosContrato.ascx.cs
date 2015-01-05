@@ -95,7 +95,7 @@ namespace Modules.Contratos.UserControls
                 if (lblEstado != null) lblEstado.Text = string.Format("{0}", item.Estado);
 
                 var lblResponsable = e.Item.FindControl("lblResponsable") as Label;
-                if (lblResponsable != null) lblResponsable.Text = string.Format("{0}", item.NombreResponsable);
+                if (lblResponsable != null) lblResponsable.Text = string.Format("{0}", item.TBL_Admin_Usuarios2.Nombres);
 
                 var imgSelectCompromiso = e.Item.FindControl("imgSelectCompromiso") as ImageButton;
                 if (imgSelectCompromiso != null) imgSelectCompromiso.CommandArgument = string.Format("{0}", item.IdCompromiso);
