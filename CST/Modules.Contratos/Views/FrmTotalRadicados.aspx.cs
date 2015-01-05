@@ -102,6 +102,9 @@ namespace Modules.Contratos.Views
                 var lblResponsable = e.Item.FindControl("lblResponsable") as Label;
                 if (lblResponsable != null) lblResponsable.Text = string.Format("{0}", item["Responsable"]);
 
+                var lblDependencia = e.Item.FindControl("lblDependencia") as Label;
+                if (lblDependencia != null) lblDependencia.Text = string.Format("{0}", item["Dependencia"]);
+
                 var imgSelectCompromiso = e.Item.FindControl("imgSelectRadicado") as ImageButton;
                 if (imgSelectCompromiso != null) imgSelectCompromiso.CommandArgument = string.Format("{0}|{1}", item["IdContrato"], item["IdRadicado"]);
             }

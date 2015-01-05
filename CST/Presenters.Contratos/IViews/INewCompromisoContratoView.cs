@@ -17,6 +17,7 @@ namespace Presenters.Contratos.IViews
         string AsociadoA { get; set; }
         string BCP { get; set; }
         string Responsable { get; set; }
+        int IdResponsable { get; set; }
         int DiasAlarma { get; set; }
         string TipoAsociacion { get; set; }
 

@@ -168,7 +168,7 @@ namespace Application.MainModule.Contratos.Services
                 specification &= new DirectSpecification<Compromisos>(u => u.IdFase == idFase);
             }
 
-            return _CompromisosRepository.GetBySpec(specification).ToList();
+            return _CompromisosRepository.GetCompleteEntityList(specification);
         }
 
 

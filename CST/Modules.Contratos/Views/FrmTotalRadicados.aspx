@@ -63,6 +63,9 @@
                                 <th style="width:250px; text-align:left;vertical-align:top" filter-type='ddl'>
                                     Responsable
                                 </th>
+                                <th style="width:250px; text-align:left;vertical-align:top" filter-type='ddl'>
+                                    Dependencia
+                                </th>
                                 <th style="width:150px; text-align:left;vertical-align:top" filter-type='ddl'>
                                     Fecha.Radicado
                                 </th>
@@ -126,6 +129,9 @@
                                     <asp:Label ID="lblResponsable" runat="server" />
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
+                                    <asp:Label ID="lblDependencia" runat="server" />
+                                </td>
+                                <td style="text-align:left;vertical-align:top">
                                     <asp:Label ID="lblFechaReciboSalida" runat="server" />
                                 </td>   
                                 <td style="text-align:left;vertical-align:top">
@@ -185,6 +191,9 @@
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
                                     <asp:Label ID="lblResponsable" runat="server" />
+                                </td>
+                                <td style="text-align:left;vertical-align:top">
+                                    <asp:Label ID="lblDependencia" runat="server" />
                                 </td>
                                 <td style="text-align:left;vertical-align:top">
                                     <asp:Label ID="lblFechaReciboSalida" runat="server" />

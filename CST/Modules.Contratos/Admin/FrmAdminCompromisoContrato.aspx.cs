@@ -249,7 +249,7 @@ namespace Modules.Contratos.Admin
         {
             ddlResponsable.DataSource = items;
             ddlResponsable.DataTextField = "Nombres";
-            ddlResponsable.DataValueField = "Nombres";
+            ddlResponsable.DataValueField = "IdUser";
             ddlResponsable.DataBind();
         }
 
@@ -470,11 +470,23 @@ namespace Modules.Contratos.Admin
         {
             get
             {
-                return ddlResponsable.SelectedValue;
+                return ddlResponsable.SelectedItem.Text;
             }
             set
             {
                 ddlResponsable.SelectedValue = value;
+            }
+        }
+
+        public int IdResponsableReprogramacion
+        {
+            get
+            {
+                return Convert.ToInt32(ddlResponsable.SelectedValue);
+            }
+            set
+            {
+                ddlResponsable.SelectedValue = value.ToString();
             }
         }
 

@@ -103,7 +103,7 @@ namespace Application.MainModule.Communication.Services
                                                         compromiso.Fases.Nombre,
                                                         compromiso.Fases.Contratos.Bloques.Descripcion);
             _iMailHelper.SMTP_Body = body;
-            _iMailHelper.SMTP_To = new string[] { compromiso.TBL_Admin_Usuarios.Email };
+            _iMailHelper.SMTP_To = new string[] { compromiso.TBL_Admin_Usuarios2.Email };
 
             try
             {

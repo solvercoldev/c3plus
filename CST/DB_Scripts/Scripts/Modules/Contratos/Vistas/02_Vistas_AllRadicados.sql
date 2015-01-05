@@ -28,6 +28,7 @@ select	distinct
 		,rad.EstadoRadicado				as Estado
 		,rad.FechaRespuesta				as FechaRespuesta		
 		,responsableRespuesta.Nombres	as Responsable	
+		,dependencia.Descripcion		as Dependencia
 from	Radicados rad with(nolock)
 		inner join Contratos ctr with(nolock)
 			on rad.IdContrato = ctr.IdContrato
@@ -35,6 +36,8 @@ from	Radicados rad with(nolock)
 			on ctr.IdBloque = blq.IdBloque	
 		inner join TBL_Admin_Usuarios responsableRespuesta with(nolock)
 			on rad.ResponsableRespuesta = responsableRespuesta.IdUser
+		left join Dependencias dependencia with(nolock)
+			on responsableRespuesta.IdDependencia = dependencia.IdDependencia
 		left join TBL_Admin_Usuarios usuarioFrom with(nolock)
 			on rad.IdFrom = usuarioFrom.IdUser
 		left join TBL_Admin_Usuarios usuarioTo with(nolock)

@@ -19,7 +19,8 @@ select	distinct
 		,comp.Nombre					as Compromiso
 		,cmp.Descripcion				as Campo
 		,pz.Descripcion					as Pozo
-		,comp.NombreResponsable			as Responsable
+		,responsable.Nombres			as Responsable
+		,dependencia.Descripcion		as Dependencia
 		,comp.Estado					as Estado
 		,comp.FechaCumplimiento			as FechaCumplimiento
 		,comp.TipoCompromiso			as TipoCompromiso
@@ -30,10 +31,14 @@ select	distinct
 		,pago.Valor						as ValorPago
 		,mnd.Nombre						as Moneda
 from	Compromisos comp with(nolock)
-		inner join	Fases f with(nolock)
+		join TBL_Admin_Usuarios responsable with(nolock)
+			on comp.IdResponsable = responsable.IdUser
+		left join Dependencias dependencia with(nolock)
+			on responsable.IdDependencia = dependencia.IdDependencia
+		join	Fases f with(nolock)
 			on comp.IdFase = f.IdFase
 		join Contratos ctr with(nolock)
-			on f.IdContrato = ctr.IdContrato
+			on f.IdContrato = ctr.IdContrato		
 		join Bloques blq with(nolock)
 			on ctr.IdBloque = blq.IdBloque		
 		left join Campos cmp with(nolock)

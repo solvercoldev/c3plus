@@ -49,6 +49,7 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
                                     .Include(x => x.EntregablesANHCompromiso.Select(e => e.ManualAnh))
                                     .Include(x => x.TBL_Admin_Usuarios) // CreateBy
                                     .Include(x => x.TBL_Admin_Usuarios1) // MOdifie                                    
+                                    .Include(x => x.TBL_Admin_Usuarios2) // Responsable     
                                     .Where(specific)
                                     .SingleOrDefault();
             }
@@ -99,6 +100,9 @@ namespace Infrastructure.Data.MainModule.Contratos.Repositories
                                     .Include(x => x.Fases.Contratos.Bloques)
                                     .Include(x => x.Pozos)
                                     .Include(x => x.Campos)
+                                    .Include(x => x.TBL_Admin_Usuarios) // CreateBy
+                                    .Include(x => x.TBL_Admin_Usuarios1) // MOdifie                                    
+                                    .Include(x => x.TBL_Admin_Usuarios2) // Responsable    
                                     .Where(specific)
                                     .ToList();
             }

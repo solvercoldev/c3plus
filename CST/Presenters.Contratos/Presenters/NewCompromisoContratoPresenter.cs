@@ -389,6 +389,7 @@ namespace Presenters.Contratos.Presenters
             model.FechaCumplimiento = View.FechaCumplimiento;
             model.Estado = "Programado";
             model.NombreResponsable = View.Responsable;
+            model.IdResponsable = View.IdResponsable;
             
             switch (View.AsociadoA)
             {

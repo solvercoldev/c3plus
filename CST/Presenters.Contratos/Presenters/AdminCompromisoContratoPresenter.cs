@@ -146,6 +146,8 @@ namespace Presenters.Contratos.Presenters
                     View.PeridoFase = compromiso.Fases.Periodo;
                     View.Fase = compromiso.Fases.Nombre;
 
+                    View.IdResponsableReprogramacion = compromiso.IdResponsable;
+
                     if (!string.IsNullOrEmpty(compromiso.IdCampo))
                         View.BCP = compromiso.Campos.Descripcion;
                     else if (!string.IsNullOrEmpty(compromiso.IdPozo))
@@ -318,6 +320,7 @@ namespace Presenters.Contratos.Presenters
                             break;
                         case "ReAsignar":
                             compromiso.NombreResponsable = View.ResponsableReprogramacion;
+                            compromiso.IdResponsable = View.IdResponsableReprogramacion;
                             break;
                     }
                    

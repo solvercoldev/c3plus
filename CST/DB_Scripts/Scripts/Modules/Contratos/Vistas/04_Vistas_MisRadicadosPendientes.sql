@@ -45,5 +45,6 @@ from	Radicados rad with(nolock)
 		left join TBL_Admin_Usuarios usuarioTo with(nolock)
 			on rad.IdTo = usuarioTo.IdUser
 where	rad.ResponsableRespuesta = @IdUsuario
+		and rad.EstadoRadicado not in ('Anulado','Respondido')
 order	by
 		rad.FechaReciboSalida desc
