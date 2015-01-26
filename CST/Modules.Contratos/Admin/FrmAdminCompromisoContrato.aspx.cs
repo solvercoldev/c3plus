@@ -138,6 +138,49 @@ namespace Modules.Contratos.Admin
             Presenter.AddNovedadCompromiso();
         }
 
+        protected void BtnSaveEntregable_Click(object sender, EventArgs e)
+        {
+            PopulateSelectedManuales();
+            Presenter.AddEntregablesANH();
+        }
+
+        protected void BtnAddEntregable_Click(object sender, EventArgs e)
+        {
+            InitInfoManual();
+            ShowAdminEntregable(true);
+        }
+
+        protected void BtnRemoveEntregable_Click(object sender, EventArgs e)
+        {
+            if (lstEntregablesANH.SelectedItem != null)
+            {
+                var idEntregable = lstEntregablesANH.SelectedValue;
+
+                Presenter.RemoveEntregablesANH(idEntregable);
+            }
+        }
+
+        #endregion
+
+        #region TreeView
+
+        protected void ManualesSelect_Change(object sender, EventArgs e)
+        {
+            var manual = ManualesANH.Where(x => x.IdManualAnh == tvManualANH.SelectedValue).FirstOrDefault();
+
+            ManualId = manual.IdManualAnh;
+            ManualNoProducto = string.Format("{0}", manual.NumeroProducto);
+            ManualProducto = string.Format("{0}", manual.Producto);
+            ManualContenido = string.Format("{0}", manual.Contenido);
+            ManualFormato = string.Format("{0}", manual.Formato);
+            ManualMedio = string.Format("{0}", manual.Medio);
+            ManualEntrega = string.Format("{0}", manual.Entrega);
+
+            tvManualANH.SelectedNode.Selected = false;
+
+            ShowAdminEntregable(true);
+        }
+
         #endregion
 
         #region DropDownList
@@ -183,6 +226,9 @@ namespace Modules.Contratos.Admin
             btnMarcarOk.Visible = !enable;
             btnReprogramar.Visible = !enable;
             btnReasignar.Visible = !enable;
+
+            btnAddEntregable.Visible = enable;
+            btnRemoveEntregable.Visible = enable;
         }
 
         void AddErrorMessages(List<string> messages)
@@ -202,6 +248,25 @@ namespace Modules.Contratos.Admin
             }
         }
 
+        public void ShowAdminEntregable(bool visible)
+        {
+            if (visible)
+                mpeAdminEntregableANH.Show();
+            else
+                mpeAdminEntregableANH.Hide();
+        }
+
+        void InitInfoManual()
+        {
+            ManualId = string.Empty;
+            ManualNoProducto = string.Empty;
+            ManualProducto = string.Empty;
+            ManualContenido = string.Empty;
+            ManualFormato = string.Empty;
+            ManualMedio = string.Empty;
+            ManualEntrega = string.Empty;
+        }
+
         #endregion
 
         #region View Members
@@ -214,6 +279,30 @@ namespace Modules.Contratos.Admin
             lstEntregablesANH.DataTextField = "Value";
             lstEntregablesANH.DataValueField = "Id";
             lstEntregablesANH.DataBind();
+        }
+
+        public void LoadManuales(List<ManualAnh> items)
+        {
+            ManualesANH = new List<ManualAnh>();
+
+            if (items.Any())
+            {
+                var parents = items.Where(x => x.IdManualAnhPadre == "0").Distinct().OrderBy(x => x.IdManualAnh).ToList();
+
+                foreach (var p in parents)
+                {
+                    TreeNode parentNode = new TreeNode(string.Format("{0} - {1}", p.IdManualAnh, p.Producto), p.IdManualAnh);
+                    tvManualANH.Nodes.Add(parentNode);
+                    tvManualANH.CollapseAll();
+
+                    //parentNode.SelectAction = TreeNodeSelectAction.None;
+
+                    AddTreeNode(parentNode, items);
+                }
+
+                ManualesANH = items;
+            }
+
         }
 
         public void LoadMonedas(List<Monedas> items)
@@ -306,6 +395,61 @@ namespace Modules.Contratos.Admin
                     Response.Redirect(string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato));
                     break;
             }
+        }
+
+        void AddTreeNode(TreeNode parent, List<ManualAnh> items)
+        {
+            var childs = items.Where(x => x.IdManualAnhPadre == parent.Value).Distinct().OrderBy(x => x.IdManualAnh).ToList();
+
+            foreach (var c in childs)
+            {
+                TreeNode childNode = new TreeNode(string.Format("{0} - {1}", c.IdManualAnh, c.Producto), c.IdManualAnh);
+                parent.ChildNodes.Add(childNode);
+                childNode.CollapseAll();
+
+                //childNode.SelectAction = TreeNodeSelectAction.None;
+
+                AddTreeNode(childNode, items);
+            }
+        }
+
+        public void PopulateSelectedManuales()
+        {
+            SelectedManualesANH = new List<DTO_ValueKey>();
+
+            foreach (TreeNode tn in tvManualANH.Nodes)
+            {
+                if (tn.Checked && !ExisteEntregable(tn.Value))
+                    SelectedManualesANH.Add(new DTO_ValueKey() { Id = tn.Value, Value = tn.Text });
+
+                SetSelecctedChild(tn);
+            }
+        }
+
+        bool ExisteEntregable(string idEntregable)
+        {
+            var entregables = SelectedManualesANH.Where(x => x.Id == idEntregable);
+
+            return entregables.Any();
+        }
+
+        void SetSelecctedChild(TreeNode parent)
+        {
+            foreach (TreeNode cn in parent.ChildNodes)
+            {
+                if (cn.Checked)
+                    SelectedManualesANH.Add(new DTO_ValueKey() { Id = cn.Value, Value = cn.Text });
+
+                SetSelecctedChild(cn);
+            }
+        }
+
+        void LoadSelectedManuales()
+        {
+            lstEntregablesANH.DataSource = SelectedManualesANH;
+            lstEntregablesANH.DataTextField = "Value";
+            lstEntregablesANH.DataValueField = "Id";
+            lstEntregablesANH.DataBind();
         }
 
         #endregion
@@ -682,6 +826,78 @@ namespace Modules.Contratos.Admin
                 lblInfoContrato.Text = value;
                 lblInfoContrato.NavigateUrl = string.Format("FrmContrato.aspx?ModuleId={0}&IdContrato={1}", ModuleId, IdContrato);
             }
+        }
+
+        public List<DTO_ValueKey> SelectedManualesANH
+        {
+            get
+            {
+                if (Session["AdminCompromisoContrato_SelectedManualesANH"] == null)
+                    Session["AdminCompromisoContrato_SelectedManualesANH"] = new List<DTO_ValueKey>();
+
+                return Session["AdminCompromisoContrato_SelectedManualesANH"] as List<DTO_ValueKey>;
+            }
+            set
+            {
+                Session["AdminCompromisoContrato_SelectedManualesANH"] = value;
+            }
+        }
+        
+        public List<ManualAnh> ManualesANH
+        {
+            get
+            {
+                if (Session["AdminCompromisoContrato_ManualesANH"] == null)
+                    Session["AdminCompromisoContrato_ManualesANH"] = new List<ManualAnh>();
+
+                return Session["AdminCompromisoContrato_ManualesANH"] as List<ManualAnh>;
+            }
+            set
+            {
+                Session["AdminCompromisoContrato_ManualesANH"] = value;
+            }
+        }
+
+        public string ManualId
+        {
+            get { return lblManualId.Text; }
+            set { lblManualId.Text = value; }
+        }
+
+        public string ManualNoProducto
+        {
+            get { return lblManualNoProducto.Text; }
+            set { lblManualNoProducto.Text = value; }
+        }
+
+        public string ManualProducto
+        {
+            get { return lblManualProducto.Text; }
+            set { lblManualProducto.Text = value; }
+        }
+
+        public string ManualContenido
+        {
+            get { return txtManualContenido.Text; }
+            set { txtManualContenido.Text = value; }
+        }
+
+        public string ManualFormato
+        {
+            get { return lblManualFormato.Text; }
+            set { lblManualFormato.Text = value; }
+        }
+
+        public string ManualMedio
+        {
+            get { return lblManualMedio.Text; }
+            set { lblManualMedio.Text = value; }
+        }
+
+        public string ManualEntrega
+        {
+            get { return lblManualEntrega.Text; }
+            set { lblManualEntrega.Text = value; }
         }
 
         #endregion

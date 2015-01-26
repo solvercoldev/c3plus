@@ -57,6 +57,7 @@
     <Compile Include="IViews\IContratoLocationPreviewView.cs" />
     <Compile Include="IViews\ILogContratosView.cs" />
     <Compile Include="IViews\IManageFasesContratoView.cs" />
+    <Compile Include="IViews\IManualesANHView.cs" />
     <Compile Include="IViews\IMisCompromisosPendientesView.cs" />
     <Compile Include="IViews\IMisRadicadosPendientesView.cs" />
     <Compile Include="IViews\INewCompromisoContratoView.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Presenters\ContratoPresenter.cs" />
     <Compile Include="Presenters\LogContratosPresenter.cs" />
     <Compile Include="Presenters\ManageFasesContratoPresenter.cs" />
+    <Compile Include="Presenters\ManualesANHPresenter.cs" />
     <Compile Include="Presenters\MisCompromisosPendientesPresenter.cs" />
     <Compile Include="Presenters\MisRadicadosPendientesPresenter.cs" />
     <Compile Include="Presenters\NewCompromisoContratoPresenter.cs" />

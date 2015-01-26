@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Domain.Core.Specification;
@@ -9,7 +10,6 @@ using Infraestructure.Data.Core;
 using Infraestructure.Data.Core.Extensions;
 using Infrastructure.CrossCutting.Logging;
 using Infrastructure.Data.MainModule.UnitOfWork;
-using System.Collections.Generic;
 
 namespace Infrastructure.Data.MainModule.Contratos.Repositories
 {
