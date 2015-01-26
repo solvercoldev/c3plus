@@ -132,6 +132,18 @@ namespace Application.MainModule.Contratos.Services
             return _EntregablesANHCompromisoRepository.GetPagedElements(pageIndex, pageCount, u => u.IdCompromiso, onlyEnabledSpec, true).ToList();
          }
 
+         public List<EntregablesANHCompromiso> GetEntregablesByCompromiso(long idCompromiso)
+         {
+             Specification<EntregablesANHCompromiso> specification = new DirectSpecification<EntregablesANHCompromiso>(u => u.IdCompromiso == idCompromiso);
+             return _EntregablesANHCompromisoRepository.GetCompleteEntityList(specification);
+         }
+
+         public EntregablesANHCompromiso GetEntregableByCompromiso(long idCompromiso, string idManual)
+         {
+             Specification<EntregablesANHCompromiso> specification = new DirectSpecification<EntregablesANHCompromiso>(u => u.IdCompromiso == idCompromiso && u.IdManualAnh == idManual);
+             return _EntregablesANHCompromisoRepository.GetEntityBySpec(specification);
+         }
+
          #endregion
 
          #region IDisposable Members
@@ -152,6 +164,9 @@ namespace Application.MainModule.Contratos.Services
         }
 
         #endregion
+
+
+       
     }
 }
     

@@ -93,6 +93,7 @@
     <Content Include="Admin\FrmManageFasesContrato.aspx" />
     <Content Include="Admin\FrmNewCompromisoContrato.aspx" />
     <Content Include="Admin\FrmNewRadicadoContrato.aspx" />
+    <Content Include="Catalogs\FrmManualesANH.aspx" />
     <Content Include="UserControls\WuCAdminComentariosContrato.ascx" />
     <Content Include="UserControls\WuCAdminCompromisosContrato.ascx" />
     <Content Include="UserControls\WuCAdminCompromisosFasesContrato.ascx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="Admin\FrmNewRadicadoContrato.aspx.designer.cs">
       <DependentUpon>FrmNewRadicadoContrato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogs\FrmManualesANH.aspx.cs">
+      <DependentUpon>FrmManualesANH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogs\FrmManualesANH.aspx.designer.cs">
+      <DependentUpon>FrmManualesANH.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContratosModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -361,9 +369,7 @@
       <Name>ServerControls</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Catalogs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Site.Master" />
   </ItemGroup>

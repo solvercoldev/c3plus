@@ -22,6 +22,8 @@ namespace Presenters.Contratos.Presenters
         readonly ISfTiposPagoObligacionManagementServices _tipoPagoObligacionService;
         readonly ISfTercerosManagementServices _tercerosService;
         readonly ISfTBL_Admin_UsuariosManagementServices _usuariosService;
+        readonly ISfManualAnhManagementServices _manualAnhService;
+        readonly ISfEntregablesANHCompromisoManagementServices _entregableAnhService;
         readonly IContratoMailService _contratoMailService;
         readonly ISfLogContratosManagementServices _log;
 
@@ -32,6 +34,8 @@ namespace Presenters.Contratos.Presenters
                                                 ISfTiposPagoObligacionManagementServices tipoPagoObligacionService,
                                                 ISfTercerosManagementServices tercerosService,
                                                 ISfTBL_Admin_UsuariosManagementServices usuariosService,
+                                                ISfEntregablesANHCompromisoManagementServices entregableAnhService,
+                                                ISfManualAnhManagementServices manualAnhService,
                                                 IContratoMailService contratoMailService,
                                                 ISfLogContratosManagementServices log)
         {
@@ -42,6 +46,8 @@ namespace Presenters.Contratos.Presenters
             _tipoPagoObligacionService = tipoPagoObligacionService;
             _tercerosService = tercerosService;
             _usuariosService = usuariosService;
+            _entregableAnhService = entregableAnhService;
+            _manualAnhService = manualAnhService;
             _contratoMailService = contratoMailService;
             _log = log;
         }
@@ -70,6 +76,7 @@ namespace Presenters.Contratos.Presenters
             LoadTipoPagoObligaciones();
             LoadTerceros();
             LoadResponsables();
+            LoadManuales();
         }
 
         void LoadMonedas()
@@ -111,6 +118,20 @@ namespace Presenters.Contratos.Presenters
             }
         }
 
+        void LoadManuales()
+        {
+            try
+            {
+                var items = _manualAnhService.FindBySpec(true);
+
+                View.LoadManuales(items);
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }      
+
         void LoadResponsables()
         {
             try
@@ -123,6 +144,27 @@ namespace Presenters.Contratos.Presenters
                 CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
             }
         }
+
+        void LoadEntregables()
+        {
+            try
+            {
+                var manuales = new List<DTO_ValueKey>();
+                var entregablesANH = _entregableAnhService.GetEntregablesByCompromiso(Convert.ToInt64(View.IdCompromiso));
+                if (entregablesANH.Any())
+                {
+                    foreach (var ent in entregablesANH)
+                    {
+                        manuales.Add(new DTO_ValueKey() { Id = ent.ManualAnh.IdManualAnh, Value = string.Format("{0} - {1}", ent.ManualAnh.IdManualAnh, ent.ManualAnh.Producto) });
+                    }
+                }
+                View.LoadManuales(manuales);
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        } 
 
         void LoadCompromiso()
         {
@@ -158,15 +200,7 @@ namespace Presenters.Contratos.Presenters
                     switch (compromiso.TipoAsociacion)
                     {
                         case "Entregable":
-                            var manuales = new List<DTO_ValueKey>();
-                            if (compromiso.EntregablesANHCompromiso.Any())
-                            {
-                                foreach (var ent in compromiso.EntregablesANHCompromiso)
-                                {
-                                    manuales.Add(new DTO_ValueKey() { Id = ent.ManualAnh.IdManualAnh, Value = ent.ManualAnh.Producto });
-                                }
-                            }
-                            View.LoadManuales(manuales);
+                            LoadEntregables();
                             break;
                         case "Pago":
 
@@ -216,6 +250,40 @@ namespace Presenters.Contratos.Presenters
                 {
                     View.InfoContrato = string.Format("{0} - {1}", model.Nombre, model.NumeroContrato);
                 }
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        public void AddEntregablesANH()
+        {
+            try
+            {
+                foreach (var ent in View.SelectedManualesANH)
+                {
+                    _entregableAnhService.Add(new EntregablesANHCompromiso() { IdCompromiso = Convert.ToInt64(View.IdCompromiso), IdManualAnh = ent.Id });
+                }
+
+                LoadEntregables();
+            }
+            catch (Exception ex)
+            {
+                CrearEntradaLogProcesamiento(new LogProcesamientoEventArgs(ex, MethodBase.GetCurrentMethod().Name, Logtype.Archivo));
+            }
+        }
+
+        public void RemoveEntregablesANH(string idEntregable)
+        {
+            try
+            {
+                var entregable = _entregableAnhService.GetEntregableByCompromiso(Convert.ToInt64(View.IdCompromiso), idEntregable);
+
+                if (entregable != null)
+                    _entregableAnhService.Remove(entregable);
+
+                LoadEntregables();
             }
             catch (Exception ex)
             {

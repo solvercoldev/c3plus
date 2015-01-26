@@ -50,7 +50,10 @@ namespace Presenters.Contratos.IViews
         void LoadTipoPago(List<TiposPagoObligacion> items);
         void LoadEntidades(List<Terceros> items);
         void LoadResponsables(List<TBL_Admin_Usuarios> items);
+        void LoadManuales(List<ManualAnh> items);
         void ShowTipoAsociacion(string tipo);
+
+        List<DTO_ValueKey> SelectedManualesANH { get; set; }
 
         void EnableEditCompromiso(bool enable);
 
