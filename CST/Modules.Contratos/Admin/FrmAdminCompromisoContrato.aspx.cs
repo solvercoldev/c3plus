@@ -265,6 +265,25 @@ namespace Modules.Contratos.Admin
             ManualFormato = string.Empty;
             ManualMedio = string.Empty;
             ManualEntrega = string.Empty;
+            
+            foreach (TreeNode tn in tvManualANH.Nodes)
+            {
+                tn.Checked = false;
+                tn.CollapseAll();
+
+                InitTreeAdmin(tn);
+            }
+        }
+
+        void InitTreeAdmin(TreeNode parent)
+        {
+            foreach (TreeNode cn in parent.ChildNodes)
+            {
+                cn.Checked = false;
+                cn.CollapseAll();
+
+                SetSelecctedChild(cn);
+            }
         }
 
         #endregion
@@ -284,7 +303,7 @@ namespace Modules.Contratos.Admin
         public void LoadManuales(List<ManualAnh> items)
         {
             ManualesANH = new List<ManualAnh>();
-
+            tvManualANH.Nodes.Clear();
             if (items.Any())
             {
                 var parents = items.Where(x => x.IdManualAnhPadre == "0").Distinct().OrderBy(x => x.IdManualAnh).ToList();
