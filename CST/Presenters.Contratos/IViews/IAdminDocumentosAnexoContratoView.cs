@@ -17,5 +17,7 @@ namespace Presenters.Contratos.IViews
         byte[] ArchivoAnexo { get; }
         void LoadCategorias(List<DTO_ValueKey> items);
         void LoadAnexos(List<DocumentosAnexoContrato> items);
+
+        bool CanAddDocumentos { get; set; }
     }
 }

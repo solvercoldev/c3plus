@@ -76,11 +76,11 @@ namespace Presenters.Contratos.Presenters
 
                     if (estadoAccion != null)
                     {
-                        View.CanRenunciar = estadoAccion.Renunciar;
-                        View.CanTerminar = estadoAccion.Terminar;
-                        View.CanSuspender = estadoAccion.Suspender;
-                        View.CanRestituir = estadoAccion.Restituir;
-                        View.CanAnular = contrato.Estado != "Anulado" && contrato.Estado != "Terminado" && contrato.Estado != "Vencido";
+                        View.CanRenunciar = estadoAccion.Renunciar && View.UserSession.IsInRole("Administrador");
+                        View.CanTerminar = estadoAccion.Terminar && View.UserSession.IsInRole("Administrador");
+                        View.CanSuspender = estadoAccion.Suspender && View.UserSession.IsInRole("Administrador");
+                        View.CanRestituir = estadoAccion.Restituir && View.UserSession.IsInRole("Administrador");
+                        View.CanAnular = (contrato.Estado != "Anulado" && contrato.Estado != "Terminado" && contrato.Estado != "Vencido") && View.UserSession.IsInRole("Administrador");
                     }
 
                     View.FechaFirma = contrato.FechaFirma;

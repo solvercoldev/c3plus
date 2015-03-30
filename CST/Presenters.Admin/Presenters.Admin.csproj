@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IViews\IAdminMenuOptionView.cs" />
     <Compile Include="IViews\IAdminOptionList.cs" />
     <Compile Include="IViews\IDetailOptionListView.cs" />
     <Compile Include="IViews\IEditModulesView.cs" />
@@ -92,6 +93,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Presenters\AdminMenuOptionPresenter.cs" />
     <Compile Include="Presenters\AdminOptionsListPresenters.cs" />
     <Compile Include="Presenters\DetailOptionListPresenter.cs" />
     <Compile Include="Presenters\EditModulePresenter.cs" />

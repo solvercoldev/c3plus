@@ -65,6 +65,8 @@ namespace Presenters.Contratos.Presenters
             LoadTipoContratos();
             LoadBloques();
             LoadUsuarios();
+
+            View.CanAddFases = View.UserSession.IsInRole("Administrador");
         }
 
         void InitView()

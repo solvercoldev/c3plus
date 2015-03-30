@@ -30,6 +30,30 @@ namespace Infrastructure.Data.MainModule.Repositories
         {
         }
 
+        public TBL_Admin_OpcionesMenu FindOptionsBySpec(ISpecification<TBL_Admin_OpcionesMenu> specification)
+        {
+            //validate specification
+            if (specification == null)
+                throw new ArgumentNullException("specification");
+
+            var activeContext = UnitOfWork as IMainModuleUnitOfWork;
+            if (activeContext != null)
+            {
+                //perform operation in this repository
+                var specific = specification.SatisfiedBy();
+                return activeContext.TBL_Admin_OpcionesMenu
+                                    .Include(m => m.TBL_Admin_Roles) //Roles para los Nodos Principales
+                                    .Include(m => m.TBL_Admin_OpcionesMenu1.Select(x => x.TBL_Admin_Roles)) //Nodos secundarios y sus respectivos roles
+                                    .Include(m => m.TBL_Admin_OpcionesMenu2.TBL_Admin_Roles) //Nodos secundarios hacia el nodo padre
+                                    .Where(specific)
+                                    .FirstOrDefault();
+            }
+            throw new InvalidOperationException(string.Format(
+                CultureInfo.InvariantCulture,
+                Messages.exception_InvalidStoreContext,
+                GetType().Name));
+        }
+
         public IEnumerable<TBL_Admin_OpcionesMenu> FindAllOptionsBySpec(ISpecification<TBL_Admin_OpcionesMenu> specification)
         {
             //validate specification

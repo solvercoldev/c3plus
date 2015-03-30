@@ -98,7 +98,7 @@ namespace Applications.MainModule.Admin.Services
 
             Specification<TBL_Admin_OpcionesMenu> specification = new DirectSpecification<TBL_Admin_OpcionesMenu>(u => u.IdOpcionMenu == id);
 
-            return _tblAdminOpcionesMenuRepository.GetEntityBySpec(specification);
+            return _tblAdminOpcionesMenuRepository.FindOptionsBySpec(specification);
           
          }
 
@@ -111,7 +111,7 @@ namespace Applications.MainModule.Admin.Services
          public List<TBL_Admin_OpcionesMenu> FindBySpec(bool isActive)
          {
             Specification<TBL_Admin_OpcionesMenu> specification = new DirectSpecification<TBL_Admin_OpcionesMenu>(u => u.Activo == isActive);
-            return _tblAdminOpcionesMenuRepository.GetBySpec(specification).ToList();
+            return _tblAdminOpcionesMenuRepository.FindAllOptionsBySpec(specification).ToList();
          }
 
           /// <summary>
@@ -171,6 +171,17 @@ namespace Applications.MainModule.Admin.Services
         }
 
         #endregion
+
+
+        public bool HasChildren(int id)
+        {
+            if (id == 0)
+                throw new ArgumentNullException(string.Format("Busqueda por Id : El parametro es nulo."));
+
+            Specification<TBL_Admin_OpcionesMenu> specification = new DirectSpecification<TBL_Admin_OpcionesMenu>(u => u.IdopcionPadre == id);
+
+            return _tblAdminOpcionesMenuRepository.GetBySpec(specification).ToList().Count > 0;
+        }
     }
 }
     

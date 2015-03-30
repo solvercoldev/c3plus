@@ -5,10 +5,9 @@
  <table cellpadding="0" cellspacing="0">
    
     <tr>
-         <td>
+         <td >
            <asp:Image ID="imgRol" runat="server" ImageUrl="~/Resources/Images/PersonalInformation.png" />
         </td>
-        <td style="width:10px;"></td>
         <td class="textlogin">
             <asp:Literal ID="litUser" runat="server"></asp:Literal>
         </td>

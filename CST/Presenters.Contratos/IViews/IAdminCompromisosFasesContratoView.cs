@@ -15,6 +15,8 @@ namespace Presenters.Contratos.IViews
         int IdResponsable { get; set; }
         int IdFase { get; set; }
 
+        bool CanAddCompromisos { get; set; }
+
         void LoadCompromisos(List<Compromisos> items);
         void LoadFases(List<Fases> items);
         void LoadResponsables(List<TBL_Admin_Usuarios> items);

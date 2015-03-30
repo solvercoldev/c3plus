@@ -22,6 +22,8 @@ namespace Applications.MainModule.Admin.IServices
         /// <param name="id"></param>
         /// <returns></returns>
         IEnumerable<TBL_Admin_OpcionesMenu> FindListByIdModule(string id);
+
+        bool HasChildren(int id);
     }
 }
     

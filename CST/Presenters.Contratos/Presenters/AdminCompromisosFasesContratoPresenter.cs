@@ -44,6 +44,8 @@ namespace Presenters.Contratos.Presenters
             LoadFases();
             LoadResponsables();
             LoadCompromisos();
+
+            View.CanAddCompromisos = View.UserSession.IsInRole("Administrador");
         }
 
         void InitView()

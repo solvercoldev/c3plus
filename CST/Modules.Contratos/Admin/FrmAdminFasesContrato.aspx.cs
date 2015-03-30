@@ -601,6 +601,30 @@ namespace Modules.Contratos.Admin
             }
         }
 
+        public bool CanSave
+        {
+            get
+            {
+                return btnSave.Visible;
+            }
+            set
+            {
+                btnSave.Visible = value;
+            }
+        }
+
+        public bool CanGenerateFases
+        {
+            get
+            {
+                return btnGenerarFases.Visible;
+            }
+            set
+            {
+                btnGenerarFases.Visible = value;
+            }
+        }
+
         #endregion
 
         #endregion

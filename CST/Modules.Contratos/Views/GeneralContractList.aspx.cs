@@ -210,8 +210,20 @@ namespace Modules.Contratos.Views
             }
         }
 
+        public bool VisibleNewContract
+        {
+            get
+            {
+                return btnNuevo.Visible;
+            }
+            set
+            {
+                btnNuevo.Visible = value;
+            }
+        }
+
         #endregion
 
-        #endregion        
+        #endregion
     }
 }

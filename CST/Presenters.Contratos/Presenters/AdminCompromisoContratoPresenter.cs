@@ -229,7 +229,8 @@ namespace Presenters.Contratos.Presenters
                     View.ShowTipoAsociacion(compromiso.TipoAsociacion);
 
                     View.EnableEditCompromiso(false);
-                    View.EnableActions(compromiso.Estado == "Programado");
+                    View.EnableActions(compromiso.Estado == "Programado" && (View.UserSession.IsInRole("Administrador")
+                                                                            || compromiso.IdResponsable == View.UserSession.IdUser));
                 }
             }
             catch (Exception ex)

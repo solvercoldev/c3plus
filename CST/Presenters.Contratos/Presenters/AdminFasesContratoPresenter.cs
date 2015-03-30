@@ -49,6 +49,9 @@ namespace Presenters.Contratos.Presenters
         {
             LoadContrato();
             LoadOptionListValues();
+
+            View.CanSave = View.UserSession.IsInRole("Administrador");
+            View.CanGenerateFases = View.UserSession.IsInRole("Administrador");
         }
 
         void InitView()

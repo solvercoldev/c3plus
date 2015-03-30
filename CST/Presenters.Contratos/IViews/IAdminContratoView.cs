@@ -33,5 +33,7 @@ namespace Presenters.Contratos.IViews
         void GoToContratoList();
 
         void AddErrorMessages(List<string> errors);
+
+        bool CanAddFases { get; set; }
     }
 }

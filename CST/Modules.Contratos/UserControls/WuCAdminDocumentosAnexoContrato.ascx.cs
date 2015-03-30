@@ -273,6 +273,18 @@ namespace Modules.Contratos.UserControls
             }
         }
 
+        public bool CanAddDocumentos
+        {
+            get
+            {
+                return btnAddDocumento.Visible;
+            }
+            set
+            {
+                btnAddDocumento.Visible = value;
+            }
+        }
+
         #endregion
 
         #endregion

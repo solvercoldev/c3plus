@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using Application.Core;
 using ASP.NETCLIENTE.UI;
 using Domain.MainModules.Entities;
 using Modules.Contratos.UI;
 using Presenters.Contratos.IViews;
 using Presenters.Contratos.Presenters;
-using System.Web.UI.HtmlControls;
-using Application.Core;
-using System.Web.UI;
 
 namespace Modules.Contratos.UserControls
 {

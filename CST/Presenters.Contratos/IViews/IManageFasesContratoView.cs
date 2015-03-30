@@ -12,6 +12,7 @@ namespace Presenters.Contratos.IViews
 
         string NombreContrato { get; set; }
 
+        bool EnableActions { get; set; }
 
         string TipoOperacion { get; set; }
 

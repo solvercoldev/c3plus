@@ -25,6 +25,8 @@ namespace Presenters.Contratos.IViews
 
         void LoadFases(List<Fases> items);
 
+        bool CanMangeFases { get; set; }
+
         // Load
         void LoadSecciones(IEnumerable<TBL_Admin_Secciones> secciones);
         void LoadInitControl();

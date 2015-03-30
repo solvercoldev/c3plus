@@ -18,5 +18,7 @@ namespace Presenters.Contratos.IViews
         void LoadEstados(List<DTO_ValueKey> items);
 
         void LoadContratos(List<Domain.MainModules.Entities.Contratos> items);
+
+        bool VisibleNewContract { get; set; }
     }
 }

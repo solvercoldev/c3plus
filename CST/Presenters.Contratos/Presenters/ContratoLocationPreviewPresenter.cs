@@ -48,7 +48,7 @@ namespace Presenters.Contratos.Presenters
         }
 
         public void LoadInit()
-        {
+        {            
             LoadEmpresas();
             LoadTipoContratos();            
             LoadContrato();
@@ -126,7 +126,7 @@ namespace Presenters.Contratos.Presenters
                     LoadBloques(contrato.IdBloque);
 
                     View.EnableEdit(false);
-                    View.CanEdit(contrato.Estado == "Vigente");
+                    View.CanEdit(contrato.Estado == "Vigente" && View.UserSession.IsInRole("Administrador"));
                 }                
             }
             catch (Exception ex)

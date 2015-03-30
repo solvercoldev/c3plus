@@ -39,6 +39,8 @@ namespace Presenters.Contratos.Presenters
         public void LoadInit()
         {
             LoadRadicados();
+
+            View.CanAddRadicados = View.UserSession.IsInRole("Administrador") || View.UserSession.IsInRole("Correspondencia");
         }
 
         void InitView()
