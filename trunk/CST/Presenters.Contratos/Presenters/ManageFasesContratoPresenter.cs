@@ -58,6 +58,8 @@ namespace Presenters.Contratos.Presenters
             LoadContrato();
             CargarSecciones();
             LoadOptionList();
+
+            View.EnableActions = View.UserSession.IsInRole("Administrador");
         }
 
         void InitView()

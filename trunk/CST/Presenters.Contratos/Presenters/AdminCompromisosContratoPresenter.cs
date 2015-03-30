@@ -43,10 +43,11 @@ namespace Presenters.Contratos.Presenters
         {
             LoadFases();
             LoadCompromisos();
+            View.CanAddCompromiso = View.UserSession.IsInRole("Administrador");
         }
 
         void InitView()
-        {
+        {            
         }
 
         void LoadFases()

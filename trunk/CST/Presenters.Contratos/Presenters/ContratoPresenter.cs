@@ -50,6 +50,7 @@ namespace Presenters.Contratos.Presenters
 
         void InitView()
         {
+            View.CanMangeFases = View.UserSession.IsInRole("Administrador");
         }
 
         public void LoadContrato()

@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using Application.MainModule.Contratos.DTO;
 using ASP.NETCLIENTE.UI;
 using Domain.MainModules.Entities;
 using Modules.Contratos.UI;
 using Presenters.Contratos.IViews;
 using Presenters.Contratos.Presenters;
-using System.Web.UI.HtmlControls;
 
 namespace Modules.Contratos.Admin
 {
@@ -504,6 +502,18 @@ namespace Modules.Contratos.Admin
             set
             {
                 lblMsgLogInfo.Text = value;
+            }
+        }
+
+        public bool CanMangeFases
+        {
+            get
+            {
+                return btnManageFases.Visible;
+            }
+            set
+            {
+                btnManageFases.Visible = value;
             }
         }
 

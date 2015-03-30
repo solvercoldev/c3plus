@@ -4,13 +4,11 @@ using System.Configuration;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Application.MainModule.Contratos.DTO;
+using Application.Core;
 using ASP.NETCLIENTE.UI;
 using Domain.MainModules.Entities;
-using Modules.Contratos.UI;
 using Presenters.Contratos.IViews;
 using Presenters.Contratos.Presenters;
-using Application.Core;
 
 namespace Modules.Contratos.Admin
 {

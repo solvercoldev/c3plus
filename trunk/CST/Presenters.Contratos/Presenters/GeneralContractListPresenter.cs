@@ -41,6 +41,12 @@ namespace Presenters.Contratos.Presenters
 
         void InitView()
         {
+            CheckActions();
+        }
+
+        void CheckActions()
+        {
+            View.VisibleNewContract = View.UserSession.IsInRole("Administrador");
         }
 
         void LoadBloques()

@@ -806,6 +806,18 @@ namespace Modules.Contratos.Admin
             }
         }
 
+        public bool EnableActions
+        {
+            get
+            {
+                return pnlContainerActionButtons.Visible;
+            }
+            set
+            {
+                pnlContainerActionButtons.Visible = value;
+            }
+        }
+
         #endregion
 
         #endregion       

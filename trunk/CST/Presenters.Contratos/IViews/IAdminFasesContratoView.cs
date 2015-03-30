@@ -36,5 +36,8 @@ namespace Presenters.Contratos.IViews
         int MaxTotalDuracionFaseExploratorio { get; set; }
 
         void AddErrorMessages(List<string> messages);
+
+        bool CanSave { get; set; }
+        bool CanGenerateFases { get; set; }
     }
 }

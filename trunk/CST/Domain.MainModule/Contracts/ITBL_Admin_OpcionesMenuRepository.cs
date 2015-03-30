@@ -25,6 +25,8 @@ namespace Domain.MainModule.Contracts
         /// <param name="specification"></param>
         /// <returns></returns>
         IEnumerable<TBL_Admin_OpcionesMenu> FindAllOptionsBySpec(ISpecification<TBL_Admin_OpcionesMenu> specification);
+
+        TBL_Admin_OpcionesMenu FindOptionsBySpec(ISpecification<TBL_Admin_OpcionesMenu> specification);
     }
 }
     

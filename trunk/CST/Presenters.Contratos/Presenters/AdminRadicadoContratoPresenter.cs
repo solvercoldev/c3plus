@@ -114,7 +114,9 @@ namespace Presenters.Contratos.Presenters
                                                     radicado.TBL_Admin_Usuarios1.Nombres, radicado.ModifiedOn);
 
                     View.EnableEdit(false);
-                    View.EnableActions(radicado.EstadoRadicado != "Respondido" && radicado.EstadoRadicado != "Anulado");
+                    View.EnableActions(radicado.EstadoRadicado != "Respondido" && radicado.EstadoRadicado != "Anulado"
+                                        && (View.UserSession.IsInRole("Administrador") || radicado.ResponsableRespuesta == View.UserSession.IdUser));
+
                     View.EnableMarcarOK(radicado.TipoRadicado == "RS");
 
                     if (radicado.RespuestaPendiente)

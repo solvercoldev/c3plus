@@ -192,6 +192,18 @@ namespace Modules.Contratos.UserControls
             }
         }
 
+        public bool CanAddRadicados
+        {
+            get
+            {
+                return btnAddRadicado.Visible;
+            }
+            set
+            {
+                btnAddRadicado.Visible = value;
+            }
+        }
+
         #endregion
 
         #endregion

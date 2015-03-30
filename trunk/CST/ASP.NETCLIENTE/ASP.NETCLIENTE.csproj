@@ -249,6 +249,7 @@
     <Content Include="Resources\Images\cancel.png" />
     <Content Include="Resources\Images\Categorias.png" />
     <Content Include="Resources\Images\check.png" />
+    <Content Include="Resources\Images\ChildNode.png" />
     <Content Include="Resources\Images\ChildNode3.png" />
     <Content Include="Resources\Images\ChildNode32.png" />
     <Content Include="Resources\Images\ChildNode4.png" />

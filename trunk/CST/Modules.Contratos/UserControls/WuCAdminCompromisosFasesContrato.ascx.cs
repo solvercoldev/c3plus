@@ -211,6 +211,18 @@ namespace Modules.Contratos.UserControls
             }
         }
 
+        public bool CanAddCompromisos
+        {
+            get
+            {
+                return btnAddCompromiso.Visible;
+            }
+            set
+            {
+                btnAddCompromiso.Visible = value;
+            }
+        }
+
         #endregion
 
         #endregion

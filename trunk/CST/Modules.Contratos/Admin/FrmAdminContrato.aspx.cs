@@ -422,5 +422,18 @@ namespace Modules.Contratos.Admin
                 txtLatitud.Value = value;
             }
         }
+
+
+        public bool CanAddFases
+        {
+            get
+            {
+                return btnSave.Visible;
+            }
+            set
+            {
+                btnSave.Visible = value;
+            }
+        }
     }
 }

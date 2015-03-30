@@ -42,6 +42,7 @@ namespace Presenters.Contratos.Presenters
 
         public void LoadInit()
         {
+            View.CanAddDocumentos = View.UserSession.IsInRole("Administrador") || View.UserSession.IsInRole("Correspondencia");
             LoadCategorias();
             LoadAnexos();
         }

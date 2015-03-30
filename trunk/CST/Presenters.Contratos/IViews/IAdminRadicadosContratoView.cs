@@ -13,6 +13,8 @@ namespace Presenters.Contratos.IViews
         string EstadoRadicado { get; set; }
         string SearchText { get; set; }
 
+        bool CanAddRadicados { get; set; }
+
         void LoadRadicados(List<Radicados> items);
     }
 }
