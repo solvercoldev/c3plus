@@ -5,6 +5,9 @@ using log4net;
 using log4net.Config;
 using Microsoft.Practices.Unity;
 using Modules.Loader;
+using ASP.NETCLIENTE.Utils;
+using System.IO;
+using Infrastructure.CrossCutting.NetFramework.Util;
 
 namespace ASP.NETCLIENTE
 {
@@ -99,9 +102,7 @@ namespace ASP.NETCLIENTE
             // Code that runs when a new session is started
 
         }
-
       
-
         void Session_End(object sender, EventArgs e)
         {
             // Code that runs when a session ends. 
@@ -109,7 +110,6 @@ namespace ASP.NETCLIENTE
             // is set to InProc in the Web.config file. If session mode is set to StateServer 
             // or SQLServer, the event is not raised.
 
-        }
-
+        }       
     }
 }

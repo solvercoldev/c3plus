@@ -95,6 +95,7 @@ namespace Infrastructure.CrossCutting.IoC
             container.RegisterType<ITBL_Admin_RolesRepository, TBL_Admin_RolesRepository>(new TransientLifetimeManager());
             container.RegisterType<ITBL_Admin_UsuariosRepository, TBL_Admin_UsuariosRepository>(new TransientLifetimeManager());
             container.RegisterType<ITBL_Admin_TypeByModulesRepository, TBL_Admin_TypeByModulesRepository>(new TransientLifetimeManager());
+            container.RegisterType<ITBL_Admin_OptionListRepository, TBL_Admin_OptionListRepository>(new TransientLifetimeManager());
 
             #endregion
 
@@ -105,7 +106,8 @@ namespace Infrastructure.CrossCutting.IoC
             container.RegisterType<ISfTBL_Admin_RolesManagementServices, SfTBL_Admin_RolesManagementServices>(new TransientLifetimeManager());
             container.RegisterType<ISfTBL_Admin_ModulosManagementServices, SfTBL_Admin_ModulosManagementServices>(new TransientLifetimeManager());
             container.RegisterType<ISfTBL_Admin_ModuleTypeManagementServices, SfTBL_Admin_ModuleTypeManagementServices>(new TransientLifetimeManager());
-            container.RegisterType<ISfTBL_Admin_ModuleServiceManagementServices, SfTBL_Admin_ModuleServiceManagementServices>(new TransientLifetimeManager());            
+            container.RegisterType<ISfTBL_Admin_ModuleServiceManagementServices, SfTBL_Admin_ModuleServiceManagementServices>(new TransientLifetimeManager());
+            container.RegisterType<ISfTBL_Admin_OptionListManagementServices, SfTBL_Admin_OptionListManagementServices>(new TransientLifetimeManager());            
             container.RegisterType<ISectionServices, SectionServices>(new TransientLifetimeManager());
             
             #endregion 

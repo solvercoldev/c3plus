@@ -27,7 +27,7 @@
 		            <h1>
                         <asp:Label ID="lblErrorCode" runat="server"></asp:Label>
                     </h1>
-                    <asp:Button ID="btnBack" runat="server" Text="Regresar" OnClick="BtnBackClick" />
+                    <%--<asp:Button ID="btnBack" runat="server" Text="Regresar" OnClick="BtnBackClick" />--%>
 	        </div>
 	    </div>
    

@@ -719,6 +719,7 @@
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ContainerAccessorUtil.cs" />
+    <Compile Include="Utils\MacHelper.cs" />
     <Compile Include="Utils\ValidationError.cs" />
     <Compile Include="Utils\WebAssemblyHelper.cs" />
   </ItemGroup>

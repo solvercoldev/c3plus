@@ -83,6 +83,7 @@
     <Compile Include="Util\DigitoDeValidaciónNit.cs" />
     <Compile Include="Util\Encryption.cs" />
     <Compile Include="Util\Encryption64.cs" />
+    <Compile Include="Util\StringEncryption.cs" />
     <Compile Include="Util\Text.cs" />
     <Compile Include="Util\UrlHelper.cs" />
     <Compile Include="Util\UrlUtil.cs" />
