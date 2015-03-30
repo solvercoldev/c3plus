@@ -1,12 +1,15 @@
 using System;
 using System.Globalization;
+using System.IO;
 using System.Web;
 using System.Web.Security;
 using Applications.MainModule.Admin.IServices;
+using ASP.NETCLIENTE.Utils;
 using Infraestructure.CrossCutting.Security.Security;
 using Infrastructure.CrossCutting;
 using Infrastructure.CrossCutting.IoC;
 using Infrastructure.CrossCutting.Logging;
+using Infrastructure.CrossCutting.NetFramework.Util;
 
 namespace ASP.NETCLIENTE.HTTPModules
 {
@@ -14,6 +17,7 @@ namespace ASP.NETCLIENTE.HTTPModules
     {
         private ITraceManager _traceManager;
         private ISfTBL_Admin_UsuariosManagementServices _iAutentication;
+        ISfTBL_Admin_OptionListManagementServices _optionListService;
 
         public void Init(HttpApplication context)
         {
@@ -21,6 +25,7 @@ namespace ASP.NETCLIENTE.HTTPModules
             //context.AuthorizeRequest += OnAuthorizeRequest;
             _iAutentication = IoC.Resolve<ISfTBL_Admin_UsuariosManagementServices>();
             _traceManager = IoC.Resolve<ITraceManager>();
+            _optionListService = IoC.Resolve<ISfTBL_Admin_OptionListManagementServices>();
         }
 
         //void OnAuthorizeRequest(object sender, EventArgs args)
@@ -79,6 +84,61 @@ namespace ASP.NETCLIENTE.HTTPModules
                     }
                 }
             }
+
+            if (!app.Request.AppRelativeCurrentExecutionFilePath.Contains("FrmError"))
+                CheckEncryption();
+        }
+
+        void CheckEncryption()
+        {
+            var license = string.Format(@"{0}\license.key", HttpContext.Current.Server.MapPath("~"));
+            
+            if (!File.Exists(license))
+            {
+                HttpContext.Current.Response.Redirect("~/FrmError.aspx?error=101");
+            }
+
+            var client = GetClient();
+            var mac = MacHelper.GetMacAddress();
+            var clientCrypt = string.Empty;
+            var macCrypt = string.Empty;
+
+            using (StreamReader sw = new StreamReader(license))
+            {
+                clientCrypt = sw.ReadLine();
+                macCrypt = sw.ReadLine();
+            }
+
+            try
+            {
+                var clientDecrypt = StringEncryption.DecryptString(clientCrypt, mac);
+                var macDecrypt = StringEncryption.DecryptString(macCrypt, mac);
+
+                if (mac == macDecrypt && clientDecrypt == client)
+                {
+                    Console.WriteLine("Si aplica");
+                }
+                else
+                {
+                    throw new Exception("Las llaves de registro de aplicación no coinciden");
+                }
+            }
+            catch (Exception ex)
+            {
+                HttpContext.Current.Response.Redirect("~/FrmError.aspx?error=100");
+            }
+        }
+
+        string GetClient()
+        {
+            var op = _optionListService.ObtenerOpcionBykey("ClientName");
+
+            if (op != null)
+            {
+                return op.Value;
+            }
+
+            return "solver";
         }
 
         private static bool IsNumeric(object val)
