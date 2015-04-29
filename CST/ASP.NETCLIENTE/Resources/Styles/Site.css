@@ -1034,8 +1034,9 @@ table.tblBuscador .Separador15
 {
     background-color:#CBCBCB;
     color:#717581;
-    height:25px;
+    /*height:25px;*/
     padding-left:18px;
+    padding-bottom:5px;
 }
 
 .TextMenuStatic
