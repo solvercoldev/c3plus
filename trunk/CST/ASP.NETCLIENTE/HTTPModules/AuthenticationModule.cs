@@ -85,8 +85,8 @@ namespace ASP.NETCLIENTE.HTTPModules
                 }
             }
 
-            if (!app.Request.AppRelativeCurrentExecutionFilePath.Contains("FrmError"))
-                CheckEncryption();
+            //if (!app.Request.AppRelativeCurrentExecutionFilePath.Contains("FrmError"))
+            //    CheckEncryption();
         }
 
         void CheckEncryption()
